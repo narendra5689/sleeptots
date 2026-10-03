@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="SleepTots Parent Dashboard"
+    >
+
+    <title>Parent Dashboard | SleepTots</title>
+
+    <!-- =========================================================
+         SLEEPTOTS GLOBAL STYLES
+         ========================================================= -->
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/typography.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/navbar-footer.css">
+    <!-- =========================================================
+         LUCIDE
+         ========================================================= -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="./js/global.js"></script>
+</head>
+
+<body>
+
+<div class="st-dashboard" id="dashboard">
+
+    <!-- =========================================================
+         MOBILE OVERLAY
+         ========================================================= -->
+    <div
+        class="st-dashboard-overlay"
+        id="dashboardOverlay"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- =========================================================
+         SIDEBAR
+         ========================================================= -->
+    <aside
+        class="st-dashboard-sidebar"
+        id="dashboardSidebar"
+        aria-label="Parent dashboard navigation"
+    >
+
+        <!-- BRAND -->
+        <a
+            href="./home1.html"
+            class="st-dashboard-brand"
+            aria-label="SleepTots home"
+        >
+
+            <img
+                src="./images/logo.png"
+                alt="SleepTots"
+            >
+
+            <span class="brand-title">
+                <span class="brand-sleep">Sleep</span><span class="brand-tots">Tots</span>
+            </span>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+        <div class="st-dashboard-navigation">
+
+            <span class="st-dashboard-nav-label">
+                Parent Dashboard
+            </span>
+
+            <nav class="st-dashboard-nav">
+
+                <!-- OVERVIEW -->
+                <button
+                    type="button"
+                    class="st-dashboard-nav-item active"
+                    data-dashboard-target="overview"
+                    aria-current="page"
+                >
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Overview</span>
+                </button>
+
+
+                <!-- CONSULTATION -->
+                <button
+                    type="button"
+                    class="st-dashboard-nav-item"
+                    data-dashboard-target="consultation"
+                >
+                    <i data-lucide="calendar-check-2"></i>
+                    <span>Book Consultation</span>
+                </button>
+
+
+                <!-- SLEEP PLAN -->
+                <button
+                    type="button"
+                    class="st-dashboard-nav-item"
+                    data-dashboard-target="sleep-plan"
+                >
+                    <i data-lucide="clipboard-check"></i>
+                    <span>Sleep Plan Progress</span>
+                </button>
+
+
+                <!-- SCHEDULE -->
+                <button
+                    type="button"
+                    class="st-dashboard-nav-item"
+                    data-dashboard-target="schedule"
+                >
+                    <i data-lucide="moon"></i>
+                    <span>Sleep Schedule</span>
+                </button>
+
+
+                <!-- MESSAGES -->
+                <button
+                    type="button"
+                    class="st-dashboard-nav-item"
+                    data-dashboard-target="messages"
+                >
+                    <i data-lucide="message-circle"></i>
+                    <span>Messages</span>
+                </button>
+
+            </nav>
+
+        </div>
+
+
+        <!-- LOGOUT -->
+        <div class="st-dashboard-sidebar-bottom">
+
+            <button
+                type="button"
+                class="st-dashboard-logout"
+                id="sidebarLogout"
+            >
+                <i data-lucide="log-out"></i>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================================
+         MAIN
+         ========================================================= -->
+    <main class="st-dashboard-main">
+
+
+        <!-- =====================================================
+             TOPBAR
+             ===================================================== -->
+        <header class="st-dashboard-topbar">
+
+            <div class="st-dashboard-topbar-left">
+
+                <!-- MOBILE MENU -->
+                <button
+                    type="button"
+                    class="st-dashboard-menu"
+                    id="dashboardMenu"
+                    aria-label="Open dashboard menu"
+                    aria-expanded="false"
+                >
+                    <i data-lucide="menu"></i>
+                </button>
+
+
+                <!-- PAGE TITLE -->
+                <div class="st-dashboard-page-title">
+
+                    <span class="topbar-eyebrow">
+                        SLEEPTOTS
+                    </span>
+
+                    <strong id="topbarPageTitle">
+                        Parent Overview
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOPBAR ACTIONS -->
+            <div class="st-dashboard-actions">
+
+                <!-- THEME -->
+        <button
+                type="button"
+                class="slt-control-btn st-dashboard-utility"
+                id="themeToggle"
+                data-theme-toggle
+                aria-label="Switch to dark mode"
+                title="Toggle dark mode"
+            >
+
+                <i
+                    data-lucide="moon"
+                    class="slt-theme-icon slt-moon-icon"
+                ></i>
+
+                <i
+                    data-lucide="sun"
+                    class="slt-theme-icon slt-sun-icon"
+                ></i>
+
+            </button>
+
+
+            <!-- RTL -->
+
+            <button
+                type="button"
+                class="slt-control-btn slt-rtl-btn st-dashboard-utility"
+                id="rtlToggle"
+                data-rtl-toggle
+                aria-label="Switch text direction"
+                title="Toggle RTL"
+            >
+                <span class="rtl-label">RTL</span>
+            </button>
+
+
+                <!-- NOTIFICATION -->
+                <button
+                    type="button"
+                    class="st-dashboard-utility notification-button"
+                    aria-label="Notifications"
+                >
+                    <i data-lucide="bell"></i>
+
+                    <span class="notification-dot"></span>
+                </button>
+
+
+                <!-- PROFILE -->
+                <div class="st-dashboard-profile">
+
+                    <button
+                        type="button"
+                        class="st-dashboard-profile-trigger"
+                        id="profileTrigger"
+                        aria-expanded="false"
+                    >
+
+                        <span class="st-dashboard-avatar">
+                            NP
+                        </span>
+
+                        <span class="st-dashboard-profile-info">
+
+                            <strong>
+                                Neha Patel
+                            </strong>
+
+                            <small>
+                                Parent account
+                            </small>
+
+                        </span>
+
+                        <i
+                            data-lucide="chevron-down"
+                            class="profile-chevron"
+                        ></i>
+
+                    </button>
+
+
+                    <!-- PROFILE DROPDOWN -->
+                    <div
+                        class="st-profile-dropdown"
+                        id="profileDropdown"
+                    >
+
+                        <div class="st-profile-header">
+
+                            <span class="st-profile-avatar">
+                                NP
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Neha Patel
+                                </strong>
+
+                                <span>
+                                    Parent account
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="st-profile-divider"></div>
+
+
+                        <button
+                            type="button"
+                            class="st-profile-item"
+                        >
+                            <i data-lucide="user-round"></i>
+                            <span>Profile</span>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="st-profile-item"
+                        >
+                            <i data-lucide="settings"></i>
+                            <span>Settings</span>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="st-profile-item profile-logout"
+                        >
+                            <i data-lucide="log-out"></i>
+                            <span>Logout</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================================
+             CONTENT
+             ===================================================== -->
+        <div class="st-dashboard-content">
+
+
+            <!-- =================================================
+                 OVERVIEW
+                 ================================================= -->
+            <section
+                class="st-dashboard-section active"
+                id="dashboard-overview"
+                data-section="overview"
+            >
+
+                <div class="st-dashboard-heading">
+
+                    <div>
+
+                        <span class="st-dashboard-eyebrow">
+                            <i data-lucide="sparkles"></i>
+                            WELCOME BACK
+                        </span>
+
+                        <h1>
+                            Good evening, Neha.
+                        </h1>
+
+                        <p>
+                            Keep building a calmer bedtime routine with
+                            your child's personalized SleepTots plan.
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="st-dashboard-primary"
+                        data-dashboard-target="consultation"
+                    >
+                        Book a consultation
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+
+                </div>
+
+
+                <!-- STAT CARDS -->
+                <div class="st-overview-grid">
+
+                    <article class="st-overview-card">
+
+                        <div class="overview-card-top">
+
+                            <span class="overview-icon">
+                                <i data-lucide="moon"></i>
+                            </span>
+
+                            <span class="overview-status">
+                                On track
+                            </span>
+
+                        </div>
+
+                        <span class="overview-label">
+                            SLEEP PLAN
+                        </span>
+
+                        <h2>
+                            72% complete
+                        </h2>
+
+                        <div class="progress-track">
+                            <span style="width:72%"></span>
+                        </div>
+
+                        <p>
+                            You're making steady progress through this
+                            week's sleep goals.
+                        </p>
+
+                    </article>
+
+
+                    <article class="st-overview-card">
+
+                        <div class="overview-card-top">
+
+                            <span class="overview-icon">
+                                <i data-lucide="calendar-days"></i>
+                            </span>
+
+                            <span class="overview-status">
+                                Tomorrow
+                            </span>
+
+                        </div>
+
+                        <span class="overview-label">
+                            NEXT CONSULTATION
+                        </span>
+
+                        <h2>
+                            10:30 AM
+                        </h2>
+
+                        <p>
+                            Follow-up call with your SleepTots consultant.
+                        </p>
+
+                    </article>
+
+
+                    <article class="st-overview-card">
+
+                        <div class="overview-card-top">
+
+                            <span class="overview-icon">
+                                <i data-lucide="bed-double"></i>
+                            </span>
+
+                            <span class="overview-status">
+                                6 nights
+                            </span>
+
+                        </div>
+
+                        <span class="overview-label">
+                            NIGHTLY LOG
+                        </span>
+
+                        <h2>
+                            Consistency streak
+                        </h2>
+
+                        <p>
+                            You've logged your child's routine for six
+                            nights in a row.
+                        </p>
+
+                    </article>
+
+                </div>
+
+
+                <!-- LOWER CONTENT -->
+                <div class="st-dashboard-lower-grid">
+
+                    <!-- QUICK ACTIONS -->
+                    <article class="st-dashboard-card">
+
+                        <div class="st-card-heading">
+
+                            <div>
+                                <span>
+                                    QUICK ACTIONS
+                                </span>
+
+                                <h2>
+                                    Keep the routine moving
+                                </h2>
+                            </div>
+
+                            <i data-lucide="zap"></i>
+
+                        </div>
+
+
+                        <div class="st-quick-actions">
+
+                            <button
+                                type="button"
+                                data-dashboard-target="sleep-plan"
+                            >
+                                <span>
+                                    <i data-lucide="clipboard-check"></i>
+                                </span>
+
+                                <div>
+                                    <strong>
+                                        Update nightly log
+                                    </strong>
+
+                                    <small>
+                                        Record last night's sleep.
+                                    </small>
+                                </div>
+
+                                <i data-lucide="chevron-right"></i>
+                            </button>
+
+
+                            <button
+                                type="button"
+                                data-dashboard-target="schedule"
+                            >
+                                <span>
+                                    <i data-lucide="clock-3"></i>
+                                </span>
+
+                                <div>
+                                    <strong>
+                                        View tonight's schedule
+                                    </strong>
+
+                                    <small>
+                                        Check the next routine step.
+                                    </small>
+                                </div>
+
+                                <i data-lucide="chevron-right"></i>
+                            </button>
+
+
+                            <button
+                                type="button"
+                                data-dashboard-target="messages"
+                            >
+                                <span>
+                                    <i data-lucide="message-circle"></i>
+                                </span>
+
+                                <div>
+                                    <strong>
+                                        Message consultant
+                                    </strong>
+
+                                    <small>
+                                        Ask a question between sessions.
+                                    </small>
+                                </div>
+
+                                <i data-lucide="chevron-right"></i>
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- RECENT ACTIVITY -->
+                    <article class="st-dashboard-card">
+
+                        <div class="st-card-heading">
+
+                            <div>
+                                <span>
+                                    RECENT ACTIVITY
+                                </span>
+
+                                <h2>
+                                    Your latest updates
+                                </h2>
+                            </div>
+
+                            <i data-lucide="activity"></i>
+
+                        </div>
+
+
+                        <div class="st-activity-list">
+
+                            <div class="st-activity-item">
+
+                                <div>
+                                    <i data-lucide="check"></i>
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Nightly log completed
+                                    </strong>
+
+                                    <p>
+                                        Sleep routine recorded successfully.
+                                    </p>
+
+                                    <small>
+                                        Last night
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="st-activity-item">
+
+                                <div>
+                                    <i data-lucide="calendar-check"></i>
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Consultation scheduled
+                                    </strong>
+
+                                    <p>
+                                        Your next follow-up has been confirmed.
+                                    </p>
+
+                                    <small>
+                                        Yesterday
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="st-activity-item">
+
+                                <div>
+                                    <i data-lucide="message-square"></i>
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Consultant replied
+                                    </strong>
+
+                                    <p>
+                                        A new message is waiting for you.
+                                    </p>
+
+                                    <small>
+                                        2 days ago
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 CONSULTATION
+                 ================================================= -->
+            <section
+                class="st-dashboard-section"
+                id="dashboard-consultation"
+                data-section="consultation"
+                hidden
+            >
+
+                <div class="st-dashboard-heading">
+
+                    <div>
+
+                        <span class="st-dashboard-eyebrow">
+                            <i data-lucide="calendar-check-2"></i>
+                            CONSULTATION
+                        </span>
+
+                        <h1>
+                            Book a consultation
+                        </h1>
+
+                        <p>
+                            Choose a convenient time to speak with your
+                            SleepTots consultant about your child's routine,
+                            progress, and next steps.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="consultation-layout">
+
+                    <article class="st-dashboard-card consultation-main">
+
+                        <div class="st-card-heading">
+
+                            <div>
+                                <span>
+                                    AVAILABLE SESSIONS
+                                </span>
+
+                                <h2>
+                                    Choose your consultation
+                                </h2>
+                            </div>
+
+                            <i data-lucide="calendar-clock"></i>
+
+                        </div>
+
+
+                        <div class="consultation-options">
+
+                            <button class="consultation-option">
+
+                                <span class="consultation-option-icon">
+                                    <i data-lucide="phone"></i>
+                                </span>
+
+                                <span class="consultation-option-content">
+
+                                    <strong>
+                                        Routine check-in
+                                    </strong>
+
+                                    <small>
+                                        30 minute consultation
+                                    </small>
+
+                                    <em>
+                                        Review current sleep progress
+                                    </em>
+
+                                </span>
+
+                                <span class="consultation-option-arrow">
+                                    <i data-lucide="arrow-right"></i>
+                                </span>
+
+                            </button>
+
+
+                            <button class="consultation-option">
+
+                                <span class="consultation-option-icon">
+                                    <i data-lucide="video"></i>
+                                </span>
+
+                                <span class="consultation-option-content">
+
+                                    <strong>
+                                        Progress consultation
+                                    </strong>
+
+                                    <small>
+                                        45 minute consultation
+                                    </small>
+
+                                    <em>
+                                        Discuss challenges and adjustments
+                                    </em>
+
+                                </span>
+
+                                <span class="consultation-option-arrow">
+                                    <i data-lucide="arrow-right"></i>
+                                </span>
+
+                            </button>
+
+
+                            <button class="consultation-option">
+
+                                <span class="consultation-option-icon">
+                                    <i data-lucide="users"></i>
+                                </span>
+
+                                <span class="consultation-option-content">
+
+                                    <strong>
+                                        Extended parent session
+                                    </strong>
+
+                                    <small>
+                                        60 minute consultation
+                                    </small>
+
+                                    <em>
+                                        Deeper routine and family support
+                                    </em>
+
+                                </span>
+
+                                <span class="consultation-option-arrow">
+                                    <i data-lucide="arrow-right"></i>
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <aside class="st-dashboard-card consultation-side">
+
+                        <span class="info-card-icon">
+                            <i data-lucide="heart-handshake"></i>
+                        </span>
+
+                        <h2>
+                            What to bring
+                        </h2>
+
+                        <p>
+                            Your recent nightly logs, questions about
+                            bedtime routines, and any changes you've
+                            noticed during the week.
+                        </p>
+
+                        <ul class="check-list">
+
+                            <li>
+                                <i data-lucide="check"></i>
+                                Recent sleep observations
+                            </li>
+
+                            <li>
+                                <i data-lucide="check"></i>
+                                Your child's current routine
+                            </li>
+
+                            <li>
+                                <i data-lucide="check"></i>
+                                Questions for your consultant
+                            </li>
+
+                        </ul>
+
+                    </aside>
+
+                </div>
+
+
+                <div class="st-dashboard-card booking-calendar-card">
+
+                    <div class="st-card-heading">
+
+                        <div>
+                            <span>
+                                UPCOMING
+                            </span>
+
+                            <h2>
+                                Your scheduled consultation
+                            </h2>
+                        </div>
+
+                        <i data-lucide="calendar-days"></i>
+
+                    </div>
+
+
+                    <div class="upcoming-consultation">
+
+                        <div class="consultation-date-box">
+
+                            <span>
+                                OCT
+                            </span>
+
+                            <strong>
+                                03
+                            </strong>
+
+                        </div>
+
+                        <div>
+
+                            <span class="consultation-type">
+                                FOLLOW-UP SESSION
+                            </span>
+
+                            <h3>
+                                Sleep routine progress review
+                            </h3>
+
+                            <p>
+                                Saturday · 10:30 AM · Video consultation
+                            </p>
+
+                        </div>
+
+                        <button class="st-small-button">
+                            Manage
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SLEEP PLAN
+                 ================================================= -->
+            <section
+                class="st-dashboard-section"
+                id="dashboard-sleep-plan"
+                data-section="sleep-plan"
+                hidden
+            >
+
+                <div class="st-dashboard-heading">
+
+                    <div>
+
+                        <span class="st-dashboard-eyebrow">
+                            <i data-lucide="clipboard-check"></i>
+                            SLEEP PLAN
+                        </span>
+
+                        <h1>
+                            Track your sleep plan
+                        </h1>
+
+                        <p>
+                            Follow your child's personalized plan and
+                            keep track of the small habits that build
+                            a more consistent night.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROGRESS HERO -->
+                <div class="plan-progress-card">
+
+                    <div class="plan-progress-content">
+
+                        <span>
+                            CURRENT WEEK
+                        </span>
+
+                        <h2>
+                            Building a consistent bedtime
+                        </h2>
+
+                        <p>
+                            You're 72% through this week's recommended
+                            routine steps.
+                        </p>
+
+                        <div class="large-progress-track">
+                            <span style="width:72%"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="plan-progress-number">
+                        <strong>72%</strong>
+                        <span>complete</span>
+                    </div>
+
+                </div>
+
+
+                <!-- PLAN STEPS -->
+                <div class="plan-step-grid">
+
+                    <article class="st-dashboard-card plan-step completed">
+
+                        <span class="plan-step-number">
+                            01
+                        </span>
+
+                        <span class="plan-step-icon">
+                            <i data-lucide="sunset"></i>
+                        </span>
+
+                        <span class="plan-step-status">
+                            COMPLETED
+                        </span>
+
+                        <h2>
+                            Wind-down routine
+                        </h2>
+
+                        <p>
+                            Begin a calm transition into bedtime with
+                            quiet activities.
+                        </p>
+
+                    </article>
+
+
+                    <article class="st-dashboard-card plan-step completed">
+
+                        <span class="plan-step-number">
+                            02
+                        </span>
+
+                        <span class="plan-step-icon">
+                            <i data-lucide="book-open"></i>
+                        </span>
+
+                        <span class="plan-step-status">
+                            COMPLETED
+                        </span>
+
+                        <h2>
+                            Quiet activity
+                        </h2>
+
+                        <p>
+                            Keep the final activity predictable and
+                            low stimulation.
+                        </p>
+
+                    </article>
+
+
+                    <article class="st-dashboard-card plan-step current">
+
+                        <span class="plan-step-number">
+                            03
+                        </span>
+
+                        <span class="plan-step-icon">
+                            <i data-lucide="bed-double"></i>
+                        </span>
+
+                        <span class="plan-step-status">
+                            IN PROGRESS
+                        </span>
+
+                        <h2>
+                            Consistent bedtime
+                        </h2>
+
+                        <p>
+                            Keep bedtime within the recommended
+                            evening window.
+                        </p>
+
+                        <button class="st-small-button">
+                            Update progress
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+
+                    </article>
+
+
+                    <article class="st-dashboard-card plan-step">
+
+                        <span class="plan-step-number">
+                            04
+                        </span>
+
+                        <span class="plan-step-icon">
+                            <i data-lucide="notebook-pen"></i>
+                        </span>
+
+                        <span class="plan-step-status">
+                            UPCOMING
+                        </span>
+
+                        <h2>
+                            Nightly reflection
+                        </h2>
+
+                        <p>
+                            Record what worked and what may need
+                            adjustment.
+                        </p>
+
+                    </article>
+
+                </div>
+
+
+                <!-- NIGHTLY LOG -->
+                <div class="st-dashboard-card nightly-log-card">
+
+                    <div class="st-card-heading">
+
+                        <div>
+                            <span>
+                                NIGHTLY LOG
+                            </span>
+
+                            <h2>
+                                Recent sleep observations
+                            </h2>
+                        </div>
+
+                        <i data-lucide="notebook-tabs"></i>
+
+                    </div>
+
+
+                    <div class="nightly-log-table">
+
+                        <div class="nightly-row nightly-heading">
+                            <span>Date</span>
+                            <span>Bedtime</span>
+                            <span>Wake time</span>
+                            <span>Night quality</span>
+                        </div>
+
+                        <div class="nightly-row">
+                            <span>Sep 30</span>
+                            <span>8:15 PM</span>
+                            <span>6:40 AM</span>
+                            <span class="log-good">Good</span>
+                        </div>
+
+                        <div class="nightly-row">
+                            <span>Sep 29</span>
+                            <span>8:20 PM</span>
+                            <span>6:35 AM</span>
+                            <span class="log-good">Good</span>
+                        </div>
+
+                        <div class="nightly-row">
+                            <span>Sep 28</span>
+                            <span>8:35 PM</span>
+                            <span>6:30 AM</span>
+                            <span class="log-average">Fair</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SLEEP SCHEDULE
+                 ================================================= -->
+            <section
+                class="st-dashboard-section"
+                id="dashboard-schedule"
+                data-section="schedule"
+                hidden
+            >
+
+                <div class="st-dashboard-heading">
+
+                    <div>
+
+                        <span class="st-dashboard-eyebrow">
+                            <i data-lucide="moon"></i>
+                            PERSONALIZED SCHEDULE
+                        </span>
+
+                        <h1>
+                            Tonight's sleep schedule
+                        </h1>
+
+                        <p>
+                            A simple view of the recommended evening
+                            routine so you always know what comes next.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="schedule-layout">
+
+                    <article class="st-dashboard-card schedule-main">
+
+                        <div class="schedule-header">
+
+                            <div>
+
+                                <span>
+                                    WEDNESDAY · SEPTEMBER 30
+                                </span>
+
+                                <h2>
+                                    Evening routine
+                                </h2>
+
+                            </div>
+
+                            <span class="schedule-badge">
+                                Today
+                            </span>
+
+                        </div>
+
+
+                        <div class="timeline">
+
+                            <div class="timeline-item completed">
+
+                                <div class="timeline-time">
+                                    6:45 PM
+                                </div>
+
+                                <div class="timeline-marker">
+                                    <i data-lucide="utensils"></i>
+                                </div>
+
+                                <div class="timeline-content">
+
+                                    <span>
+                                        EVENING
+                                    </span>
+
+                                    <h3>
+                                        Finish dinner
+                                    </h3>
+
+                                    <p>
+                                        Move into a calmer part of
+                                        the evening after dinner.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="timeline-item completed">
+
+                                <div class="timeline-time">
+                                    7:30 PM
+                                </div>
+
+                                <div class="timeline-marker">
+                                    <i data-lucide="bath"></i>
+                                </div>
+
+                                <div class="timeline-content">
+
+                                    <span>
+                                        WIND-DOWN
+                                    </span>
+
+                                    <h3>
+                                        Bath and pajamas
+                                    </h3>
+
+                                    <p>
+                                        Keep the transition familiar
+                                        and predictable.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="timeline-item current">
+
+                                <div class="timeline-time">
+                                    7:55 PM
+                                </div>
+
+                                <div class="timeline-marker">
+                                    <i data-lucide="book-open"></i>
+                                </div>
+
+                                <div class="timeline-content">
+
+                                    <span>
+                                        QUIET TIME
+                                    </span>
+
+                                    <h3>
+                                        Story and quiet activity
+                                    </h3>
+
+                                    <p>
+                                        Choose one quiet activity before
+                                        moving toward the bedroom.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="timeline-item">
+
+                                <div class="timeline-time">
+                                    8:15 PM
+                                </div>
+
+                                <div class="timeline-marker">
+                                    <i data-lucide="bed-double"></i>
+                                </div>
+
+                                <div class="timeline-content">
+
+                                    <span>
+                                        BEDTIME
+                                    </span>
+
+                                    <h3>
+                                        Lights out
+                                    </h3>
+
+                                    <p>
+                                        Begin the final settling routine.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <aside class="schedule-side">
+
+                        <article class="st-dashboard-card">
+
+                            <span class="info-card-icon">
+                                <i data-lucide="clock"></i>
+                            </span>
+
+                            <h2>
+                                Wake target
+                            </h2>
+
+                            <strong class="large-time">
+                                6:30 AM
+                            </strong>
+
+                            <p>
+                                Keeping the morning wake time consistent
+                                helps maintain the overall routine.
+                            </p>
+
+                        </article>
+
+
+                        <article class="st-dashboard-card">
+
+                            <span class="info-card-icon">
+                                <i data-lucide="repeat"></i>
+                            </span>
+
+                            <h2>
+                                Routine consistency
+                            </h2>
+
+                            <div class="consistency-score">
+                                <strong>86%</strong>
+                                <span>This week</span>
+                            </div>
+
+                            <p>
+                                Your evening routine has been consistent
+                                across most nights this week.
+                            </p>
+
+                        </article>
+
+                    </aside>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 MESSAGES
+                 ================================================= -->
+            <section
+                class="st-dashboard-section"
+                id="dashboard-messages"
+                data-section="messages"
+                hidden
+            >
+
+                <div class="st-dashboard-heading">
+
+                    <div>
+
+                        <span class="st-dashboard-eyebrow">
+                            <i data-lucide="message-circle"></i>
+                            CONSULTANT MESSAGES
+                        </span>
+
+                        <h1>
+                            Stay connected with your consultant
+                        </h1>
+
+                        <p>
+                            Ask questions, share observations, and
+                            receive guidance between your scheduled
+                            consultation sessions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="messages-layout">
+
+                    <!-- CONTACT -->
+                    <aside class="st-dashboard-card consultant-profile-card">
+
+                        <div class="consultant-avatar">
+                            AS
+                        </div>
+
+                        <span>
+                            SLEEPTOTS CONSULTANT
+                        </span>
+
+                        <h2>
+                            Anika Sharma
+                        </h2>
+
+                        <p>
+                            Sleep Consultant
+                        </p>
+
+                        <span class="online-status">
+                            <i data-lucide="circle"></i>
+                            Available
+                        </span>
+
+                        <button class="st-dashboard-primary">
+                            <i data-lucide="message-circle"></i>
+                            Start message
+                        </button>
+
+                    </aside>
+
+
+                    <!-- MESSAGE AREA -->
+                    <article class="st-dashboard-card messages-main">
+
+                        <div class="message-header">
+
+                            <div>
+
+                                <strong>
+                                    Anika Sharma
+                                </strong>
+
+                                <span>
+                                    Sleep Consultant
+                                </span>
+
+                            </div>
+
+                            <span class="message-status">
+                                Available
+                            </span>
+
+                        </div>
+
+
+                        <div class="message-conversation">
+
+                            <div class="message received">
+
+                                <span class="message-time">
+                                    9:15 AM
+                                </span>
+
+                                <p>
+                                    Good morning! I noticed your recent
+                                    nightly logs are showing improved
+                                    consistency. How did last night go?
+                                </p>
+
+                            </div>
+
+
+                            <div class="message sent">
+
+                                <span class="message-time">
+                                    9:42 AM
+                                </span>
+
+                                <p>
+                                    Last night went well. Bedtime was
+                                    smoother than earlier this week.
+                                </p>
+
+                            </div>
+
+
+                            <div class="message received">
+
+                                <span class="message-time">
+                                    9:48 AM
+                                </span>
+
+                                <p>
+                                    That's encouraging. Keep the same
+                                    wind-down sequence tonight and let me
+                                    know how the transition goes.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="message-compose">
+
+                            <input
+                                type="text"
+                                placeholder="Write a message..."
+                                aria-label="Write a message"
+                            >
+
+                            <button
+                                type="button"
+                                aria-label="Send message"
+                            >
+                                <i data-lucide="send"></i>
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- MESSAGE GUIDANCE -->
+                <div class="st-dashboard-card message-guidance">
+
+                    <div>
+
+                        <span class="info-card-icon">
+                            <i data-lucide="info"></i>
+                        </span>
+
+                        <div>
+
+                            <span>
+                                BETWEEN SESSIONS
+                            </span>
+
+                            <h2>
+                                What you can message your consultant about
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                    <ul class="guidance-list">
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Changes in your child's sleep routine
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Questions about your current plan
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Difficult bedtime transitions
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Progress you want to share
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+<script src="./js/dashboard.js"></script>
+
+<script>
+    lucide.createIcons();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SleepTots — Gentle Sleep Support for Babies & Toddlers</title>
+  <meta name="description" content="SleepTots provides gentle, personalized sleep support for babies and toddlers. Expert sleep consulting that helps your family achieve better, restful nights." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/typography.css" />
+  <link rel="stylesheet" href="./css/global.css" />
+  <link rel="stylesheet" href="./css/navbar-footer.css" />
+  <link rel="stylesheet" href="./css/home1.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="st-navbar" aria-label="Main navigation">
+    <div class="st-navbar-inner">
+      <a href="./home1.html" class="brand-link" aria-label="SleepTots home">
+        <img src="./images/logo.png" alt="" height="50px" width="50px">
+        <span class="brand-title"><span class="brand-sleep">Sleep</span><span class="brand-tots">Tots</span></span>
+      </a>
+
+      <ul class="st-nav-center">
+        <li>
+          <button class="st-nav-link active" type="button" aria-haspopup="true" aria-expanded="false">
+            Home <i data-lucide="chevron-down"></i>
+          </button>
+          <ul class="st-home-dropdown">
+            <li>
+              <a href="./home1.html">
+                <span class="dropdown-icon"><i data-lucide="house"></i></span>
+                <span class="dropdown-text"><span class="dropdown-title">Home 1</span>
+              </a>
+            </li>
+            <li>
+              <a href="./home2.html">
+                <span class="dropdown-icon"><i data-lucide="sparkles"></i></span>
+                <span class="dropdown-text"><span class="dropdown-title">Home 2</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="./services.html" class="st-nav-link st-underline-hover" data-current="false">Services</a></li>
+        <li><a href="./testimonials.html" class="st-nav-link st-underline-hover" data-current="false">Testimonials</a></li>
+        <li><a href="./pricing.html" class="st-nav-link st-underline-hover" data-current="false">Pricing</a></li>
+        <li><a href="./contact.html" class="st-nav-link st-underline-hover" data-current="false">Contact</a></li>
+        <li><a href="./dashboard.html" class="st-nav-link st-underline-hover" data-current="false">Dashboard</a></li>
+      </ul>
+
+      <div class="st-nav-right">
+        <button class="st-icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+          <i data-lucide="moon"></i><i data-lucide="sun" style="display:none"></i>
+        </button>
+        <button class="st-icon-btn" data-rtl-toggle aria-label="Toggle RTL">
+          <span class="rtl-label">RTL</span>
+        </button>
+        <a href="./login.html" class="st-btn st-btn-outline st-btn-sm">Login</a>
+        <button class="st-hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ MOBILE MENU ============ -->
+  <div class="st-mobile-overlay"></div>
+  <aside class="st-mobile-menu" aria-label="Mobile navigation">
+    <ul class="st-mobile-menu-nav">
+      <li>
+        <button class="st-mobile-nav-link" data-home-toggle aria-expanded="false">
+          Home <i data-lucide="chevron-down"></i>
+        </button>
+        <ul class="st-mobile-submenu">
+          <li><a href="./home1.html">Home 1 — Classic</a></li>
+          <li><a href="./home2.html">Home 2 — Premium</a></li>
+        </ul>
+      </li>
+      <li><a href="./services.html">Services</a></li>
+      <li><a href="./testimonials.html">Testimonials</a></li>
+      <li><a href="./pricing.html">Pricing</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="./dashboard.html">Dashboard</a></li>
+    </ul>
+    <div class="st-mobile-menu-footer">
+      <a href="./login.html" class="st-btn st-btn-primary st-btn-block">Login</a>
+    </div>
+  </aside>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="home1-hero">
+      <div class="hero-sky">
+        <div class="hero-sky-gradient"></div>
+        <div class="hero-star s1"></div>
+        <div class="hero-star s2"></div>
+        <div class="hero-star s3"></div>
+        <div class="hero-star s4"></div>
+        <div class="hero-star s5"></div>
+        <div class="hero-star s6"></div>
+        <div class="hero-star s7"></div>
+        <div class="hero-star s8"></div>
+        <div class="hero-star s9"></div>
+        <div class="hero-star s10"></div>
+        <div class="hero-moon"></div>
+        <div class="hero-cloud c1"></div>
+        <div class="hero-cloud c2"></div>
+        <div class="hero-cloud c3"></div>
+      </div>
+
+      <div class="hero-content-wrap">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <div class="hero-label-row">
+              <span class="st-badge"><i data-lucide="moon"></i> Gentle Sleep Support</span>
+            </div>
+            <h1 class="hero-title">Better Sleep Starts With <span class="accent">Gentle Guidance</span></h1>
+            <p class="hero-subtitle">
+              SleepTots provides personalized, evidence-based sleep support for babies and toddlers — helping your family find calm, restful nights without crying-it-out methods.
+            </p>
+            <div class="hero-cta-row">
+              <a href="./services.html" class="st-btn st-btn-primary st-btn-lg">
+                Explore Sleep Support <i data-lucide="arrow-right"></i>
+              </a>
+              <a href="./pricing.html" class="st-btn st-btn-outline st-btn-lg">View Pricing</a>
+            </div>
+            <div class="hero-trust">
+              <div class="hero-trust-item"><i data-lucide="shield-check"></i> Certified Sleep Consultants</div>
+              <div class="hero-trust-item"><i data-lucide="heart"></i> Gentle, Family-Centered</div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-visual-img">
+              <img src="./images/home1-hero.png" alt="Mother holding her sleeping newborn baby peacefully" loading="eager" />
+            </div>
+            <div class="hero-float-card fc1">
+              <div class="fc-icon"><i data-lucide="bed"></i></div>
+              <div class="fc-text">
+                <span class="fc-title">11+ hours</span>
+                <span class="fc-sub">Avg. sleep improvement</span>
+              </div>
+            </div>
+            <div class="hero-float-card fc2">
+              <div class="fc-icon"><i data-lucide="smile"></i></div>
+              <div class="fc-text">
+                <span class="fc-title">2,400+</span>
+                <span class="fc-sub">Families helped</span>
+              </div>
+            </div>
+            <div class="hero-orbit">
+              <div class="hero-orbit-circle"></div>
+              <div class="hero-orbit-dot"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INTRO ============ -->
+    <section class="st-section home1-intro">
+      <div class="st-container">
+        <div class="intro-grid">
+          <div class="intro-img-wrap reveal-left">
+            <img class="st-img-rounded" src="./images/home1-welcome.png" alt="Mother gently holding her baby in a comforting embrace" />
+            <div class="intro-img-badge">
+              <span class="badge-number">98%</span>
+              <span class="badge-label">Parent Satisfaction</span>
+            </div>
+          </div>
+          <div class="intro-text reveal-right">
+            <span class="st-label">Welcome to SleepTots</span>
+            <h2>A Calm, Personalized Approach to Better Sleep</h2>
+            <p>
+              Every child is unique, and so is every family's sleep journey. SleepTots was founded on the belief that gentle, responsive sleep support can transform restless nights into peaceful routines — without stress or tears.
+            </p>
+            <p>
+              Our certified consultants work closely with you to understand your child's temperament, your parenting style, and your family's goals. Together, we build a sleep plan that feels right for everyone.
+            </p>
+            <div class="intro-features">
+              <div class="intro-feature"><i data-lucide="check-circle"></i> Personalized Plans</div>
+              <div class="intro-feature"><i data-lucide="check-circle"></i> Gentle Methods</div>
+              <div class="intro-feature"><i data-lucide="check-circle"></i> Expert Consultants</div>
+              <div class="intro-feature"><i data-lucide="check-circle"></i> Ongoing Support</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CHALLENGES ============ -->
+    <section class="st-section st-section-alt">
+      <div class="st-container">
+        <div class="text-center reveal">
+          <span class="st-label">Common Challenges</span>
+          <h2>Sleep Struggles You Don't Have to Face Alone</h2>
+          <hr class="st-divider st-divider-center" />
+          <p class="st-lead mx-auto" style="max-width:640px">Many parents experience similar sleep challenges. Recognizing them is the first step toward restful nights for the whole family.</p>
+        </div>
+        <div class="challenges-grid">
+          <div class="st-card challenge-card reveal stagger-1">
+            <div class="st-card-icon"><i data-lucide="baby"></i></div>
+            <h3>Frequent Night Wakings</h3>
+            <p>Your baby wakes multiple times each night, leaving everyone exhausted. We help identify the causes and build a gentle plan to consolidate sleep.</p>
+          </div>
+          <div class="st-card challenge-card reveal stagger-2">
+            <div class="st-card-icon"><i data-lucide="clock"></i></div>
+            <h3>Short Naps &amp; Catnapping</h3>
+            <p>Daytime naps lasting only 30–45 minutes can disrupt nighttime sleep too. We guide you in extending naps and establishing age-appropriate schedules.</p>
+          </div>
+          <div class="st-card challenge-card reveal stagger-3">
+            <div class="st-card-icon"><i data-lucide="trending-down"></i></div>
+            <h3>Sleep Regressions</h3>
+            <p>Just when things seemed on track, sleep falls apart. Regressions are developmental leaps — we help you navigate them with confidence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PHILOSOPHY ============ -->
+    <section class="st-section">
+      <div class="st-container">
+        <div class="philosophy-wrap">
+          <div class="philosophy-visual reveal-left">
+            <div class="philosophy-ring"></div>
+            <img class="st-img-rounded" src="./images/home1-philosophy.png" alt="Peaceful sleeping baby resting in a cozy crib" />
+          </div>
+          <div class="philosophy-text reveal-right">
+            <span class="st-label">Our Philosophy</span>
+            <h2>Gentle, Responsive, and Rooted in Trust</h2>
+            <p>
+              We believe that healthy sleep habits are built on connection, not separation. Our approach never involves leaving your child to cry alone. Instead, we use responsive, gradual methods that respect your child's emotional needs.
+            </p>
+            <ul class="st-list-check philosophy-list">
+              <li><i data-lucide="check"></i> No cry-it-out or controlled crying methods</li>
+              <li><i data-lucide="check"></i> Age-appropriate sleep expectations</li>
+              <li><i data-lucide="check"></i> Respects breastfeeding, co-sleeping, and family preferences</li>
+              <li><i data-lucide="check"></i> Builds long-term, independent sleep skills gently</li>
+              <li><i data-lucide="check"></i> Supports both child and parental well-being</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES PREVIEW ============ -->
+    <section class="st-section st-section-alt">
+      <div class="st-container">
+        <div class="text-center reveal">
+          <span class="st-label">Sleep Support Services</span>
+          <h2>Support for Every Stage of Your Child's Sleep</h2>
+          <hr class="st-divider st-divider-center" />
+        </div>
+        <div class="services-preview-grid">
+          <div class="st-card service-preview-card reveal stagger-1">
+            <img class="service-preview-img" src="./images/home1-services.png" alt="Newborn baby wrapped in a blanket sleeping in a crib" />
+            <div class="service-preview-body">
+              <h3>Newborn Sleep Support</h3>
+              <p>Establish healthy sleep foundations from the very beginning. Gentle guidance for feeding, soothing, and day-night rhythm during the fourth trimester.</p>
+              <a href="./services.html" class="st-link-icon">Learn More <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="st-card service-preview-card reveal stagger-2">
+            <img class="service-preview-img" src="./images/home1-services2.png" alt="Young child peacefully sleeping under white blankets" />
+            <div class="service-preview-body">
+              <h3>Toddler Sleep Support</h3>
+              <p>Address bedtime resistance, night wakings, and early rising. Build consistent routines that work for your growing, independent toddler.</p>
+              <a href="./services.html" class="st-link-icon">Learn More <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="st-card service-preview-card reveal stagger-3">
+            <img class="service-preview-img" src="./images/home1-services3.png" alt="Baby sleeping peacefully in a crib inside a cozy nursery" />
+            <div class="service-preview-body">
+              <h3>Sleep Regression Support</h3>
+              <p>Navigate the 4-month, 8-month, and 18-month regressions with expert guidance. Understand what's happening.</p>
+              <a href="./services.html" class="st-link-icon">Learn More <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="st-section">
+      <div class="st-container">
+        <div class="text-center reveal">
+          <span class="st-label">How SleepTots Works</span>
+          <h2>Four Simple Steps to Better Sleep</h2>
+          <hr class="st-divider st-divider-center" />
+        </div>
+        <div class="how-steps">
+          <div class="how-step reveal stagger-1">
+            <div class="how-step-number">1</div>
+            <h4>Share Your Story</h4>
+            <p>Tell us about your child's sleep, your routines, and your goals through a simple questionnaire.</p>
+          </div>
+          <div class="how-step reveal stagger-2">
+            <div class="how-step-number">2</div>
+            <h4>Get Your Plan</h4>
+            <p>Receive a personalized sleep plan tailored to your child's age, temperament, and your family's needs.</p>
+          </div>
+          <div class="how-step reveal stagger-3">
+            <div class="how-step-number">3</div>
+            <h4>Consult with Expert</h4>
+            <p>Meet with your sleep consultant to review the plan, ask questions, and feel confident moving forward.</p>
+          </div>
+          <div class="how-step reveal stagger-4">
+            <div class="how-step-number">4</div>
+            <h4>Track &amp; Adjust</h4>
+            <p>Log nightly sleep, monitor progress, and message your consultant for ongoing support and adjustments.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="st-section st-section-secondary">
+      <div class="st-container">
+        <div class="stats-row">
+          <div class="stat-item reveal stagger-1">
+            <p class="st-stat-number" data-counter="2400" data-suffix="+">0</p>
+            <p class="st-stat-label">Families Supported</p>
+          </div>
+          <div class="stat-item reveal stagger-2">
+            <p class="st-stat-number" data-counter="11" data-suffix=" hrs">0</p>
+            <p class="st-stat-label">Avg. Sleep Improvement</p>
+          </div>
+          <div class="stat-item reveal stagger-3">
+            <p class="st-stat-number" data-counter="98" data-suffix="%">0</p>
+            <p class="st-stat-label">Parent Satisfaction</p>
+          </div>
+          <div class="stat-item reveal stagger-4">
+            <p class="st-stat-number" data-counter="15" data-suffix="+">0</p>
+            <p class="st-stat-label">Years of Experience</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SUCCESS STORIES ============ -->
+    <section class="st-section">
+      <div class="st-container">
+        <div class="text-center reveal">
+          <span class="st-label">Parent Success Stories</span>
+          <h2>What Parents Are Saying</h2>
+          <hr class="st-divider st-divider-center" />
+        </div>
+        <div class="stories-grid">
+          <div class="st-card story-card reveal stagger-1">
+            <div class="story-stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+            <p class="story-quote">"Our 6-month-old was waking every two hours. Within two weeks of following our SleepTots plan, she was sleeping 11 hours straight. It felt like a miracle, but it was just gentle, consistent guidance."</p>
+            <div class="story-author">
+              <div class="story-avatar"><img src="./images/home1-review1.png" alt="Sarah M." /></div>
+              <div><div class="story-name">Sarah M.</div><div class="story-role">Mom of 6-month-old</div></div>
+            </div>
+          </div>
+          <div class="st-card story-card reveal stagger-2">
+            <div class="story-stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+            <p class="story-quote">"The toddler plan transformed our bedtime routine. No more hour-long battles. Our son now goes to bed happily and sleeps through. The messaging support between sessions was invaluable."</p>
+            <div class="story-author">
+              <div class="story-avatar"><img src="./images/home1-review2.png" alt="James L." /></div>
+              <div><div class="story-name">James L.</div><div class="story-role">Dad of 2-year-old</div></div>
+            </div>
+          </div>
+          <div class="st-card story-card reveal stagger-3">
+            <div class="story-stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+            <p class="story-quote">"After the 4-month regression hit, we were desperate. SleepTots helped us understand what was happening and gave us a plan that actually worked. No crying, just patience and the right approach."</p>
+            <div class="story-author">
+              <div class="story-avatar"><img src="./images/home1-review3.png" alt="Priya K." /></div>
+              <div><div class="story-name">Priya K.</div><div class="story-role">Mom of 5-month-old</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SLEEP EDUCATION ============ -->
+    <section class="st-section st-section-alt">
+      <div class="st-container">
+        <div class="education-grid">
+          <div class="reveal-left">
+            <span class="st-label">Sleep Education</span>
+            <h2>Understanding Your Child's Sleep</h2>
+            <p class="st-lead">Knowledge is empowering. When you understand how infant and toddler sleep works, you can make informed decisions that benefit the whole family.</p>
+            <img class="st-img-rounded mt-4" src="./images/home1-sleepedu.png" alt="Mother and child sharing a tender moment in a warmly lit bedroom" />
+          </div>
+          <div class="education-list reveal-right">
+            <div class="education-item">
+              <div class="st-icon-md"><i data-lucide="brain"></i></div>
+              <div><h4>Sleep Cycles Explained</h4><p>Babies cycle through sleep differently than adults. Understanding these cycles helps you time sleep and reduce night wakings.</p></div>
+            </div>
+            <div class="education-item">
+              <div class="st-icon-md"><i data-lucide="sun-moon"></i></div>
+              <div><h4>Wake Windows</h4><p>Age-appropriate awake periods are key to preventing overtiredness. Learn the right windows for your child's age.</p></div>
+            </div>
+            <div class="education-item">
+              <div class="st-icon-md"><i data-lucide="book-open"></i></div>
+              <div><h4>Bedtime Routines</h4><p>A consistent, calming routine signals to your child that sleep is coming. We help you design one that works.</p></div>
+            </div>
+            <div class="education-item">
+              <div class="st-icon-md"><i data-lucide="activity"></i></div>
+              <div><h4>Regression vs. Progression</h4><p>What looks like a regression is often a developmental leap. Learn to support your child through these transitions.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NEWSLETTER ============ -->
+    <section class="st-section">
+      <div class="st-container">
+        <div class="st-newsletter reveal">
+          <div class="st-newsletter-icon anim-float"><i data-lucide="mail"></i></div>
+          <h2>Sleep Tips Straight to Your Inbox</h2>
+          <p class="st-supporting mx-auto" style="max-width:480px">Join 2,400+ parents receiving gentle sleep tips, age-appropriate guidance, and supportive advice every week.</p>
+          <form class="st-newsletter-form">
+            <input type="email" class="st-form-control" placeholder="your@email.com" required />
+            <button type="submit" class="st-btn st-btn-primary"><i data-lucide="send"></i> Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="st-footer">
+    <div class="st-footer-inner">
+      <div class="st-footer-grid">
+        <div class="st-footer-brand">
+          <a href="./home1.html" target="_self">
+          <div class="st-footer-brand-row">
+          <img src="./images/logo.png" alt="" height="50px" width="50px">
+            <span class="brand-title"><span class="brand-sleep">Sleep</span><span class="brand-tots">Tots</span></span>
+          </div>
+          </a>
+          <p>Gentle, personalized sleep support for babies and toddlers. Helping families achieve better, restful nights with expert guidance and compassionate care.</p>
+          <ul class="st-footer-social">
+            <li><a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a></li>
+            <li><a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a></li>
+            <li><a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a></li>
+            <li><a href="#" aria-label="YouTube"><i data-lucide="youtube"></i></a></li>
+          </ul>
+        </div>
+        
+        <div class="st-footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="./home1.html">Home</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./Testimonials.html">Testimonials</a></li>
+            <li><a href="./pricing.html">Pricing</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="st-footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="./services.html">Newborn Sleep Support</a></li>
+            <li><a href="./services.html">Toddler Sleep Support</a></li>
+            <li><a href="./services.html">Regression Support</a></li>
+            <li><a href="./services.html">Sleep Plans</a></li>
+          </ul>
+        </div>
+        <div class="st-footer-col">
+          <h4>Additional Pages</h4>
+          <ul>
+            <li><a href="./404.html">404 Page</a></li>
+            <li><a href="./maintainance.html">Maintainance Page</a></li>
+          </ul>
+        </div>
+        <div class="st-footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="./contact.html">Book a Consultation</a></li>
+            <li><a href="mailto:hello@sleeptots.com">hello@sleeptots.com</a></li>
+            <li><a href="tel:+18005550100">+91 9848333111</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="st-footer-bottom">
+        <p>&copy; 2026 SleepTots. All rights reserved.</p>
+        <p>Gentle sleep support for happier families.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      lucide.createIcons();
+    });
+  </script>
+  <script src="js/global.js"></script>
+</body>
+</html>

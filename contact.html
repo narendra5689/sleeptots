@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact Us | SleepTots</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Your existing global files -->
+  <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/typography.css">
+    <link rel="stylesheet" href="./css/navbar-footer.css">
+  <!-- Contact Page CSS -->
+  <link rel="stylesheet" href="./css/contact.css">
+</head>
+
+<body>
+
+  <nav class="st-navbar" aria-label="Main navigation">
+    <div class="st-navbar-inner">
+
+      <a href="./home1.html" class="brand-link" aria-label="SleepTots home">
+        <img src="./images/logo.png" alt="" height="50" width="50">
+        <span class="brand-title">
+          <span class="brand-sleep">Sleep</span><span class="brand-tots">Tots</span>
+        </span>
+      </a>
+
+      <ul class="st-nav-center">
+        <li>
+          <button class="st-nav-link" type="button" aria-haspopup="true" aria-expanded="false">
+            Home <i data-lucide="chevron-down"></i>
+          </button>
+
+          <ul class="st-home-dropdown">
+            <li>
+              <a href="./home1.html">
+                <span class="dropdown-icon"><i data-lucide="house"></i></span>
+                <span class="dropdown-text">
+                  <span class="dropdown-title">Home 1</span>
+                </span>
+              </a>
+            </li>
+
+            <li>
+              <a href="./home2.html">
+                <span class="dropdown-icon"><i data-lucide="sparkles"></i></span>
+                <span class="dropdown-text">
+                  <span class="dropdown-title">Home 2</span>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li><a href="./services.html" class="st-nav-link st-underline-hover" data-current="false">Services</a></li>
+        <li><a href="./testimonials.html" class="st-nav-link st-underline-hover" data-current="false">Testimonials</a></li>
+        <li><a href="./pricing.html" class="st-nav-link st-underline-hover" data-current="true">Pricing</a></li>
+        <li><a href="./contact.html" class="st-nav-link st-underline-hover" data-current="false">Contact</a></li>
+        <li><a href="./dashboard.html" class="st-nav-link st-underline-hover" data-current="false">Dashboard</a></li>
+      </ul>
+
+      <div class="st-nav-right">
+        <button class="st-icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+          <i data-lucide="moon"></i>
+          <i data-lucide="sun" style="display:none"></i>
+        </button>
+
+        <button class="st-icon-btn" data-rtl-toggle aria-label="Toggle RTL">
+          <span class="rtl-label">RTL</span>
+        </button>
+
+        <a href="./login.html" class="st-btn st-btn-outline st-btn-sm">Login</a>
+
+        <button class="st-hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="st-mobile-overlay"></div>
+
+  <aside class="st-mobile-menu" aria-label="Mobile navigation">
+    <ul class="st-mobile-menu-nav">
+
+      <li>
+        <button class="st-mobile-nav-link" data-home-toggle aria-expanded="false">
+          Home <i data-lucide="chevron-down"></i>
+        </button>
+
+        <ul class="st-mobile-submenu">
+          <li><a href="./home1.html">Home 1 — Classic</a></li>
+          <li><a href="./home2.html">Home 2 — Premium</a></li>
+        </ul>
+      </li>
+
+      <li><a href="./services.html">Services</a></li>
+      <li><a href="./testimonials.html">Testimonials</a></li>
+      <li><a href="./pricing.html">Pricing</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="./dashboard.html">Dashboard</a></li>
+    </ul>
+
+    <div class="st-mobile-menu-footer">
+      <a href="./login.html" class="st-btn st-btn-primary st-btn-block">Login</a>
+    </div>
+  </aside>
+
+
+  <main class="st-contact-page">
+
+
+    <!-- ============================================================
+         01. HERO
+         ============================================================ -->
+
+    <section class="contact-hero">
+
+      <div class="contact-hero-bg-shape contact-shape-one"></div>
+      <div class="contact-hero-bg-shape contact-shape-two"></div>
+
+      <div class="st-container">
+
+        <div class="contact-hero-grid">
+
+          <div class="contact-hero-content reveal-contact">
+
+            <span class="st-label contact-eyebrow">
+              We're here to help
+            </span>
+
+            <h1>
+              Let's make bedtime
+              <span class="contact-heading-accent">feel easier.</span>
+            </h1>
+
+            <p class="st-lead">
+              Whether you're wondering where to begin, need help choosing
+              the right support, or simply want to talk through what's
+              happening at home, we're here to listen.
+            </p>
+
+            <div class="contact-hero-actions">
+
+              <a href="#contact-form" class="st-btn st-btn-primary">
+                Start a conversation
+                <i data-lucide="arrow-down"></i>
+              </a>
+
+              <a href="#contact-details" class="st-btn st-btn-outline">
+                Explore contact options
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div class="contact-hero-visual reveal-contact-right">
+
+            <div class="contact-orbit">
+
+              <div class="contact-orbit-ring contact-ring-one"></div>
+              <div class="contact-orbit-ring contact-ring-two"></div>
+
+              <div class="contact-orbit-dot contact-dot-one"></div>
+              <div class="contact-orbit-dot contact-dot-two"></div>
+              <div class="contact-orbit-dot contact-dot-three"></div>
+
+              <div class="contact-hero-icon">
+                <i data-lucide="message-circle-heart"></i>
+              </div>
+
+            </div>
+
+            <div class="contact-floating-card contact-floating-card-one">
+              <i data-lucide="heart-handshake"></i>
+              <span>Warm guidance</span>
+            </div>
+
+            <div class="contact-floating-card contact-floating-card-two">
+              <i data-lucide="moon"></i>
+              <span>Restful nights</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ============================================================
+         02. CONTACT OPTIONS
+         ============================================================ -->
+
+    <section
+      class="st-section contact-options-section"
+      id="contact-details"
+    >
+
+      <div class="st-container">
+
+        <div class="contact-section-heading reveal-contact">
+
+          <span class="st-label">
+            Contact SleepTots
+          </span>
+
+          <h2>
+            Choose the way that feels easiest.
+          </h2>
+
+          <p class="st-lead">
+            You don't need to have everything figured out before reaching
+            out. Pick the option that works best for you and we'll take
+            it from there.
+          </p>
+
+        </div>
+
+
+        <div class="contact-options-grid">
+
+
+          <article class="contact-option-card reveal-contact stagger-1">
+
+            <div class="contact-option-icon">
+              <i data-lucide="mail"></i>
+            </div>
+
+            <div class="contact-option-content">
+
+              <span class="contact-option-label">
+                Email us
+              </span>
+
+              <h3>
+                Start with a message.
+              </h3>
+
+              <p>
+                Send us your questions, concerns, or a little background
+                about your family's current sleep routine.
+              </p>
+
+              <a
+                href="mailto:hello@sleeptots.com"
+                class="st-link-icon"
+              >
+                hello@sleeptots.com
+                <i data-lucide="arrow-up-right"></i>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="contact-option-card reveal-contact stagger-2">
+
+            <div class="contact-option-icon">
+              <i data-lucide="calendar-heart"></i>
+            </div>
+
+            <div class="contact-option-content">
+
+              <span class="contact-option-label">
+                Book a consultation
+              </span>
+
+              <h3>
+                Talk it through together.
+              </h3>
+
+              <p>
+                If you would rather speak directly, arrange a consultation
+                and we'll create space to understand what's happening.
+              </p>
+
+              <a href="#contact-form" class="st-link-icon">
+                Request a consultation
+                <i data-lucide="arrow-right"></i>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="contact-option-card reveal-contact stagger-3">
+
+            <div class="contact-option-icon">
+              <i data-lucide="message-square-heart"></i>
+            </div>
+
+            <div class="contact-option-content">
+
+              <span class="contact-option-label">
+                General enquiries
+              </span>
+
+              <h3>
+                Not sure what you need?
+              </h3>
+
+              <p>
+                That's completely okay. Tell us what's going on and we'll
+                help point you toward the most appropriate next step.
+              </p>
+
+              <a href="#contact-form" class="st-link-icon">
+                Tell us what's happening
+                <i data-lucide="arrow-right"></i>
+              </a>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ============================================================
+         03. CONTACT FORM
+         ============================================================ -->
+
+    <section
+      class="st-section contact-form-section"
+      id="contact-form"
+    >
+
+      <div class="st-container">
+
+        <div class="contact-form-wrapper">
+
+          <div class="contact-form-intro reveal-contact-left">
+
+            <span class="st-label">
+              Send us a note
+            </span>
+
+            <h2>
+              Tell us a little about your family.
+            </h2>
+
+            <p class="st-lead">
+              You can keep it simple. A few details about your child's
+              age, current routine, and what you're hoping to improve
+              will help us understand how we can support you.
+            </p>
+
+
+            <div class="contact-form-note">
+
+              <div class="contact-note-icon">
+                <i data-lucide="shield-check"></i>
+              </div>
+
+              <div>
+                <h4>
+                  A judgement-free conversation.
+                </h4>
+
+                <p>
+                  There is no perfect bedtime routine. We meet families
+                  where they are and focus on practical next steps.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="contact-form-card reveal-contact-right">
+
+            <form
+              class="sleeptots-contact-form"
+              id="sleeptotsContactForm"
+            >
+
+              <div class="contact-form-row">
+
+                <div class="contact-field">
+
+                  <label for="contactName">
+                    Your name
+                  </label>
+
+                  <div class="contact-input-wrap">
+
+                    <i data-lucide="user"></i>
+
+                    <input
+                      type="text"
+                      id="contactName"
+                      name="name"
+                      placeholder="Your name"
+                      autocomplete="name"
+                      required
+                    >
+
+                  </div>
+
+                </div>
+
+
+                <div class="contact-field">
+
+                  <label for="contactEmail">
+                    Email address
+                  </label>
+
+                  <div class="contact-input-wrap">
+
+                    <i data-lucide="mail"></i>
+
+                    <input
+                      type="email"
+                      id="contactEmail"
+                      name="email"
+                      placeholder="you@example.com"
+                      autocomplete="email"
+                      required
+                    >
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="contact-form-row">
+
+                <div class="contact-field">
+
+                  <label for="childAge">
+                    Child's age
+                  </label>
+
+                  <div class="contact-input-wrap">
+
+                    <i data-lucide="baby"></i>
+
+                    <select id="childAge" name="childAge">
+
+                      <option value="" selected>
+                        Select an age
+                      </option>
+
+                      <option value="newborn">
+                        Newborn
+                      </option>
+
+                      <option value="0-12">
+                        0–12 months
+                      </option>
+
+                      <option value="1-2">
+                        1–2 years
+                      </option>
+
+                      <option value="2-3">
+                        2–3 years
+                      </option>
+
+                      <option value="3-5">
+                        3–5 years
+                      </option>
+
+                      <option value="5+">
+                        5+ years
+                      </option>
+
+                    </select>
+
+                  </div>
+
+                </div>
+
+
+                <div class="contact-field">
+
+                  <label for="contactReason">
+                    What can we help with?
+                  </label>
+
+                  <div class="contact-input-wrap">
+
+                    <i data-lucide="sparkles"></i>
+
+                    <select
+                      id="contactReason"
+                      name="reason"
+                    >
+
+                      <option value="" selected>
+                        Choose a topic
+                      </option>
+
+                      <option value="newborn">
+                        Newborn sleep
+                      </option>
+
+                      <option value="toddler">
+                        Toddler sleep
+                      </option>
+
+                      <option value="regression">
+                        Sleep regression
+                      </option>
+
+                      <option value="routine">
+                        Bedtime routine
+                      </option>
+
+                      <option value="general">
+                        General guidance
+                      </option>
+
+                    </select>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="contact-field">
+
+                <label for="contactMessage">
+                  Tell us what's happening
+                </label>
+
+                <div class="contact-textarea-wrap">
+
+                  <i data-lucide="message-circle"></i>
+
+                  <textarea
+                    id="contactMessage"
+                    name="message"
+                    rows="6"
+                    placeholder="What has bedtime or sleep been like recently?"
+                    required
+                  ></textarea>
+
+                </div>
+
+              </div>
+
+
+              <div class="contact-form-bottom">
+
+                <label class="contact-consent">
+
+                  <input
+                    type="checkbox"
+                    name="consent"
+                    required
+                  >
+
+                  <span>
+                    I agree to be contacted about my enquiry.
+                  </span>
+
+                </label>
+
+
+                <button
+                  type="submit"
+                  class="st-btn st-btn-primary st-btn-lg contact-submit"
+                >
+
+                  Send my message
+
+                  <i data-lucide="send"></i>
+
+                </button>
+
+              </div>
+
+
+              <div
+                class="contact-form-success"
+                id="contactFormSuccess"
+                aria-live="polite"
+              >
+
+                <i data-lucide="circle-check"></i>
+
+                <div>
+                  <strong>
+                    Thank you for reaching out.
+                  </strong>
+
+                  <span>
+                    Your message has been received.
+                  </span>
+                </div>
+
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ============================================================
+         04. WHAT HAPPENS NEXT
+         ============================================================ -->
+
+    <section class="st-section contact-process-section">
+
+      <div class="st-container">
+
+        <div class="contact-section-heading contact-heading-centered reveal-contact">
+
+          <span class="st-label">
+            What happens next
+          </span>
+
+          <h2>
+            From your first message to a clearer plan.
+          </h2>
+
+          <p class="st-lead">
+            Reaching out should feel like the beginning of support,
+            not another task on your list.
+          </p>
+
+        </div>
+
+
+        <div class="contact-process-grid">
+
+
+          <div class="contact-process-item reveal-contact stagger-1">
+
+            <div class="contact-process-number">
+              01
+            </div>
+
+            <div class="contact-process-icon">
+              <i data-lucide="message-square-text"></i>
+            </div>
+
+            <h3>
+              You tell us what's happening.
+            </h3>
+
+            <p>
+              Share the parts of your current routine that are working,
+              the parts that aren't, and what you'd like to change.
+            </p>
+
+          </div>
+
+
+          <div class="contact-process-connector"></div>
+
+
+          <div class="contact-process-item reveal-contact stagger-2">
+
+            <div class="contact-process-number">
+              02
+            </div>
+
+            <div class="contact-process-icon">
+              <i data-lucide="search-check"></i>
+            </div>
+
+            <h3>
+              We understand your situation.
+            </h3>
+
+            <p>
+              We look at your child's stage, your family's routine,
+              and the practical circumstances around bedtime.
+            </p>
+
+          </div>
+
+
+          <div class="contact-process-connector"></div>
+
+
+          <div class="contact-process-item reveal-contact stagger-3">
+
+            <div class="contact-process-number">
+              03
+            </div>
+
+            <div class="contact-process-icon">
+              <i data-lucide="route"></i>
+            </div>
+
+            <h3>
+              We find your next step.
+            </h3>
+
+            <p>
+              You'll have a clearer idea of what support could look like
+              and which option makes sense for your family.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ============================================================
+         05. SUPPORTIVE MESSAGE
+         ============================================================ -->
+
+    <section class="st-section contact-reassurance-section">
+
+      <div class="st-container">
+
+        <div class="contact-reassurance reveal-contact">
+
+          <div class="contact-reassurance-icon">
+            <i data-lucide="moon-star"></i>
+          </div>
+
+          <div class="contact-reassurance-content">
+
+            <span class="st-label">
+              A little reassurance
+            </span>
+
+            <h2>
+              You don't have to solve every sleep challenge tonight.
+            </h2>
+
+            <p class="st-lead">
+              Sometimes the most useful first step is simply having
+              someone help you make sense of what's happening. Start
+              with the question that's on your mind and we'll take it
+              from there.
+            </p>
+
+          </div>
+
+          <div class="contact-reassurance-decoration">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ============ NEWSLETTER ============ -->
+    <section class="st-section">
+      <div class="st-container">
+        <div class="st-newsletter reveal">
+          <div class="st-newsletter-icon anim-float"><i data-lucide="mail"></i></div>
+          <h2>Sleep Tips Straight to Your Inbox</h2>
+          <p class="st-supporting mx-auto" style="max-width:480px">Join 2,400+ parents receiving gentle sleep tips, age-appropriate guidance, and supportive advice every week.</p>
+          <form class="st-newsletter-form">
+            <input type="email" class="st-form-control" placeholder="your@email.com" required />
+            <button type="submit" class="st-btn st-btn-primary"><i data-lucide="send"></i> Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+
+ 
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="st-footer">
+
+    <div class="st-footer-inner">
+
+      <div class="st-footer-grid">
+
+        <div class="st-footer-brand">
+
+          <a href="./home1.html" target="_self">
+            <div class="st-footer-brand-row">
+              <img src="./images/logo.png" alt="" height="50" width="50">
+              <span class="brand-title">
+                <span class="brand-sleep">Sleep</span><span class="brand-tots">Tots</span>
+              </span>
+            </div>
+          </a>
+
+          <p>
+            Gentle, personalized sleep support for babies and toddlers.
+            Helping families achieve better, restful nights with expert
+            guidance and compassionate care.
+          </p>
+
+          <ul class="st-footer-social">
+            <li><a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a></li>
+            <li><a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a></li>
+            <li><a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a></li>
+            <li><a href="#" aria-label="YouTube"><i data-lucide="youtube"></i></a></li>
+          </ul>
+
+        </div>
+
+        <div class="st-footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="./home1.html">Home</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./testimonials.html">Testimonials</a></li>
+            <li><a href="./pricing.html">Pricing</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="st-footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="./services.html">Newborn Sleep Support</a></li>
+            <li><a href="./services.html">Toddler Sleep Support</a></li>
+            <li><a href="./services.html">Regression Support</a></li>
+            <li><a href="./services.html">Sleep Plans</a></li>
+          </ul>
+        </div>
+
+        <div class="st-footer-col">
+          <h4>Additional Pages</h4>
+          <ul>
+            <li><a href="./404.html">404 Page</a></li>
+            <li><a href="./maintainance.html">Maintainance Page</a></li>
+          </ul>
+        </div>
+
+        <div class="st-footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="./contact.html">Book a Consultation</a></li>
+            <li><a href="mailto:hello@sleeptots.com">hello@sleeptots.com</a></li>
+            <li><a href="tel:+919848333111">+91 9848333111</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="st-footer-bottom">
+        <p>&copy; 2026 SleepTots. All rights reserved.</p>
+        <p>Gentle sleep support for happier families.</p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <script src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+  </script>
+  <script src="./js/global.js"></script>
+
+
+</body>
+</html>

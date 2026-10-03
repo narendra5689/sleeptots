@@ -1,0 +1,3639 @@
+
+/* ==========================================================================
+   SleepTots — Login Page
+   Final responsive version
+
+   Uses:
+   - global.css
+   - typography.css
+
+   No new global typography system.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01. PAGE ROOT
+   ========================================================================== */
+
+.slt-login-page {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 70px 20px 20px;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            circle at 8% 15%,
+            rgba(168, 191, 163, 0.15),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 92% 82%,
+            rgba(36, 52, 71, 0.07),
+            transparent 30%
+        ),
+        var(--color-bg);
+
+    transition:
+        background var(--transition-base);
+
+}
+
+
+/* ==========================================================================
+   02. BACKGROUND
+   ========================================================================== */
+
+.slt-login-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -1;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+}
+
+
+/* ==========================================================================
+   03. AMBIENT GLOWS
+   ========================================================================== */
+
+.slt-bg-glow {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(2px);
+
+    pointer-events: none;
+
+    opacity: 0.5;
+
+    animation:
+        slt-glow-drift 14s ease-in-out infinite alternate;
+
+}
+
+
+.slt-bg-glow-one {
+
+    width: 400px;
+    height: 400px;
+
+    top: -170px;
+    left: -120px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168, 191, 163, 0.23),
+            rgba(168, 191, 163, 0.07) 45%,
+            transparent 72%
+        );
+
+}
+
+
+.slt-bg-glow-two {
+
+    width: 480px;
+    height: 480px;
+
+    right: -220px;
+    bottom: -210px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(36, 52, 71, 0.1),
+            rgba(36, 52, 71, 0.03) 45%,
+            transparent 72%
+        );
+
+    animation-delay: -5s;
+
+}
+
+
+.slt-bg-glow-three {
+
+    width: 250px;
+    height: 250px;
+
+    top: 34%;
+    right: 18%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168, 191, 163, 0.08),
+            transparent 70%
+        );
+
+    animation-duration: 17s;
+    animation-delay: -8s;
+
+}
+
+
+/* ==========================================================================
+   04. DARK MODE BACKGROUND
+   ========================================================================== */
+
+[data-theme="dark"] .slt-login-page {
+
+    background:
+        radial-gradient(
+            circle at 8% 15%,
+            rgba(168, 191, 163, 0.07),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 92% 82%,
+            rgba(74, 99, 120, 0.1),
+            transparent 32%
+        ),
+        var(--color-bg);
+
+}
+
+
+[data-theme="dark"] .slt-bg-glow-one {
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168, 191, 163, 0.09),
+            transparent 70%
+        );
+
+}
+
+
+[data-theme="dark"] .slt-bg-glow-two {
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(74, 99, 120, 0.12),
+            transparent 70%
+        );
+
+}
+
+
+[data-theme="dark"] .slt-bg-glow-three {
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168, 191, 163, 0.05),
+            transparent 70%
+        );
+
+}
+
+
+/* ==========================================================================
+   05. ORBITS
+   ========================================================================== */
+
+.slt-bg-orbit {
+
+    position: absolute;
+
+    border: 1px solid
+        rgba(168, 191, 163, 0.12);
+
+    border-radius: 50%;
+
+    opacity: 0.65;
+
+    transform-origin: center;
+
+    animation:
+        slt-orbit-breathe 16s ease-in-out infinite;
+
+}
+
+
+.slt-bg-orbit-one {
+
+    width: min(720px, 72vw);
+    height: min(720px, 72vw);
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-12deg);
+
+}
+
+
+.slt-bg-orbit-two {
+
+    width: min(580px, 58vw);
+    height: min(580px, 58vw);
+
+    left: 50%;
+    top: 50%;
+
+    border-color:
+        rgba(36, 52, 71, 0.06);
+
+    transform:
+        translate(-50%, -50%)
+        rotate(20deg);
+
+    animation-duration: 19s;
+
+    animation-direction: reverse;
+
+}
+
+
+[data-theme="dark"] .slt-bg-orbit {
+
+    border-color:
+        rgba(168, 191, 163, 0.07);
+
+}
+
+
+[data-theme="dark"] .slt-bg-orbit-two {
+
+    border-color:
+        rgba(168, 191, 163, 0.04);
+
+}
+
+
+/* ==========================================================================
+   06. MOON
+   ========================================================================== */
+
+.slt-bg-moon {
+
+    position: absolute;
+
+    top: 12%;
+    right: 12%;
+
+    width: 64px;
+    height: 64px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 34% 32%,
+            rgba(255, 255, 255, 0.95),
+            rgba(168, 191, 163, 0.75) 50%,
+            rgba(168, 191, 163, 0.5)
+        );
+
+    box-shadow:
+        0 0 32px rgba(168, 191, 163, 0.24);
+
+    opacity: 0.68;
+
+    animation:
+        slt-moon-float 8s ease-in-out infinite;
+
+}
+
+
+.slt-bg-moon span {
+
+    position: absolute;
+
+    width: 64px;
+    height: 64px;
+
+    top: -8px;
+    left: 14px;
+
+    border-radius: 50%;
+
+    background: var(--color-bg);
+
+    transition:
+        background var(--transition-base);
+
+}
+
+
+[data-theme="dark"] .slt-bg-moon {
+
+    opacity: 0.38;
+
+    box-shadow:
+        0 0 40px rgba(168, 191, 163, 0.13);
+
+}
+
+
+/* ==========================================================================
+   07. STARS
+   ========================================================================== */
+
+.slt-star {
+
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: var(--color-secondary);
+
+    box-shadow:
+        0 0 9px rgba(168, 191, 163, 0.6);
+
+    animation:
+        slt-star-twinkle 4s ease-in-out infinite;
+
+}
+
+
+.slt-star::before,
+.slt-star::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background: currentColor;
+
+    opacity: 0.4;
+
+}
+
+
+.slt-star::before {
+
+    width: 1px;
+    height: 14px;
+
+}
+
+
+.slt-star::after {
+
+    width: 14px;
+    height: 1px;
+
+}
+
+
+.slt-star-1 {
+
+    top: 17%;
+    left: 21%;
+
+    animation-delay: -1s;
+
+}
+
+
+.slt-star-2 {
+
+    top: 27%;
+    right: 27%;
+
+    width: 3px;
+    height: 3px;
+
+    animation-delay: -3s;
+
+}
+
+
+.slt-star-3 {
+
+    top: 69%;
+    left: 16%;
+
+    width: 3px;
+    height: 3px;
+
+    animation-delay: -2s;
+
+}
+
+
+.slt-star-4 {
+
+    top: 78%;
+    right: 19%;
+
+    animation-delay: -4s;
+
+}
+
+
+.slt-star-5 {
+
+    top: 45%;
+    left: 7%;
+
+    width: 2px;
+    height: 2px;
+
+    animation-delay: -1.8s;
+
+}
+
+
+.slt-star-6 {
+
+    top: 58%;
+    right: 7%;
+
+    width: 2px;
+    height: 2px;
+
+    animation-delay: -3.5s;
+
+}
+
+
+/* ==========================================================================
+   08. PARTICLES
+   ========================================================================== */
+
+.slt-particle {
+
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: var(--color-secondary);
+
+    opacity: 0.35;
+
+    animation:
+        slt-particle-float 10s ease-in-out infinite;
+
+}
+
+
+.slt-particle-1 {
+
+    top: 30%;
+    left: 13%;
+
+}
+
+
+.slt-particle-2 {
+
+    top: 61%;
+    left: 27%;
+
+    animation-delay: -3s;
+
+}
+
+
+.slt-particle-3 {
+
+    top: 18%;
+    right: 35%;
+
+    animation-delay: -5s;
+
+}
+
+
+.slt-particle-4 {
+
+    bottom: 18%;
+    right: 31%;
+
+    animation-delay: -7s;
+
+}
+
+
+.slt-particle-5 {
+
+    bottom: 28%;
+    left: 43%;
+
+    animation-delay: -2s;
+
+}
+
+
+/* ==========================================================================
+   09. WAVES
+   ========================================================================== */
+
+.slt-bg-wave {
+
+    position: absolute;
+
+    left: -10%;
+
+    width: 120%;
+    height: 160px;
+
+    border-radius: 50%;
+
+    border-top: 1px solid
+        rgba(168, 191, 163, 0.08);
+
+    opacity: 0.65;
+
+    animation:
+        slt-wave-drift 16s ease-in-out infinite alternate;
+
+}
+
+
+.slt-bg-wave-one {
+
+    bottom: -95px;
+
+    transform:
+        rotate(-4deg);
+
+}
+
+
+.slt-bg-wave-two {
+
+    bottom: -120px;
+
+    border-color:
+        rgba(36, 52, 71, 0.05);
+
+    transform:
+        rotate(5deg);
+
+    animation-delay: -7s;
+
+}
+
+
+[data-theme="dark"] .slt-bg-wave-one,
+[data-theme="dark"] .slt-bg-wave-two {
+
+    border-color:
+        rgba(168, 191, 163, 0.045);
+
+}
+
+
+/* ==========================================================================
+   10. TOP CONTROLS
+   ========================================================================== */
+
+.slt-login-controls {
+
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    z-index: 20;
+
+}
+
+
+.slt-control-btn {
+
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: 50%;
+
+    background: var(--color-card);
+
+    color: var(--color-primary);
+
+    cursor: pointer;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform var(--transition-fast),
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        box-shadow var(--transition-fast);
+
+}
+
+
+.slt-control-btn:hover {
+
+    transform:
+        translateY(-1px);
+
+    border-color:
+        var(--color-secondary);
+
+    color:
+        var(--color-secondary);
+
+    box-shadow:
+        var(--shadow-md);
+
+}
+
+
+.slt-control-btn svg {
+
+    width: 17px;
+    height: 17px;
+
+    stroke-width: 1.8;
+
+}
+
+
+.slt-theme-icon {
+
+    pointer-events: none;
+
+}
+
+
+.slt-sun-icon {
+
+    display: none;
+
+}
+
+
+.slt-rtl-btn {
+
+    font-size: 0.68rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.02em;
+
+}
+
+
+.slt-rtl-btn.is-active {
+
+    background:
+        var(--color-secondary);
+
+    color:
+        var(--color-text-on-secondary);
+
+    border-color:
+        var(--color-secondary);
+
+}
+
+
+/* ==========================================================================
+   11. LOGIN CARD
+   ========================================================================== */
+
+.slt-login-card {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 500px;
+
+    box-sizing: border-box;
+
+    padding: 27px 32px 24px;
+
+    background:
+        var(--color-card);
+
+    border:
+        1px solid var(--color-border);
+
+    border-radius:
+        var(--radius-lg);
+
+    box-shadow:
+        0 20px 55px
+        rgba(36, 52, 71, 0.11);
+
+    z-index: 5;
+
+    animation:
+        slt-card-enter
+        0.7s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+
+    transition:
+        background var(--transition-base),
+        border-color var(--transition-base),
+        box-shadow var(--transition-base);
+
+}
+
+
+[data-theme="dark"] .slt-login-card {
+
+    box-shadow:
+        0 20px 55px
+        rgba(0, 0, 0, 0.35);
+
+}
+
+
+/* ==========================================================================
+   12. BRAND
+   ========================================================================== */
+
+.slt-login-brand {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    width: fit-content;
+
+    margin:
+        0 auto 20px;
+
+    color:
+        var(--color-text);
+
+    text-decoration: none;
+
+}
+
+
+.slt-login-brand:hover {
+
+    color:
+        var(--color-text);
+
+}
+
+
+.slt-brand-mark {
+
+    width: 50px;
+    height: 50px;
+
+    flex: 0 0 50px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        var(--color-primary);
+
+    color:
+        var(--color-secondary);
+
+    box-shadow:
+        0 5px 16px
+        rgba(36, 52, 71, 0.15);
+
+    transition:
+        transform var(--transition-base),
+        background var(--transition-base);
+
+}
+
+
+.slt-login-brand:hover .slt-brand-mark {
+
+    transform:
+        translateY(-1px)
+        rotate(-4deg);
+
+}
+
+
+.slt-brand-mark svg {
+
+    width: 23px;
+    height: 23px;
+
+    stroke-width: 1.7;
+
+}
+
+
+/*
+   Logo title is exactly 24px.
+*/
+
+.slt-brand-text {
+
+    font-family:
+        'DM Serif Display',
+        'Times New Roman',
+        serif;
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    letter-spacing:
+        -0.02em;
+
+    white-space: nowrap;
+
+}
+
+
+/* ==========================================================================
+   13. INTRO
+   ========================================================================== */
+
+.slt-login-intro {
+
+    text-align: center;
+
+    margin-bottom: 18px;
+
+}
+
+
+.slt-login-eyebrow {
+
+    margin-bottom: 5px;
+
+}
+
+
+.slt-login-intro h1 {
+
+    margin-bottom: 5px;
+
+}
+
+
+.slt-login-subtitle {
+
+    margin: 0;
+
+    font-size: 0.86rem;
+
+    line-height: 1.45;
+
+}
+
+
+/* ==========================================================================
+   14. FORM
+   ========================================================================== */
+
+.slt-login-form {
+
+    width: 100%;
+
+}
+
+
+.slt-form-group {
+
+    margin-bottom: 11px;
+
+}
+
+
+.slt-form-group .st-form-label {
+
+    margin-bottom: 5px;
+
+}
+
+
+/* ==========================================================================
+   15. INPUT
+   ========================================================================== */
+
+.slt-input-wrap {
+
+    position: relative;
+
+    width: 100%;
+
+}
+
+
+.slt-login-input {
+
+    width: 100%;
+
+    height: 45px;
+
+    box-sizing: border-box;
+
+    padding-left: 40px;
+    padding-right: 12px;
+
+    background:
+        var(--color-bg);
+
+    border-color:
+        var(--color-border);
+
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast);
+
+}
+
+
+.slt-login-input:focus {
+
+    border-color:
+        var(--color-secondary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(168, 191, 163, 0.13);
+
+}
+
+
+.slt-input-icon {
+
+    position: absolute;
+
+    left: 13px;
+    top: 50%;
+
+    width: 15px;
+    height: 15px;
+
+    transform:
+        translateY(-50%);
+
+    color:
+        var(--color-text-muted);
+
+    pointer-events: none;
+
+    z-index: 2;
+
+    transition:
+        color var(--transition-fast);
+
+}
+
+
+.slt-input-wrap:focus-within .slt-input-icon {
+
+    color:
+        var(--color-secondary);
+
+}
+
+
+/* ==========================================================================
+   16. PASSWORD
+   ========================================================================== */
+
+.slt-password-input {
+
+    padding-right: 40px;
+
+}
+
+
+.slt-password-toggle {
+
+    position: absolute;
+
+    top: 50%;
+    right: 7px;
+
+    width: 27px;
+    height: 27px;
+
+    padding: 0;
+
+    transform:
+        translateY(-50%);
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+
+    background:
+        transparent;
+
+    color:
+        var(--color-text-muted);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition:
+        color var(--transition-fast),
+        background var(--transition-fast);
+
+}
+
+
+.slt-password-toggle:hover {
+
+    color:
+        var(--color-primary);
+
+    background:
+        var(--color-primary-light);
+
+}
+
+
+.slt-password-toggle svg {
+
+    width: 15px;
+    height: 15px;
+
+}
+
+
+/* ==========================================================================
+   17. LOGIN OPTIONS
+   ========================================================================== */
+
+.slt-login-options {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-top: 1px;
+
+    margin-bottom: 14px;
+
+}
+
+
+.slt-remember {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 0.74rem;
+
+    color:
+        var(--color-text-body);
+
+    cursor: pointer;
+
+    user-select: none;
+
+}
+
+
+.slt-remember input {
+
+    width: 15px;
+    height: 15px;
+
+    margin: 0;
+
+    flex-shrink: 0;
+
+    accent-color:
+        var(--color-secondary);
+
+    cursor: pointer;
+
+}
+
+
+.slt-forgot-link {
+
+    flex-shrink: 0;
+
+    font-size: 0.74rem;
+
+    font-weight: 600;
+
+    color:
+        var(--color-primary);
+
+    transition:
+        color var(--transition-fast);
+
+}
+
+
+.slt-forgot-link:hover {
+
+    color:
+        var(--color-secondary);
+
+}
+
+
+/* ==========================================================================
+   18. SIGN IN
+   ========================================================================== */
+
+.slt-login-submit {
+
+    min-height: 46px;
+
+    border-radius:
+        var(--radius-md);
+
+    font-size: 0.84rem;
+
+    box-shadow:
+        0 7px 18px
+        rgba(36, 52, 71, 0.14);
+
+}
+
+
+.slt-login-submit:hover {
+
+    box-shadow:
+        0 10px 22px
+        rgba(36, 52, 71, 0.19);
+
+}
+
+
+.slt-login-submit svg {
+
+    width: 15px;
+    height: 15px;
+
+    transition:
+        transform var(--transition-fast);
+
+}
+
+
+.slt-login-submit:hover svg {
+
+    transform:
+        translateX(3px);
+
+}
+
+
+/* ==========================================================================
+   19. DIVIDER
+   ========================================================================== */
+
+.slt-divider-row {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    width: 100%;
+
+    margin:
+        16px 0 12px;
+
+}
+
+
+.slt-divider-row span {
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        var(--color-border);
+
+}
+
+
+.slt-divider-row small {
+
+    flex-shrink: 0;
+
+    color:
+        var(--color-text-muted);
+
+    font-size: 0.6rem;
+
+    font-weight: 600;
+
+    letter-spacing:
+        0.05em;
+
+    white-space: nowrap;
+
+}
+
+
+/* ==========================================================================
+   20. SOCIAL LOGIN
+   ========================================================================== */
+
+.slt-social-login {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 7px;
+
+    width: 100%;
+
+}
+
+
+.slt-social-btn {
+
+    min-width: 0;
+
+    min-height: 42px;
+
+    padding: 7px 8px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    border:
+        1px solid var(--color-border);
+
+    border-radius:
+        var(--radius-md);
+
+    background:
+        var(--color-card);
+
+    color:
+        var(--color-text);
+
+    font-size: 0.74rem;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition:
+        transform var(--transition-fast),
+        border-color var(--transition-fast),
+        background var(--transition-fast),
+        color var(--transition-fast),
+        box-shadow var(--transition-fast);
+
+}
+
+
+.slt-social-btn:hover {
+
+    transform:
+        translateY(-1px);
+
+    border-color:
+        var(--color-secondary);
+
+    background:
+        var(--color-bg-soft);
+
+    box-shadow:
+        var(--shadow-sm);
+
+}
+
+
+.slt-social-btn svg {
+
+    width: 15px;
+    height: 15px;
+
+}
+
+
+.slt-google-icon {
+
+    color: #4285f4;
+
+    font-size: 0.82rem;
+
+    font-weight: 800;
+
+}
+
+
+.slt-linkedin-icon {
+
+    color: #0a66c2;
+
+    font-size: 0.74rem;
+
+    font-weight: 800;
+
+}
+
+
+/* ==========================================================================
+   21. CREATE ACCOUNT
+   ========================================================================== */
+
+.slt-create-account {
+
+    margin:
+        14px 0 0;
+
+    text-align: center;
+
+    color:
+        var(--color-text-muted);
+
+    font-size: 0.72rem;
+
+    line-height: 1.35;
+
+}
+
+
+.slt-create-account a {
+
+    margin-left: 4px;
+
+    color:
+        var(--color-secondary);
+
+    font-weight: 700;
+
+    transition:
+        color var(--transition-fast);
+
+}
+
+
+.slt-create-account a:hover {
+
+    color:
+        var(--color-secondary-hover);
+
+}
+
+
+/* ==========================================================================
+   22. RTL
+   ========================================================================== */
+
+[dir="rtl"] .slt-login-page {
+
+    direction: rtl;
+
+}
+
+
+[dir="rtl"] .slt-login-controls {
+
+    right: auto;
+    left: 20px;
+
+}
+
+
+[dir="rtl"] .slt-login-card {
+
+    direction: rtl;
+
+}
+
+
+[dir="rtl"] .slt-login-input {
+
+    padding-left: 40px;
+    padding-right: 40px;
+
+}
+
+
+[dir="rtl"] .slt-input-icon {
+
+    left: auto;
+    right: 13px;
+
+}
+
+
+[dir="rtl"] .slt-password-input {
+
+    padding-right: 40px;
+    padding-left: 40px;
+
+}
+
+
+[dir="rtl"] .slt-password-toggle {
+
+    right: auto;
+    left: 7px;
+
+}
+
+
+[dir="rtl"] .slt-login-options {
+
+    direction: rtl;
+
+}
+
+
+[dir="rtl"] .slt-login-submit svg {
+
+    transform:
+        scaleX(-1);
+
+}
+
+
+[dir="rtl"] .slt-login-submit:hover svg {
+
+    transform:
+        scaleX(-1)
+        translateX(3px);
+
+}
+
+
+[dir="rtl"] .slt-create-account a {
+
+    margin-left: 0;
+    margin-right: 4px;
+
+}
+
+
+/* ==========================================================================
+   23. RTL BACKGROUND
+   ========================================================================== */
+
+[dir="rtl"] .slt-bg-moon {
+
+    right: auto;
+    left: 12%;
+
+}
+
+
+[dir="rtl"] .slt-bg-glow-one {
+
+    left: auto;
+    right: -120px;
+
+}
+
+
+[dir="rtl"] .slt-bg-glow-two {
+
+    right: auto;
+    left: -220px;
+
+}
+
+
+/* ==========================================================================
+   24. DARK MODE CONTROLS
+   ========================================================================== */
+
+[data-theme="dark"] .slt-control-btn {
+
+    background:
+        var(--color-card);
+
+    border-color:
+        var(--color-border);
+
+    box-shadow:
+        var(--shadow-sm);
+
+}
+
+
+[data-theme="dark"] .slt-social-btn {
+
+    background:
+        var(--color-card);
+
+}
+
+
+[data-theme="dark"] .slt-social-btn:hover {
+
+    background:
+        var(--color-card-alt);
+
+}
+
+
+[data-theme="dark"] .slt-password-toggle:hover {
+
+    background:
+        var(--color-primary-light);
+
+}
+
+
+/* ==========================================================================
+   25. LARGE DESKTOP
+   ========================================================================== */
+
+@media (min-width: 1441px) {
+
+    .slt-login-page {
+
+        padding:
+            72px 24px 20px;
+
+    }
+
+
+    .slt-login-card {
+
+        max-width: 500px;
+
+        padding:
+            28px 34px 25px;
+
+    }
+
+}
+
+
+/* ==========================================================================
+   26. DESKTOP
+   ========================================================================== */
+
+@media (min-width: 992px) and (max-width: 1440px) {
+
+    .slt-login-page {
+
+        padding:
+            70px 20px 20px;
+
+    }
+
+}
+
+
+/* ==========================================================================
+   27. TABLET / NEST HUB
+   ========================================================================== */
+
+@media (min-width: 769px) and (max-width: 991px) {
+
+    .slt-login-page {
+
+        padding:
+            68px 18px 18px;
+
+    }
+
+
+    .slt-login-card {
+
+        max-width: 480px;
+
+        padding:
+            25px 30px 23px;
+
+    }
+
+
+    .slt-bg-moon {
+
+        top: 9%;
+        right: 8%;
+
+    }
+
+
+    [dir="rtl"] .slt-bg-moon {
+
+        right: auto;
+        left: 8%;
+
+    }
+
+}
+
+
+/* ==========================================================================
+   28. IPAD MINI — 576px to 768px
+   ========================================================================== */
+
+@media (min-width: 576px) and (max-width: 768px) {
+
+    .slt-login-page {
+
+        padding:
+            66px 16px 16px;
+
+    }
+
+
+    .slt-login-card {
+
+        max-width: 470px;
+
+        padding:
+            24px 28px 22px;
+
+    }
+
+
+    .slt-login-controls {
+
+        top: 16px;
+        right: 16px;
+
+    }
+
+
+    [dir="rtl"] .slt-login-controls {
+
+        right: auto;
+        left: 16px;
+
+    }
+
+
+    .slt-control-btn {
+
+        width: 40px;
+        height: 40px;
+
+    }
+
+
+    .slt-control-btn svg {
+
+        width: 16px;
+        height: 16px;
+
+    }
+
+
+    .slt-bg-orbit-one {
+
+        width: 620px;
+        height: 620px;
+
+    }
+
+
+    .slt-bg-orbit-two {
+
+        width: 500px;
+        height: 500px;
+
+    }
+
+}
+
+
+/* ==========================================================================
+   29. MOBILE — 371px to 575px
+   ========================================================================== */
+
+@media (min-width: 371px) and (max-width: 575px) {
+
+    .slt-login-page {
+
+        align-items: center;
+
+        padding:
+            62px 12px 12px;
+
+    }
+
+
+    .slt-login-controls {
+
+        top: 11px;
+        right: 12px;
+
+        gap: 6px;
+
+    }
+
+
+    [dir="rtl"] .slt-login-controls {
+
+        right: auto;
+        left: 12px;
+
+    }
+
+
+    .slt-control-btn {
+
+        width: 39px;
+        height: 39px;
+
+    }
+
+
+    .slt-control-btn svg {
+
+        width: 16px;
+        height: 16px;
+
+    }
+
+
+    .slt-rtl-btn {
+
+        font-size: 0.64rem;
+
+    }
+
+
+    .slt-login-card {
+
+        max-width: 100%;
+
+        padding:
+            21px 18px 19px;
+
+    }
+
+
+    .slt-login-brand {
+
+        margin-bottom: 16px;
+
+    }
+
+
+    .slt-brand-mark {
+
+        width: 50px;
+        height: 50px;
+
+        flex-basis: 50px;
+
+    }
+
+
+    .slt-brand-text {
+
+        font-size: 24px;
+
+    }
+
+
+    .slt-login-intro {
+
+        margin-bottom: 15px;
+
+    }
+
+
+    .slt-login-subtitle {
+
+        font-size: 0.8rem;
+
+    }
+
+
+    .slt-form-group {
+
+        margin-bottom: 9px;
+
+    }
+
+
+    .slt-login-input {
+
+        height: 43px;
+
+    }
+
+
+    .slt-login-submit {
+
+        min-height: 43px;
+
+    }
+
+
+    .slt-social-btn {
+
+        min-height: 39px;
+
+    }
+
+
+    .slt-create-account {
+
+        margin-top: 11px;
+
+    }
+
+
+    .slt-bg-moon {
+
+        width: 50px;
+        height: 50px;
+
+        top: 10%;
+        right: 5%;
+
+        opacity: 0.45;
+
+    }
+
+
+    .slt-bg-moon span {
+
+        width: 50px;
+        height: 50px;
+
+        left: 10px;
+        top: -6px;
+
+    }
+
+
+    [dir="rtl"] .slt-bg-moon {
+
+        right: auto;
+        left: 5%;
+
+    }
+
+
+    .slt-bg-orbit-one {
+
+        width: 500px;
+        height: 500px;
+
+    }
+
+
+    .slt-bg-orbit-two {
+
+        width: 410px;
+        height: 410px;
+
+    }
+
+}
+
+
+/* =========================*
+
+
+
+```css
+/* ==========================================================================
+   SLEEPTOTS LOGIN — FINAL RESPONSIVE OVERRIDES
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   BRAND
+   -------------------------------------------------------------------------- */
+
+.slt-login-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.slt-brand-image {
+    width: 50px;
+    height: 50px;
+
+    min-width: 50px;
+    min-height: 50px;
+
+    max-width: 50px;
+    max-height: 50px;
+
+    display: block;
+    flex: 0 0 50px;
+
+    object-fit: contain;
+}
+
+.slt-brand-text {
+    font-size: 24px;
+    line-height: 1;
+}
+
+
+/* ==========================================================================
+   TABLET
+   ========================================================================== */
+
+@media (min-width: 576px) and (max-width: 991px) {
+
+    .slt-login-page {
+        min-height: 100svh;
+        padding: 72px 20px 28px;
+
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .slt-login-card {
+        width: 100%;
+        max-width: 500px;
+
+        padding: 28px 32px 26px;
+
+        box-sizing: border-box;
+    }
+
+    .slt-login-brand {
+        margin-bottom: 20px;
+    }
+
+    .slt-login-intro {
+        margin-bottom: 20px;
+    }
+
+    .slt-form-group {
+        margin-bottom: 12px;
+    }
+
+    .slt-login-input {
+        height: 46px;
+    }
+
+    .slt-login-submit {
+        min-height: 46px;
+    }
+
+    .slt-social-btn {
+        min-height: 42px;
+    }
+}
+
+
+/* ==========================================================================
+   MOBILE PORTRAIT
+   ========================================================================== */
+
+@media (max-width: 575px) and (orientation: portrait) {
+
+    .slt-login-page {
+        min-height: 100svh;
+
+        align-items: flex-start;
+
+        padding:
+            70px
+            12px
+            16px;
+
+        box-sizing: border-box;
+
+        overflow: hidden;
+    }
+
+    .slt-login-controls {
+        top: 12px;
+        right: 12px;
+
+        gap: 6px;
+    }
+
+    [dir="rtl"] .slt-login-controls {
+        right: auto;
+        left: 12px;
+    }
+
+    .slt-control-btn,
+    .slt-rtl-btn {
+        width: 42px;
+        height: 42px;
+
+        min-width: 42px;
+        min-height: 42px;
+    }
+
+    .slt-control-btn svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .slt-rtl-btn {
+        font-size: 0.68rem;
+    }
+
+    .slt-login-card {
+        width: 100%;
+        max-width: 100%;
+
+        padding:
+            24px
+            18px
+            22px;
+
+        border-radius: var(--radius-lg);
+
+        box-sizing: border-box;
+    }
+
+    .slt-login-brand {
+        margin-bottom: 18px;
+    }
+
+    .slt-login-intro {
+        margin-bottom: 18px;
+    }
+
+    .slt-login-subtitle {
+        font-size: 0.84rem;
+    }
+
+    .slt-form-group {
+        margin-bottom: 11px;
+    }
+
+    .slt-form-group .st-form-label {
+        margin-bottom: 5px;
+    }
+
+    .slt-login-input {
+        height: 45px;
+
+        padding-left: 40px;
+        padding-right: 40px;
+
+        box-sizing: border-box;
+    }
+
+    .slt-input-icon {
+        width: 16px;
+        height: 16px;
+
+        left: 12px;
+    }
+
+    [dir="rtl"] .slt-input-icon {
+        left: auto;
+        right: 12px;
+    }
+
+    .slt-password-toggle {
+        width: 28px;
+        height: 28px;
+
+        right: 7px;
+    }
+
+    [dir="rtl"] .slt-password-toggle {
+        right: auto;
+        left: 7px;
+    }
+
+    .slt-password-toggle svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .slt-login-options {
+        margin-bottom: 14px;
+    }
+
+    .slt-remember,
+    .slt-forgot-link {
+        font-size: 0.75rem;
+    }
+
+    .slt-login-submit {
+        min-height: 46px;
+
+        font-size: 0.84rem;
+    }
+
+    .slt-divider-row {
+        margin:
+            16px
+            0
+            12px;
+    }
+
+    .slt-social-login {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 7px;
+    }
+
+    .slt-social-btn {
+        min-height: 42px;
+
+        padding:
+            7px
+            8px;
+
+        gap: 5px;
+
+        font-size: 0.72rem;
+    }
+
+    .slt-social-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .slt-create-account {
+        margin-top: 14px;
+
+        font-size: 0.72rem;
+    }
+}
+
+
+/* ==========================================================================
+   SAMSUNG S8+ — PORTRAIT
+   ========================================================================== */
+
+@media (max-width: 370px) and (orientation: portrait) {
+
+    .slt-login-page {
+        padding:
+            62px
+            10px
+            12px;
+    }
+
+    .slt-login-controls {
+        top: 9px;
+        right: 9px;
+
+        gap: 5px;
+    }
+
+    [dir="rtl"] .slt-login-controls {
+        right: auto;
+        left: 9px;
+    }
+
+    .slt-control-btn,
+    .slt-rtl-btn {
+        width: 38px;
+        height: 38px;
+
+        min-width: 38px;
+        min-height: 38px;
+    }
+
+    .slt-control-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .slt-rtl-btn {
+        font-size: 0.62rem;
+    }
+
+    .slt-login-card {
+        padding:
+            19px
+            15px
+            17px;
+    }
+
+    .slt-login-brand {
+        margin-bottom: 14px;
+    }
+
+    .slt-brand-image {
+        width: 50px;
+        height: 50px;
+
+        min-width: 50px;
+        min-height: 50px;
+
+        max-width: 50px;
+        max-height: 50px;
+    }
+
+    .slt-brand-text {
+        font-size: 24px;
+    }
+
+    .slt-login-intro {
+        margin-bottom: 14px;
+    }
+
+    .slt-login-eyebrow {
+        margin-bottom: 4px;
+    }
+
+    .slt-login-subtitle {
+        font-size: 0.74rem;
+    }
+
+    .slt-form-group {
+        margin-bottom: 8px;
+    }
+
+    .slt-form-group .st-form-label {
+        margin-bottom: 3px;
+        font-size: 0.72rem;
+    }
+
+    .slt-login-input {
+        height: 40px;
+
+        padding-left: 36px;
+        padding-right: 36px;
+    }
+
+    .slt-input-icon {
+        width: 14px;
+        height: 14px;
+
+        left: 10px;
+    }
+
+    [dir="rtl"] .slt-input-icon {
+        left: auto;
+        right: 10px;
+    }
+
+    .slt-password-toggle {
+        width: 24px;
+        height: 24px;
+
+        right: 5px;
+    }
+
+    [dir="rtl"] .slt-password-toggle {
+        right: auto;
+        left: 5px;
+    }
+
+    .slt-password-toggle svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .slt-login-options {
+        margin-bottom: 10px;
+    }
+
+    .slt-remember,
+    .slt-forgot-link {
+        font-size: 0.67rem;
+    }
+
+    .slt-remember input {
+        width: 13px;
+        height: 13px;
+    }
+
+    .slt-login-submit {
+        min-height: 40px;
+        height: 40px;
+
+        font-size: 0.76rem;
+    }
+
+    .slt-login-submit svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .slt-divider-row {
+        margin:
+            11px
+            0
+            8px;
+
+        gap: 6px;
+    }
+
+    .slt-divider-row small {
+        font-size: 0.52rem;
+    }
+
+    .slt-social-login {
+        gap: 5px;
+    }
+
+    .slt-social-btn {
+        min-height: 36px;
+        height: 36px;
+
+        padding: 5px 6px;
+
+        font-size: 0.64rem;
+    }
+
+    .slt-social-btn svg {
+        width: 13px;
+        height: 13px;
+    }
+
+    .slt-create-account {
+        margin-top: 8px;
+
+        font-size: 0.64rem;
+    }
+}
+
+
+/* ==========================================================================
+   MOBILE LANDSCAPE
+   Samsung S8+ 740 × 360
+   ========================================================================== */
+
+@media (max-width: 991px) and (orientation: landscape) {
+
+    /*
+       IMPORTANT:
+       The landscape layout is intentionally independent from the
+       portrait mobile rules above.
+    */
+
+    .slt-login-page {
+        width: 100%;
+        height: 100svh;
+        min-height: 100svh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding:
+            42px
+            12px
+            8px;
+
+        box-sizing: border-box;
+
+        overflow: hidden;
+    }
+
+
+    /* ---------------------------------------------------------------
+       CONTROLS
+       --------------------------------------------------------------- */
+
+    .slt-login-controls {
+        top: 6px;
+        right: 10px;
+
+        gap: 5px;
+    }
+
+    [dir="rtl"] .slt-login-controls {
+        right: auto;
+        left: 10px;
+    }
+
+    .slt-control-btn,
+    .slt-rtl-btn {
+        width: 34px;
+        height: 34px;
+
+        min-width: 34px;
+        min-height: 34px;
+    }
+
+    .slt-control-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .slt-rtl-btn {
+        font-size: 0.58rem;
+    }
+
+
+    /* ---------------------------------------------------------------
+       CARD
+       --------------------------------------------------------------- */
+
+    .slt-login-card {
+        width: min(610px, calc(100vw - 24px));
+
+        max-width: 610px;
+
+        padding:
+            9px
+            24px
+            8px;
+
+        border-radius: 14px;
+
+        box-sizing: border-box;
+
+        animation-duration: 0.5s;
+    }
+
+
+    /* ---------------------------------------------------------------
+       LOGO
+       --------------------------------------------------------------- */
+
+    .slt-login-brand {
+        gap: 7px;
+
+        margin-bottom: 5px;
+    }
+
+    .slt-brand-image {
+        width: 50px;
+        height: 50px;
+
+        min-width: 50px;
+        min-height: 50px;
+
+        max-width: 50px;
+        max-height: 50px;
+
+        flex: 0 0 50px;
+    }
+
+    .slt-brand-text {
+        font-size: 24px;
+    }
+
+
+    /* ---------------------------------------------------------------
+       INTRO
+       --------------------------------------------------------------- */
+
+    .slt-login-intro {
+        margin-bottom: 6px;
+    }
+
+    .slt-login-eyebrow {
+        display: none;
+    }
+
+    .slt-login-intro h1 {
+        margin-bottom: 2px;
+
+        font-size: 1.12rem;
+        line-height: 1.1;
+    }
+
+    .slt-login-subtitle {
+        font-size: 0.67rem;
+        line-height: 1.2;
+    }
+
+
+    /* ---------------------------------------------------------------
+       FORM
+       --------------------------------------------------------------- */
+
+    .slt-form-group {
+        margin-bottom: 5px;
+    }
+
+    .slt-form-group .st-form-label {
+        margin-bottom: 2px;
+
+        font-size: 0.64rem;
+        line-height: 1.1;
+    }
+
+
+    /* ---------------------------------------------------------------
+       INPUTS
+       --------------------------------------------------------------- */
+
+    .slt-login-input {
+        width: 100%;
+
+        height: 34px;
+        min-height: 34px;
+
+        padding-left: 35px;
+        padding-right: 35px;
+
+        font-size: 0.68rem;
+
+        box-sizing: border-box;
+    }
+
+    .slt-input-icon {
+        width: 13px;
+        height: 13px;
+
+        left: 10px;
+    }
+
+    [dir="rtl"] .slt-input-icon {
+        left: auto;
+        right: 10px;
+    }
+}
+
+/* ==========================================================================
+   SLEEPTOTS LOGIN — COMPACT CARD REFINEMENT
+   Reduces card and content size without changing global typography
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   MAIN CARD
+   -------------------------------------------------------------------------- */
+
+.slt-login-card {
+    max-width: 450px;
+    padding: 22px 26px 20px;
+}
+
+
+/* --------------------------------------------------------------------------
+   BRAND
+   Keep logo 50px × 50px and title 24px
+   -------------------------------------------------------------------------- */
+
+.slt-login-brand {
+    gap: 7px;
+    margin-bottom: 14px;
+}
+
+.slt-brand-image,
+.slt-brand-mark {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.slt-brand-text {
+    font-size: 24px;
+}
+
+
+/* --------------------------------------------------------------------------
+   INTRO
+   -------------------------------------------------------------------------- */
+
+.slt-login-intro {
+    margin-bottom: 13px;
+}
+
+.slt-login-eyebrow {
+    margin-bottom: 3px;
+}
+
+.slt-login-intro h1 {
+    margin-bottom: 3px;
+}
+
+.slt-login-subtitle {
+    font-size: 0.80rem;
+    line-height: 1.35;
+}
+
+
+/* --------------------------------------------------------------------------
+   FORM
+   -------------------------------------------------------------------------- */
+
+.slt-form-group {
+    margin-bottom: 8px;
+}
+
+.slt-form-group .st-form-label {
+    margin-bottom: 3px;
+}
+
+
+/* --------------------------------------------------------------------------
+   INPUTS
+   -------------------------------------------------------------------------- */
+
+.slt-login-input {
+    height: 41px;
+    min-height: 41px;
+}
+
+.slt-input-icon {
+    width: 14px;
+    height: 14px;
+}
+
+
+/* --------------------------------------------------------------------------
+   LOGIN OPTIONS
+   -------------------------------------------------------------------------- */
+
+.slt-login-options {
+    margin-bottom: 11px;
+}
+
+.slt-remember,
+.slt-forgot-link {
+    font-size: 0.70rem;
+}
+
+.slt-remember input {
+    width: 14px;
+    height: 14px;
+}
+
+
+/* --------------------------------------------------------------------------
+   SIGN IN BUTTON
+   -------------------------------------------------------------------------- */
+
+.slt-login-submit {
+    min-height: 41px;
+    height: 41px;
+    font-size: 0.78rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   DIVIDER
+   -------------------------------------------------------------------------- */
+
+.slt-divider-row {
+    margin: 12px 0 9px;
+    gap: 7px;
+}
+
+.slt-divider-row small {
+    font-size: 0.56rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   SOCIAL LOGIN
+   -------------------------------------------------------------------------- */
+
+.slt-social-login {
+    gap: 6px;
+}
+
+.slt-social-btn {
+    min-height: 38px;
+    height: 38px;
+    padding: 5px 7px;
+    gap: 4px;
+    font-size: 0.68rem;
+}
+
+.slt-social-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+/* --------------------------------------------------------------------------
+   CREATE ACCOUNT
+   -------------------------------------------------------------------------- */
+
+.slt-create-account {
+    margin-top: 10px;
+    font-size: 0.68rem;
+}
+
+
+/* ==========================================================================
+   TABLET
+   ========================================================================== */
+
+@media (min-width: 576px) and (max-width: 991px) {
+
+    .slt-login-card {
+        max-width: 440px;
+        padding: 21px 25px 19px;
+    }
+
+    .slt-login-brand {
+        margin-bottom: 13px;
+    }
+
+    .slt-login-intro {
+        margin-bottom: 12px;
+    }
+
+    .slt-login-input {
+        height: 40px;
+        min-height: 40px;
+    }
+
+    .slt-login-submit {
+        min-height: 40px;
+        height: 40px;
+    }
+
+    .slt-social-btn {
+        min-height: 37px;
+        height: 37px;
+    }
+}
+
+
+/* ==========================================================================
+   MOBILE PORTRAIT
+   ========================================================================== */
+
+@media (max-width: 575px) and (orientation: portrait) {
+
+    .slt-login-page {
+        padding: 65px 10px 12px;
+    }
+
+    .slt-login-card {
+        width: 100%;
+        max-width: 420px;
+        padding: 19px 15px 17px;
+    }
+
+    .slt-login-brand {
+        margin-bottom: 12px;
+    }
+
+    .slt-login-intro {
+        margin-bottom: 12px;
+    }
+
+    .slt-login-subtitle {
+        font-size: 0.78rem;
+    }
+
+    .slt-form-group {
+        margin-bottom: 7px;
+    }
+
+    .slt-login-input {
+        height: 40px;
+        min-height: 40px;
+    }
+
+    .slt-login-submit {
+        min-height: 40px;
+        height: 40px;
+    }
+
+    .slt-divider-row {
+        margin: 11px 0 8px;
+    }
+
+    .slt-social-btn {
+        min-height: 37px;
+        height: 37px;
+        font-size: 0.68rem;
+    }
+
+    .slt-create-account {
+        margin-top: 9px;
+    }
+}
+
+
+/* ==========================================================================
+   SAMSUNG S8+ PORTRAIT
+   ========================================================================== */
+
+@media (max-width: 370px) and (orientation: portrait) {
+
+    .slt-login-page {
+        padding: 58px 9px 10px;
+    }
+
+    .slt-login-card {
+        max-width: 100%;
+        padding: 17px 13px 15px;
+    }
+
+    /* Keep requested logo size */
+    .slt-brand-image,
+    .slt-brand-mark {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        min-height: 50px;
+    }
+
+    .slt-brand-text {
+        font-size: 24px;
+    }
+
+    .slt-login-brand {
+        margin-bottom: 10px;
+    }
+
+    .slt-login-intro {
+        margin-bottom: 10px;
+    }
+
+    .slt-login-subtitle {
+        font-size: 0.72rem;
+    }
+
+    .slt-form-group {
+        margin-bottom: 6px;
+    }
+
+    .slt-form-group .st-form-label {
+        margin-bottom: 2px;
+        font-size: 0.70rem;
+    }
+
+    .slt-login-input {
+        height: 38px;
+        min-height: 38px;
+        font-size: 0.68rem;
+    }
+
+    .slt-login-options {
+        margin-bottom: 8px;
+    }
+
+    .slt-login-submit {
+        min-height: 38px;
+        height: 38px;
+        font-size: 0.74rem;
+    }
+
+    .slt-divider-row {
+        margin: 9px 0 7px;
+    }
+
+    .slt-social-btn {
+        min-height: 34px;
+        height: 34px;
+        padding: 4px 5px;
+        font-size: 0.62rem;
+    }
+
+    .slt-create-account {
+        margin-top: 7px;
+        font-size: 0.62rem;
+    }
+}
+
+
+/* ==========================================================================
+   SAMSUNG S8+ LANDSCAPE
+   ========================================================================== */
+
+@media (max-width: 991px) and (orientation: landscape) {
+
+    .slt-login-page {
+        padding: 38px 10px 6px;
+    }
+
+    .slt-login-card {
+        width: min(560px, calc(100vw - 20px));
+        max-width: 560px;
+        padding: 7px 20px 6px;
+        border-radius: 13px;
+    }
+
+    .slt-login-brand {
+        gap: 6px;
+        margin-bottom: 3px;
+    }
+
+    /* Logo stays exactly 50px */
+    .slt-brand-image,
+    .slt-brand-mark {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        min-height: 50px;
+    }
+
+    .slt-brand-text {
+        font-size: 24px;
+    }
+
+    .slt-login-intro {
+        margin-bottom: 4px;
+    }
+
+    .slt-login-intro h1 {
+        font-size: 1rem;
+        line-height: 1.05;
+        margin-bottom: 1px;
+    }
+
+    .slt-login-subtitle {
+        font-size: 0.62rem;
+        line-height: 1.1;
+    }
+
+    .slt-form-group {
+        margin-bottom: 3px;
+    }
+
+    .slt-form-group .st-form-label {
+        font-size: 0.60rem;
+        margin-bottom: 1px;
+    }
+
+    .slt-login-input {
+        height: 31px;
+        min-height: 31px;
+        font-size: 0.64rem;
+    }
+
+    .slt-input-icon {
+        width: 12px;
+        height: 12px;
+    }
+
+    .slt-login-options {
+        margin-bottom: 5px;
+    }
+
+    .slt-remember,
+    .slt-forgot-link {
+        font-size: 0.60rem;
+    }
+
+    .slt-login-submit {
+        min-height: 34px;
+        height: 34px;
+        font-size: 0.68rem;
+    }
+
+    .slt-divider-row {
+        margin: 7px 0 5px;
+    }
+
+    .slt-divider-row small {
+        font-size: 0.48rem;
+    }
+
+    .slt-social-login {
+        gap: 4px;
+    }
+
+    .slt-social-btn {
+        min-height: 31px;
+        height: 31px;
+        padding: 3px 5px;
+        font-size: 0.58rem;
+    }
+
+    .slt-social-btn svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .slt-create-account {
+        margin-top: 5px;
+        font-size: 0.58rem;
+    }
+}
+
+/* ==========================================================================
+   SLEEPTOTS LOGIN — FINAL VISUAL REFINEMENT
+   Smaller Welcome Back + glowing theme/RTL controls
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   WELCOME BACK — REDUCED
+   -------------------------------------------------------------------------- */
+
+.slt-login-intro h1 {
+    font-size: 1.35rem;
+    line-height: 1.15;
+    margin-bottom: 3px;
+    letter-spacing: -0.01em;
+}
+
+.slt-login-eyebrow {
+    font-size: 0.62rem;
+    line-height: 1.2;
+    margin-bottom: 3px;
+}
+
+.slt-login-subtitle {
+    font-size: 0.76rem;
+    line-height: 1.35;
+}
+
+
+/* --------------------------------------------------------------------------
+   LOGIN CONTROLS
+   RTL + DARK MODE
+   -------------------------------------------------------------------------- */
+
+.slt-login-controls {
+    position: absolute;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+
+/* Both buttons */
+.slt-control-btn,
+.slt-rtl-btn {
+    position: relative;
+
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.72);
+
+    border: 1px solid rgba(168, 191, 163, 0.55);
+
+    color: var(--color-primary);
+
+    box-shadow:
+        0 4px 14px rgba(36, 52, 71, 0.10),
+        0 0 0 1px rgba(255, 255, 255, 0.30);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Icon size */
+.slt-control-btn svg {
+    width: 16px;
+    height: 16px;
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+
+/* RTL text */
+.slt-rtl-btn {
+    font-size: 0.62rem;
+    font-weight: 700;
+}
+
+
+/* --------------------------------------------------------------------------
+   SUBTLE GLOW
+   -------------------------------------------------------------------------- */
+
+.slt-control-btn::before,
+.slt-rtl-btn::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+
+    border-radius: inherit;
+
+    background: radial-gradient(
+        circle,
+        rgba(168, 191, 163, 0.24),
+        transparent 68%
+    );
+
+    opacity: 0.65;
+    z-index: -1;
+
+    filter: blur(5px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* --------------------------------------------------------------------------
+   HOVER
+   -------------------------------------------------------------------------- */
+
+.slt-control-btn:hover,
+.slt-rtl-btn:hover {
+    transform: translateY(-2px);
+
+    color: var(--color-primary);
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border-color: rgba(168, 191, 163, 0.9);
+
+    box-shadow:
+        0 7px 20px rgba(36, 52, 71, 0.14),
+        0 0 14px rgba(168, 191, 163, 0.24);
+}
+
+.slt-control-btn:hover::before,
+.slt-rtl-btn:hover::before {
+    opacity: 1;
+    transform: scale(1.08);
+}
+
+.slt-control-btn:hover svg {
+    transform: scale(1.08);
+}
+
+
+/* --------------------------------------------------------------------------
+   ACTIVE / CLICKED
+   -------------------------------------------------------------------------- */
+
+.slt-control-btn:active,
+.slt-rtl-btn:active {
+    transform: translateY(0) scale(0.95);
+
+    box-shadow:
+        0 3px 10px rgba(36, 52, 71, 0.12),
+        0 0 12px rgba(168, 191, 163, 0.28);
+}
+
+
+/* ==========================================================================
+   DARK MODE
+   ========================================================================== */
+
+[data-theme="dark"] .slt-control-btn,
+[data-theme="dark"] .slt-rtl-btn {
+
+    background: rgba(36, 52, 71, 0.78);
+
+    border-color: rgba(168, 191, 163, 0.42);
+
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.28),
+        0 0 10px rgba(168, 191, 163, 0.10);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* Dark mode glow */
+[data-theme="dark"] .slt-control-btn::before,
+[data-theme="dark"] .slt-rtl-btn::before {
+    background: radial-gradient(
+        circle,
+        rgba(168, 191, 163, 0.30),
+        transparent 68%
+    );
+
+    opacity: 0.72;
+}
+
+
+/* Dark mode hover */
+[data-theme="dark"] .slt-control-btn:hover,
+[data-theme="dark"] .slt-rtl-btn:hover {
+
+    background: rgba(36, 52, 71, 0.95);
+
+    border-color: rgba(168, 191, 163, 0.78);
+
+    color: #ffffff;
+
+    box-shadow:
+        0 7px 20px rgba(0, 0, 0, 0.34),
+        0 0 17px rgba(168, 191, 163, 0.25);
+}
+
+
+/* ==========================================================================
+   MOBILE
+   ========================================================================== */
+
+@media (max-width: 575px) {
+
+    .slt-login-intro h1 {
+        font-size: 1.20rem;
+        line-height: 1.15;
+    }
+
+    .slt-login-eyebrow {
+        font-size: 0.58rem;
+    }
+
+    .slt-login-subtitle {
+        font-size: 0.72rem;
+    }
+
+    .slt-control-btn,
+    .slt-rtl-btn {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        min-height: 36px;
+    }
+
+    .slt-control-btn svg {
+        width: 15px;
+        height: 15px;
+    }
+
+    .slt-rtl-btn {
+        font-size: 0.58rem;
+    }
+}
+
+
+/* ==========================================================================
+   VERY SMALL PHONES — S8+ / 360px CLASS
+   ========================================================================== */
+
+@media (max-width: 370px) {
+
+    .slt-login-intro h1 {
+        font-size: 1.12rem;
+    }
+
+    .slt-login-subtitle {
+        font-size: 0.69rem;
+    }
+
+    .slt-control-btn,
+    .slt-rtl-btn {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+        min-height: 34px;
+    }
+
+    .slt-control-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .slt-rtl-btn {
+        font-size: 0.55rem;
+    }
+}
+
+
+/* ==========================================================================
+   LANDSCAPE — KEEP CONTROLS VISIBLE WITHOUT DOMINATING
+   ========================================================================== */
+
+@media (max-width: 991px) and (orientation: landscape) {
+
+    .slt-login-intro h1 {
+        font-size: 1.05rem;
+    }
+
+    .slt-login-subtitle {
+        font-size: 0.62rem;
+    }
+
+    .slt-control-btn,
+    .slt-rtl-btn {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+        min-height: 34px;
+    }
+
+    .slt-control-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .slt-rtl-btn {
+        font-size: 0.55rem;
+    }
+}
+
+
+
+/* ==========================================================================
+   LOGIN BRAND — RTL FIX
+   ========================================================================== */
+
+/* Default / LTR */
+.slt-login-brand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    direction: ltr;
+}
+
+
+/* Logo */
+.slt-login-brand > img {
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    object-fit: contain;
+
+    order: 1;
+}
+
+
+/* SleepTots title */
+.slt-login-brand > .slt-brand-text {
+    order: 2;
+
+    direction: ltr;
+    text-align: left;
+
+    white-space: nowrap;
+}
+
+
+/* ==========================================================================
+   RTL
+   ========================================================================== */
+
+html[dir="rtl"] .slt-login-brand,
+body[dir="rtl"] .slt-login-brand,
+[dir="rtl"] .slt-login-brand {
+
+    direction: rtl;
+
+    flex-direction: row-reverse;
+
+}
+
+
+/* In RTL:
+   SleepTots → LEFT
+   Logo      → RIGHT
+*/
+
+html[dir="rtl"] .slt-login-brand > img,
+body[dir="rtl"] .slt-login-brand > img,
+[dir="rtl"] .slt-login-brand > img {
+
+    order: 2;
+}
+
+
+html[dir="rtl"] .slt-login-brand > .slt-brand-text,
+body[dir="rtl"] .slt-login-brand > .slt-brand-text,
+[dir="rtl"] .slt-login-brand > .slt-brand-text {
+
+    order: 1;
+
+    direction: ltr;
+
+    text-align: right;
+}
+
+
+/* ==========================================================================
+   KEEP "SleepTots" WORD ORDER CORRECT
+   ========================================================================== */
+
+.slt-login-brand .brand-sleep,
+.slt-login-brand .brand-tots {
+
+    direction: ltr;
+
+    unicode-bidi: isolate;
+
+}
+
+/* ==========================================================================
+   LOGIN — SMALLER PLACEHOLDER TEXT
+   ========================================================================== */
+
+.slt-login-card input::placeholder {
+    font-size: 0.68rem;
+    opacity: 0.72;
+}
+
+.slt-login-card textarea::placeholder {
+    font-size: 0.68rem;
+    opacity: 0.72;
+}
+
+
+/* RTL */
+html[dir="rtl"] .slt-login-card input::placeholder,
+html[dir="rtl"] .slt-login-card textarea::placeholder {
+    font-size: 0.68rem;
+}
+
+
+/* Samsung S8+ / small screens */
+@media (max-width: 370px) {
+
+    .slt-login-card input::placeholder,
+    .slt-login-card textarea::placeholder {
+        font-size: 0.62rem;
+    }
+
+}
+
+
+/* ==========================================================================
+   SLEEPTOTS LOGIN — RTL CONSISTENCY
+   Uses the same RTL state controlled by global.js.
+   No other existing styles are changed.
+   ========================================================================== */
+
+/* Page-wide RTL direction */
+html[dir="rtl"] .slt-login-page,
+html[dir="rtl"] .slt-login-card {
+    direction: rtl;
+}
+
+/* Controls move to the same side as the other SleepTots pages */
+html[dir="rtl"] .slt-login-controls {
+    right: auto;
+    left: 20px;
+    direction: rtl;
+}
+
+/* Brand: LTR = Logo + SleepTots
+          RTL = SleepTots + Logo */
+html[dir="rtl"] .slt-login-brand {
+    direction: rtl;
+    flex-direction: row-reverse;
+}
+
+/* Keep SleepTots itself in normal left-to-right word order */
+html[dir="rtl"] .slt-brand-text {
+    direction: ltr;
+    unicode-bidi: isolate;
+    text-align: right;
+}
+
+/* Form content */
+html[dir="rtl"] .slt-login-form,
+html[dir="rtl"] .slt-form-group,
+html[dir="rtl"] .slt-login-options {
+    direction: rtl;
+}
+
+html[dir="rtl"] .slt-form-group .st-form-label {
+    text-align: right;
+}
+
+/* Inputs */
+html[dir="rtl"] .slt-login-input {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Input icon */
+html[dir="rtl"] .slt-input-icon {
+    left: auto;
+    right: 13px;
+}
+
+/* Password eye */
+html[dir="rtl"] .slt-password-toggle {
+    right: auto;
+    left: 7px;
+}
+
+/* Remember / forgot row */
+html[dir="rtl"] .slt-login-options {
+    direction: rtl;
+}
+
+/* Sign-in arrow */
+html[dir="rtl"] .slt-login-submit {
+    direction: rtl;
+}
+
+html[dir="rtl"] .slt-login-submit svg {
+    transform: scaleX(-1);
+}
+
+/* Social login */
+html[dir="rtl"] .slt-social-login,
+html[dir="rtl"] .slt-social-btn {
+    direction: rtl;
+}
+
+/* Create-account text */
+html[dir="rtl"] .slt-create-account {
+    direction: rtl;
+    text-align: center;
+}
+
+html[dir="rtl"] .slt-create-account a {
+    margin-left: 0;
+    margin-right: 4px;
+}
+
+/* RTL controls remain correctly positioned on small screens */
+@media (max-width: 575px) {
+    html[dir="rtl"] .slt-login-controls {
+        right: auto;
+        left: 12px;
+    }
+}
+
+@media (max-width: 370px) {
+    html[dir="rtl"] .slt-login-controls {
+        right: auto;
+        left: 9px;
+    }
+}
+
+@media (max-width: 991px) and (orientation: landscape) {
+    html[dir="rtl"] .slt-login-controls {
+        right: auto;
+        left: 10px;
+    }
+}

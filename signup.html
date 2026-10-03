@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Sign in to your SleepTots parent account."
+    >
+
+    <title>SignUp | SleepTots</title>
+
+
+    <!-- =========================================================
+         SLEEPTOTS GLOBAL STYLES
+         ========================================================= -->
+
+    <link rel="stylesheet" href="./css/global.css">
+
+
+    <!-- =========================================================
+         SLEEPTOTS TYPOGRAPHY
+         ========================================================= -->
+
+    <link rel="stylesheet" href="./css/typography.css">
+
+
+    <!-- =========================================================
+         LUCIDE ICONS
+         ========================================================= -->
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="./js/global.js"></script>
+
+    <!-- =========================================================
+         LOGIN PAGE CSS
+         ========================================================= -->
+
+    <link rel="stylesheet" href="./css/signup.css">
+
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         LOGIN PAGE
+         ========================================================= -->
+
+    <main
+        class="slt-login-page"
+        id="loginPage"
+    >
+
+
+        <!-- =====================================================
+             ANIMATED BACKGROUND
+             ===================================================== -->
+
+        <div
+            class="slt-login-background"
+            aria-hidden="true"
+        >
+
+            <div class="slt-bg-glow slt-bg-glow-one"></div>
+
+            <div class="slt-bg-glow slt-bg-glow-two"></div>
+
+            <div class="slt-bg-glow slt-bg-glow-three"></div>
+
+
+            <div class="slt-bg-orbit slt-bg-orbit-one"></div>
+
+            <div class="slt-bg-orbit slt-bg-orbit-two"></div>
+
+
+            <div class="slt-bg-moon">
+                <span></span>
+            </div>
+
+
+            <span class="slt-star slt-star-1"></span>
+            <span class="slt-star slt-star-2"></span>
+            <span class="slt-star slt-star-3"></span>
+            <span class="slt-star slt-star-4"></span>
+            <span class="slt-star slt-star-5"></span>
+            <span class="slt-star slt-star-6"></span>
+
+
+            <span class="slt-particle slt-particle-1"></span>
+            <span class="slt-particle slt-particle-2"></span>
+            <span class="slt-particle slt-particle-3"></span>
+            <span class="slt-particle slt-particle-4"></span>
+            <span class="slt-particle slt-particle-5"></span>
+
+
+            <div class="slt-bg-wave slt-bg-wave-one"></div>
+            <div class="slt-bg-wave slt-bg-wave-two"></div>
+
+        </div>
+
+
+        <!-- =====================================================
+             TOP CONTROLS
+             ===================================================== -->
+
+        <div class="slt-login-controls">
+
+            <!-- Theme -->
+
+            <button
+                type="button"
+                class="slt-control-btn"
+                id="themeToggle"
+                data-theme-toggle
+                aria-label="Switch to dark mode"
+                title="Toggle dark mode"
+            >
+
+                <i
+                    data-lucide="moon"
+                    class="slt-theme-icon slt-moon-icon"
+                ></i>
+
+                <i
+                    data-lucide="sun"
+                    class="slt-theme-icon slt-sun-icon"
+                ></i>
+
+            </button>
+
+
+            <!-- RTL -->
+
+            <button
+                type="button"
+                class="slt-control-btn slt-rtl-btn"
+                id="rtlToggle"
+                data-rtl-toggle
+                aria-label="Switch text direction"
+                title="Toggle RTL"
+            >
+                <span class="rtl-label">RTL</span>
+            </button>
+
+        </div>
+
+
+        <!-- =====================================================
+             LOGIN CARD
+             ===================================================== -->
+
+        <section class="slt-signup-card">
+
+
+            <!-- ========================================================
+                 BRAND
+                 ======================================================== -->
+
+            <div class="slt-signup-brand">
+
+                            <a
+                href="./home1.html"
+                class="st-brand slt-login-brand"
+                aria-label="SleepTots Home"
+            >
+
+                
+                    <img src="./images/logo.png" height="50px" width="50px" alt="logo">
+
+                <span class="st-brand-title slt-brand-text">
+                    <span class="brand-sleep">Sleep</span><span class="brand-tots">Tots</span>
+                </span>
+
+            </a>
+
+            </div>
+
+
+            <!-- ========================================================
+                 INTRO
+                 ======================================================== -->
+
+            <div class="slt-signup-intro">
+
+                <h1>
+                    Create Your Account
+                </h1>
+
+
+                <p>
+                    Begin your sleep journey and discover healthier
+                    routines designed around you.
+                </p>
+
+            </div>
+
+
+            <!-- ========================================================
+                 SIGNUP FORM
+                 ======================================================== -->
+
+            <form
+                class="slt-signup-form"
+                id="register-form"
+                novalidate
+            >
+
+
+                <!-- ====================================================
+                     FULL NAME
+                     ==================================================== -->
+
+                <div class="slt-signup-group">
+
+                    <label for="fullName">
+                        Full Name
+                    </label>
+
+
+                    <div class="slt-signup-input-wrap">
+
+                        <i
+                            data-lucide="user"
+                            class="slt-signup-input-icon"
+                            aria-hidden="true"
+                        ></i>
+
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- ====================================================
+                     EMAIL
+                     ==================================================== -->
+
+                <div class="slt-signup-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+
+                    <div class="slt-signup-input-wrap">
+
+                        <i
+                            data-lucide="mail"
+                            class="slt-signup-input-icon"
+                            aria-hidden="true"
+                        ></i>
+
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email address"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- ====================================================
+                     PASSWORD ROW
+                     ==================================================== -->
+
+                <div class="slt-signup-password-row">
+
+
+                    <!-- ==================================================
+                         PASSWORD
+                         ================================================== -->
+
+                    <div class="slt-signup-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+
+                        <div class="slt-signup-input-wrap">
+
+                            <i
+                                data-lucide="lock-keyhole"
+                                class="slt-signup-input-icon"
+                                aria-hidden="true"
+                            ></i>
+
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Create password"
+                                autocomplete="new-password"
+                                required
+                            >
+
+
+                            <button
+                                type="button"
+                                class="slt-signup-password-toggle"
+                                data-target="password"
+                                aria-label="Show password"
+                            >
+
+                                <i
+                                    data-lucide="eye"
+                                    aria-hidden="true"
+                                ></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==================================================
+                         CONFIRM PASSWORD
+                         ================================================== -->
+
+                    <div class="slt-signup-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+
+                        <div class="slt-signup-input-wrap">
+
+                            <i
+                                data-lucide="shield-check"
+                                class="slt-signup-input-icon"
+                                aria-hidden="true"
+                            ></i>
+
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="Confirm password"
+                                autocomplete="new-password"
+                                required
+                            >
+
+
+                            <button
+                                type="button"
+                                class="slt-signup-password-toggle"
+                                data-target="confirmPassword"
+                                aria-label="Show password"
+                            >
+
+                                <i
+                                    data-lucide="eye"
+                                    aria-hidden="true"
+                                ></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- ====================================================
+                     TERMS
+                     ==================================================== -->
+
+                <label class="slt-signup-terms">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        name="terms"
+                        required
+                    >
+
+
+                    <span>
+
+                        I agree to the
+
+                        <a href="#">
+                            Terms &amp; Conditions
+                        </a>
+
+                        and
+
+                        <a href="#">
+                            Privacy Policy
+                        </a>
+
+                    </span>
+
+                </label>
+
+
+                <!-- ====================================================
+                     CREATE ACCOUNT
+                     ==================================================== -->
+
+                <button
+                    type="submit"
+                    class="slt-signup-submit"
+                >
+
+                    <span>
+                        Create Account
+                    </span>
+
+
+                    <i
+                        data-lucide="arrow-right"
+                        aria-hidden="true"
+                    ></i>
+
+                </button>
+
+
+                <!-- ====================================================
+                     DIVIDER
+                     ==================================================== -->
+
+                <div class="slt-signup-divider">
+
+                    <span></span>
+
+                    <small>
+                        OR SIGN UP WITH
+                    </small>
+
+                    <span></span>
+
+                </div>
+
+
+                <!-- ====================================================
+                     SOCIAL SIGNUP
+                     ==================================================== -->
+
+                <div class="slt-social-signup">
+
+
+                    <!-- ==================================================
+                         GOOGLE
+                         ================================================== -->
+
+                    <button
+                        type="button"
+                        class="slt-social-btn"
+                        aria-label="Sign up with Google"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                fill="currentColor"
+                                d="M21.35 12.27c0-.79-.07-1.56-.22-2.27H12v4.3h5.24a4.48 4.48 0 0 1-1.94 2.94v2.45h3.14c1.84-1.69 2.91-4.18 2.91-7.42Z"
+                            />
+
+                            <path
+                                fill="currentColor"
+                                d="M12 21.75c2.63 0 4.83-.87 6.44-2.36l-3.14-2.45c-.87.58-1.98.92-3.3.92-2.54 0-4.69-1.72-5.46-4.03H3.3v2.53A9.72 9.72 0 0 0 12 21.75Z"
+                            />
+
+                            <path
+                                fill="currentColor"
+                                d="M6.54 13.83A5.85 5.85 0 0 1 6.23 12c0-.64.11-1.26.31-1.83V7.64H3.3A9.75 9.75 0 0 0 2.25 12c0 1.57.38 3.05 1.05 4.36l3.24-2.53Z"
+                            />
+
+                            <path
+                                fill="currentColor"
+                                d="M12 6.14c1.43 0 2.72.49 3.73 1.46l2.8-2.8C16.83 3.25 14.63 2.25 12 2.25a9.72 9.72 0 0 0-8.7 5.39l3.24 2.53C7.31 7.86 9.46 6.14 12 6.14Z"
+                            />
+
+                        </svg>
+
+
+                        <span>
+                            Google
+                        </span>
+
+                    </button>
+
+
+                    <!-- ==================================================
+                         APPLE
+                         ================================================== -->
+
+                    <button
+                        type="button"
+                        class="slt-social-btn"
+                        aria-label="Sign up with Apple"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                fill="currentColor"
+                                d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.09ZM12.03 7.25C11.88 5.02 13.69 3.18 15.82 3c.3 2.58-2.34 4.5-3.79 4.25Z"
+                            />
+
+                        </svg>
+
+
+                        <span>
+                            Apple
+                        </span>
+
+                    </button>
+
+
+                    <!-- ==================================================
+                         LINKEDIN
+                         ================================================== -->
+
+                    <button
+                        type="button"
+                        class="slt-social-btn"
+                        aria-label="Sign up with LinkedIn"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                fill="currentColor"
+                                d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.98 1.98 0 1 0 5.25 7a1.98 1.98 0 0 0 0-4ZM20.44 13.4c0-3.47-1.85-5.08-4.32-5.08-1.99 0-2.88 1.1-3.38 1.87V8.5H9.36V20h3.38v-5.7c0-1.5.28-2.96 2.15-2.96 1.84 0 1.87 1.72 1.87 3.05V20h3.38l.3-6.6Z"
+                            />
+
+                        </svg>
+
+
+                        <span>
+                            LinkedIn
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+
+            <!-- ========================================================
+                 LOGIN
+                 ======================================================== -->
+
+            <div class="slt-signup-login">
+
+                <span>
+                    Already have an account?
+                </span>
+
+
+                <a href="./login.html">
+                    Sign In
+                </a>
+
+            </div>
+
+
+        </section>
+
+    </main>
+</body>
+
+</html>

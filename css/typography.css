@@ -1,0 +1,331 @@
+/* ==========================================================================
+   SleepTots — Typography
+   Font imports, headings, body, buttons, labels, forms
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Font Imports
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+/* --------------------------------------------------------------------------
+   Base Typography
+   -------------------------------------------------------------------------- */
+body {
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text-body);
+}
+
+p {
+  margin: 0 0 16px;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Headings
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Serif Display', 'Times New Roman', serif;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.875rem, 4vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+  line-height: 1.25;
+}
+
+h4 {
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  line-height: 1.3;
+}
+
+h5 {
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+h6 {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   Lead / Supporting text
+   -------------------------------------------------------------------------- */
+.st-lead {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text-body);
+}
+
+@media (min-width: 768px) {
+  .st-lead {
+    font-size: 1.25rem;
+  }
+}
+
+.st-supporting {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   Labels
+   -------------------------------------------------------------------------- */
+.st-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  display: inline-block;
+}
+
+[data-theme="dark"] .st-label {
+  color: var(--color-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+.st-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.4;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.st-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.st-btn-primary {
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+  border-color: var(--color-primary);
+}
+
+.st-btn-primary:hover {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: var(--color-text-on-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(36, 52, 71, 0.25);
+}
+
+[data-theme="dark"] .st-btn-primary:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.st-btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-text-on-secondary);
+  border-color: var(--color-secondary);
+}
+
+.st-btn-secondary:hover {
+  background: var(--color-secondary-hover);
+  border-color: var(--color-secondary-hover);
+  color: var(--color-text-on-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(168, 191, 163, 0.3);
+}
+
+.st-btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.st-btn-outline:hover {
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(36, 52, 71, 0.15);
+}
+
+[data-theme="dark"] .st-btn-outline {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+[data-theme="dark"] .st-btn-outline:hover {
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+}
+
+.st-btn-ghost {
+  background: transparent;
+  color: var(--color-text-body);
+  border-color: transparent;
+  padding: 10px 20px;
+}
+
+.st-btn-ghost:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+[data-theme="dark"] .st-btn-ghost:hover {
+  background: rgba(74, 99, 120, 0.15);
+}
+
+.st-btn-lg {
+  padding: 15px 36px;
+  font-size: 1.0625rem;
+}
+
+.st-btn-sm {
+  padding: 8px 20px;
+  font-size: 0.8125rem;
+}
+
+.st-btn-block {
+  width: 100%;
+  display: flex;
+}
+
+.st-btn:active {
+  transform: translateY(0) !important;
+}
+
+.st-btn:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Link with icon
+   -------------------------------------------------------------------------- */
+.st-link-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: gap var(--transition-fast), color var(--transition-fast);
+}
+
+.st-link-icon svg {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--transition-fast);
+}
+
+.st-link-icon:hover {
+  color: var(--color-secondary);
+  gap: 10px;
+}
+
+[dir="rtl"] .st-link-icon svg {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .st-link-icon:hover svg {
+  transform: scaleX(-1) translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   Form Text
+   -------------------------------------------------------------------------- */
+.st-form-text {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-top: 6px;
+}
+
+.st-form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--color-text-body);
+  cursor: pointer;
+}
+
+.st-form-check input[type="checkbox"],
+.st-form-check input[type="radio"] {
+  margin-top: 3px;
+  flex-shrink: 0;
+  accent-color: var(--color-secondary);
+  width: 18px;
+  height: 18px;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Typography
+   -------------------------------------------------------------------------- */
+@media (max-width: 575px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.625rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+  .st-lead {
+    font-size: 1rem;
+  }
+  .st-btn {
+    padding: 10px 22px;
+    font-size: 0.875rem;
+  }
+  .st-btn-lg {
+    padding: 13px 28px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  .st-btn {
+    padding: 9px 18px;
+    font-size: 0.8125rem;
+  }
+}

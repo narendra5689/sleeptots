@@ -1,0 +1,2938 @@
+/* ==========================================================================
+   SleepTots — Signup Page
+   Same visual system as Login Page
+   Uses:
+   - global.css
+   - typography.css
+
+   No new global typography system.
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+
+/* ==========================================================================
+   01. PAGE ROOT
+   ========================================================================== */
+
+.slt-login-page {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 70px 20px 20px;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            circle at 8% 15%,
+            rgba(168, 191, 163, 0.15),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 92% 82%,
+            rgba(36, 52, 71, 0.07),
+            transparent 30%
+        ),
+        var(--color-bg);
+
+    transition:
+        background var(--transition-base);
+}
+
+
+/* ==========================================================================
+   02. BACKGROUND
+   ========================================================================== */
+
+.slt-login-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -1;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================================================
+   03. AMBIENT GLOWS
+   ========================================================================== */
+
+.slt-bg-glow {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(2px);
+
+    pointer-events: none;
+
+    opacity: 0.5;
+
+    animation:
+        slt-glow-drift 14s ease-in-out infinite alternate;
+}
+
+
+.slt-bg-glow-one {
+
+    width: 400px;
+    height: 400px;
+
+    top: -170px;
+    left: -120px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168, 191, 163, 0.23),
+            rgba(168, 191, 163, 0.07) 45%,
+            transparent 72%
+        );
+}
+
+
+.slt-bg-glow-two {
+
+    width: 480px;
+    height: 480px;
+
+    right: -220px;
+    bottom: -210px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(36, 52, 71, 0.10),
+            rgba(36, 52, 71, 0.03) 45%,
+            transparent 72%
+        );
+
+    animation-delay: -5s;
+}
+
+
+.slt-bg-glow-three {
+
+    width: 250px;
+    height: 250px;
+
+    top: 34%;
+    right: 18%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168, 191, 163, 0.08),
+            transparent 70%
+        );
+
+    animation-duration: 17s;
+    animation-delay: -8s;
+}
+
+
+/* ==========================================================================
+   04. DARK MODE BACKGROUND
+   ========================================================================== */
+
+[data-theme="dark"] .slt-login-page {
+
+    background:
+        radial-gradient(
+            circle at 8% 15%,
+            rgba(168, 191, 163, 0.07),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 92% 82%,
+            rgba(74, 99, 120, 0.10),
+            transparent 32%
+        ),
+        var(--color-bg);
+}
+
+
+[data-theme="dark"] .slt-bg-glow-one {
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168, 191, 163, 0.09),
+            transparent 70%
+        );
+}
+
+
+[data-theme="dark"] .slt-bg-glow-two {
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(74, 99, 120, 0.12),
+            transparent 70%
+        );
+}
+
+
+[data-theme="dark"] .slt-bg-glow-three {
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168, 191, 163, 0.05),
+            transparent 70%
+        );
+}
+
+
+/* ==========================================================================
+   05. ORBITS
+   ========================================================================== */
+
+.slt-bg-orbit {
+
+    position: absolute;
+
+    border: 1px solid
+        rgba(168, 191, 163, 0.12);
+
+    border-radius: 50%;
+
+    opacity: 0.65;
+
+    transform-origin: center;
+
+    animation:
+        slt-orbit-breathe 16s ease-in-out infinite;
+}
+
+
+.slt-bg-orbit-one {
+
+    width: min(720px, 72vw);
+    height: min(720px, 72vw);
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-12deg);
+}
+
+
+.slt-bg-orbit-two {
+
+    width: min(580px, 58vw);
+    height: min(580px, 58vw);
+
+    left: 50%;
+    top: 50%;
+
+    border-color:
+        rgba(36, 52, 71, 0.06);
+
+    transform:
+        translate(-50%, -50%)
+        rotate(20deg);
+
+    animation-duration: 19s;
+    animation-direction: reverse;
+}
+
+
+[data-theme="dark"] .slt-bg-orbit {
+
+    border-color:
+        rgba(168, 191, 163, 0.07);
+}
+
+
+[data-theme="dark"] .slt-bg-orbit-two {
+
+    border-color:
+        rgba(168, 191, 163, 0.04);
+}
+
+
+/* ==========================================================================
+   06. MOON
+   ========================================================================== */
+
+.slt-bg-moon {
+
+    position: absolute;
+
+    top: 12%;
+    right: 12%;
+
+    width: 64px;
+    height: 64px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 34% 32%,
+            rgba(255, 255, 255, 0.95),
+            rgba(168, 191, 163, 0.75) 50%,
+            rgba(168, 191, 163, 0.5)
+        );
+
+    box-shadow:
+        0 0 32px rgba(168, 191, 163, 0.24);
+
+    opacity: 0.68;
+
+    animation:
+        slt-moon-float 8s ease-in-out infinite;
+}
+
+
+.slt-bg-moon span {
+
+    position: absolute;
+
+    width: 64px;
+    height: 64px;
+
+    top: -8px;
+    left: 14px;
+
+    border-radius: 50%;
+
+    background: var(--color-bg);
+
+    transition:
+        background var(--transition-base);
+}
+
+
+[data-theme="dark"] .slt-bg-moon {
+
+    opacity: 0.38;
+
+    box-shadow:
+        0 0 40px rgba(168, 191, 163, 0.13);
+}
+
+
+/* ==========================================================================
+   07. STARS
+   ========================================================================== */
+
+.slt-star {
+
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: var(--color-secondary);
+
+    box-shadow:
+        0 0 9px rgba(168, 191, 163, 0.6);
+
+    animation:
+        slt-star-twinkle 4s ease-in-out infinite;
+}
+
+
+.slt-star::before,
+.slt-star::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background: currentColor;
+
+    opacity: 0.4;
+}
+
+
+.slt-star::before {
+
+    width: 1px;
+    height: 14px;
+}
+
+
+.slt-star::after {
+
+    width: 14px;
+    height: 1px;
+}
+
+
+.slt-star-1 {
+    top: 17%;
+    left: 21%;
+    animation-delay: -1s;
+}
+
+.slt-star-2 {
+    top: 27%;
+    right: 27%;
+    width: 3px;
+    height: 3px;
+    animation-delay: -3s;
+}
+
+.slt-star-3 {
+    top: 69%;
+    left: 16%;
+    width: 3px;
+    height: 3px;
+    animation-delay: -2s;
+}
+
+.slt-star-4 {
+    top: 78%;
+    right: 19%;
+    animation-delay: -4s;
+}
+
+.slt-star-5 {
+    top: 45%;
+    left: 7%;
+    width: 2px;
+    height: 2px;
+    animation-delay: -1.8s;
+}
+
+.slt-star-6 {
+    top: 58%;
+    right: 7%;
+    width: 2px;
+    height: 2px;
+    animation-delay: -3.5s;
+}
+
+
+/* ==========================================================================
+   08. PARTICLES
+   ========================================================================== */
+
+.slt-particle {
+
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: var(--color-secondary);
+
+    opacity: 0.35;
+
+    animation:
+        slt-particle-float 10s ease-in-out infinite;
+}
+
+
+.slt-particle-1 {
+    top: 30%;
+    left: 13%;
+}
+
+.slt-particle-2 {
+    top: 61%;
+    left: 27%;
+    animation-delay: -3s;
+}
+
+.slt-particle-3 {
+    top: 18%;
+    right: 35%;
+    animation-delay: -5s;
+}
+
+.slt-particle-4 {
+    bottom: 18%;
+    right: 31%;
+    animation-delay: -7s;
+}
+
+.slt-particle-5 {
+    bottom: 28%;
+    left: 43%;
+    animation-delay: -2s;
+}
+
+
+/* ==========================================================================
+   09. WAVES
+   ========================================================================== */
+
+.slt-bg-wave {
+
+    position: absolute;
+
+    left: -10%;
+
+    width: 120%;
+    height: 160px;
+
+    border-radius: 50%;
+
+    border-top:
+        1px solid rgba(168, 191, 163, 0.08);
+
+    opacity: 0.65;
+
+    animation:
+        slt-wave-drift 16s ease-in-out infinite alternate;
+}
+
+
+.slt-bg-wave-one {
+
+    bottom: -95px;
+
+    transform:
+        rotate(-4deg);
+}
+
+
+.slt-bg-wave-two {
+
+    bottom: -120px;
+
+    border-color:
+        rgba(36, 52, 71, 0.05);
+
+    transform:
+        rotate(5deg);
+
+    animation-delay: -7s;
+}
+
+
+[data-theme="dark"] .slt-bg-wave-one,
+[data-theme="dark"] .slt-bg-wave-two {
+
+    border-color:
+        rgba(168, 191, 163, 0.045);
+}
+
+
+/* ==========================================================================
+   10. TOP CONTROLS
+   ========================================================================== */
+
+.slt-login-controls {
+
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    z-index: 20;
+}
+
+
+.slt-control-btn,
+.slt-rtl-btn {
+
+    position: relative;
+
+    width: 38px;
+    height: 38px;
+
+    min-width: 38px;
+    min-height: 38px;
+
+    padding: 0;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.72);
+
+    border:
+        1px solid rgba(168, 191, 163, 0.55);
+
+    color:
+        var(--color-primary);
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 14px rgba(36, 52, 71, 0.10),
+        0 0 0 1px rgba(255, 255, 255, 0.30);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.slt-control-btn svg {
+
+    width: 16px;
+    height: 16px;
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+
+.slt-rtl-btn {
+
+    font-size: 0.62rem;
+
+    font-weight: 700;
+}
+
+
+/* Glow */
+
+.slt-control-btn::before,
+.slt-rtl-btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -3px;
+
+    border-radius: inherit;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168, 191, 163, 0.24),
+            transparent 68%
+        );
+
+    opacity: 0.65;
+
+    z-index: -1;
+
+    filter: blur(5px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* Hover */
+
+.slt-control-btn:hover,
+.slt-rtl-btn:hover {
+
+    transform:
+        translateY(-2px);
+
+    color:
+        var(--color-primary);
+
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    border-color:
+        rgba(168, 191, 163, 0.9);
+
+    box-shadow:
+        0 7px 20px rgba(36, 52, 71, 0.14),
+        0 0 14px rgba(168, 191, 163, 0.24);
+}
+
+
+.slt-control-btn:hover::before,
+.slt-rtl-btn:hover::before {
+
+    opacity: 1;
+
+    transform:
+        scale(1.08);
+}
+
+
+.slt-control-btn:hover svg {
+
+    transform:
+        scale(1.08);
+}
+
+
+/* ==========================================================================
+   DARK MODE CONTROLS
+   ========================================================================== */
+
+[data-theme="dark"] .slt-control-btn,
+[data-theme="dark"] .slt-rtl-btn {
+
+    background:
+        rgba(36, 52, 71, 0.78);
+
+    border-color:
+        rgba(168, 191, 163, 0.42);
+
+    color:
+        #ffffff;
+
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.28),
+        0 0 10px rgba(168, 191, 163, 0.10);
+}
+
+
+[data-theme="dark"] .slt-control-btn::before,
+[data-theme="dark"] .slt-rtl-btn::before {
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168, 191, 163, 0.30),
+            transparent 68%
+        );
+
+    opacity: 0.72;
+}
+
+
+[data-theme="dark"] .slt-control-btn:hover,
+[data-theme="dark"] .slt-rtl-btn:hover {
+
+    background:
+        rgba(36, 52, 71, 0.95);
+
+    border-color:
+        rgba(168, 191, 163, 0.78);
+
+    color:
+        #ffffff;
+
+    box-shadow:
+        0 7px 20px rgba(0, 0, 0, 0.34),
+        0 0 17px rgba(168, 191, 163, 0.25);
+}
+
+
+/* ==========================================================================
+   11. SIGNUP CARD
+   Same proportions as Login card
+   ========================================================================== */
+
+.slt-signup-card {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 450px;
+
+    box-sizing: border-box;
+
+    padding: 22px 26px 20px;
+
+    background:
+        var(--color-card);
+
+    border:
+        1px solid var(--color-border);
+
+    border-radius:
+        var(--radius-lg);
+
+    box-shadow:
+        0 20px 55px
+        rgba(36, 52, 71, 0.11);
+
+    z-index: 5;
+
+    animation:
+        slt-card-enter
+        0.7s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+
+    transition:
+        background var(--transition-base),
+        border-color var(--transition-base),
+        box-shadow var(--transition-base);
+}
+
+
+[data-theme="dark"] .slt-signup-card {
+
+    box-shadow:
+        0 20px 55px
+        rgba(0, 0, 0, 0.35);
+}
+
+
+/* ==========================================================================
+   12. BRAND
+   ========================================================================== */
+
+.slt-signup-brand {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 14px;
+}
+
+
+.slt-login-brand {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    width: fit-content;
+
+    margin: 0 auto;
+
+    color:
+        var(--color-text);
+
+    text-decoration: none;
+
+    direction: ltr;
+}
+
+
+.slt-login-brand img {
+
+    width: 50px;
+    height: 50px;
+
+    min-width: 50px;
+    min-height: 50px;
+
+    max-width: 50px;
+    max-height: 50px;
+
+    object-fit: contain;
+
+    flex: 0 0 50px;
+}
+
+
+.slt-brand-text {
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    direction: ltr;
+
+    unicode-bidi: isolate;
+}
+
+
+/* ==========================================================================
+   13. INTRO
+   ========================================================================== */
+
+.slt-signup-intro {
+
+    text-align: center;
+
+    margin-bottom: 13px;
+}
+
+
+.slt-signup-eyebrow {
+
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 0.62rem;
+
+    line-height: 1.2;
+}
+
+
+.slt-signup-intro h1 {
+
+    margin-bottom: 3px;
+
+    font-size: 1.35rem;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.01em;
+}
+
+
+.slt-signup-intro p {
+
+    margin: 0;
+
+    font-size: 0.76rem;
+
+    line-height: 1.35;
+}
+
+
+/* ==========================================================================
+   14. FORM
+   ========================================================================== */
+
+.slt-signup-form {
+
+    width: 100%;
+}
+
+
+.slt-signup-group {
+
+    margin-bottom: 8px;
+}
+
+
+.slt-signup-group label {
+
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 0.72rem;
+
+    line-height: 1.2;
+}
+
+
+/* ==========================================================================
+   15. INPUT
+   ========================================================================== */
+
+.slt-signup-input-wrap {
+
+    position: relative;
+
+    width: 100%;
+}
+
+
+.slt-signup-input-wrap input {
+
+    width: 100%;
+
+    height: 41px;
+
+    min-height: 41px;
+
+    box-sizing: border-box;
+
+    padding-left: 40px;
+    padding-right: 40px;
+
+    background:
+        var(--color-bg);
+
+    border:
+        1px solid var(--color-border);
+
+    color:
+        var(--color-text);
+
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast);
+}
+
+
+.slt-signup-input-wrap input:focus {
+
+    border-color:
+        var(--color-secondary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(168, 191, 163, 0.13);
+
+    outline: none;
+}
+
+
+.slt-signup-input-wrap input::placeholder {
+
+    font-size: 0.68rem;
+
+    opacity: 0.72;
+}
+
+
+.slt-signup-input-icon {
+
+    position: absolute;
+
+    left: 13px;
+    top: 50%;
+
+    width: 14px;
+    height: 14px;
+
+    transform:
+        translateY(-50%);
+
+    color:
+        var(--color-text-muted);
+
+    pointer-events: none;
+
+    z-index: 2;
+
+    transition:
+        color var(--transition-fast);
+}
+
+
+.slt-signup-input-wrap:focus-within
+.slt-signup-input-icon {
+
+    color:
+        var(--color-secondary);
+}
+
+
+/* ==========================================================================
+   16. PASSWORD
+   ========================================================================== */
+
+.slt-signup-password-row {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 8px;
+
+    margin-bottom: 8px;
+}
+
+
+.slt-signup-password-row
+.slt-signup-group {
+
+    margin-bottom: 0;
+}
+
+
+.slt-signup-password-toggle {
+
+    position: absolute;
+
+    top: 50%;
+    right: 7px;
+
+    width: 27px;
+    height: 27px;
+
+    padding: 0;
+
+    transform:
+        translateY(-50%);
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+
+    background:
+        transparent;
+
+    color:
+        var(--color-text-muted);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition:
+        color var(--transition-fast),
+        background var(--transition-fast);
+}
+
+
+.slt-signup-password-toggle:hover {
+
+    color:
+        var(--color-primary);
+
+    background:
+        var(--color-primary-light);
+}
+
+
+.slt-signup-password-toggle svg {
+
+    width: 15px;
+    height: 15px;
+}
+
+
+/* ==========================================================================
+   17. TERMS
+   ========================================================================== */
+
+.slt-signup-terms {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 6px;
+
+    margin:
+        2px 0 11px;
+
+    color:
+        var(--color-text-body);
+
+    font-size: 0.70rem;
+
+    line-height: 1.35;
+
+    cursor: pointer;
+}
+
+
+.slt-signup-terms input {
+
+    width: 14px;
+    height: 14px;
+
+    margin: 1px 0 0;
+
+    flex: 0 0 14px;
+
+    accent-color:
+        var(--color-secondary);
+
+    cursor: pointer;
+}
+
+
+.slt-signup-terms a {
+
+    color:
+        var(--color-primary);
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+.slt-signup-terms a:hover {
+
+    color:
+        var(--color-secondary);
+}
+
+
+/* ==========================================================================
+   18. CREATE ACCOUNT
+   ========================================================================== */
+
+.slt-signup-submit {
+
+    width: 100%;
+
+    min-height: 41px;
+    height: 41px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border:
+        1px solid var(--color-primary);
+
+    border-radius:
+        var(--radius-md);
+
+    background:
+        var(--color-primary);
+
+    color:
+        var(--color-text-on-primary);
+
+    font-size: 0.78rem;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 18px
+        rgba(36, 52, 71, 0.14);
+
+    transition:
+        transform var(--transition-fast),
+        background var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+
+.slt-signup-submit:hover {
+
+    box-shadow:
+        0 10px 22px
+        rgba(36, 52, 71, 0.19);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.slt-signup-submit svg {
+
+    width: 15px;
+    height: 15px;
+
+    transition:
+        transform var(--transition-fast);
+}
+
+
+.slt-signup-submit:hover svg {
+
+    transform:
+        translateX(3px);
+}
+
+
+/* ==========================================================================
+   19. DIVIDER
+   ========================================================================== */
+
+.slt-signup-divider {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    width: 100%;
+
+    margin:
+        12px 0 9px;
+}
+
+
+.slt-signup-divider span {
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        var(--color-border);
+}
+
+
+.slt-signup-divider small {
+
+    flex-shrink: 0;
+
+    color:
+        var(--color-text-muted);
+
+    font-size: 0.56rem;
+
+    font-weight: 600;
+
+    letter-spacing:
+        0.05em;
+
+    white-space: nowrap;
+}
+
+
+/* ==========================================================================
+   20. SOCIAL SIGNUP
+   ========================================================================== */
+
+.slt-social-signup {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 6px;
+
+    width: 100%;
+}
+
+
+.slt-social-btn {
+
+    min-width: 0;
+
+    min-height: 38px;
+    height: 38px;
+
+    padding:
+        5px 7px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    border:
+        1px solid var(--color-border);
+
+    border-radius:
+        var(--radius-md);
+
+    background:
+        var(--color-card);
+
+    color:
+        var(--color-text);
+
+    font-size:
+        0.68rem;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition:
+        transform var(--transition-fast),
+        border-color var(--transition-fast),
+        background var(--transition-fast),
+        color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+
+.slt-social-btn:hover {
+
+    transform:
+        translateY(-1px);
+
+    border-color:
+        var(--color-secondary);
+
+    background:
+        var(--color-bg-soft);
+
+    box-shadow:
+        var(--shadow-sm);
+}
+
+
+.slt-social-btn svg {
+
+    width: 14px;
+    height: 14px;
+
+    flex-shrink: 0;
+}
+
+
+/* ==========================================================================
+   21. LOGIN LINK
+   ========================================================================== */
+
+.slt-signup-login {
+
+    margin:
+        10px 0 0;
+
+    text-align: center;
+
+    color:
+        var(--color-text-muted);
+
+    font-size:
+        0.68rem;
+
+    line-height:
+        1.35;
+}
+
+
+.slt-signup-login a {
+
+    margin-left: 4px;
+
+    color:
+        var(--color-secondary);
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        color var(--transition-fast);
+}
+
+
+.slt-signup-login a:hover {
+
+    color:
+        var(--color-secondary-hover);
+}
+
+
+/* ==========================================================================
+   22. RTL
+   ========================================================================== */
+
+html[dir="rtl"] .slt-login-page {
+
+    direction: rtl;
+}
+
+
+html[dir="rtl"] .slt-login-controls {
+
+    right: auto;
+    left: 20px;
+
+    direction: rtl;
+}
+
+
+html[dir="rtl"] .slt-signup-card {
+
+    direction: rtl;
+}
+
+
+/* Brand:
+   LTR  = Logo + SleepTots
+   RTL  = SleepTots + Logo
+*/
+
+html[dir="rtl"] .slt-login-brand {
+
+    direction: rtl;
+
+    flex-direction:
+        row-reverse;
+}
+
+
+html[dir="rtl"] .slt-brand-text {
+
+    direction: ltr;
+
+    unicode-bidi: isolate;
+
+    text-align: right;
+}
+
+
+/* Form */
+
+html[dir="rtl"] .slt-signup-form,
+html[dir="rtl"] .slt-signup-group,
+html[dir="rtl"] .slt-signup-terms {
+
+    direction: rtl;
+}
+
+
+html[dir="rtl"] .slt-signup-group label {
+
+    text-align: right;
+}
+
+
+/* Inputs */
+
+html[dir="rtl"]
+.slt-signup-input-wrap input {
+
+    direction: rtl;
+
+    text-align: right;
+
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+
+/* Input icons */
+
+html[dir="rtl"]
+.slt-signup-input-icon {
+
+    left: auto;
+    right: 13px;
+}
+
+
+/* Password eye */
+
+html[dir="rtl"]
+.slt-signup-password-toggle {
+
+    right: auto;
+    left: 7px;
+}
+
+
+/* Submit */
+
+html[dir="rtl"]
+.slt-signup-submit {
+
+    direction: rtl;
+}
+
+
+html[dir="rtl"]
+.slt-signup-submit svg {
+
+    transform:
+        scaleX(-1);
+}
+
+
+html[dir="rtl"]
+.slt-signup-submit:hover svg {
+
+    transform:
+        scaleX(-1)
+        translateX(3px);
+}
+
+
+/* Social */
+
+html[dir="rtl"]
+.slt-social-signup {
+
+    direction: rtl;
+}
+
+
+html[dir="rtl"]
+.slt-social-btn {
+
+    direction: rtl;
+}
+
+
+/* Login text */
+
+html[dir="rtl"]
+.slt-signup-login {
+
+    direction: rtl;
+
+    text-align: center;
+}
+
+
+html[dir="rtl"]
+.slt-signup-login a {
+
+    margin-left: 0;
+
+    margin-right: 4px;
+}
+
+
+/* ==========================================================================
+   23. RTL BACKGROUND
+   ========================================================================== */
+
+html[dir="rtl"] .slt-bg-moon {
+
+    right: auto;
+    left: 12%;
+}
+
+
+html[dir="rtl"] .slt-bg-glow-one {
+
+    left: auto;
+    right: -120px;
+}
+
+
+html[dir="rtl"] .slt-bg-glow-two {
+
+    right: auto;
+    left: -220px;
+}
+
+
+/* ==========================================================================
+   24. DARK MODE — SIGNUP CONTENT
+   ========================================================================== */
+
+[data-theme="dark"] .slt-signup-input-wrap input {
+
+    background:
+        var(--color-bg);
+
+    color:
+        var(--color-text);
+}
+
+
+[data-theme="dark"]
+.slt-signup-input-wrap input::placeholder {
+
+    opacity: 0.60;
+}
+
+
+[data-theme="dark"]
+.slt-signup-terms {
+
+    color:
+        var(--color-text-body);
+}
+
+
+[data-theme="dark"]
+.slt-signup-terms a {
+
+    color:
+        var(--color-secondary);
+}
+
+
+[data-theme="dark"]
+.slt-signup-login {
+
+    color:
+        var(--color-text-muted);
+}
+
+
+[data-theme="dark"]
+.slt-social-btn {
+
+    background:
+        var(--color-card);
+}
+
+
+[data-theme="dark"]
+.slt-social-btn:hover {
+
+    background:
+        var(--color-card-alt);
+}
+
+
+/* ==========================================================================
+   25. TABLET
+   ========================================================================== */
+
+@media (min-width: 576px) and (max-width: 991px) {
+
+    .slt-login-page {
+
+        min-height: 100svh;
+
+        padding:
+            68px
+            18px
+            18px;
+    }
+
+
+    .slt-signup-card {
+
+        max-width: 440px;
+
+        padding:
+            21px
+            25px
+            19px;
+    }
+
+
+    .slt-signup-brand {
+
+        margin-bottom:
+            13px;
+    }
+
+
+    .slt-signup-intro {
+
+        margin-bottom:
+            12px;
+    }
+
+
+    .slt-signup-input-wrap input {
+
+        height: 40px;
+
+        min-height: 40px;
+    }
+
+
+    .slt-signup-submit {
+
+        min-height: 40px;
+        height: 40px;
+    }
+
+
+    .slt-social-btn {
+
+        min-height: 37px;
+        height: 37px;
+    }
+}
+
+
+/* ==========================================================================
+   26. MOBILE PORTRAIT
+   ========================================================================== */
+
+@media (max-width: 575px)
+and (orientation: portrait) {
+
+    .slt-login-page {
+
+        min-height: 100svh;
+
+        align-items: flex-start;
+
+        padding:
+            65px
+            10px
+            12px;
+
+        box-sizing: border-box;
+
+        overflow: hidden;
+    }
+
+
+    .slt-login-controls {
+
+        top: 12px;
+        right: 12px;
+
+        gap: 6px;
+    }
+
+
+    html[dir="rtl"] .slt-login-controls {
+
+        right: auto;
+        left: 12px;
+    }
+
+
+    .slt-control-btn,
+    .slt-rtl-btn {
+
+        width: 36px;
+        height: 36px;
+
+        min-width: 36px;
+        min-height: 36px;
+    }
+
+
+    .slt-control-btn svg {
+
+        width: 15px;
+        height: 15px;
+    }
+
+
+    .slt-rtl-btn {
+
+        font-size:
+            0.58rem;
+    }
+
+
+    .slt-signup-card {
+
+        width: 100%;
+
+        max-width: 420px;
+
+        padding:
+            19px
+            15px
+            17px;
+
+        box-sizing: border-box;
+    }
+
+
+    .slt-signup-brand {
+
+        margin-bottom:
+            12px;
+    }
+
+
+    .slt-login-brand img {
+
+        width: 50px;
+        height: 50px;
+
+        min-width: 50px;
+        min-height: 50px;
+    }
+
+
+    .slt-brand-text {
+
+        font-size:
+            24px;
+    }
+
+
+    .slt-signup-intro {
+
+        margin-bottom:
+            12px;
+    }
+
+
+    .slt-signup-intro h1 {
+
+        font-size:
+            1.20rem;
+
+        line-height:
+            1.15;
+    }
+
+
+    .slt-signup-intro p {
+
+        font-size:
+            0.72rem;
+
+        line-height:
+            1.35;
+    }
+
+
+    .slt-signup-group {
+
+        margin-bottom:
+            7px;
+    }
+
+
+    .slt-signup-group label {
+
+        font-size:
+            0.70rem;
+
+        margin-bottom:
+            2px;
+    }
+
+
+    .slt-signup-input-wrap input {
+
+        height:
+            40px;
+
+        min-height:
+            40px;
+    }
+
+
+    .slt-signup-password-row {
+
+        gap:
+            7px;
+    }
+
+
+    .slt-signup-terms {
+
+        font-size:
+            0.67rem;
+
+        margin-bottom:
+            9px;
+    }
+
+
+    .slt-signup-submit {
+
+        min-height:
+            40px;
+
+        height:
+            40px;
+
+        font-size:
+            0.74rem;
+    }
+
+
+    .slt-signup-divider {
+
+        margin:
+            11px
+            0
+            8px;
+    }
+
+
+    .slt-social-btn {
+
+        min-height:
+            37px;
+
+        height:
+            37px;
+
+        font-size:
+            0.68rem;
+    }
+
+
+    .slt-signup-login {
+
+        margin-top:
+            9px;
+
+        font-size:
+            0.68rem;
+    }
+}
+
+
+/* ==========================================================================
+   27. SAMSUNG S8+ — PORTRAIT
+   ========================================================================== */
+
+@media (max-width: 370px)
+and (orientation: portrait) {
+
+    .slt-login-page {
+
+        padding:
+            58px
+            9px
+            10px;
+    }
+
+
+    .slt-login-controls {
+
+        top: 9px;
+        right: 9px;
+
+        gap: 5px;
+    }
+
+
+    html[dir="rtl"] .slt-login-controls {
+
+        right: auto;
+        left: 9px;
+    }
+
+
+    .slt-control-btn,
+    .slt-rtl-btn {
+
+        width: 34px;
+        height: 34px;
+
+        min-width: 34px;
+        min-height: 34px;
+    }
+
+
+    .slt-control-btn svg {
+
+        width: 14px;
+        height: 14px;
+    }
+
+
+    .slt-rtl-btn {
+
+        font-size:
+            0.55rem;
+    }
+
+
+    .slt-signup-card {
+
+        max-width: 100%;
+
+        padding:
+            17px
+            13px
+            15px;
+    }
+
+
+    /* Keep requested logo size */
+
+    .slt-login-brand img {
+
+        width: 50px;
+        height: 50px;
+
+        min-width: 50px;
+        min-height: 50px;
+
+        max-width: 50px;
+        max-height: 50px;
+    }
+
+
+    .slt-brand-text {
+
+        font-size:
+            24px;
+    }
+
+
+    .slt-signup-brand {
+
+        margin-bottom:
+            10px;
+    }
+
+
+    .slt-signup-intro {
+
+        margin-bottom:
+            10px;
+    }
+
+
+    .slt-signup-intro h1 {
+
+        font-size:
+            1.12rem;
+    }
+
+
+    .slt-signup-intro p {
+
+        font-size:
+            0.69rem;
+    }
+
+
+    .slt-signup-group {
+
+        margin-bottom:
+            6px;
+    }
+
+
+    .slt-signup-group label {
+
+        font-size:
+            0.70rem;
+
+        margin-bottom:
+            2px;
+    }
+
+
+    .slt-signup-input-wrap input {
+
+        height:
+            38px;
+
+        min-height:
+            38px;
+
+        font-size:
+            0.68rem;
+    }
+
+
+    .slt-signup-input-icon {
+
+        width:
+            14px;
+
+        height:
+            14px;
+
+        left:
+            10px;
+    }
+
+
+    html[dir="rtl"]
+    .slt-signup-input-icon {
+
+        left:
+            auto;
+
+        right:
+            10px;
+    }
+
+
+    .slt-signup-password-toggle {
+
+        width:
+            24px;
+
+        height:
+            24px;
+
+        right:
+            5px;
+    }
+
+
+    html[dir="rtl"]
+    .slt-signup-password-toggle {
+
+        right:
+            auto;
+
+        left:
+            5px;
+    }
+
+
+    .slt-signup-password-toggle svg {
+
+        width:
+            14px;
+
+        height:
+            14px;
+    }
+
+
+    .slt-signup-terms {
+
+        font-size:
+            0.64rem;
+
+        margin-bottom:
+            8px;
+    }
+
+
+    .slt-signup-submit {
+
+        min-height:
+            38px;
+
+        height:
+            38px;
+
+        font-size:
+            0.74rem;
+    }
+
+
+    .slt-signup-divider {
+
+        margin:
+            9px
+            0
+            7px;
+    }
+
+
+    .slt-signup-divider small {
+
+        font-size:
+            0.52rem;
+    }
+
+
+    .slt-social-signup {
+
+        gap:
+            5px;
+    }
+
+
+    .slt-social-btn {
+
+        min-height:
+            34px;
+
+        height:
+            34px;
+
+        padding:
+            4px
+            5px;
+
+        font-size:
+            0.62rem;
+    }
+
+
+    .slt-social-btn svg {
+
+        width:
+            13px;
+
+        height:
+            13px;
+    }
+
+
+    .slt-signup-login {
+
+        margin-top:
+            7px;
+
+        font-size:
+            0.62rem;
+    }
+}
+
+
+/* ==========================================================================
+   28. SAMSUNG S8+ LANDSCAPE
+   ========================================================================== */
+
+@media (max-width: 991px)
+and (orientation: landscape) {
+
+    .slt-login-page {
+
+        width: 100%;
+
+        height: 100svh;
+
+        min-height: 100svh;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        padding:
+            38px
+            10px
+            6px;
+
+        box-sizing: border-box;
+
+        overflow: hidden;
+    }
+
+
+    .slt-login-controls {
+
+        top: 6px;
+        right: 10px;
+
+        gap:
+            5px;
+    }
+
+
+    html[dir="rtl"]
+    .slt-login-controls {
+
+        right:
+            auto;
+
+        left:
+            10px;
+    }
+
+
+    .slt-control-btn,
+    .slt-rtl-btn {
+
+        width:
+            34px;
+
+        height:
+            34px;
+
+        min-width:
+            34px;
+
+        min-height:
+            34px;
+    }
+
+
+    .slt-control-btn svg {
+
+        width:
+            14px;
+
+        height:
+            14px;
+    }
+
+
+    .slt-rtl-btn {
+
+        font-size:
+            0.55rem;
+    }
+
+
+    /* CARD */
+
+    .slt-signup-card {
+
+        width:
+            min(610px, calc(100vw - 20px));
+
+        max-width:
+            610px;
+
+        padding:
+            7px
+            20px
+            6px;
+
+        border-radius:
+            13px;
+    }
+
+
+    /* LOGO */
+
+    .slt-signup-brand {
+
+        gap:
+            6px;
+
+        margin-bottom:
+            3px;
+    }
+
+
+    .slt-login-brand img {
+
+        width:
+            50px;
+
+        height:
+            50px;
+
+        min-width:
+            50px;
+
+        min-height:
+            50px;
+    }
+
+
+    .slt-brand-text {
+
+        font-size:
+            24px;
+    }
+
+
+    /* INTRO */
+
+    .slt-signup-intro {
+
+        margin-bottom:
+            4px;
+    }
+
+
+    .slt-signup-eyebrow {
+
+        display:
+            none;
+    }
+
+
+    .slt-signup-intro h1 {
+
+        font-size:
+            1rem;
+
+        line-height:
+            1.05;
+
+        margin-bottom:
+            1px;
+    }
+
+
+    .slt-signup-intro p {
+
+        font-size:
+            0.62rem;
+
+        line-height:
+            1.1;
+    }
+
+
+    /* FORM */
+
+    .slt-signup-group {
+
+        margin-bottom:
+            3px;
+    }
+
+
+    .slt-signup-group label {
+
+        font-size:
+            0.60rem;
+
+        margin-bottom:
+            1px;
+
+        line-height:
+            1.1;
+    }
+
+
+    /* INPUTS */
+
+    .slt-signup-input-wrap input {
+
+        width:
+            100%;
+
+        height:
+            31px;
+
+        min-height:
+            31px;
+
+        padding-left:
+            35px;
+
+        padding-right:
+            35px;
+
+        font-size:
+            0.64rem;
+
+        box-sizing:
+            border-box;
+    }
+
+
+    .slt-signup-input-icon {
+
+        width:
+            12px;
+
+        height:
+            12px;
+
+        left:
+            10px;
+    }
+
+
+    html[dir="rtl"]
+    .slt-signup-input-icon {
+
+        left:
+            auto;
+
+        right:
+            10px;
+    }
+
+
+    .slt-signup-password-row {
+
+        gap:
+            5px;
+
+        margin-bottom:
+            3px;
+    }
+
+
+    .slt-signup-password-toggle {
+
+        width:
+            22px;
+
+        height:
+            22px;
+
+        right:
+            5px;
+    }
+
+
+    html[dir="rtl"]
+    .slt-signup-password-toggle {
+
+        right:
+            auto;
+
+        left:
+            5px;
+    }
+
+
+    .slt-signup-password-toggle svg {
+
+        width:
+            12px;
+
+        height:
+            12px;
+    }
+
+
+    /* TERMS */
+
+    .slt-signup-terms {
+
+        font-size:
+            0.58rem;
+
+        line-height:
+            1.1;
+
+        margin:
+            2px 0 5px;
+    }
+
+
+    .slt-signup-terms input {
+
+        width:
+            11px;
+
+        height:
+            11px;
+
+        flex-basis:
+            11px;
+    }
+
+
+    /* BUTTON */
+
+    .slt-signup-submit {
+
+        min-height:
+            34px;
+
+        height:
+            34px;
+
+        font-size:
+            0.68rem;
+    }
+
+
+    .slt-signup-submit svg {
+
+        width:
+            13px;
+
+        height:
+            13px;
+    }
+
+
+    /* DIVIDER */
+
+    .slt-signup-divider {
+
+        margin:
+            7px
+            0
+            5px;
+    }
+
+
+    .slt-signup-divider small {
+
+        font-size:
+            0.48rem;
+    }
+
+
+    /* SOCIAL */
+
+    .slt-social-signup {
+
+        gap:
+            4px;
+    }
+
+
+    .slt-social-btn {
+
+        min-height:
+            31px;
+
+        height:
+            31px;
+
+        padding:
+            3px
+            5px;
+
+        font-size:
+            0.58rem;
+    }
+
+
+    .slt-social-btn svg {
+
+        width:
+            12px;
+
+        height:
+            12px;
+    }
+
+
+    /* LOGIN LINK */
+
+    .slt-signup-login {
+
+        margin-top:
+            5px;
+
+        font-size:
+            0.58rem;
+    }
+}
+
+
+/* ==========================================================================
+   29. VERY SMALL LANDSCAPE
+   ========================================================================== */
+
+@media (max-width: 740px)
+and (max-height: 380px)
+and (orientation: landscape) {
+
+    .slt-signup-card {
+
+        width:
+            min(580px, calc(100vw - 18px));
+
+        padding:
+            5px
+            18px
+            5px;
+    }
+
+
+    .slt-signup-intro h1 {
+
+        font-size:
+            0.95rem;
+    }
+
+
+    .slt-signup-intro p {
+
+        font-size:
+            0.58rem;
+    }
+
+
+    .slt-signup-input-wrap input {
+
+        height:
+            29px;
+
+        min-height:
+            29px;
+    }
+
+
+    .slt-signup-submit {
+
+        height:
+            31px;
+
+        min-height:
+            31px;
+    }
+
+
+    .slt-social-btn {
+
+        height:
+            29px;
+
+        min-height:
+            29px;
+    }
+}
+
+
+/* ==========================================================================
+   30. ACCESSIBILITY
+   ========================================================================== */
+
+.slt-control-btn:focus-visible,
+.slt-rtl-btn:focus-visible,
+.slt-signup-submit:focus-visible,
+.slt-social-btn:focus-visible,
+.slt-signup-password-toggle:focus-visible,
+.slt-signup-login a:focus-visible,
+.slt-signup-terms a:focus-visible {
+
+    outline:
+        2px solid var(--color-secondary);
+
+    outline-offset:
+        3px;
+}
+
+
+/* ==========================================================================
+   31. REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .slt-bg-glow,
+    .slt-bg-orbit,
+    .slt-bg-moon,
+    .slt-star,
+    .slt-particle,
+    .slt-bg-wave,
+    .slt-signup-card {
+
+        animation:
+            none !important;
+    }
+
+    .slt-control-btn,
+    .slt-rtl-btn,
+    .slt-signup-submit,
+    .slt-social-btn {
+
+        transition:
+            none !important;
+    }
+}
+
+
+/* ============================================================
+   SLEEPTOTS BRAND — EXACT LOGIN PAGE BEHAVIOUR
+   LTR  : LOGO → TITLE
+   RTL  : TITLE → LOGO
+   ============================================================ */
+
+/* Brand wrapper */
+.slt-signup-brand,
+.slt-login-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: 100%;
+    direction: ltr;
+}
+
+/* Logo */
+.slt-signup-brand img,
+.slt-login-brand img {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+
+    object-fit: contain;
+    display: block;
+
+    flex: 0 0 50px;
+}
+
+/* SleepTots title */
+.slt-signup-brand .slt-brand-text,
+.slt-login-brand .slt-brand-text {
+    font-size: 24px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+
+    margin: 0;
+    padding: 0;
+
+    white-space: nowrap;
+    display: block;
+
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+
+/* ============================================================
+   RTL — TITLE → LOGO
+   ============================================================ */
+
+html[dir="rtl"] .slt-signup-brand,
+html[dir="rtl"] .slt-login-brand,
+.slt-signup-card[dir="rtl"] .slt-signup-brand,
+.slt-login-card[dir="rtl"] .slt-login-brand {
+    direction: rtl;
+    flex-direction: row;
+}
+
+/*
+   Because the brand container is explicitly RTL,
+   the DOM becomes:
+
+       SleepTots → Logo
+*/
+
+/* Keep SleepTots itself visually unchanged in RTL */
+html[dir="rtl"] .slt-signup-brand .slt-brand-text,
+html[dir="rtl"] .slt-login-brand .slt-brand-text,
+.slt-signup-card[dir="rtl"] .slt-brand-text,
+.slt-login-card[dir="rtl"] .slt-brand-text {
+    direction: ltr;
+    unicode-bidi: isolate;
+
+    font-size: 24px !important;
+    font-weight: 400 !important;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    .slt-signup-brand,
+    .slt-login-brand {
+        gap: 9px;
+    }
+
+    .slt-signup-brand img,
+    .slt-login-brand img {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        min-height: 50px;
+    }
+
+    .slt-signup-brand .slt-brand-text,
+    .slt-login-brand .slt-brand-text {
+        font-size: 24px !important;
+    }
+}
+
+/* ============================================================
+   SAMSUNG S8+ / SMALL PHONES
+   ============================================================ */
+
+@media (max-width: 370px) {
+
+    .slt-signup-brand,
+    .slt-login-brand {
+        gap: 8px;
+    }
+
+    .slt-signup-brand img,
+    .slt-login-brand img {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        min-height: 50px;
+    }
+
+    .slt-signup-brand .slt-brand-text,
+    .slt-login-brand .slt-brand-text {
+        font-size: 24px !important;
+    }
+}
+
+
+.slt-brand-text {
+    font-family: 'DM Serif Display', 'Times New Roman', serif !important;
+    font-size: 24px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.02em !important;
+    white-space: nowrap;
+}

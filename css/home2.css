@@ -1,0 +1,2736 @@
+/* ==========================================================================
+   SleepTots — Home 2 (Premium) Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   HERO — Cinematic / Premium
+   ========================================================================== */
+.home2-hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--color-primary);
+}
+
+[data-theme="dark"] .home2-hero {
+  background: #0a1018;
+}
+
+/* Background image layer */
+.hero2-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero2-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+  animation: float-slow 20s ease-in-out infinite;
+}
+
+[data-theme="dark"] .hero2-bg img {
+  opacity: 0.25;
+}
+
+.hero2-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(36, 52, 71, 0.85) 0%, rgba(36, 52, 71, 0.5) 50%, rgba(168, 191, 163, 0.3) 100%);
+  z-index: 1;
+}
+
+[data-theme="dark"] .hero2-bg-overlay {
+  background: linear-gradient(135deg, rgba(10, 16, 24, 0.9) 0%, rgba(10, 16, 24, 0.6) 50%, rgba(168, 191, 163, 0.15) 100%);
+}
+
+/* Animated gradient overlay */
+.hero2-gradient-anim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(120deg, transparent 30%, rgba(168, 191, 163, 0.08) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: gradient-shift 10s ease-in-out infinite;
+}
+
+/* Stars */
+.hero2-star {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  animation: twinkle 3s ease-in-out infinite;
+  z-index: 2;
+}
+
+.hero2-star.s1 { top: 15%; left: 10%; width: 3px; height: 3px; }
+.hero2-star.s2 { top: 25%; left: 25%; width: 4px; height: 4px; animation-delay: 0.8s; }
+.hero2-star.s3 { top: 12%; left: 45%; width: 2px; height: 2px; animation-delay: 1.5s; }
+.hero2-star.s4 { top: 30%; left: 65%; width: 3px; height: 3px; animation-delay: 0.3s; }
+.hero2-star.s5 { top: 18%; left: 80%; width: 4px; height: 4px; animation-delay: 1.2s; }
+.hero2-star.s6 { top: 40%; left: 15%; width: 2px; height: 2px; animation-delay: 2s; }
+.hero2-star.s7 { top: 35%; left: 90%; width: 3px; height: 3px; animation-delay: 0.6s; }
+
+/* Floating glass cards */
+.hero2-glass-card {
+  position: absolute;
+  z-index: 4;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.hero2-glass-card.gc1 {
+  top: 20%;
+  right: 5%;
+  animation: bob 5s ease-in-out infinite;
+}
+
+.hero2-glass-card.gc2 {
+  bottom: 18%;
+  left: 3%;
+  animation: bob 6s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.hero2-glass-card.gc3 {
+  bottom: 30%;
+  right: 8%;
+  animation: bob 7s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+.gc-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(168, 191, 163, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.gc-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.gc-text {
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+}
+
+.gc-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.gc-sub {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+/* Hero content */
+.hero2-content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  padding: 80px 24px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.hero2-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fade-in-up 0.8s ease forwards;
+  animation-delay: 0.15s;
+}
+
+.hero2-label svg {
+  width: 16px;
+  height: 16px;
+}
+
+.hero2-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: #ffffff;
+  margin-bottom: 24px;
+  max-width: 760px;
+  line-height: 1.05;
+  opacity: 0;
+  animation: fade-in-up 0.8s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.hero2-title .accent {
+  color: var(--color-secondary);
+  font-style: italic;
+}
+
+.hero2-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 560px;
+  margin-bottom: 36px;
+  line-height: 1.7;
+  opacity: 0;
+  animation: fade-in-up 0.8s ease forwards;
+  animation-delay: 0.45s;
+}
+
+.hero2-cta-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fade-in-up 0.8s ease forwards;
+  animation-delay: 0.6s;
+}
+
+.hero2-cta-row .st-btn-primary {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-text-on-secondary);
+}
+
+.hero2-cta-row .st-btn-primary:hover {
+  background: var(--color-secondary-hover);
+  border-color: var(--color-secondary-hover);
+}
+
+.hero2-cta-row .st-btn-outline {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.hero2-cta-row .st-btn-outline:hover {
+  background: #ffffff;
+  color: var(--color-primary);
+  border-color: #ffffff;
+}
+
+/* Scroll indicator */
+.hero2-scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: bounce-soft 2.5s ease-in-out infinite;
+}
+
+.hero2-scroll svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ==========================================================================
+   PREMIUM INTRO
+   ========================================================================== */
+.home2-intro {
+  position: relative;
+  overflow: hidden;
+}
+
+.intro2-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.intro2-text h2 {
+  margin-bottom: 24px;
+}
+
+.intro2-text p {
+  margin-bottom: 16px;
+}
+
+.intro2-visual {
+  position: relative;
+}
+
+.intro2-img-stack {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.intro2-img-stack img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.intro2-img-stack .img-tall {
+  aspect-ratio: 3 / 4;
+}
+
+.intro2-img-stack .img-wide {
+  aspect-ratio: 4 / 5;
+  margin-top: 40px;
+}
+
+.intro2-badge {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  background: var(--color-secondary);
+  color: var(--color-text-on-secondary);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  z-index: 2;
+  animation: pulse-soft 4s ease-in-out infinite;
+}
+
+.intro2-badge .badge-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.intro2-badge .badge-lbl {
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   PERSONALIZED JOURNEY
+   ========================================================================== */
+.journey-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.journey-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.journey-card .journey-step {
+  font-family: 'DM Serif Display', serif;
+  font-size: 4rem;
+  color: var(--color-secondary);
+  opacity: 0.15;
+  line-height: 1;
+  margin-bottom: 16px;
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.journey-card:hover .journey-step {
+  opacity: 0.3;
+  transform: scale(1.1);
+}
+
+.journey-card h3 {
+  margin-bottom: 12px;
+}
+
+.journey-card p {
+  font-size: 0.9375rem;
+}
+
+/* ==========================================================================
+   SLEEP PHILOSOPHY (Premium layout)
+   ========================================================================== */
+.philosophy2-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.philosophy2-img {
+  position: relative;
+}
+
+.philosophy2-img img {
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.philosophy2-overlay {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+[data-theme="dark"] .philosophy2-overlay {
+  background: rgba(22, 32, 45, 0.9);
+}
+
+.philosophy2-overlay h4 {
+  margin-bottom: 8px;
+}
+
+.philosophy2-overlay p {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.philosophy2-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.pillar-item {
+  display: flex;
+  gap: 20px;
+  padding: 38px;
+  border-radius: var(--radius-md);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+.pillar-item:hover {
+  transform: translateX(8px);
+  border-color: var(--color-secondary);
+}
+
+[dir="rtl"] .pillar-item:hover {
+  transform: translateX(-8px);
+}
+
+
+.pillar-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .pillar-icon {
+  background: var(--color-primary);
+}
+
+.pillar-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.pillar-item h4 {
+  margin-bottom: 6px;
+}
+
+.pillar-item p {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* ==========================================================================
+   WHAT'S INCLUDED
+   ========================================================================== */
+.included-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.included-card {
+  text-align: center;
+}
+
+.included-card .st-card-icon {
+  margin: 0 auto 20px;
+}
+
+.included-card h3 {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+}
+
+.included-card p {
+  font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   EXPERT GUIDANCE
+   ========================================================================== */
+.expert-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.expert-img img {
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.expert-credentials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.credential-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.credential-item svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-secondary);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   PREMIUM CTA
+   ========================================================================== */
+.home2-cta {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  padding: 80px 48px;
+  text-align: center;
+  background: var(--color-primary);
+}
+
+[data-theme="dark"] .home2-cta {
+  background: var(--color-card-alt);
+  border: 1px solid var(--color-border);
+}
+
+.home2-cta-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.home2-cta-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.15;
+}
+
+.home2-cta-content {
+  position: relative;
+  z-index: 1;
+}
+
+.home2-cta h2 {
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+[data-theme="dark"] .home2-cta h2 {
+  color: var(--color-text);
+}
+
+.home2-cta p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.125rem;
+  max-width: 560px;
+  margin: 0 auto 32px;
+}
+
+[data-theme="dark"] .home2-cta p {
+  color: var(--color-text-body);
+}
+
+.home2-cta .st-btn-primary {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-text-on-secondary);
+}
+
+.home2-cta .st-btn-primary:hover {
+  background: var(--color-secondary-hover);
+}
+
+.home2-cta .st-btn-outline {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="dark"] .home2-cta .st-btn-outline {
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 991px) {
+  .hero2-glass-card.gc3 { display: none; }
+  .hero2-content { padding: 60px 24px; }
+  .intro2-grid,
+  .philosophy2-wrap,
+  .expert-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .journey-wrap,
+  .included-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .home2-cta { padding: 56px 32px; }
+}
+
+@media (max-width: 575px) {
+  .hero2-glass-card { padding: 14px 16px; }
+  .hero2-glass-card.gc1 { top: 15%; right: 3%; }
+  .hero2-glass-card.gc2 { bottom: 15%; left: 3%; }
+  .gc-icon { width: 36px; height: 36px; }
+  .gc-icon svg { width: 18px; height: 18px; }
+  .hero2-subtitle { font-size: 1rem; }
+  .hero2-cta-row { flex-direction: column; }
+  .hero2-cta-row .st-btn { width: 100%; }
+  .journey-wrap,
+  .included-grid {
+    grid-template-columns: 1fr;
+  }
+  .intro2-img-stack .img-wide { margin-top: 0; }
+  .home2-cta { padding: 40px 20px; border-radius: var(--radius-lg); }
+  .expert-credentials { grid-template-columns: 1fr; }
+  .philosophy2-overlay { left: 12px; right: 12px; bottom: 12px; padding: 16px; }
+}
+
+@media (max-width: 320px) {
+  .hero2-glass-card .gc-text { display: none; }
+  .hero2-title { font-size: 2rem; }
+  .hero2-scroll { display: none; }
+  .intro2-badge { width: 70px; height: 70px; }
+  .intro2-badge .badge-num { font-size: 1.25rem; }
+}
+
+
+/* ==========================================================================
+   FIRST WEEK SECTION
+   Replacement for the Family Transformations section only.
+   ========================================================================== */
+
+.premium-week-heading {
+  max-width: 760px;
+  margin: 0 auto 48px;
+}
+
+.premium-week-heading h2 span {
+  color: var(--primary-color);
+}
+
+.premium-week-heading p {
+  max-width: 680px;
+  margin: 18px auto 0;
+}
+
+.premium-week-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.premium-week-card {
+  position: relative;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  overflow: hidden;
+}
+
+.premium-week-number {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 700;
+  opacity: .08;
+}
+
+.premium-week-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(201, 168, 76, .14);
+  color: var(--secondary-color);
+  margin-bottom: 24px;
+}
+
+.premium-week-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.premium-week-label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+.premium-week-card h3 {
+  margin-bottom: 12px;
+}
+
+.premium-week-card p {
+  margin: 0;
+}
+
+.premium-week-footer {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 900px;
+  margin: 40px auto 0;
+  padding: 24px 28px;
+  border-radius: var(--radius-lg);
+  background: rgba(201, 168, 76, .08);
+  border: 1px solid rgba(201, 168, 76, .2);
+}
+
+.premium-week-footer-icon {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.premium-week-footer-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.premium-week-footer h3 {
+  margin: 0 0 6px;
+}
+
+.premium-week-footer p {
+  margin: 0;
+}
+
+[dir="rtl"] .premium-week-heading,
+[dir="rtl"] .premium-week-card,
+[dir="rtl"] .premium-week-footer {
+  direction: rtl;
+}
+
+[dir="rtl"] .premium-week-heading {
+  text-align: right;
+}
+
+[dir="rtl"] .premium-week-number {
+  right: auto;
+  left: 20px;
+}
+
+[dir="rtl"] .premium-week-footer {
+  text-align: right;
+}
+
+@media (max-width: 1199px) {
+  .premium-week-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .premium-week-heading {
+    margin-bottom: 32px;
+  }
+
+  .premium-week-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .premium-week-card {
+    padding: 24px;
+  }
+
+  .premium-week-footer {
+    align-items: flex-start;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 370px) {
+  .premium-week-heading,
+  .premium-week-grid,
+  .premium-week-footer {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .premium-week-card {
+    padding: 20px;
+  }
+
+  .premium-week-number {
+    top: 14px;
+    right: 16px;
+    font-size: 2.5rem;
+  }
+
+  [dir="rtl"] .premium-week-number {
+    right: auto;
+    left: 16px;
+  }
+
+  .premium-week-footer {
+    gap: 12px;
+    padding: 18px;
+  }
+}
+
+
+/* ==========================================================================
+   SLEEPTOTS HOME 2 — ANIMATION & VISUAL POLISH
+   --------------------------------------------------------------------------
+   Styling enhancement only.
+   Typography and existing color variables are inherited from the source CSS.
+   Navbar and footer are intentionally untouched.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   GLOBAL MOTION FOUNDATION
+   -------------------------------------------------------------------------- */
+
+.home2-page,
+.home2-page * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.home2-page section {
+  position: relative;
+  isolation: isolate;
+}
+
+.home2-page h1,
+.home2-page h2,
+.home2-page h3,
+.home2-page h4,
+.home2-page p,
+.home2-page .section-eyebrow,
+.home2-page .section-label {
+  text-wrap: balance;
+}
+
+.home2-page a,
+.home2-page button,
+.home2-page .icon,
+.home2-page [data-lucide] {
+  transition:
+    transform 0.35s cubic-bezier(.22, 1, .36, 1),
+    opacity 0.3s ease,
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.35s ease;
+}
+
+
+/* --------------------------------------------------------------------------
+   TEXT REVEAL / FLOATING TEXT
+   -------------------------------------------------------------------------- */
+
+.home2-page h1,
+.home2-page h2 {
+  animation: stH2TextRise 0.9s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.home2-page h3,
+.home2-page .section-eyebrow,
+.home2-page .section-label {
+  animation: stH2TextRise 0.75s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.home2-page p {
+  animation: stH2TextSoft 0.85s ease both;
+}
+
+@keyframes stH2TextRise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stH2TextSoft {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   HERO
+   -------------------------------------------------------------------------- */
+
+.hero-section,
+.premium-hero,
+.hero-premium,
+.home2-hero {
+  overflow: hidden;
+}
+
+.hero-section::before,
+.premium-hero::before,
+.hero-premium::before,
+.home2-hero::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  opacity: 0.35;
+  background:
+    radial-gradient(circle at 20% 30%, currentColor 0 1px, transparent 2px),
+    radial-gradient(circle at 80% 65%, currentColor 0 1px, transparent 2px);
+  background-size: 130px 130px, 180px 180px;
+  animation: stH2Stars 18s linear infinite;
+}
+
+@keyframes stH2Stars {
+  from {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  to {
+    transform: translate3d(2%, -2%, 0) rotate(2deg);
+  }
+}
+
+/* Hero visual elements — target common Home 2 naming patterns */
+.hero-moon,
+.premium-moon,
+.hero-moon-image,
+.moon,
+.hero-orbit,
+.premium-orbit {
+  animation:
+    stH2MoonFloat 7s ease-in-out infinite,
+    stH2MoonGlow 4s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes stH2MoonFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0) rotate(1.5deg);
+  }
+}
+
+@keyframes stH2MoonGlow {
+  from {
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  to {
+    filter: drop-shadow(0 0 22px rgba(201, 168, 76, 0.28));
+  }
+}
+
+.hero-star,
+.premium-star,
+.star,
+.hero-decoration {
+  animation: stH2Twinkle 3s ease-in-out infinite;
+}
+
+.hero-star:nth-child(2n),
+.premium-star:nth-child(2n),
+.star:nth-child(2n) {
+  animation-delay: 0.8s;
+}
+
+.hero-star:nth-child(3n),
+.premium-star:nth-child(3n),
+.star:nth-child(3n) {
+  animation-delay: 1.5s;
+}
+
+@keyframes stH2Twinkle {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   HERO GLASS / FLOATING CARDS
+   -------------------------------------------------------------------------- */
+
+.hero-glass-card,
+.premium-glass-card,
+.glass-card,
+.hero-card,
+.premium-hero-card {
+  animation: stH2CardFloat 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hero-glass-card:nth-child(2),
+.premium-glass-card:nth-child(2),
+.glass-card:nth-child(2),
+.hero-card:nth-child(2),
+.premium-hero-card:nth-child(2) {
+  animation-delay: -2s;
+}
+
+.hero-glass-card:hover,
+.premium-glass-card:hover,
+.glass-card:hover,
+.hero-card:hover,
+.premium-hero-card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+@keyframes stH2CardFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -9px, 0);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   ICONS
+   -------------------------------------------------------------------------- */
+
+.home2-page [data-lucide],
+.home2-page .lucide {
+  transform-origin: center;
+}
+
+.home2-page a:hover [data-lucide],
+.home2-page button:hover [data-lucide],
+.home2-page .icon:hover,
+.home2-page [data-lucide]:hover {
+  transform: translateY(-3px) scale(1.08) rotate(-4deg);
+}
+
+.home2-page .icon-wrap,
+.home2-page .icon-box,
+.home2-page .premium-icon,
+.home2-page .feature-icon {
+  animation: stH2IconPulse 4s ease-in-out infinite;
+}
+
+@keyframes stH2IconPulse {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.035);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   GENERIC PREMIUM CARDS
+   -------------------------------------------------------------------------- */
+
+.premium-card,
+.feature-card,
+.pillar-card,
+.included-card,
+.expert-card,
+.journey-card,
+.philosophy-card,
+.premium-week-card,
+.week-card {
+  position: relative;
+  overflow: hidden;
+  animation: stH2RevealCard 0.8s cubic-bezier(.22, 1, .36, 1) both;
+  transition:
+    transform 0.45s cubic-bezier(.22, 1, .36, 1),
+    box-shadow 0.45s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.premium-card::after,
+.feature-card::after,
+.pillar-card::after,
+.included-card::after,
+.expert-card::after,
+.journey-card::after,
+.philosophy-card::after,
+.premium-week-card::after,
+.week-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 75%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent,
+    rgba(255,255,255,0.12),
+    transparent
+  );
+  transform: skewX(-18deg);
+  transition: left 0.8s ease;
+}
+
+.premium-card:hover::after,
+.feature-card:hover::after,
+.pillar-card:hover::after,
+.included-card:hover::after,
+.expert-card:hover::after,
+.journey-card:hover::after,
+.philosophy-card:hover::after,
+.premium-week-card:hover::after,
+.week-card:hover::after {
+  left: 150%;
+}
+
+.premium-card:hover,
+.feature-card:hover,
+.pillar-card:hover,
+.included-card:hover,
+.expert-card:hover,
+.journey-card:hover,
+.philosophy-card:hover,
+.premium-week-card:hover,
+.week-card:hover {
+  transform: translateY(-8px);
+}
+
+@keyframes stH2RevealCard {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   JOURNEY / NUMBERED STEPS
+   -------------------------------------------------------------------------- */
+
+.journey-number,
+.step-number,
+.premium-week-number {
+  animation: stH2NumberFloat 4s ease-in-out infinite;
+}
+
+.journey-card:nth-child(2) .journey-number,
+.journey-card:nth-child(2) .step-number,
+.premium-week-card:nth-child(2) .premium-week-number {
+  animation-delay: 0.7s;
+}
+
+.journey-card:nth-child(3) .journey-number,
+.journey-card:nth-child(3) .step-number,
+.premium-week-card:nth-child(3) .premium-week-number {
+  animation-delay: 1.4s;
+}
+
+@keyframes stH2NumberFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   BADGES / EYEBROWS
+   -------------------------------------------------------------------------- */
+
+.badge,
+.premium-badge,
+.section-eyebrow,
+.section-label,
+.premium-week-label {
+  transition:
+    transform 0.3s ease,
+    letter-spacing 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.badge:hover,
+.premium-badge:hover,
+.section-eyebrow:hover,
+.section-label:hover,
+.premium-week-label:hover {
+  transform: translateY(-2px);
+  letter-spacing: 0.08em;
+}
+
+
+/* --------------------------------------------------------------------------
+   BUTTONS / CTA
+   -------------------------------------------------------------------------- */
+
+.home2-page .btn,
+.home2-page button,
+.home2-page .cta-button,
+.home2-page .premium-button,
+.home2-page .hero-cta {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.home2-page .btn::before,
+.home2-page button::before,
+.home2-page .cta-button::before,
+.home2-page .premium-button::before,
+.home2-page .hero-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255,255,255,0.18),
+    transparent
+  );
+  transform: skewX(-18deg);
+  transition: left 0.7s ease;
+  pointer-events: none;
+}
+
+.home2-page .btn:hover::before,
+.home2-page button:hover::before,
+.home2-page .cta-button:hover::before,
+.home2-page .premium-button:hover::before,
+.home2-page .hero-cta:hover::before {
+  left: 145%;
+}
+
+.home2-page .btn:hover,
+.home2-page button:hover,
+.home2-page .cta-button:hover,
+.home2-page .premium-button:hover,
+.home2-page .hero-cta:hover {
+  transform: translateY(-3px);
+}
+
+
+/* --------------------------------------------------------------------------
+   IMAGE ANIMATION
+   -------------------------------------------------------------------------- */
+
+.home2-page img {
+  transition:
+    transform 0.8s cubic-bezier(.22, 1, .36, 1),
+    filter 0.5s ease;
+}
+
+.home2-page .card:hover img,
+.home2-page .premium-card:hover img,
+.home2-page .feature-card:hover img,
+.home2-page .expert-card:hover img,
+.home2-page .story-image:hover img {
+  transform: scale(1.045);
+}
+
+
+/* --------------------------------------------------------------------------
+   RTL
+   -------------------------------------------------------------------------- */
+
+[dir="rtl"] .home2-page {
+  direction: rtl;
+}
+
+[dir="rtl"] .home2-page .hero-content,
+[dir="rtl"] .home2-page .hero-text,
+[dir="rtl"] .home2-page .section-content,
+[dir="rtl"] .home2-page .premium-week-heading {
+  text-align: right;
+}
+
+[dir="rtl"] .home2-page .hero-grid,
+[dir="rtl"] .home2-page .intro-grid,
+[dir="rtl"] .home2-page .philosophy-grid,
+[dir="rtl"] .home2-page .expert-grid,
+[dir="rtl"] .home2-page .premium-week-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .home2-page .premium-week-footer {
+  direction: rtl;
+}
+
+[dir="rtl"] .home2-page .premium-week-footer-icon {
+  margin-left: 0;
+}
+
+[dir="rtl"] .home2-page .btn [data-lucide],
+[dir="rtl"] .home2-page .cta-button [data-lucide],
+[dir="rtl"] .home2-page .premium-button [data-lucide] {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .home2-page .btn:hover [data-lucide],
+[dir="rtl"] .home2-page .cta-button:hover [data-lucide],
+[dir="rtl"] .home2-page .premium-button:hover [data-lucide] {
+  transform: scaleX(-1) translateY(-2px);
+}
+
+
+/* --------------------------------------------------------------------------
+   DARK MODE
+   -------------------------------------------------------------------------- */
+
+.dark-mode .home2-page,
+[data-theme="dark"] .home2-page,
+body.dark .home2-page {
+  color-scheme: dark;
+}
+
+.dark-mode .home2-page .premium-card,
+.dark-mode .home2-page .feature-card,
+.dark-mode .home2-page .pillar-card,
+.dark-mode .home2-page .included-card,
+.dark-mode .home2-page .expert-card,
+.dark-mode .home2-page .journey-card,
+.dark-mode .home2-page .philosophy-card,
+.dark-mode .home2-page .premium-week-card,
+[data-theme="dark"] .home2-page .premium-card,
+[data-theme="dark"] .home2-page .feature-card,
+[data-theme="dark"] .home2-page .pillar-card,
+[data-theme="dark"] .home2-page .included-card,
+[data-theme="dark"] .home2-page .expert-card,
+[data-theme="dark"] .home2-page .journey-card,
+[data-theme="dark"] .home2-page .philosophy-card,
+[data-theme="dark"] .home2-page .premium-week-card,
+body.dark .home2-page .premium-card,
+body.dark .home2-page .feature-card,
+body.dark .home2-page .pillar-card,
+body.dark .home2-page .included-card,
+body.dark .home2-page .expert-card,
+body.dark .home2-page .journey-card,
+body.dark .home2-page .philosophy-card,
+body.dark .home2-page .premium-week-card {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+}
+
+.dark-mode .home2-page [data-lucide],
+[data-theme="dark"] .home2-page [data-lucide],
+body.dark .home2-page [data-lucide] {
+  opacity: 0.96;
+}
+
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE ANIMATION TUNING
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 991px) {
+
+  .home2-page h1,
+  .home2-page h2 {
+    animation-duration: 0.75s;
+  }
+
+  .premium-card,
+  .feature-card,
+  .pillar-card,
+  .included-card,
+  .expert-card,
+  .journey-card,
+  .philosophy-card,
+  .premium-week-card,
+  .week-card {
+    animation-duration: 0.65s;
+  }
+}
+
+@media (max-width: 575px) {
+
+  .home2-page h1,
+  .home2-page h2,
+  .home2-page h3,
+  .home2-page p {
+    animation-duration: 0.6s;
+  }
+
+  .hero-glass-card,
+  .premium-glass-card,
+  .glass-card,
+  .hero-card,
+  .premium-hero-card {
+    animation-duration: 7s;
+  }
+
+  .premium-card:hover,
+  .feature-card:hover,
+  .pillar-card:hover,
+  .included-card:hover,
+  .expert-card:hover,
+  .journey-card:hover,
+  .philosophy-card:hover,
+  .premium-week-card:hover,
+  .week-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   REDUCED MOTION ACCESSIBILITY
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .home2-page *,
+  .home2-page *::before,
+  .home2-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* Stats: keep value and text on one row */
+.stats-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: nowrap;
+}
+
+
+@media (max-width:371px) {
+
+  .stats-row {
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+}
+
+
+/* ==========================================================================
+   RESPONSIVE REPAIR — LAYOUT, OVERLAP & ICON MOTION
+   --------------------------------------------------------------------------
+   Added at the end so existing desktop styling remains unchanged.
+   Typography, navbar and footer are not modified.
+   ========================================================================== */
+
+/* Prevent width/height calculations from creating horizontal overflow */
+.home2-page,
+.home2-page *,
+.home2-page *::before,
+.home2-page *::after {
+  box-sizing: border-box;
+}
+
+.home2-page {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.home2-page img,
+.home2-page svg {
+  max-width: 100%;
+}
+
+.home2-page img {
+  display: block;
+}
+
+.home2-page p,
+.home2-page h1,
+.home2-page h2,
+.home2-page h3,
+.home2-page h4,
+.home2-page span {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Keep animated cards from forcing a larger layout box */
+.home2-page .premium-card,
+.home2-page .feature-card,
+.home2-page .pillar-card,
+.home2-page .included-card,
+.home2-page .expert-card,
+.home2-page .journey-card,
+.home2-page .philosophy-card,
+.home2-page .premium-week-card,
+.home2-page .week-card {
+  min-width: 0;
+  min-height: 0;
+}
+
+/* --------------------------------------------------------------------------
+   TABLET / SMALL LAPTOP
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 991px) {
+
+  .home2-hero {
+    min-height: 90svh;
+  }
+
+  .hero2-content {
+    padding: 72px 28px 90px;
+  }
+
+  .hero2-title,
+  .hero2-subtitle {
+    max-width: min(100%, 680px);
+  }
+
+  .hero2-glass-card {
+    max-width: min(250px, 34vw);
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .hero2-glass-card.gc1 {
+    top: 16%;
+    right: 2%;
+  }
+
+  .hero2-glass-card.gc2 {
+    bottom: 14%;
+    left: 2%;
+  }
+
+  .intro2-grid,
+  .philosophy2-wrap,
+  .expert-grid {
+    gap: 32px;
+  }
+
+  .intro2-visual,
+  .philosophy2-img,
+  .expert-img {
+    width: 100%;
+    max-width: 720px;
+    margin-inline: auto;
+  }
+
+  .intro2-img-stack {
+    gap: 14px;
+  }
+
+  .intro2-img-stack img {
+    height: auto;
+    min-height: 0;
+  }
+
+  .philosophy2-img img {
+    max-height: 520px;
+  }
+
+  .expert-img img {
+    max-height: 460px;
+  }
+
+  .journey-wrap,
+  .included-grid,
+  .premium-week-grid {
+    gap: 18px;
+  }
+
+  .journey-card,
+  .included-card,
+  .premium-week-card {
+    min-width: 0;
+  }
+
+  .premium-week-card {
+    padding: 24px;
+  }
+
+  .premium-week-footer {
+    max-width: 100%;
+  }
+
+  .home2-cta {
+    padding: 52px 28px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   IPAD / TABLET PORTRAIT
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 820px) {
+
+  .hero2-content {
+    padding-inline: 22px;
+  }
+
+  .hero2-glass-card {
+    max-width: 220px;
+  }
+
+  .hero2-glass-card.gc1 {
+    right: 18px;
+  }
+
+  .hero2-glass-card.gc2 {
+    left: 18px;
+  }
+
+  .journey-wrap,
+  .included-grid,
+  .premium-week-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .intro2-grid,
+  .philosophy2-wrap,
+  .expert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro2-img-stack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, 620px);
+    margin-inline: auto;
+  }
+
+  .intro2-img-stack .img-wide {
+    margin-top: 24px;
+  }
+
+  .philosophy2-img,
+  .expert-img {
+    width: min(100%, 620px);
+  }
+
+  .philosophy2-img img {
+    max-height: 480px;
+  }
+
+  .expert-img img {
+    max-height: 400px;
+  }
+
+  .expert-credentials {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .premium-week-card {
+    padding: 22px;
+  }
+
+  .premium-week-footer {
+    gap: 14px;
+    padding: 20px 22px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   MOBILE
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+  .home2-page {
+    overflow-x: clip;
+  }
+
+  .home2-hero {
+    min-height: 92svh;
+  }
+
+  .hero2-content {
+    padding: 84px 18px 88px;
+  }
+
+  /*
+     Decorative glass cards are removed on narrow screens because their
+     absolute positioning competes with the hero text and causes overlap.
+     The main hero animation remains active.
+  */
+  .hero2-glass-card {
+    display: none;
+  }
+
+  .hero2-scroll {
+    bottom: 16px;
+  }
+
+  .hero2-cta-row {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .hero2-cta-row .st-btn {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .intro2-grid,
+  .philosophy2-wrap,
+  .expert-grid {
+    gap: 28px;
+  }
+
+  .intro2-img-stack {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    width: min(100%, 430px);
+  }
+
+  .intro2-img-stack .img-wide {
+    margin-top: 0;
+  }
+
+  .intro2-img-stack .img-tall,
+  .intro2-img-stack .img-wide {
+    aspect-ratio: 16 / 11;
+  }
+
+  .intro2-img-stack img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+  }
+
+  .intro2-badge {
+    top: -10px;
+    right: -8px;
+  }
+
+  [dir="rtl"] .intro2-badge {
+    right: auto;
+    left: -8px;
+  }
+
+  .philosophy2-img,
+  .expert-img {
+    width: min(100%, 430px);
+  }
+
+  .philosophy2-img img {
+    width: 100%;
+    height: auto;
+    max-height: 330px;
+    aspect-ratio: 16 / 11;
+  }
+
+  .expert-img img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    aspect-ratio: 16 / 10;
+  }
+
+  .philosophy2-overlay {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    max-width: calc(100% - 20px);
+    padding: 14px;
+  }
+
+  .journey-wrap,
+  .included-grid,
+  .premium-week-grid,
+  .expert-credentials {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .journey-card,
+  .included-card,
+  .premium-week-card {
+    width: 100%;
+  }
+
+  .premium-week-card {
+    padding: 22px 20px;
+  }
+
+  .premium-week-number {
+    top: 14px;
+    right: 16px;
+  }
+
+  [dir="rtl"] .premium-week-number {
+    right: auto;
+    left: 16px;
+  }
+
+  .premium-week-footer {
+    align-items: flex-start;
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .premium-week-footer-icon {
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .home2-cta {
+    padding: 40px 18px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   VERY SMALL PHONES
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 370px) {
+
+  .hero2-content {
+    padding-inline: 14px;
+  }
+
+  .intro2-img-stack {
+    width: 100%;
+  }
+
+  .intro2-badge {
+    width: 64px;
+    height: 64px;
+  }
+
+  .premium-week-card {
+    padding: 20px 18px;
+  }
+
+  .premium-week-footer {
+    padding: 16px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ICON ANIMATION REPAIR
+   -------------------------------------------------------------------------- */
+
+/* Animate the actual icon containers used by Home 2 */
+.home2-page .gc-icon,
+.home2-page .pillar-icon,
+.home2-page .st-card-icon,
+.home2-page .premium-week-icon,
+.home2-page .premium-week-footer-icon,
+.home2-page .icon-wrap,
+.home2-page .icon-box,
+.home2-page .premium-icon,
+.home2-page .feature-icon {
+  transform-origin: center;
+  animation: stH2IconFloat 4.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Stagger the motion so all icons do not move together */
+.home2-page .journey-card:nth-child(2) .st-card-icon,
+.home2-page .included-card:nth-child(2) .st-card-icon,
+.home2-page .premium-week-card:nth-child(2) .premium-week-icon,
+.home2-page .pillar-item:nth-child(2) .pillar-icon {
+  animation-delay: -1.2s;
+}
+
+.home2-page .journey-card:nth-child(3) .st-card-icon,
+.home2-page .included-card:nth-child(3) .st-card-icon,
+.home2-page .premium-week-card:nth-child(3) .premium-week-icon,
+.home2-page .pillar-item:nth-child(3) .pillar-icon {
+  animation-delay: -2.4s;
+}
+
+.home2-page .journey-card:nth-child(4) .st-card-icon,
+.home2-page .included-card:nth-child(4) .st-card-icon,
+.home2-page .premium-week-card:nth-child(4) .premium-week-icon,
+.home2-page .pillar-item:nth-child(4) .pillar-icon {
+  animation-delay: -3.6s;
+}
+
+@keyframes stH2IconFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-5px) scale(1.05);
+  }
+}
+
+/* Give Lucide icons a visible motion on interaction */
+.home2-page .gc-icon svg,
+.home2-page .pillar-icon svg,
+.home2-page .premium-week-icon svg,
+.home2-page .premium-week-footer-icon svg,
+.home2-page .st-card-icon svg {
+  transition:
+    transform 0.4s cubic-bezier(.22, 1, .36, 1),
+    opacity 0.3s ease;
+}
+
+.home2-page .gc-icon:hover svg,
+.home2-page .pillar-icon:hover svg,
+.home2-page .premium-week-icon:hover svg,
+.home2-page .premium-week-footer-icon:hover svg,
+.home2-page .st-card-icon:hover svg {
+  transform: rotate(-8deg) scale(1.12);
+}
+
+[dir="rtl"] .home2-page .gc-icon:hover svg,
+[dir="rtl"] .home2-page .pillar-icon:hover svg,
+[dir="rtl"] .home2-page .premium-week-icon:hover svg,
+[dir="rtl"] .home2-page .premium-week-footer-icon:hover svg,
+[dir="rtl"] .home2-page .st-card-icon:hover svg {
+  transform: rotate(8deg) scale(1.12);
+}
+
+/* Small touch screens still get subtle icon motion without hover */
+@media (hover: none) and (pointer: coarse) {
+
+  .home2-page .gc-icon,
+  .home2-page .pillar-icon,
+  .home2-page .st-card-icon,
+  .home2-page .premium-week-icon,
+  .home2-page .premium-week-footer-icon {
+    animation-duration: 4.2s;
+  }
+
+  .home2-page .gc-icon svg,
+  .home2-page .pillar-icon svg,
+  .home2-page .premium-week-icon svg,
+  .home2-page .premium-week-footer-icon svg,
+  .home2-page .st-card-icon svg {
+    animation: stH2IconPulse 3.8s ease-in-out infinite;
+  }
+}
+
+/* Never allow accessibility settings to re-enable motion */
+@media (prefers-reduced-motion: reduce) {
+
+  .home2-page .gc-icon,
+  .home2-page .pillar-icon,
+  .home2-page .st-card-icon,
+  .home2-page .premium-week-icon,
+  .home2-page .premium-week-footer-icon,
+  .home2-page .icon-wrap,
+  .home2-page .icon-box,
+  .home2-page .premium-icon,
+  .home2-page .feature-icon,
+  .home2-page .gc-icon svg,
+  .home2-page .pillar-icon svg,
+  .home2-page .premium-week-icon svg,
+  .home2-page .premium-week-footer-icon svg,
+  .home2-page .st-card-icon svg {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================
+   HOME2 HERO GLASS CARDS — RTL
+   ========================================================== */
+
+[dir="rtl"] .home2-hero .hero2-glass-card {
+    direction: rtl;
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+/* Personalized Plan */
+[dir="rtl"] .home2-hero .hero2-glass-card.gc1 {
+    left: auto;
+    right: 0;
+}
+
+/* Track Progress */
+[dir="rtl"] .home2-hero .hero2-glass-card.gc3 {
+    right: auto;
+    left: 0;
+}
+
+
+/* ==========================================================
+   HOME2 HERO GLASS CARDS — RTL OVERRIDE
+   ========================================================== */
+
+[dir="rtl"] .home2-hero .hero2-glass-card {
+    direction: rtl;
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+/* Personalized Plan */
+[dir="rtl"] .home2-hero .hero2-glass-card.gc1 {
+    right: auto;
+    left: 5%;
+}
+
+/* Track Progress */
+[dir="rtl"] .home2-hero .hero2-glass-card.gc3 {
+    right: auto;
+    left: 8%;
+}
+
+/* Mobile */
+@media (max-width: 575px) {
+    [dir="rtl"] .home2-hero .hero2-glass-card.gc1 {
+        right: auto;
+        left: 3%;
+    }
+}
+/* ==========================================================
+   NEWSLETTER — REDUCE SPACE ABOVE
+   ========================================================== */
+
+.st-section:has(.st-newsletter) {
+    padding-top: 10px !important;
+}
+
+/* =========================================================
+   YOUR FIRST WEEK — HOME 2
+   Uses ONLY existing project theme colors
+   ========================================================= */
+
+.premium-week-section {
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.premium-week-heading {
+  max-width: 760px;
+  margin: 0 auto 48px;
+}
+
+.premium-week-heading h2 span {
+  color: var(--color-primary);
+}
+
+.premium-week-heading p {
+  max-width: 680px;
+  margin: 18px auto 0;
+}
+
+
+/* =========================================================
+   CARD GRID
+   ========================================================= */
+
+.premium-week-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.premium-week-card {
+  position: relative;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  border-radius: var(--radius-lg);
+
+  background: var(--color-card);
+
+  border: 1px solid var(--color-border);
+
+  box-shadow: var(--shadow-md);
+
+  transition:
+    transform 0.45s cubic-bezier(.22, 1, .36, 1),
+    box-shadow 0.45s ease,
+    border-color 0.35s ease;
+}
+
+
+/* =========================================================
+   CARD HOVER
+   ========================================================= */
+
+.premium-week-card:hover {
+  transform: translateY(-10px);
+
+  box-shadow: var(--shadow-lg);
+
+  border-color: var(--color-secondary);
+}
+
+
+/* =========================================================
+   IMAGE + NUMBER ROW
+   ========================================================= */
+
+.premium-week-visual {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 18px 18px 0;
+}
+
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
+.premium-week-image {
+  position: relative;
+
+  flex: 1;
+  min-width: 0;
+
+  height: 190px;
+
+  overflow: hidden;
+
+  border-radius: var(--radius-lg);
+
+  background: var(--color-card-alt);
+
+  opacity: 0;
+
+  transform: translateY(20px) scale(.97);
+
+  animation:
+    premiumWeekImageReveal
+    .8s
+    cubic-bezier(.22, 1, .36, 1)
+    .15s
+    forwards;
+}
+
+
+.premium-week-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform .8s cubic-bezier(.22, 1, .36, 1);
+}
+
+
+.premium-week-card:hover .premium-week-image img {
+  transform: scale(1.06);
+}
+
+
+/* =========================================================
+   NUMBER
+   ========================================================= */
+
+.premium-week-number {
+  flex: 0 0 54px;
+
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--color-primary);
+
+  color: var(--color-text-on-primary);
+
+  opacity: 0;
+
+  transform: scale(.5) rotate(-15deg);
+
+  animation:
+    premiumWeekNumberReveal
+    .75s
+    cubic-bezier(.22, 1, .36, 1)
+    .35s
+    forwards;
+
+  transition:
+    transform .4s ease,
+    background-color .35s ease,
+    color .35s ease;
+}
+
+
+/* Alternate secondary number */
+
+.premium-week-card:nth-child(even) .premium-week-number {
+  background: var(--color-secondary);
+
+  color: var(--color-text-on-secondary);
+}
+
+
+.premium-week-number span {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+
+/* Number hover */
+
+.premium-week-card:hover .premium-week-number {
+  transform: scale(1.08) rotate(0deg);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.premium-week-content {
+  padding: 22px 24px 28px;
+}
+
+
+/* =========================================================
+   META
+   ========================================================= */
+
+.premium-week-meta {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 14px;
+
+  opacity: 0;
+
+  transform: translateY(12px);
+
+  animation:
+    premiumWeekTextReveal
+    .7s
+    ease
+    .5s
+    forwards;
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.premium-week-icon {
+  width: 32px;
+  height: 32px;
+
+  flex: 0 0 32px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--color-secondary);
+
+  color: var(--color-primary);
+
+  transition:
+    transform .4s ease;
+}
+
+
+.premium-week-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+
+.premium-week-card:hover .premium-week-icon {
+  transform: scale(1.1) rotate(-8deg);
+}
+
+
+/* =========================================================
+   DAY LABEL
+   ========================================================= */
+
+.premium-week-label {
+  display: block;
+
+  margin: 0;
+
+  color: var(--color-secondary);
+
+  font-size: .75rem;
+
+  font-weight: 700;
+
+  letter-spacing: .12em;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.premium-week-card h3 {
+  margin-bottom: 12px;
+
+  opacity: 0;
+
+  transform: translateY(15px);
+
+  animation:
+    premiumWeekTextReveal
+    .7s
+    cubic-bezier(.22, 1, .36, 1)
+    .65s
+    forwards;
+
+  transition:
+    transform .35s ease,
+    color .35s ease;
+}
+
+
+.premium-week-card:hover h3 {
+  transform: translateX(3px);
+
+  color: var(--color-primary);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.premium-week-card p {
+  margin: 0;
+
+  opacity: 0;
+
+  transform: translateY(15px);
+
+  animation:
+    premiumWeekTextReveal
+    .75s
+    cubic-bezier(.22, 1, .36, 1)
+    .8s
+    forwards;
+}
+
+
+/* =========================================================
+   FOOTER CALLOUT
+   ========================================================= */
+
+.premium-week-footer {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  max-width: 900px;
+
+  margin: 40px auto 0;
+
+  padding: 24px 28px;
+
+  border-radius: var(--radius-lg);
+
+  background: var(--color-card-alt);
+
+  border: 1px solid var(--color-border);
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform .4s ease,
+    box-shadow .4s ease,
+    border-color .35s ease;
+}
+
+
+.premium-week-footer:hover {
+  transform: translateY(-5px);
+
+  box-shadow: var(--shadow-md);
+
+  border-color: var(--color-secondary);
+}
+
+
+/* =========================================================
+   FOOTER ICON
+   ========================================================= */
+
+.premium-week-footer-icon {
+  flex: 0 0 44px;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--color-secondary);
+
+  color: var(--color-primary);
+
+  transition:
+    transform .4s ease;
+}
+
+
+.premium-week-footer:hover .premium-week-footer-icon {
+  transform: rotate(8deg) scale(1.08);
+}
+
+
+.premium-week-footer-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+
+.premium-week-footer h3 {
+  margin: 0 0 6px;
+}
+
+
+.premium-week-footer p {
+  margin: 0;
+}
+
+
+/* =========================================================
+   RTL
+   ========================================================= */
+
+[dir="rtl"] .premium-week-heading,
+[dir="rtl"] .premium-week-card,
+[dir="rtl"] .premium-week-footer {
+  direction: rtl;
+}
+
+
+[dir="rtl"] .premium-week-heading {
+  text-align: right;
+}
+
+
+[dir="rtl"] .premium-week-footer {
+  text-align: right;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes premiumWeekImageReveal {
+
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+
+@keyframes premiumWeekNumberReveal {
+
+  from {
+    opacity: 0;
+    transform: scale(.5) rotate(-15deg);
+  }
+
+  70% {
+    transform: scale(1.08) rotate(4deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+
+}
+
+
+@keyframes premiumWeekTextReveal {
+
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1199px) {
+
+  .premium-week-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  .premium-week-heading {
+    margin-bottom: 32px;
+  }
+
+
+  .premium-week-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+
+  .premium-week-card {
+    padding: 0;
+  }
+
+
+  .premium-week-visual {
+    padding: 16px 16px 0;
+  }
+
+
+  .premium-week-image {
+    height: 210px;
+  }
+
+
+  .premium-week-content {
+    padding: 22px 24px 26px;
+  }
+
+
+  .premium-week-footer {
+    align-items: flex-start;
+
+    padding: 20px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 370px) {
+
+  .premium-week-heading,
+  .premium-week-grid,
+  .premium-week-footer {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+
+  .premium-week-visual {
+    gap: 10px;
+    padding: 14px 14px 0;
+  }
+
+
+  .premium-week-image {
+    height: 180px;
+  }
+
+
+  .premium-week-number {
+    flex-basis: 46px;
+
+    width: 46px;
+    height: 46px;
+  }
+
+
+  .premium-week-number span {
+    font-size: 1.15rem;
+  }
+
+
+  .premium-week-content {
+    padding: 20px;
+  }
+
+
+  .premium-week-footer {
+    gap: 12px;
+    padding: 18px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .premium-week-card,
+  .premium-week-card *,
+  .premium-week-footer,
+  .premium-week-footer * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .premium-week-image,
+  .premium-week-number,
+  .premium-week-meta,
+  .premium-week-card h3,
+  .premium-week-card p {
+    opacity: 1;
+    transform: none;
+  }
+
+}

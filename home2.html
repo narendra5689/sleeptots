@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SleepTots — Premium Sleep Support Experience</title>
+  <meta name="description" content="Experience SleepTots Premium — an immersive, personalized sleep support journey for your family. Expert guidance, tailored plans, and compassionate care." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/typography.css" />
+  <link rel="stylesheet" href="./css/global.css" />
+  <link rel="stylesheet" href="./css/navbar-footer.css" />
+  <link rel="stylesheet" href="./css/home2.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="st-navbar" aria-label="Main navigation">
+    <div class="st-navbar-inner">
+      <a href="./home1.html" class="brand-link" aria-label="SleepTots home">
+        <img src="./images/logo.png" alt="" height="50px" width="50px">
+        <span class="brand-title"><span class="brand-sleep">Sleep</span><span class="brand-tots">Tots</span></span>
+      </a>
+
+      <ul class="st-nav-center">
+        <li>
+          <button class="st-nav-link active" type="button" aria-haspopup="true" aria-expanded="false">
+            Home <i data-lucide="chevron-down"></i>
+          </button>
+          <ul class="st-home-dropdown">
+            <li>
+              <a href="./home1.html">
+                <span class="dropdown-icon"><i data-lucide="house"></i></span>
+                <span class="dropdown-text"><span class="dropdown-title">Home 1</span>
+              </a>
+            </li>
+            <li>
+              <a href="./home2.html">
+                <span class="dropdown-icon"><i data-lucide="sparkles"></i></span>
+                <span class="dropdown-text"><span class="dropdown-title">Home 2</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="./services.html" class="st-nav-link st-underline-hover" data-current="false">Services</a></li>
+        <li><a href="./testimonials.html" class="st-nav-link st-underline-hover" data-current="false">Testimonials</a></li>
+        <li><a href="./pricing.html" class="st-nav-link st-underline-hover" data-current="false">Pricing</a></li>
+        <li><a href="./contact.html" class="st-nav-link st-underline-hover" data-current="false">Contact</a></li>
+        <li><a href="./dashboard.html" class="st-nav-link st-underline-hover" data-current="false">Dashboard</a></li>
+      </ul>
+
+      <div class="st-nav-right">
+        <button class="st-icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+          <i data-lucide="moon"></i><i data-lucide="sun" style="display:none"></i>
+        </button>
+        <button class="st-icon-btn" data-rtl-toggle aria-label="Toggle RTL">
+          <span class="rtl-label">RTL</span>
+        </button>
+        <a href="./login.html" class="st-btn st-btn-outline st-btn-sm">Login</a>
+        <button class="st-hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ MOBILE MENU ============ -->
+  <div class="st-mobile-overlay"></div>
+  <aside class="st-mobile-menu" aria-label="Mobile navigation">
+    <ul class="st-mobile-menu-nav">
+      <li>
+        <button class="st-mobile-nav-link" data-home-toggle aria-expanded="false">
+          Home <i data-lucide="chevron-down"></i>
+        </button>
+        <ul class="st-mobile-submenu">
+          <li><a href="./home1.html">Home 1 — Classic</a></li>
+          <li><a href="./home2.html">Home 2 — Premium</a></li>
+        </ul>
+      </li>
+      <li><a href="./services.html">Services</a></li>
+      <li><a href="./testimonials.html">Testimonials</a></li>
+      <li><a href="./pricing.html">Pricing</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="./dashboard.html">Dashboard</a></li>
+    </ul>
+    <div class="st-mobile-menu-footer">
+      <a href="./login.html" class="st-btn st-btn-primary st-btn-block">Login</a>
+    </div>
+  </aside>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="home2-hero">
+      <div class="hero2-bg">
+        <img src="./images/home2-hero.png" alt="Mother softly gazing at her sleeping baby under warm lamplight" />
+      </div>
+      <div class="hero2-bg-overlay"></div>
+      <div class="hero2-gradient-anim"></div>
+      <div class="hero2-star s1"></div><div class="hero2-star s2"></div><div class="hero2-star s3"></div>
+      <div class="hero2-star s4"></div><div class="hero2-star s5"></div><div class="hero2-star s6"></div><div class="hero2-star s7"></div>
+
+      <div class="hero2-glass-card gc1">
+        <div class="gc-icon"><i data-lucide="moon"></i></div>
+        <div class="gc-text"><span class="gc-title">Personalized Plan</span><span class="gc-sub">Tailored to your child</span></div>
+      </div>
+      <div class="hero2-glass-card gc3">
+        <div class="gc-icon"><i data-lucide="trending-up"></i></div>
+        <div class="gc-text"><span class="gc-title">Track Progress</span><span class="gc-sub">See improvement over time</span></div>
+      </div>
+
+      <div class="hero2-content">
+        <span class="hero2-label"><i data-lucide="sparkles"></i> The Premium Sleep Experience</span>
+        <h1 class="hero2-title">A Sleep Journey <span class="accent">Crafted</span> for Your Family</h1>
+        <p class="hero2-subtitle">Immerse yourself in a personalized sleep support experience that adapts to your child's needs, your parenting style, and your family's unique rhythm — every step of the way.</p>
+        <div class="hero2-cta-row">
+          <a href="./services.html" class="st-btn st-btn-primary st-btn-lg">Find the Right Sleep Support <i data-lucide="arrow-right"></i></a>
+          <a href="./pricing.html" class="st-btn st-btn-outline st-btn-lg">Explore Packages</a>
+        </div>
+      </div>
+
+      <div class="hero2-scroll">
+        <span>Scroll</span>
+        <i data-lucide="chevron-down"></i>
+      </div>
+    </section>
+
+    <!-- ============ PREMIUM INTRO ============ -->
+    <section class="st-section home2-intro">
+      <div class="st-container">
+        <div class="intro2-grid">
+          <div class="intro2-text reveal-left">
+            <span class="st-label">Welcome to Premium</span>
+            <h2>Where Expertise Meets Compassion</h2>
+            <p>SleepTots Premium is more than a sleep plan — it's a comprehensive support system designed around your family. From the first consultation to the final milestone, we walk alongside you with expert guidance and genuine care.</p>
+            <p>Our consultants bring years of specialized training in infant and toddler sleep, combined with a deep understanding of family dynamics. Every recommendation is grounded in evidence and delivered with warmth.</p>
+            <div class="intro-features" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px">
+              <div class="intro-feature"><i data-lucide="check-circle"></i> One-on-One Consulting</div>
+              <div class="intro-feature"><i data-lucide="check-circle"></i> Custom Sleep Schedule</div>
+              <div class="intro-feature"><i data-lucide="check-circle"></i> Daily Progress Tracking</div>
+              <div class="intro-feature"><i data-lucide="check-circle"></i> Unlimited Messaging</div>
+            </div>
+          </div>
+          <div class="intro2-visual reveal-right">
+            <div class="intro2-img-stack">
+              <img class="img-tall" src="./images/home2-permium1.png" alt="Mother watching over her sleeping baby in a warmly lit bedroom" />
+              <img class="img-wide" src="./images/home2-premium2.png" alt="Young girl sleeping peacefully surrounded by stuffed toys" />
+            </div>
+            <div class="intro2-badge"><span class="badge-num">15+</span><span class="badge-lbl">Years</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PERSONALIZED JOURNEY ============ -->
+    <section class="st-section st-section-alt">
+      <div class="st-container">
+        <div class="text-center reveal">
+          <span class="st-label">Your Personalized Journey</span>
+          <h2>A Sleep Plan That Grows With Your Child</h2>
+          <hr class="st-divider st-divider-center" />
+          <p class="st-lead mx-auto" style="max-width:640px">No two children sleep the same way. Your journey is built around your child's unique patterns, developmental stage, and your family's goals.</p>
+        </div>
+        <div class="journey-wrap">
+          <div class="st-card journey-card reveal stagger-1">
+            <div class="journey-step">01</div>
+            <h3>Deep Assessment</h3>
+            <p>We start with a comprehensive assessment of your child's sleep history, current patterns, feeding, health, temperament, and your family's daily rhythm.</p>
+          </div>
+          <div class="st-card journey-card reveal stagger-2">
+            <div class="journey-step">02</div>
+            <h3>Custom Plan Design</h3>
+            <p>Your consultant crafts a step-by-step sleep plan tailored to your child's age and temperament, with specific routines, schedules, and gentle strategies.</p>
+          </div>
+          <div class="st-card journey-card reveal stagger-3">
+            <div class="journey-step">03</div>
+            <h3>Guided Implementation</h3>
+            <p>Over the following weeks, we guide you through implementation with daily check-ins, progress tracking, and real-time adjustments to keep things on course.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SLEEP PHILOSOPHY ============ -->
+    <section class="st-section">
+      <div class="st-container">
+        <div class="philosophy2-wrap">
+          <div class="philosophy2-img reveal-left">
+            <img src="./images/home2-philosophy.png" alt="Mother holding her newborn baby in a light room at home" />
+            <div class="philosophy2-overlay">
+              <h4>Rooted in Connection</h4>
+              <p>Our methods never isolate or distress your child. Sleep is built on trust, consistency, and responsive care.</p>
+            </div>
+          </div>
+          <div class="philosophy2-text reveal-right">
+            <span class="st-label">Our Sleep Philosophy</span>
+            <h2>Gentle Methods That Honor Your Child's Needs</h2>
+            <p>We reject the idea that sleep training must involve tears. Our philosophy is built on three core pillars that work together to create lasting, healthy sleep habits.</p>
+            <div class="philosophy2-pillars">
+              <div class="pillar-item">
+                <div class="pillar-icon"><i data-lucide="heart-handshake"></i></div>
+                <div><h4>Responsive Care</h4><p>We respond to your child's cues with sensitivity, building trust while gently guiding toward independent sleep for the child and the mother.</p></div>
+              </div>
+              <div class="pillar-item">
+                <div class="pillar-icon"><i data-lucide="ruler"></i></div>
+                <div><h4>Age-Appropriate</h4><p>Every recommendation aligns with your child's developmental stage — never asking more than they're ready for we met out promises that we made .</p></div>
+              </div>
+              <div class="pillar-item">
+                <div class="pillar-icon"><i data-lucide="refresh-cw"></i></div>
+                <div><h4>Sustainable Routines</h4><p>We build habits that last — not quick fixes. Your child learns to sleep well for years to come for the kids and also to the mother.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHAT'S INCLUDED ============ -->
+    <section class="st-section st-section-alt">
+      <div class="st-container">
+        <div class="text-center reveal">
+          <span class="st-label">What Personalized Plans Include</span>
+          <h2>Everything You Need for Sleep Success</h2>
+          <hr class="st-divider st-divider-center" />
+        </div>
+        <div class="included-grid">
+          <div class="st-card included-card reveal stagger-1">
+            <div class="st-card-icon"><i data-lucide="file-text"></i></div>
+            <h3>Custom Sleep Plan</h3>
+            <p>A detailed, step-by-step plan with daily routines, feeding schedules, and gentle strategies tailored to your child.</p>
+          </div>
+          <div class="st-card included-card reveal stagger-2">
+            <div class="st-card-icon"><i data-lucide="video"></i></div>
+            <h3>Video Consultations</h3>
+            <p>One-on-one video sessions with your consultant to review progress, answer questions, and adjust the plan.</p>
+          </div>
+          <div class="st-card included-card reveal stagger-3">
+            <div class="st-card-icon"><i data-lucide="calendar-check"></i></div>
+            <h3>Sleep Schedule</h3>
+            <p>A personalized daily schedule with age-appropriate wake windows, nap times, and bedtime routines.</p>
+          </div>
+          <div class="st-card included-card reveal stagger-1">
+            <div class="st-card-icon"><i data-lucide="message-square"></i></div>
+            <h3>Messaging Support</h3>
+            <p>Direct access to your consultant between sessions for questions, concerns, and quick guidance.</p>
+          </div>
+          <div class="st-card included-card reveal stagger-2">
+            <div class="st-card-icon"><i data-lucide="line-chart"></i></div>
+            <h3>Progress Dashboard</h3>
+            <p>Track nightly sleep, nap quality, and improvements over time with your personal parent dashboard.</p>
+          </div>
+          <div class="st-card included-card reveal stagger-3">
+            <div class="st-card-icon"><i data-lucide="book-marked"></i></div>
+            <h3>Sleep Education</h3>
+            <p>Access to guides and resources covering sleep cycles, regressions, transitions, and developmental milestones.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERT GUIDANCE ============ -->
+    <section class="st-section">
+      <div class="st-container">
+        <div class="expert-grid">
+          <div class="expert-img reveal-left">
+            <img src="./images/home2-expert.png" alt="Professional sleep consultant working with parents" />
+          </div>
+          <div class="expert-text reveal-right">
+            <span class="st-label">Expert Guidance</span>
+            <h2>Certified Consultants Who Truly Care</h2>
+            <p>Every SleepTots consultant is certified in pediatric sleep consulting and brings years of hands-on experience helping families. But beyond credentials, they're parents themselves who understand what you're going through.</p>
+            <p>Our team stays current with the latest research in infant sleep science, child development, and gentle sleep methodology — so you always receive guidance based on the best available evidence.</p>
+            <div class="expert-credentials">
+              <div class="credential-item"><i data-lucide="badge-check"></i> Certified Pediatric Sleep Consultants</div>
+              <div class="credential-item"><i data-lucide="graduation-cap"></i> Child Development Training</div>
+              <div class="credential-item"><i data-lucide="stethoscope"></i> Infant Mental Health Aware</div>
+              <div class="credential-item"><i data-lucide="users"></i> Parenting Experience</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="st-section st-section-secondary">
+      <div class="st-container">
+        
+        <div class="stats-row">
+          <div class="stat-item reveal stagger-1">
+            <p class="st-stat-number" data-counter="2400" data-suffix="+">0</p>
+            <p class="st-stat-label">Families Supported</p>
+          </div>
+          <div class="stat-item reveal stagger-2">
+            <p class="st-stat-number" data-counter="11" data-suffix=" hrs">0</p>
+            <p class="st-stat-label">Avg. Sleep Improvement</p>
+          </div>
+          <div class="stat-item reveal stagger-3">
+            <p class="st-stat-number" data-counter="98" data-suffix="%">0</p>
+            <p class="st-stat-label">Parent Satisfaction</p>
+          </div>
+          <div class="stat-item reveal stagger-4">
+            <p class="st-stat-number" data-counter="15" data-suffix="+">0</p>
+            <p class="st-stat-label">Years of Experience</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- ============ YOUR FIRST WEEK ============ -->
+<section class="st-section premium-week-section">
+  <div class="st-container premium-week-container">
+
+    <!-- SECTION HEADING -->
+    <div class="premium-week-heading text-center reveal">
+      <span class="st-label">YOUR FIRST WEEK</span>
+
+      <h2>
+        A Clearer Path to
+        <span>Better Sleep</span>
+      </h2>
+
+      <p>
+        Sleep changes don't happen overnight. Your first week is about
+        understanding your child's rhythm, creating a realistic plan,
+        and making small adjustments that build lasting habits.
+      </p>
+
+      <hr class="st-divider st-divider-center" />
+    </div>
+
+
+    <!-- WEEK CARDS -->
+    <div class="premium-week-grid">
+
+      <!-- DAY 1 -->
+      <article class="premium-week-card reveal stagger-1">
+
+        <div class="premium-week-visual">
+
+          <div class="premium-week-image">
+            <img
+              src="./images/home2-outplan.png"
+              alt="Parent and child beginning a personalized sleep plan"
+            />
+          </div>
+
+          <div class="premium-week-number">
+            <span>01</span>
+          </div>
+
+        </div>
+
+
+        <div class="premium-week-content">
+
+          <div class="premium-week-meta">
+            <span class="premium-week-icon">
+              <i data-lucide="search"></i>
+            </span>
+
+            <span class="premium-week-label">
+              DAY 1
+            </span>
+          </div>
+
+          <h3>Understand</h3>
+
+          <p>
+            We look at your child's current sleep patterns, routines,
+            wake-ups, naps, and bedtime challenges to understand what
+            is really happening.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- DAYS 2–3 -->
+      <article class="premium-week-card reveal stagger-2">
+
+        <div class="premium-week-visual">
+
+          <div class="premium-week-image">
+            <img
+              src="./images/home2-pattern.png"
+              alt="Parent creating a personalized sleep routine"
+            />
+          </div>
+
+          <div class="premium-week-number">
+            <span>02</span>
+          </div>
+
+        </div>
+
+
+        <div class="premium-week-content">
+
+          <div class="premium-week-meta">
+            <span class="premium-week-icon">
+              <i data-lucide="clipboard-list"></i>
+            </span>
+
+            <span class="premium-week-label">
+              DAYS 2–3
+            </span>
+          </div>
+
+          <h3>Create Your Plan</h3>
+
+          <p>
+            Your consultant turns those observations into a practical
+            sleep routine designed around your child's needs and your
+            family's daily life.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- DAYS 4–5 -->
+      <article class="premium-week-card reveal stagger-3">
+
+        <div class="premium-week-visual">
+
+          <div class="premium-week-image">
+            <img
+              src="./images/home2-adjust.png"
+              alt="Parent gently adjusting a child's bedtime routine"
+            />
+          </div>
+
+          <div class="premium-week-number">
+            <span>03</span>
+          </div>
+
+        </div>
+
+
+        <div class="premium-week-content">
+
+          <div class="premium-week-meta">
+            <span class="premium-week-icon">
+              <i data-lucide="sliders-horizontal"></i>
+            </span>
+
+            <span class="premium-week-label">
+              DAYS 4–5
+            </span>
+          </div>
+
+          <h3>Adjust Gently</h3>
+
+          <p>
+            As your child responds, we make thoughtful adjustments to
+            timing, routines, and strategies instead of forcing a
+            one-size-fits-all approach.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- DAYS 6–7 -->
+      <article class="premium-week-card reveal stagger-4">
+
+        <div class="premium-week-visual">
+
+          <div class="premium-week-image">
+            <img
+              src="./images/home2-confidence.png"
+              alt="Parent and child building confidence through a calm bedtime routine"
+            />
+          </div>
+
+          <div class="premium-week-number">
+            <span>04</span>
+          </div>
+
+        </div>
+
+
+        <div class="premium-week-content">
+
+          <div class="premium-week-meta">
+            <span class="premium-week-icon">
+              <i data-lucide="moon-star"></i>
+            </span>
+
+            <span class="premium-week-label">
+              DAYS 6–7
+            </span>
+          </div>
+
+          <h3>Build Confidence</h3>
+
+          <p>
+            You finish the first week with a clearer understanding of
+            what works, what needs changing, and how to continue
+            building a calmer bedtime routine.
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <!-- SECTION FOOTER -->
+    <div class="premium-week-footer reveal">
+
+      <div class="premium-week-footer-icon">
+        <i data-lucide="sparkles"></i>
+      </div>
+
+      <div class="premium-week-footer-content">
+        <h3>
+          Small changes. Thoughtful guidance. Lasting routines.
+        </h3>
+
+        <p>
+          Every family moves at its own pace. Your plan evolves with
+          your child's needs.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- ============ NEWSLETTER ============ -->
+    <section class="st-section">
+      <div class="st-container">
+        <div class="st-newsletter reveal">
+          <div class="st-newsletter-icon anim-float"><i data-lucide="mail"></i></div>
+          <h2>Sleep Tips Straight to Your Inbox</h2>
+          <p class="st-supporting mx-auto" style="max-width:480px">Join 2,400+ parents receiving gentle sleep tips, age-appropriate guidance, and supportive advice every week.</p>
+          <form class="st-newsletter-form">
+            <input type="email" class="st-form-control" placeholder="your@email.com" required />
+            <button type="submit" class="st-btn st-btn-primary"><i data-lucide="send"></i> Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="st-footer">
+    <div class="st-footer-inner">
+      <div class="st-footer-grid">
+        <div class="st-footer-brand">
+          <a href="./home1.html" target="_self">
+          <div class="st-footer-brand-row">
+          <img src="./images/logo.png" alt="" height="50px" width="50px">
+            <span class="brand-title"><span class="brand-sleep">Sleep</span><span class="brand-tots">Tots</span></span>
+          </div>
+          </a>
+          <p>Gentle, personalized sleep support for babies and toddlers. Helping families achieve better, restful nights with expert guidance and compassionate care.</p>
+          <ul class="st-footer-social">
+            <li><a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a></li>
+            <li><a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a></li>
+            <li><a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a></li>
+            <li><a href="#" aria-label="YouTube"><i data-lucide="youtube"></i></a></li>
+          </ul>
+        </div>
+        
+        <div class="st-footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="./home1.html">Home</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./Testimonials.html">Testimonials</a></li>
+            <li><a href="./pricing.html">Pricing</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="st-footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="./services.html">Newborn Sleep Support</a></li>
+            <li><a href="./services.html">Toddler Sleep Support</a></li>
+            <li><a href="./services.html">Regression Support</a></li>
+            <li><a href="./services.html">Sleep Plans</a></li>
+          </ul>
+        </div>
+        <div class="st-footer-col">
+          <h4>Additional Pages</h4>
+          <ul>
+            <li><a href="./404.html">404 Page</a></li>
+            <li><a href="./maintainance.html">Maintainance Page</a></li>
+          </ul>
+        </div>
+        <div class="st-footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="./contact.html">Book a Consultation</a></li>
+            <li><a href="mailto:hello@sleeptots.com">hello@sleeptots.com</a></li>
+            <li><a href="tel:+18005550100">+91 9848333111</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="st-footer-bottom">
+        <p>&copy; 2026 SleepTots. All rights reserved.</p>
+        <p>Gentle sleep support for happier families.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded",function(){lucide.createIcons();});</script>
+  <script src="js/global.js"></script>
+</body>
+</html>

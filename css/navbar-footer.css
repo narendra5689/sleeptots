@@ -1,0 +1,2561 @@
+/* ==========================================================================
+   SleepTots — Navbar & Footer
+   ========================================================================== */
+
+
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   Navbar Container
+   -------------------------------------------------------------------------- */
+
+.st-navbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-navbar);
+
+  /* Solid navbar background */
+  background: var(--navbar-bg);
+
+  /* Remove transparency / glass effect */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  border-bottom: 1px solid var(--navbar-border);
+  isolation: isolate;
+
+  transition:
+    background var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+
+.st-navbar.scrolled {
+  box-shadow: var(--shadow-sm);
+}
+
+
+/* --------------------------------------------------------------------------
+   Navbar Inner
+   -------------------------------------------------------------------------- */
+
+.st-navbar-inner {
+  max-width: var(--container-max);
+
+  margin: 0 auto;
+
+  padding: 0 24px;
+
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+}
+
+
+/* --------------------------------------------------------------------------
+   Brand Link
+   -------------------------------------------------------------------------- */
+
+.brand-link {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  text-decoration: none;
+
+  flex-shrink: 0;
+}
+
+
+.brand-link:hover {
+  color: inherit;
+}
+
+
+.brand-logo {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--color-primary);
+  color: var(--color-secondary);
+
+  flex-shrink: 0;
+
+  transition:
+    transform var(--transition-base);
+}
+
+
+.brand-link:hover .brand-logo {
+  transform: rotate(-5deg) scale(1.05);
+}
+
+
+.brand-logo svg {
+  width: 22px;
+  height: 22px;
+}
+
+
+/*
+ * SleepTots must behave as one single brand text.
+ *
+ * Direction is forced to LTR so RTL does not visually
+ * separate/reorder "Sleep" and "Tots".
+ */
+
+.brand-title {
+  direction: ltr;
+  unicode-bidi: isolate;
+
+  font-family: 'DM Serif Display', serif;
+
+  font-size: 1.5rem;
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: -0.01em;
+
+  display: flex;
+  align-items: baseline;
+
+  white-space: nowrap;
+}
+
+
+.brand-sleep {
+  color: var(--brand-sleep);
+
+  transition:
+    color var(--transition-base);
+}
+
+
+.brand-tots {
+  color: var(--brand-tots);
+
+  transition:
+    color var(--transition-base);
+}
+
+
+/* ==========================================================================
+   CENTER NAVIGATION
+   ========================================================================== */
+
+.st-nav-center {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+.st-nav-center > li {
+  position: relative;
+}
+
+
+/* --------------------------------------------------------------------------
+   Navigation Link
+   -------------------------------------------------------------------------- */
+
+.st-nav-link {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  padding: 8px 14px;
+
+  font-size: 0.9375rem;
+
+  font-weight: 500;
+
+  color: var(--navbar-link);
+
+  text-decoration: none;
+
+  border-radius: var(--radius-sm);
+
+  transition:
+    color var(--transition-fast);
+
+  cursor: pointer;
+
+  background: none;
+
+  border: none;
+
+  font-family: inherit;
+}
+
+
+.st-nav-link svg {
+  width: 14px;
+  height: 14px;
+
+  transition:
+    transform var(--transition-fast);
+
+  opacity: 0.6;
+}
+
+
+.st-nav-link:hover {
+  color: var(--navbar-link-hover);
+}
+
+
+.st-nav-link:hover svg {
+  transform: rotate(180deg);
+
+  opacity: 1;
+}
+
+
+/* --------------------------------------------------------------------------
+   Normal Navigation Hover Underline
+   -------------------------------------------------------------------------- */
+
+.st-nav-link::after {
+  content: "";
+
+  position: absolute;
+  bottom: 2px;
+
+  height: 2px;
+  border-radius: 999px;
+
+  background: var(--color-secondary);
+
+  transform: scaleX(0);
+
+  transform-origin: center;
+
+  transition:
+    transform 0.3s ease;
+}
+
+
+.st-nav-link:hover::after {
+  transform: scaleX(0.8);
+}
+
+
+/* --------------------------------------------------------------------------
+   Current Page
+   -------------------------------------------------------------------------- */
+
+.st-nav-link[data-current="true"],
+.st-nav-link.active {
+  color: var(--color-secondary);
+
+  font-weight: 500;
+}
+
+
+.st-nav-link[data-current="true"]:hover,
+.st-nav-link.active:hover {
+  color: var(--color-secondary);
+}
+
+
+.st-nav-link[data-current="true"]::after,
+.st-nav-link.active::after {
+  display: block;
+  transform: scaleX(1);
+}
+
+
+/* ==========================================================================
+   HOME DROPDOWN — DESKTOP
+   ========================================================================== */
+
+.st-home-dropdown {
+  position: absolute;
+
+  /*
+   * No physical gap between the navigation item
+   * and dropdown.
+   */
+
+  top: 100%;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%)
+    translateY(-8px)
+    scale(0.98);
+
+  min-width: 220px;
+
+  background: var(--navbar-dropdown-bg);
+
+  border:
+    1px solid
+    var(--navbar-dropdown-border);
+
+  border-radius: var(--radius-md);
+
+  box-shadow:
+    var(--navbar-dropdown-shadow);
+
+  padding: 8px;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transform-origin: top center;
+
+  transition:
+    opacity var(--transition-base),
+    transform var(--transition-base),
+    visibility var(--transition-base);
+
+  list-style: none;
+
+  margin: 0;
+
+  z-index: 1000;
+}
+
+
+/*
+ * Invisible hover bridge.
+ *
+ * Allows the cursor to travel from Home to the
+ * dropdown without losing the hover state.
+ */
+
+@media (min-width: 992px) {
+
+  .st-nav-center > li::after {
+    content: "";
+
+    position: absolute;
+
+    top: 100%;
+
+    left: 0;
+    right: 0;
+
+    height: 12px;
+
+    background: transparent;
+  }
+
+
+  .st-nav-center > li:hover > .st-home-dropdown,
+  .st-nav-center > li:focus-within > .st-home-dropdown {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform:
+      translateX(-50%)
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* --------------------------------------------------------------------------
+   Dropdown Items
+   -------------------------------------------------------------------------- */
+
+.st-home-dropdown li {
+  list-style: none;
+}
+
+
+.st-home-dropdown a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 12px 16px;
+
+  font-size: 0.9375rem;
+
+  font-weight: 500;
+
+  color: var(--color-text-body);
+
+  text-decoration: none;
+
+  border-radius: var(--radius-sm);
+
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+
+.st-home-dropdown a:hover {
+  background: var(--color-primary-light);
+
+  color: var(--color-secondary);
+
+  transform: translateX(3px);
+}
+
+
+[data-theme="dark"] .st-home-dropdown a:hover {
+  background: rgba(74, 99, 120, 0.15);
+
+  color: var(--color-secondary);
+}
+
+
+/* --------------------------------------------------------------------------
+   Dropdown Icon
+   -------------------------------------------------------------------------- */
+
+.st-home-dropdown .dropdown-icon {
+  width: 36px;
+  height: 36px;
+
+  border-radius: var(--radius-sm);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: var(--color-secondary-light);
+
+  color: var(--color-primary);
+
+  flex-shrink: 0;
+
+  transition:
+    transform var(--transition-fast);
+}
+
+
+.st-home-dropdown a:hover .dropdown-icon {
+  transform: scale(1.06);
+}
+
+
+[data-theme="dark"] .st-home-dropdown .dropdown-icon {
+  color: var(--color-secondary);
+}
+
+
+/* --------------------------------------------------------------------------
+   Dropdown Text
+   -------------------------------------------------------------------------- */
+
+.st-home-dropdown .dropdown-text {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+
+.st-home-dropdown .dropdown-title {
+  font-weight: 600;
+
+  font-size: 0.9375rem;
+}
+
+
+.st-home-dropdown .dropdown-sub {
+  font-size: 0.75rem;
+
+  color: var(--color-text-muted);
+
+  font-weight: 400;
+}
+
+
+/* ==========================================================================
+   RIGHT CONTROLS
+   ========================================================================== */
+
+.st-nav-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  flex-shrink: 0;
+}
+
+
+.st-icon-btn {
+  width: 40px;
+  height: 40px;
+
+  border-radius: var(--radius-sm);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+
+  border: 1.5px solid transparent;
+
+  color: var(--color-text-body);
+
+  cursor: pointer;
+
+  transition:
+    all var(--transition-fast);
+
+  font-family: inherit;
+}
+
+
+.st-icon-btn:hover {
+  background: var(--color-primary-light);
+
+  color: var(--color-primary);
+}
+
+
+[data-theme="dark"] .st-icon-btn:hover {
+  background: rgba(74, 99, 120, 0.15);
+
+  color: var(--color-secondary);
+}
+
+
+.st-icon-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+
+.st-icon-btn:focus-visible {
+  outline:
+    2px solid
+    var(--color-secondary);
+
+  outline-offset: 2px;
+}
+
+
+/* ==========================================================================
+   HAMBURGER
+   ========================================================================== */
+
+.st-hamburger {
+  display: none;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: var(--radius-sm);
+
+  background: transparent;
+
+  border: 1.5px solid transparent;
+
+  cursor: pointer;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 0;
+
+  transition:
+    background var(--transition-fast);
+}
+
+
+.st-hamburger span {
+  width: 22px;
+  height: 2px;
+
+  border-radius: 2px;
+
+  background: var(--color-text);
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+.st-hamburger:hover {
+  background: var(--color-primary-light);
+}
+
+
+[data-theme="dark"] .st-hamburger:hover {
+  background: rgba(74, 99, 120, 0.15);
+}
+
+
+.st-hamburger.is-open span:nth-child(1) {
+  transform:
+    translateY(7px)
+    rotate(45deg);
+}
+
+
+.st-hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+
+.st-hamburger.is-open span:nth-child(3) {
+  transform:
+    translateY(-7px)
+    rotate(-45deg);
+}
+
+
+/* ==========================================================================
+   MOBILE MENU — TOP DROPDOWN
+
+   Same-screen appearance:
+   - Fixed to viewport
+   - Directly below navbar
+   - Same background as navbar
+   - No dull card background
+   - Soft shadow
+   ========================================================================== */
+
+.st-mobile-menu {
+  position: fixed;
+
+  top: 72px;
+
+  left: 0;
+  right: 0;
+
+  width: 100%;
+
+  max-width: none;
+
+  height: auto;
+
+  max-height:
+    calc(100vh - 72px);
+
+  /*
+   * IMPORTANT:
+   * Same background as the navbar so the menu
+   * looks like one continuous screen.
+   */
+  background: var(--navbar-bg);
+
+  /*
+   * No separate top border.
+   * The navbar's existing bottom border
+   * visually connects the two areas.
+   */
+  border-top: none;
+
+  border-bottom:
+    1px solid
+    var(--navbar-border);
+
+  border-left: none;
+
+  border-right: none;
+
+  /*
+   * Soft shadow instead of a heavy floating-card look.
+   */
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08);
+
+  z-index: var(--z-mobile-menu);
+
+  transform:
+    translateY(-8px);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    transform 0.22s ease,
+    opacity 0.22s ease,
+    visibility 0.22s ease;
+
+  overflow-y: auto;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.st-mobile-menu.is-open {
+  transform:
+    translateY(0);
+
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+}
+
+
+/* --------------------------------------------------------------------------
+   Mobile Header
+   -------------------------------------------------------------------------- */
+
+.st-mobile-menu-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 14px 20px;
+
+  border-bottom:
+    1px solid
+    var(--navbar-border);
+
+  flex-shrink: 0;
+
+  background: var(--navbar-bg);
+}
+
+
+/* --------------------------------------------------------------------------
+   Mobile Navigation
+   -------------------------------------------------------------------------- */
+
+.st-mobile-menu-nav {
+  list-style: none;
+
+  margin: 0;
+
+  padding: 8px 12px;
+
+  flex: 1;
+}
+
+
+.st-mobile-menu-nav > li {
+  list-style: none;
+
+  margin: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   Mobile Navigation Links
+   -------------------------------------------------------------------------- */
+
+.st-mobile-menu-nav a,
+.st-mobile-menu-nav .st-mobile-nav-link {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 14px 16px;
+
+  font-size: 1rem;
+
+  font-weight: 500;
+
+  color: var(--color-text-body);
+
+  text-decoration: none;
+
+  border-radius: var(--radius-sm);
+
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+
+  cursor: pointer;
+
+  background: none;
+
+  border: none;
+
+  font-family: inherit;
+
+  width: 100%;
+
+  text-align: left;
+}
+
+
+[dir="rtl"] .st-mobile-menu-nav a,
+[dir="rtl"] .st-mobile-menu-nav .st-mobile-nav-link {
+  text-align: right;
+
+  flex-direction: row-reverse;
+}
+
+
+/* --------------------------------------------------------------------------
+   Mobile Hover
+   -------------------------------------------------------------------------- */
+
+.st-mobile-menu-nav a:hover,
+.st-mobile-menu-nav .st-mobile-nav-link:hover {
+  background: var(--color-primary-light);
+
+  color: var(--color-secondary);
+}
+
+
+[data-theme="dark"] .st-mobile-menu-nav a:hover,
+[data-theme="dark"] .st-mobile-menu-nav .st-mobile-nav-link:hover {
+  background: rgba(74, 99, 120, 0.15);
+
+  color: var(--color-secondary);
+}
+
+
+/* ==========================================================================
+   MOBILE CURRENT PAGE
+   ========================================================================== */
+
+.st-mobile-menu-nav a[data-current="true"],
+.st-mobile-menu-nav .st-mobile-nav-link[data-current="true"] {
+
+  color: var(--color-secondary);
+
+  font-weight: 500;
+
+  background: transparent;
+}
+
+
+.st-mobile-menu-nav a[data-current="true"]:hover,
+.st-mobile-menu-nav .st-mobile-nav-link[data-current="true"]:hover {
+
+  color: var(--color-secondary);
+
+  background: var(--color-primary-light);
+}
+
+
+/*
+ * Absolutely no active underline.
+ */
+
+.st-mobile-menu-nav a[data-current="true"]::after,
+.st-mobile-menu-nav .st-mobile-nav-link[data-current="true"]::after {
+  display: none;
+}
+
+
+/* ==========================================================================
+   MOBILE HOME DROPDOWN
+   ========================================================================== */
+
+.st-mobile-menu-nav .st-mobile-nav-link svg {
+  width: 16px;
+  height: 16px;
+
+  transition:
+    transform var(--transition-fast);
+}
+
+
+.st-mobile-menu-nav .st-mobile-nav-link.is-expanded svg {
+  transform:
+    rotate(180deg);
+}
+
+
+/* --------------------------------------------------------------------------
+   Mobile Home Submenu
+   -------------------------------------------------------------------------- */
+
+.st-mobile-submenu {
+  list-style: none;
+
+  margin: 0;
+
+  padding: 0 0 4px 0;
+
+  max-height: 0;
+
+  overflow: hidden;
+
+  transition:
+    max-height var(--transition-base);
+}
+
+
+.st-mobile-submenu.is-open {
+  max-height: 200px;
+}
+
+
+.st-mobile-submenu a {
+  padding-left: 36px;
+
+  font-size: 0.9375rem;
+
+  color: var(--color-text-muted);
+}
+
+
+.st-mobile-submenu a:hover {
+  color: var(--color-secondary);
+
+  background: var(--color-primary-light);
+}
+
+
+[dir="rtl"] .st-mobile-submenu a {
+  padding-left: 16px;
+
+  padding-right: 36px;
+}
+
+
+/* ==========================================================================
+   MOBILE MENU FOOTER
+   ========================================================================== */
+
+.st-mobile-menu-footer {
+  padding: 14px 20px;
+
+  border-top:
+    1px solid
+    var(--navbar-border);
+
+  flex-shrink: 0;
+
+  background: var(--navbar-bg);
+}
+
+
+.st-mobile-menu-footer .st-btn {
+  width: 100%;
+}
+
+
+/* ==========================================================================
+   MOBILE MENU OVERLAY
+   ========================================================================== */
+
+.st-mobile-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    rgba(15, 22, 32, 0.5);
+
+  z-index: var(--z-overlay);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity var(--transition-base),
+    visibility var(--transition-base);
+}
+
+
+.st-mobile-overlay.is-open {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+}
+
+
+/* ==========================================================================
+   NAVBAR RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 991px) {
+
+  .st-nav-center {
+    display: none;
+  }
+
+
+  .st-hamburger {
+    display: flex;
+  }
+
+
+  .st-nav-right .st-btn {
+    display: none;
+  }
+
+
+  /*
+   * Desktop hover bridge is disabled on mobile.
+   */
+
+  .st-nav-center > li::after {
+    display: none;
+  }
+
+
+  /*
+   * Mobile menu begins exactly below
+   * the 72px navbar.
+   */
+
+  .st-mobile-menu {
+    position: fixed;
+
+    top: 72px;
+
+    left: 0;
+    right: 0;
+
+    width: 100%;
+
+    margin: 0;
+
+    max-height:
+      calc(100vh - 72px);
+
+    background: var(--navbar-bg);
+
+    border-top: none;
+  }
+
+}
+
+
+/* ==========================================================================
+   MOBILE 575px
+   ========================================================================== */
+
+@media (max-width: 575px) {
+
+  .st-navbar-inner {
+    padding: 0 16px;
+
+    height: 60px;
+
+    gap: 8px;
+  }
+
+
+  .brand-title {
+    font-size: 1.25rem;
+  }
+
+
+  .brand-logo {
+    width: 32px;
+    height: 32px;
+  }
+
+
+  .brand-logo svg {
+    width: 18px;
+    height: 18px;
+  }
+
+
+  .st-icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+
+  .st-icon-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+
+  .st-hamburger {
+    width: 36px;
+    height: 36px;
+  }
+
+
+  /*
+   * On phones the navbar becomes 60px tall,
+   * so the menu starts exactly at 60px.
+   */
+
+  .st-mobile-menu {
+    position: fixed;
+
+    top: 60px;
+
+    left: 0;
+    right: 0;
+
+    width: 100%;
+
+    max-height:
+      calc(100vh - 60px);
+
+    background: var(--navbar-bg);
+  }
+
+
+  .st-mobile-menu-nav {
+    padding: 6px 10px;
+  }
+
+
+  .st-mobile-menu-footer {
+    padding:
+      12px 16px;
+
+    background: var(--navbar-bg);
+  }
+
+}
+
+
+/* ==========================================================================
+   MOBILE 370px
+   ========================================================================== */
+
+@media (max-width: 370px) {
+
+  .st-navbar-inner {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+
+  .brand-title {
+    font-size: 1.15rem;
+  }
+
+
+  .brand-logo {
+    width: 30px;
+    height: 30px;
+  }
+
+
+  .st-nav-right {
+    gap: 4px;
+  }
+
+}
+
+
+/* ==========================================================================
+   MOBILE 320px
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   MOBILE FOOTER LAYOUT
+   Only changes the footer below 576px. Desktop/tablet layout remains intact.
+   -------------------------------------------------------------------------- */
+@media (max-width: 575px) {
+
+  .st-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "brand brand"
+      "navigation services"
+      "contact contact";
+    gap: 30px 20px;
+    text-align: center;
+  }
+
+  .st-footer-brand {
+    grid-area: brand;
+    width: 100%;
+    text-align: center;
+  }
+
+  .st-footer-brand-row {
+    justify-content: center;
+  }
+
+  .st-footer-brand p {
+    max-width: 100%;
+    margin: 0 auto 24px;
+    text-align: center;
+  }
+
+  .st-footer-social {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .st-footer-col:nth-child(2) {
+    grid-area: navigation;
+  }
+
+  .st-footer-col:nth-child(3) {
+    grid-area: services;
+  }
+
+  .st-footer-col:nth-child(4) {
+    grid-area: contact;
+  }
+
+  .st-footer-col {
+    width: 100%;
+    text-align: center;
+  }
+
+  .st-footer-col h4 {
+    text-align: center;
+  }
+
+  .st-footer-col ul {
+    text-align: center;
+  }
+
+  .st-footer-col li {
+    text-align: center;
+  }
+
+  .st-footer-col a {
+    display: inline-block;
+    text-align: center;
+  }
+
+  [dir="rtl"] .st-footer-grid {
+    text-align: center;
+  }
+
+  [dir="rtl"] .st-footer-brand,
+  [dir="rtl"] .st-footer-col,
+  [dir="rtl"] .st-footer-col h4,
+  [dir="rtl"] .st-footer-col li,
+  [dir="rtl"] .st-footer-col a {
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 320px) {
+
+  .brand-title {
+    font-size: 1.125rem;
+  }
+
+
+  .brand-logo {
+    width: 28px;
+    height: 28px;
+  }
+
+
+  .st-nav-right {
+    gap: 4px;
+  }
+
+
+  .st-icon-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+}
+
+
+/* ==========================================================================
+   RTL NAVBAR
+   ========================================================================== */
+
+/* RTL uses direction rather than reversing the flex container.
+   This keeps the brand on the right, navigation in the correct order,
+   and the controls on the left without double-reversing children. */
+[dir="rtl"] .st-navbar,
+[dir="rtl"] .st-navbar-inner {
+  direction: rtl;
+}
+
+[dir="rtl"] .st-nav-center {
+  direction: rtl;
+}
+
+[dir="rtl"] .st-nav-right {
+  direction: ltr;
+}
+
+[dir="rtl"] .brand-link {
+  direction: ltr;
+}
+
+
+/* --------------------------------------------------------------------------
+   RTL Desktop Dropdown
+   -------------------------------------------------------------------------- */
+
+[dir="rtl"] .st-home-dropdown {
+  left: auto;
+
+  right: 50%;
+
+  transform:
+    translateX(50%)
+    translateY(-8px)
+    scale(0.98);
+}
+
+
+@media (min-width: 992px) {
+
+  [dir="rtl"] .st-nav-center > li:hover > .st-home-dropdown,
+  [dir="rtl"] .st-nav-center > li:focus-within > .st-home-dropdown {
+
+    transform:
+      translateX(50%)
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* --------------------------------------------------------------------------
+   RTL Current Page
+   -------------------------------------------------------------------------- */
+
+[dir="rtl"] .st-nav-link[data-current="true"] {
+  color: var(--color-secondary);
+}
+
+
+[dir="rtl"] .st-nav-link[data-current="true"]::after,
+.st-nav-link.active::after {
+  display: block;
+  transform: scaleX(1);
+}
+
+
+/* --------------------------------------------------------------------------
+   RTL Mobile Menu
+   -------------------------------------------------------------------------- */
+
+[dir="rtl"] .st-mobile-menu-nav a,
+[dir="rtl"] .st-mobile-menu-nav .st-mobile-nav-link {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .st-mobile-menu-nav .st-mobile-nav-link {
+  justify-content: space-between;
+}
+
+
+[dir="rtl"] .st-mobile-submenu a {
+  padding-left: 16px;
+
+  padding-right: 36px;
+}
+
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.st-footer {
+  background: var(--footer-bg);
+
+  color: var(--footer-text);
+
+  padding-top: 64px;
+
+  padding-bottom: 32px;
+
+  transition:
+    background var(--transition-base),
+    color var(--transition-base);
+}
+
+
+.st-footer-inner {
+  max-width: var(--container-max);
+
+  margin: 0 auto;
+
+  padding: 0 24px;
+}
+
+
+.st-footer-grid {
+  display: grid;
+
+  grid-template-columns:
+    1.5fr 1fr 1fr 1fr 1fr;
+
+  gap: 36px;
+
+  padding-bottom: 48px;
+
+  border-bottom:
+    1px solid
+    var(--footer-border);
+}
+
+
+.st-footer-brand .brand-title {
+  margin-bottom: 16px;
+}
+
+
+.st-footer-brand .brand-sleep {
+  color: #ffffff;
+}
+
+
+[data-theme="dark"] .st-footer-brand .brand-sleep {
+  color: #ffffff;
+}
+
+
+.st-footer-brand .brand-tots {
+  color: var(--color-secondary);
+}
+
+
+.st-footer-brand p {
+  font-size: 0.9375rem;
+
+  color: var(--footer-text);
+
+  line-height: 1.7;
+
+  max-width: 320px;
+
+  margin: 0 0 24px;
+}
+
+
+/* --------------------------------------------------------------------------
+   Footer Columns
+   -------------------------------------------------------------------------- */
+
+.st-footer-col h4 {
+  color: #ffffff;
+
+  font-family: 'Manrope', sans-serif;
+
+  font-size: 0.8125rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  margin-bottom: 20px;
+}
+
+
+.st-footer-col ul {
+  list-style: none;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+
+.st-footer-col li {
+  margin-bottom: 12px;
+}
+
+
+.st-footer-col a {
+  font-size: 0.9375rem;
+
+  color: var(--footer-link);
+
+  text-decoration: none;
+
+  transition:
+    color var(--transition-fast),
+    padding-left var(--transition-fast);
+}
+
+
+.st-footer-col a:hover {
+  color: var(--footer-link-hover);
+
+  padding-left: 4px;
+}
+
+
+[dir="rtl"] .st-footer-col a:hover {
+  padding-left: 0;
+
+  padding-right: 4px;
+}
+
+
+/* --------------------------------------------------------------------------
+   Footer Bottom
+   -------------------------------------------------------------------------- */
+
+.st-footer-bottom {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding-top: 28px;
+
+  flex-wrap: wrap;
+
+  gap: 16px;
+}
+
+
+.st-footer-bottom p {
+  font-size: 0.875rem;
+
+  color: var(--footer-text-muted);
+
+  margin: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   Footer Social
+   -------------------------------------------------------------------------- */
+
+.st-footer-social {
+  display: flex;
+
+  gap: 12px;
+
+  list-style: none;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+
+.st-footer-social a {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  color: var(--footer-text);
+
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+
+.st-footer-social a:hover {
+  background: var(--color-secondary);
+
+  color: var(--color-text-on-secondary);
+
+  transform:
+    translateY(-3px);
+}
+
+
+.st-footer-social svg {
+  width: 18px;
+  height: 18px;
+}
+
+
+/* --------------------------------------------------------------------------
+   Footer Brand Row
+   -------------------------------------------------------------------------- */
+
+.st-footer-brand-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 16px;
+}
+
+
+.st-footer-brand-row .brand-logo {
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  color: var(--color-secondary);
+}
+
+
+/* ==========================================================================
+   FOOTER RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 991px) {
+
+  .st-footer-grid {
+    grid-template-columns:
+      1fr 1fr;
+
+    gap: 36px;
+  }
+
+
+  .st-footer-brand {
+    grid-column: 1 / -1;
+  }
+
+}
+
+
+@media (max-width: 575px) {
+
+  .st-footer {
+    padding-top: 48px;
+
+    padding-bottom: 24px;
+  }
+
+
+  .st-footer-grid {
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+
+    padding-bottom: 32px;
+  }
+
+
+  .st-footer-inner {
+    padding: 0 16px;
+  }
+
+
+  .st-footer-bottom {
+    flex-direction: column;
+
+    text-align: center;
+
+    padding-top: 20px;
+  }
+
+}
+
+
+/* --------------------------------------------------------------------------
+   MOBILE FOOTER LAYOUT
+   Only changes the footer below 576px. Desktop/tablet layout remains intact.
+   -------------------------------------------------------------------------- */
+@media (max-width: 575px) {
+
+  .st-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "brand brand"
+      "navigation services"
+      "contact contact";
+    gap: 30px 20px;
+    text-align: center;
+  }
+
+  .st-footer-brand {
+    grid-area: brand;
+    width: 100%;
+    text-align: center;
+  }
+
+  .st-footer-brand-row {
+    justify-content: center;
+  }
+
+  .st-footer-brand p {
+    max-width: 100%;
+    margin: 0 auto 24px;
+    text-align: center;
+  }
+
+  .st-footer-social {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .st-footer-col:nth-child(2) {
+    grid-area: navigation;
+  }
+
+  .st-footer-col:nth-child(3) {
+    grid-area: services;
+  }
+
+  .st-footer-col:nth-child(4) {
+    grid-area: contact;
+  }
+
+  .st-footer-col {
+    width: 100%;
+    text-align: center;
+  }
+
+  .st-footer-col h4 {
+    text-align: center;
+  }
+
+  .st-footer-col ul {
+    text-align: center;
+  }
+
+  .st-footer-col li {
+    text-align: center;
+  }
+
+  .st-footer-col a {
+    display: inline-block;
+    text-align: center;
+  }
+
+  [dir="rtl"] .st-footer-grid {
+    text-align: center;
+  }
+
+  [dir="rtl"] .st-footer-brand,
+  [dir="rtl"] .st-footer-col,
+  [dir="rtl"] .st-footer-col h4,
+  [dir="rtl"] .st-footer-col li,
+  [dir="rtl"] .st-footer-col a {
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 320px) {
+
+  .st-footer-social a {
+    width: 34px;
+    height: 34px;
+  }
+
+
+  .st-footer-social svg {
+    width: 16px;
+    height: 16px;
+  }
+
+}
+
+
+/* ==========================================================================
+   RTL FOOTER
+   ========================================================================== */
+
+[dir="rtl"] .st-footer-grid {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .st-footer-bottom {
+  direction: rtl;
+}
+
+[dir="rtl"] .st-footer-social {
+  direction: rtl;
+}
+
+
+@media (max-width: 575px) {
+
+  [dir="rtl"] .st-footer-bottom {
+    flex-direction: column;
+  }
+
+}
+
+@media (max-width: 991px) {
+
+  .st-footer-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    grid-template-areas:
+      "brand brand"
+      "navigation services"
+      "contact additional";
+
+    gap: 36px 30px;
+
+    text-align: center;
+  }
+
+  /* Brand */
+  .st-footer-brand {
+    grid-area: brand;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+  }
+
+  .st-footer-brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .st-footer-brand p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .st-footer-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Navigation */
+  .st-footer-col:nth-child(2) {
+    grid-area: navigation;
+  }
+
+  /* Services */
+  .st-footer-col:nth-child(3) {
+    grid-area: services;
+  }
+
+  /* Contact */
+  .st-footer-col:nth-child(4) {
+    grid-area: contact;
+  }
+
+  /* Additional Pages */
+  .st-footer-col:nth-child(5) {
+    grid-area: additional;
+  }
+
+  .st-footer-col {
+    width: 100%;
+    text-align: center;
+  }
+
+  .st-footer-col h4 {
+    text-align: center;
+  }
+
+  .st-footer-col ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  .st-footer-col li,
+  .st-footer-col a {
+    text-align: center;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE PATCH
+   --------------------------------------------------------------------------
+   Responsive-only corrections.
+   Existing colors, typography, component structure, navbar behavior,
+   footer structure, RTL, and functionality are preserved.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   GLOBAL VIEWPORT SAFETY
+   -------------------------------------------------------------------------- */
+
+html,
+body {
+  max-width: 100%;
+}
+
+.st-navbar,
+.st-navbar-inner,
+.st-footer,
+.st-footer-inner {
+  box-sizing: border-box;
+}
+
+.st-navbar-inner,
+.st-footer-inner {
+  width: 100%;
+}
+
+.st-navbar-inner > *,
+.st-footer-inner > *,
+.st-footer-grid > * {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.st-footer-grid,
+.st-footer-bottom {
+  min-width: 0;
+}
+
+.st-footer-grid img,
+.st-footer-grid svg,
+.st-footer-grid a,
+.st-footer-grid p {
+  max-width: 100%;
+}
+
+
+/* --------------------------------------------------------------------------
+   WIDE DESKTOP
+   1441px+
+   --------------------------------------------------------------------------
+   The original container can make the navbar and footer look too small on
+   1920px screens. Give the existing layout more horizontal room without
+   changing its internal design.
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 1441px) {
+
+  .st-navbar-inner {
+    max-width: 1600px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .st-footer-inner {
+    max-width: 1600px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .st-nav-center {
+    gap: 6px;
+  }
+
+  .st-nav-link {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .st-footer-grid {
+    gap: 44px;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   VERY LARGE DESKTOP
+   1800px+
+   --------------------------------------------------------------------------
+   Prevent the 1920px layout from looking compressed while keeping a
+   controlled maximum width.
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 1800px) {
+
+  .st-navbar-inner {
+    max-width: 1680px;
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+
+  .st-footer-inner {
+    max-width: 1680px;
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+
+  .st-nav-link {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   DESKTOP / NEST HUB / 1024px+
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 992px) {
+
+  .st-navbar-inner,
+  .st-footer-inner {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .st-navbar-inner > *,
+  .st-footer-inner > *,
+  .st-footer-grid > * {
+    min-width: 0;
+  }
+
+  .st-nav-center {
+    min-width: 0;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   TABLET / IPAD MINI
+   768px — 991px
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+  .st-navbar-inner {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+  }
+
+  .st-footer-inner {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+  }
+
+  .st-mobile-menu {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+  }
+
+  .st-mobile-menu-nav,
+  .st-mobile-menu-header,
+  .st-mobile-menu-footer {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  .st-footer-grid {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   MOBILE / LANDSCAPE MOBILE
+   576px — 767px
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 576px) and (max-width: 767px) {
+
+  .st-navbar-inner {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 18px;
+    padding-right: 18px;
+    box-sizing: border-box;
+  }
+
+  .st-footer-inner {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 18px;
+    padding-right: 18px;
+    box-sizing: border-box;
+  }
+
+  .st-mobile-menu {
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .st-mobile-menu-nav {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   MOBILE
+   371px — 575px
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 371px) and (max-width: 575px) {
+
+  .st-navbar-inner {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    gap: 8px;
+    box-sizing: border-box;
+  }
+
+  .brand-link {
+    min-width: 0;
+  }
+
+  .brand-title {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .st-nav-right {
+    flex-shrink: 0;
+  }
+
+  .st-mobile-menu {
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .st-footer-inner {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+
+  .st-footer-grid {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .st-footer-brand,
+  .st-footer-col {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .st-footer-brand p {
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .st-footer-col a {
+    overflow-wrap: anywhere;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   SAMSUNG S8+ / VERY SMALL MOBILE
+   360px and below
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 370px) {
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  .st-navbar {
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  .st-navbar-inner {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 12px;
+    padding-right: 12px;
+    gap: 6px;
+    box-sizing: border-box;
+  }
+
+  .brand-link {
+    min-width: 0;
+    max-width: calc(100% - 92px);
+  }
+
+  .brand-title {
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .st-nav-right {
+    flex-shrink: 0;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .st-icon-btn,
+  .st-hamburger {
+    flex-shrink: 0;
+  }
+
+  .st-mobile-menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .st-mobile-menu-nav {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .st-mobile-menu-nav a,
+  .st-mobile-menu-nav .st-mobile-nav-link {
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .st-mobile-submenu {
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .st-mobile-menu-footer {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .st-footer-inner {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
+  }
+
+  .st-footer-grid {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .st-footer-brand,
+  .st-footer-col {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .st-footer-brand p,
+  .st-footer-col a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .st-footer-social {
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   EXTRA SMALL
+   320px and below
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 320px) {
+
+  .st-navbar-inner {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .st-footer-inner {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .brand-link {
+    max-width: calc(100% - 88px);
+  }
+
+  .st-footer-social {
+    gap: 8px;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   LANDSCAPE MOBILE
+   Samsung S8+ landscape: approximately 740 × 360
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 991px) and (orientation: landscape) {
+
+  .st-navbar-inner {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .st-mobile-menu {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    right: 0;
+    max-height: calc(100vh - 60px);
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  .st-mobile-menu-nav {
+    min-width: 0;
+  }
+
+  .st-footer-inner {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   SHORT LANDSCAPE SCREENS
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 991px) and (orientation: landscape) and (max-height: 500px) {
+
+  .st-mobile-menu {
+    max-height: calc(100vh - 60px);
+  }
+
+  .st-mobile-menu-nav a,
+  .st-mobile-menu-nav .st-mobile-nav-link {
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+
+  .st-mobile-menu-footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   RTL RESPONSIVE SAFETY
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 991px) {
+
+  [dir="rtl"] .st-navbar-inner,
+  [dir="rtl"] .st-footer-inner {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  [dir="rtl"] .st-mobile-menu {
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  [dir="rtl"] .brand-link {
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+
+  [dir="rtl"] .st-nav-right {
+    direction: ltr;
+  }
+
+  [dir="rtl"] .st-footer-brand,
+  [dir="rtl"] .st-footer-col {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   PREVENT LONG CONTENT FROM CREATING A RIGHT-SIDE GAP
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 991px) {
+
+  .st-navbar *,
+  .st-mobile-menu *,
+  .st-footer * {
+    box-sizing: border-box;
+  }
+
+  .st-mobile-menu img,
+  .st-mobile-menu svg,
+  .st-footer img,
+  .st-footer svg {
+    max-width: 100%;
+  }
+
+  .st-mobile-menu a,
+  .st-footer a,
+  .st-footer p,
+  .st-footer li {
+    overflow-wrap: anywhere;
+  }
+}
+
+
+
+/* ==========================================================
+   RTL BRAND ORDER
+   RTL: Title → Logo
+   ========================================================== */
+
+[dir="rtl"] .brand-link {
+    flex-direction: row-reverse;
+}
+
+/* Home page — no active underline */
+.st-nav-link.active::after {
+    transform: scaleX(0);
+}
+
+
+/* ============================================================
+   SLEEPTOTS — FINAL NAVBAR STICKY / FIXED BEHAVIOR
+   Desktop + Mobile
+   ============================================================ */
+
+/* Keep navbar fixed/sticky across the entire site */
+.st-navbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 99999 !important;
+}
+
+/* Prevent content from hiding underneath the fixed navbar */
+body {
+  padding-top: var(--st-navbar-height, 70px);
+}
+
+/* Mobile */
+@media (max-width: 991.98px) {
+
+  .st-navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 99999 !important;
+  }
+
+  .st-navbar-inner {
+    position: relative;
+    z-index: 100000;
+  }
+
+}

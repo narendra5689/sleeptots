@@ -1,0 +1,973 @@
+/* ==========================================================================
+   SleepTots — Maintenance Page
+   Page-specific styling only
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   PAGE WRAPPER
+   -------------------------------------------------------------------------- */
+
+.st-maintenance-page {
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background: var(--color-background);
+    color: var(--color-text-body);
+}
+
+
+/* --------------------------------------------------------------------------
+   MAIN SECTION
+   -------------------------------------------------------------------------- */
+
+.st-maintenance-section {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 100px 24px 80px;
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(201, 168, 76, 0.10),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(26, 27, 75, 0.08),
+            transparent 32%
+        ),
+        var(--color-background);
+}
+
+
+/* --------------------------------------------------------------------------
+   DECORATIVE GLOWS
+   -------------------------------------------------------------------------- */
+
+.st-maintenance-glow {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(2px);
+}
+
+.st-maintenance-glow-one {
+    width: 420px;
+    height: 420px;
+    top: -170px;
+    left: -120px;
+    background: rgba(201, 168, 76, 0.10);
+    animation: maintenanceGlowOne 10s ease-in-out infinite alternate;
+}
+
+.st-maintenance-glow-two {
+    width: 500px;
+    height: 500px;
+    right: -200px;
+    bottom: -220px;
+    background: rgba(26, 27, 75, 0.08);
+    animation: maintenanceGlowTwo 12s ease-in-out infinite alternate;
+}
+
+
+/* --------------------------------------------------------------------------
+   STARS
+   -------------------------------------------------------------------------- */
+
+.st-maintenance-stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.maintenance-star {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-secondary);
+    opacity: 0.45;
+    animation: maintenanceTwinkle 3.5s ease-in-out infinite;
+}
+
+.star-one {
+    top: 17%;
+    left: 13%;
+    animation-delay: 0s;
+}
+
+.star-two {
+    top: 29%;
+    left: 72%;
+    width: 4px;
+    height: 4px;
+    animation-delay: 0.8s;
+}
+
+.star-three {
+    top: 70%;
+    left: 16%;
+    width: 3px;
+    height: 3px;
+    animation-delay: 1.4s;
+}
+
+.star-four {
+    top: 20%;
+    right: 12%;
+    width: 4px;
+    height: 4px;
+    animation-delay: 2s;
+}
+
+.star-five {
+    bottom: 18%;
+    right: 24%;
+    width: 5px;
+    height: 5px;
+    animation-delay: 2.6s;
+}
+
+.star-six {
+    bottom: 31%;
+    left: 42%;
+    width: 3px;
+    height: 3px;
+    animation-delay: 1.8s;
+}
+
+
+/* --------------------------------------------------------------------------
+   CONTENT CONTAINER
+   -------------------------------------------------------------------------- */
+
+.st-maintenance-container {
+    width: min(1180px, 100%);
+    display: grid;
+    grid-template-columns: minmax(320px, 0.9fr) minmax(320px, 1.1fr);
+    align-items: center;
+    gap: clamp(50px, 8vw, 110px);
+    position: relative;
+    z-index: 2;
+}
+
+
+/* --------------------------------------------------------------------------
+   ILLUSTRATION
+   -------------------------------------------------------------------------- */
+
+.st-maintenance-illustration {
+    position: relative;
+    width: min(500px, 100%);
+    aspect-ratio: 1;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: maintenanceIllustrationIn 1s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+
+/* --------------------------------------------------------------------------
+   ORBITS
+   -------------------------------------------------------------------------- */
+
+.maintenance-orbit {
+    position: absolute;
+    border: 1px solid rgba(201, 168, 76, 0.28);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.orbit-one {
+    width: 76%;
+    height: 76%;
+    animation: maintenanceOrbit 20s linear infinite;
+}
+
+.orbit-two {
+    width: 58%;
+    height: 58%;
+    border-color: rgba(26, 27, 75, 0.16);
+    transform: rotate(45deg);
+    animation: maintenanceOrbitReverse 16s linear infinite;
+}
+
+
+/* --------------------------------------------------------------------------
+   MOON
+   -------------------------------------------------------------------------- */
+
+.maintenance-moon {
+    position: relative;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: var(--color-secondary);
+    box-shadow:
+        0 25px 60px rgba(201, 168, 76, 0.22),
+        inset -18px -15px 0 rgba(26, 27, 75, 0.10);
+    animation: maintenanceMoonFloat 5s ease-in-out infinite;
+}
+
+.maintenance-crater {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(26, 27, 75, 0.12);
+}
+
+.crater-one {
+    width: 34px;
+    height: 34px;
+    top: 38px;
+    left: 48px;
+}
+
+.crater-two {
+    width: 22px;
+    height: 22px;
+    top: 105px;
+    left: 108px;
+}
+
+.crater-three {
+    width: 15px;
+    height: 15px;
+    top: 78px;
+    left: 138px;
+}
+
+
+/* --------------------------------------------------------------------------
+   CLOUDS
+   -------------------------------------------------------------------------- */
+
+.maintenance-cloud {
+    position: absolute;
+    width: 105px;
+    height: 32px;
+    border-radius: 50px;
+    background: var(--color-surface);
+    box-shadow: 0 12px 30px rgba(26, 27, 75, 0.08);
+    opacity: 0.95;
+}
+
+.maintenance-cloud::before,
+.maintenance-cloud::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: inherit;
+}
+
+.maintenance-cloud::before {
+    width: 48px;
+    height: 48px;
+    left: 17px;
+    bottom: 7px;
+}
+
+.maintenance-cloud::after {
+    width: 38px;
+    height: 38px;
+    right: 17px;
+    bottom: 6px;
+}
+
+.cloud-one {
+    top: 22%;
+    left: 4%;
+    transform: scale(0.85);
+    animation: maintenanceCloudOne 7s ease-in-out infinite;
+}
+
+.cloud-two {
+    right: 0;
+    bottom: 19%;
+    transform: scale(0.65);
+    animation: maintenanceCloudTwo 8s ease-in-out infinite;
+}
+
+
+/* --------------------------------------------------------------------------
+   GEARS
+   -------------------------------------------------------------------------- */
+
+.maintenance-gear {
+    position: absolute;
+    border: 3px solid var(--color-primary);
+    border-radius: 50%;
+    opacity: 0.55;
+}
+
+.maintenance-gear::before,
+.maintenance-gear::after {
+    content: "";
+    position: absolute;
+    inset: 22%;
+    border: 2px solid var(--color-secondary);
+    border-radius: 50%;
+}
+
+.maintenance-gear::after {
+    inset: 45%;
+    background: var(--color-secondary);
+    border: 0;
+}
+
+.gear-one {
+    width: 54px;
+    height: 54px;
+    top: 12%;
+    right: 12%;
+    animation: maintenanceGear 8s linear infinite;
+}
+
+.gear-two {
+    width: 38px;
+    height: 38px;
+    bottom: 16%;
+    left: 14%;
+    animation: maintenanceGearReverse 6s linear infinite;
+}
+
+
+/* --------------------------------------------------------------------------
+   DECORATIVE DOTS
+   -------------------------------------------------------------------------- */
+
+.maintenance-dot {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--color-secondary);
+    box-shadow: 0 0 0 7px rgba(201, 168, 76, 0.10);
+}
+
+.dot-one {
+    top: 18%;
+    left: 28%;
+    animation: maintenanceDotFloat 4s ease-in-out infinite;
+}
+
+.dot-two {
+    right: 20%;
+    top: 42%;
+    animation: maintenanceDotFloat 4.5s ease-in-out infinite 0.7s;
+}
+
+.dot-three {
+    bottom: 22%;
+    right: 28%;
+    animation: maintenanceDotFloat 5s ease-in-out infinite 1.2s;
+}
+
+
+/* --------------------------------------------------------------------------
+   CONTENT
+   -------------------------------------------------------------------------- */
+
+.st-maintenance-content {
+    max-width: 650px;
+    animation: maintenanceContentIn 1s cubic-bezier(.22, 1, .36, 1) 0.15s both;
+}
+
+.st-maintenance-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 20px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+}
+
+.st-maintenance-eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    border-radius: 10px;
+    background: var(--color-secondary);
+}
+
+.st-maintenance-content h1 {
+    max-width: 620px;
+    margin-bottom: 22px;
+}
+
+.st-maintenance-description {
+    max-width: 600px;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.8;
+    color: var(--color-text-body);
+}
+
+
+/* --------------------------------------------------------------------------
+   STATUS
+   -------------------------------------------------------------------------- */
+
+.st-maintenance-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+    padding: 9px 16px;
+    border: 1px solid rgba(201, 168, 76, 0.35);
+    border-radius: var(--radius-pill);
+    background: rgba(201, 168, 76, 0.08);
+    color: var(--color-text-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    animation: maintenanceStatusPulse 3s ease-in-out infinite;
+}
+
+.status-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-secondary);
+    box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.5);
+    animation: maintenanceStatusDot 2s infinite;
+}
+
+
+/* --------------------------------------------------------------------------
+   ACTIONS
+   -------------------------------------------------------------------------- */
+
+.st-maintenance-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.st-maintenance-primary,
+.st-maintenance-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 25px;
+    border-radius: var(--radius-pill);
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base),
+        background var(--transition-base),
+        color var(--transition-base);
+}
+
+.st-maintenance-primary {
+    background: var(--color-primary);
+    color: var(--color-text-on-primary);
+    border: 1.5px solid var(--color-primary);
+}
+
+.st-maintenance-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(26, 27, 75, 0.20);
+    background: var(--color-primary-hover);
+    color: var(--color-text-on-primary);
+}
+
+.st-maintenance-secondary {
+    background: transparent;
+    color: var(--color-primary);
+    border: 1.5px solid var(--color-primary);
+}
+
+.st-maintenance-secondary:hover {
+    transform: translateY(-3px);
+    background: var(--color-primary);
+    color: var(--color-text-on-primary);
+    box-shadow: 0 12px 30px rgba(26, 27, 75, 0.14);
+}
+
+
+/* --------------------------------------------------------------------------
+   HINT
+   -------------------------------------------------------------------------- */
+
+.st-maintenance-hint {
+    max-width: 520px;
+    margin-top: 22px;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    line-height: 1.7;
+}
+
+
+/* --------------------------------------------------------------------------
+   DARK MODE
+   -------------------------------------------------------------------------- */
+
+[data-theme="dark"] .st-maintenance-section {
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(201, 168, 76, 0.08),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(201, 168, 76, 0.05),
+            transparent 32%
+        ),
+        var(--color-background);
+}
+
+[data-theme="dark"] .st-maintenance-glow-one {
+    background: rgba(201, 168, 76, 0.07);
+}
+
+[data-theme="dark"] .st-maintenance-glow-two {
+    background: rgba(201, 168, 168, 0.04);
+}
+
+[data-theme="dark"] .orbit-two {
+    border-color: rgba(201, 168, 76, 0.18);
+}
+
+[data-theme="dark"] .maintenance-gear {
+    border-color: var(--color-secondary);
+}
+
+[data-theme="dark"] .maintenance-cloud {
+    background: var(--color-surface);
+}
+
+[data-theme="dark"] .st-maintenance-secondary {
+    color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+[data-theme="dark"] .st-maintenance-secondary:hover {
+    background: var(--color-secondary);
+    color: var(--color-text-on-secondary);
+}
+
+
+/* --------------------------------------------------------------------------
+   ANIMATIONS
+   -------------------------------------------------------------------------- */
+
+@keyframes maintenanceIllustrationIn {
+    from {
+        opacity: 0;
+        transform: translateX(-55px) scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes maintenanceContentIn {
+    from {
+        opacity: 0;
+        transform: translateX(45px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes maintenanceMoonFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+}
+
+@keyframes maintenanceOrbit {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes maintenanceOrbitReverse {
+    from {
+        transform: rotate(45deg);
+    }
+
+    to {
+        transform: rotate(-315deg);
+    }
+}
+
+@keyframes maintenanceCloudOne {
+    0%,
+    100% {
+        transform: translateX(0) scale(0.85);
+    }
+
+    50% {
+        transform: translateX(18px) scale(0.85);
+    }
+}
+
+@keyframes maintenanceCloudTwo {
+    0%,
+    100% {
+        transform: translateX(0) scale(0.65);
+    }
+
+    50% {
+        transform: translateX(-20px) scale(0.65);
+    }
+}
+
+@keyframes maintenanceGear {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes maintenanceGearReverse {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes maintenanceDotFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes maintenanceTwinkle {
+    0%,
+    100% {
+        opacity: 0.25;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: scale(1.35);
+    }
+}
+
+@keyframes maintenanceGlowOne {
+    from {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    to {
+        transform: translate3d(35px, 25px, 0) scale(1.08);
+    }
+}
+
+@keyframes maintenanceGlowTwo {
+    from {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    to {
+        transform: translate3d(-35px, -20px, 0) scale(1.08);
+    }
+}
+
+@keyframes maintenanceStatusPulse {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+@keyframes maintenanceStatusDot {
+    0% {
+        box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.45);
+    }
+
+    70% {
+        box-shadow: 0 0 0 8px rgba(201, 168, 76, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(201, 168, 76, 0);
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   TABLET
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 991px) {
+
+    .st-maintenance-section {
+        padding: 90px 24px 70px;
+    }
+
+    .st-maintenance-container {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        text-align: center;
+    }
+
+    .st-maintenance-illustration {
+        width: min(390px, 80vw);
+        order: 1;
+    }
+
+    .st-maintenance-content {
+        max-width: 700px;
+        margin-inline: auto;
+        order: 2;
+    }
+
+    .st-maintenance-content h1,
+    .st-maintenance-description,
+    .st-maintenance-hint {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .st-maintenance-eyebrow {
+        justify-content: center;
+    }
+
+    .st-maintenance-actions {
+        justify-content: center;
+    }
+
+    .st-maintenance-status {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   MOBILE
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 575px) {
+
+    .st-maintenance-section {
+        min-height: 100svh;
+        padding: 90px 18px 55px;
+    }
+
+    .st-maintenance-container {
+        gap: 32px;
+    }
+
+    .st-maintenance-illustration {
+        width: min(300px, 82vw);
+    }
+
+    .maintenance-moon {
+        width: 135px;
+        height: 135px;
+    }
+
+    .crater-one {
+        width: 25px;
+        height: 25px;
+        top: 28px;
+        left: 35px;
+    }
+
+    .crater-two {
+        width: 17px;
+        height: 17px;
+        top: 76px;
+        left: 76px;
+    }
+
+    .crater-three {
+        width: 12px;
+        height: 12px;
+        top: 58px;
+        left: 97px;
+    }
+
+    .maintenance-cloud {
+        width: 80px;
+        height: 25px;
+    }
+
+    .maintenance-cloud::before {
+        width: 36px;
+        height: 36px;
+    }
+
+    .maintenance-cloud::after {
+        width: 30px;
+        height: 30px;
+    }
+
+    .maintenance-gear.gear-one {
+        width: 42px;
+        height: 42px;
+    }
+
+    .maintenance-gear.gear-two {
+        width: 30px;
+        height: 30px;
+    }
+
+    .st-maintenance-content h1 {
+        margin-bottom: 18px;
+    }
+
+    .st-maintenance-description {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .st-maintenance-actions {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .st-maintenance-primary,
+    .st-maintenance-secondary {
+        width: 100%;
+    }
+
+    .st-maintenance-hint {
+        font-size: 0.8125rem;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   SMALL PHONES
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 360px) {
+
+    .st-maintenance-section {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .st-maintenance-container {
+        gap: 25px;
+    }
+
+    .st-maintenance-illustration {
+        width: 245px;
+    }
+
+    .maintenance-moon {
+        width: 115px;
+        height: 115px;
+    }
+
+    .st-maintenance-eyebrow {
+        font-size: 0.68rem;
+    }
+
+    .st-maintenance-description {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   LANDSCAPE MOBILE / SMALL TABLETS
+   -------------------------------------------------------------------------- */
+
+@media (max-height: 600px) and (orientation: landscape) {
+
+    .st-maintenance-section {
+        min-height: auto;
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+
+    .st-maintenance-container {
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 35px;
+        text-align: left;
+    }
+
+    .st-maintenance-illustration {
+        width: min(330px, 42vw);
+        order: 1;
+    }
+
+    .st-maintenance-content {
+        order: 2;
+        margin: 0;
+    }
+
+    .st-maintenance-eyebrow {
+        justify-content: flex-start;
+    }
+
+    .st-maintenance-actions {
+        justify-content: flex-start;
+    }
+
+    .st-maintenance-status {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   ACCESSIBILITY
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .st-maintenance-section *,
+    .st-maintenance-section *::before,
+    .st-maintenance-section *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

@@ -1,0 +1,2261 @@
+/* ==========================================================================
+   SleepTots — Global Styles
+   Variables, Dark Mode, RTL, Layout, Animations, Accessibility
+   ========================================================================== */
+
+
+/* ==========================================================================
+   CSS VARIABLES — LIGHT MODE
+   ========================================================================== */
+
+:root {
+
+  /* ------------------------------------------------------------------------
+     Brand Colors
+     ------------------------------------------------------------------------ */
+  --color-primary: #243447;
+  --color-primary-hover: #1a2735;
+  --color-primary-light: #e8edf2;
+  --color-primary-lighter: #f4f7fa;
+
+  --color-secondary: #a8bfa3;
+  --color-secondary-hover: #94b08f;
+  --color-secondary-light: #e8f0e6;
+  --color-secondary-lighter: #f2f7f0;
+
+  /* ------------------------------------------------------------------------
+     Brand Title Colors
+     ------------------------------------------------------------------------ */
+  --brand-sleep: var(--color-primary);
+  --brand-tots: var(--color-secondary);
+
+  /* ------------------------------------------------------------------------
+     Text
+     ------------------------------------------------------------------------ */
+  --color-text: #243447;
+  --color-text-body: #3d4f5f;
+  --color-text-muted: #6b7d8d;
+
+  --color-text-on-primary: #ffffff;
+  --color-text-on-secondary: #1a2a1c;
+
+  /* ------------------------------------------------------------------------
+     Backgrounds
+     ------------------------------------------------------------------------ */
+  --color-bg: #ffffff;
+  --color-bg-alt: var(--color-primary-light);
+  --color-bg-secondary: var(--color-secondary-light);
+  --color-bg-soft: #f8fafb;
+
+  /* ------------------------------------------------------------------------
+     Surfaces
+     ------------------------------------------------------------------------ */
+  --color-card: #ffffff;
+  --color-card-alt: var(--color-primary-lighter);
+
+  --color-border: #d9e1ea;
+  --color-border-strong: #b8c6d4;
+
+  /* ------------------------------------------------------------------------
+     Navbar
+     ------------------------------------------------------------------------ */
+  --navbar-bg: rgba(255, 255, 255,1);
+  --navbar-border: rgba(216, 225, 234, 0.6);
+
+  --navbar-link: var(--color-text-body);
+  --navbar-link-hover: var(--color-primary);
+  --navbar-link-current: var(--color-primary);
+
+  --navbar-dropdown-bg: #ffffff;
+  --navbar-dropdown-border: var(--color-border);
+  --navbar-dropdown-shadow: 0 8px 30px rgba(36, 52, 71, 0.12);
+
+  /* ------------------------------------------------------------------------
+     Footer
+     ------------------------------------------------------------------------ */
+  --footer-bg: var(--color-primary);
+  --footer-text: #c4cdd5;
+  --footer-text-muted: #8a98a6;
+  --footer-border: rgba(255, 255, 255, 0.08);
+
+  --footer-link: #c4cdd5;
+  --footer-link-hover: #ffffff;
+
+  /* ------------------------------------------------------------------------
+     Shadows
+     ------------------------------------------------------------------------ */
+  --shadow-sm: 0 1px 3px rgba(36, 52, 71, 0.06);
+  --shadow-md: 0 4px 16px rgba(36, 52, 71, 0.08);
+  --shadow-lg: 0 12px 40px rgba(36, 52, 71, 0.12);
+  --shadow-xl: 0 24px 60px rgba(36, 52, 71, 0.16);
+
+  --shadow-card: 0 2px 12px rgba(36, 52, 71, 0.06);
+  --shadow-card-hover: 0 12px 36px rgba(36, 52, 71, 0.14);
+
+  /* ------------------------------------------------------------------------
+     Radii
+     ------------------------------------------------------------------------ */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* ------------------------------------------------------------------------
+     Spacing
+     ------------------------------------------------------------------------ */
+  --space-section: 72px;
+  --space-section-mobile: 44px;
+
+  --container-max: 1200px;
+  --container-narrow: 860px;
+
+  /* ------------------------------------------------------------------------
+     Transitions
+     ------------------------------------------------------------------------ */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ------------------------------------------------------------------------
+     Z-index
+     ------------------------------------------------------------------------ */
+  --z-navbar: 1030;
+  --z-dropdown: 1040;
+  --z-overlay: 1050;
+  --z-mobile-menu: 1060;
+}
+
+
+/* ==========================================================================
+   DARK MODE
+   ========================================================================== */
+
+[data-theme="dark"] {
+
+  /* ------------------------------------------------------------------------
+     Brand Colors
+     ------------------------------------------------------------------------ */
+  --color-primary: #4a6378;
+  --color-primary-hover: #5a7589;
+  --color-primary-light: #1a2330;
+  --color-primary-lighter: #14202c;
+
+  --color-secondary: #a8bfa3;
+  --color-secondary-hover: #b8d0b3;
+  --color-secondary-light: #1a2a1c;
+  --color-secondary-lighter: #162220;
+
+  /* ------------------------------------------------------------------------
+     Brand
+     ------------------------------------------------------------------------ */
+  --brand-sleep: #ffffff;
+  --brand-tots: #a8bfa3;
+
+  /* ------------------------------------------------------------------------
+     Text
+     ------------------------------------------------------------------------ */
+  --color-text: #e0e6ec;
+  --color-text-body: #c4cdd5;
+  --color-text-muted: #7a8a99;
+
+  --color-text-on-primary: #ffffff;
+  --color-text-on-secondary: #0f1620;
+
+  /* ------------------------------------------------------------------------
+     Backgrounds
+     ------------------------------------------------------------------------ */
+  --color-bg: #0f1620;
+  --color-bg-alt: #16202d;
+  --color-bg-secondary: #14201a;
+  --color-bg-soft: #131c27;
+
+  /* ------------------------------------------------------------------------
+     Surfaces
+     ------------------------------------------------------------------------ */
+  --color-card: #16202d;
+  --color-card-alt: #1c2837;
+
+  --color-border: #2a3a4a;
+  --color-border-strong: #3a4d5f;
+
+  /* ------------------------------------------------------------------------
+     Navbar
+     ------------------------------------------------------------------------ */
+  --navbar-bg: rgba(15, 22, 32, 1);
+  --navbar-border: rgba(42, 58, 74, 0.5);
+
+  --navbar-link: #c4cdd5;
+  --navbar-link-hover: #a8bfa3;
+  --navbar-link-current: #a8bfa3;
+
+  --navbar-dropdown-bg: #16202d;
+  --navbar-dropdown-border: var(--color-border);
+  --navbar-dropdown-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+
+  /* ------------------------------------------------------------------------
+     Footer
+     ------------------------------------------------------------------------ */
+  --footer-bg: #0a1018;
+  --footer-text: #8a98a6;
+  --footer-text-muted: #5a6a7a;
+
+  --footer-border: rgba(255, 255, 255, 0.06);
+
+  --footer-link: #8a98a6;
+  --footer-link-hover: #a8bfa3;
+
+  /* ------------------------------------------------------------------------
+     Shadows
+     ------------------------------------------------------------------------ */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.5);
+
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.2);
+  --shadow-card-hover: 0 12px 36px rgba(0, 0, 0, 0.4);
+}
+
+
+/* ==========================================================================
+   BASE RESET & LAYOUT
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  margin: 0;
+
+  background-color: var(--color-bg);
+  color: var(--color-text-body);
+
+  line-height: 1.6;
+
+  overflow-x: hidden;
+
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+svg {
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-secondary);
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ==========================================================================
+   SLEEPTOTS BRAND
+   Brand always remains LTR even when the page is RTL.
+   SleepTots must NEVER become TotsSleep.
+   ========================================================================== */
+
+.st-brand,
+.st-brand-title {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.st-brand {
+  display: inline-flex;
+  align-items: center;
+
+  flex-direction: row;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  flex-shrink: 0;
+}
+
+.st-brand-title {
+  display: inline-flex;
+  align-items: center;
+
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.brand-sleep {
+  color: var(--brand-sleep);
+}
+
+.brand-tots {
+  color: var(--brand-tots);
+}
+
+/*
+ * Dark mode brand visibility.
+ */
+[data-theme="dark"] .brand-sleep {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .brand-tots {
+  color: var(--color-secondary);
+}
+
+
+/* ==========================================================================
+   CONTAINER
+   ========================================================================== */
+
+.st-container {
+  width: 100%;
+  max-width: var(--container-max);
+
+  margin: 0 auto;
+
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.st-container-narrow {
+  width: 100%;
+  max-width: var(--container-narrow);
+
+  margin: 0 auto;
+
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+
+/* ==========================================================================
+   SECTION SPACING
+   ========================================================================== */
+
+.st-section {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
+}
+
+.st-section-sm {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.st-section-alt {
+  background-color: var(--color-bg-alt);
+}
+
+.st-section-secondary {
+  background-color: var(--color-bg-secondary);
+}
+
+
+/* ==========================================================================
+   COLOR UTILITY CLASSES
+   ========================================================================== */
+
+.text-primary-brand {
+  color: var(--color-primary) !important;
+}
+
+.text-secondary-brand {
+  color: var(--color-secondary) !important;
+}
+
+.text-muted-brand {
+  color: var(--color-text-muted) !important;
+}
+
+.text-body-brand {
+  color: var(--color-text-body) !important;
+}
+
+.bg-primary-brand {
+  background-color: var(--color-primary) !important;
+}
+
+.bg-secondary-brand {
+  background-color: var(--color-secondary) !important;
+}
+
+.bg-primary-light {
+  background-color: var(--color-primary-light) !important;
+}
+
+.bg-secondary-light {
+  background-color: var(--color-secondary-light) !important;
+}
+
+.bg-soft {
+  background-color: var(--color-bg-soft) !important;
+}
+
+
+/* ==========================================================================
+   CARDS
+   ========================================================================== */
+
+.st-card {
+  background: var(--color-card);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  padding: 32px;
+
+  box-shadow: var(--shadow-card);
+
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.st-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow: var(--shadow-card-hover);
+
+  border-color: var(--color-secondary);
+}
+
+.st-card-flat {
+  background: var(--color-card);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  padding: 32px;
+}
+
+.st-card-icon {
+  width: 56px;
+  height: 56px;
+
+  border-radius: var(--radius-md);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--color-secondary-light);
+  color: var(--color-primary);
+
+  margin-bottom: 20px;
+
+  transition:
+    transform var(--transition-base),
+    background var(--transition-base),
+    color var(--transition-base);
+}
+
+.st-card:hover .st-card-icon {
+  transform: scale(1.08) rotate(-3deg);
+
+  background: var(--color-secondary);
+  color: var(--color-text-on-secondary);
+}
+
+[data-theme="dark"] .st-card-icon {
+  color: var(--color-secondary);
+}
+
+
+/* ==========================================================================
+   BADGES / PILLS
+   ========================================================================== */
+
+.st-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 6px 16px;
+
+  border-radius: var(--radius-pill);
+
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+
+  background: var(--color-secondary-light);
+  color: var(--color-primary);
+
+  border: 1px solid transparent;
+}
+
+[data-theme="dark"] .st-badge {
+  color: var(--color-secondary);
+}
+
+.st-badge-primary {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+[data-theme="dark"] .st-badge-primary {
+  background: rgba(74, 99, 120, 0.15);
+  color: var(--color-primary);
+}
+
+
+/* ==========================================================================
+   DIVIDER
+   ========================================================================== */
+
+.st-divider {
+  width: 60px;
+  height: 3px;
+
+  border-radius: var(--radius-pill);
+
+  background: var(--color-secondary);
+
+  margin: 0;
+  border: none;
+}
+
+.st-divider-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ==========================================================================
+   IMAGE UTILITIES
+   ========================================================================== */
+
+.st-img-rounded {
+  width: 100%;
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-md);
+
+  object-fit: cover;
+}
+
+.st-img-cover {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* ==========================================================================
+   ANIMATION KEYFRAMES
+   ========================================================================== */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+
+@keyframes float-reverse {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(14px);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform:
+      rotate(0deg)
+      translateX(var(--orbit-radius, 120px))
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg)
+      translateX(var(--orbit-radius, 120px))
+      rotate(-360deg);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes moon-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 40px 10px rgba(168, 191, 163, 0.2);
+  }
+
+  50% {
+    box-shadow:
+      0 0 60px 20px rgba(168, 191, 163, 0.35);
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(40px);
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes bounce-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes scale-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(-8px);
+  }
+
+  75% {
+    transform: translateY(8px);
+  }
+}
+
+
+/* ==========================================================================
+   SCROLL REVEAL CLASSES
+   ========================================================================== */
+
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-scale,
+.reveal-fade {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.reveal {
+  transform: translateY(40px);
+
+  transition:
+    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-left {
+  transform: translateX(-50px);
+
+  transition:
+    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-right {
+  transform: translateX(50px);
+
+  transition:
+    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-scale {
+  transform: scale(0.9);
+
+  transition:
+    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-fade {
+  transition: opacity 0.8s ease;
+}
+
+.is-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+
+/* ==========================================================================
+   STAGGER DELAYS
+   ========================================================================== */
+
+.stagger-1 {
+  transition-delay: 0.1s;
+}
+
+.stagger-2 {
+  transition-delay: 0.2s;
+}
+
+.stagger-3 {
+  transition-delay: 0.3s;
+}
+
+.stagger-4 {
+  transition-delay: 0.4s;
+}
+
+.stagger-5 {
+  transition-delay: 0.5s;
+}
+
+.stagger-6 {
+  transition-delay: 0.6s;
+}
+
+
+/* ==========================================================================
+   ANIMATION UTILITY CLASSES
+   ========================================================================== */
+
+.anim-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.anim-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.anim-float-reverse {
+  animation: float-reverse 7s ease-in-out infinite;
+}
+
+.anim-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.anim-pulse-soft {
+  animation: pulse-soft 4s ease-in-out infinite;
+}
+
+.anim-bob {
+  animation: bob 5s ease-in-out infinite;
+}
+
+.anim-rotate-slow {
+  animation: rotate-slow 30s linear infinite;
+}
+
+.anim-moon-glow {
+  animation: moon-glow 5s ease-in-out infinite;
+}
+
+.anim-bounce-soft {
+  animation: bounce-soft 2.5s ease-in-out infinite;
+}
+
+
+/* ==========================================================================
+   GLASS EFFECT
+   ========================================================================== */
+
+.st-glass {
+  background: rgba(255, 255, 255, 0.1);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: var(--radius-lg);
+}
+
+[data-theme="dark"] .st-glass {
+  background: rgba(22, 32, 45, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+/* ==========================================================================
+   DECORATIVE ELEMENTS
+   ========================================================================== */
+
+.st-deco-blob {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(60px);
+
+  opacity: 0.4;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+.st-deco-blob-secondary {
+  background: var(--color-secondary);
+}
+
+.st-deco-blob-primary {
+  background: var(--color-primary);
+}
+
+
+/* ==========================================================================
+   FORM BASE
+   ========================================================================== */
+
+.st-form-group {
+  margin-bottom: 20px;
+}
+
+.st-form-label {
+  display: block;
+
+  font-size: 0.875rem;
+  font-weight: 600;
+
+  color: var(--color-text);
+
+  margin-bottom: 8px;
+}
+
+.st-form-control {
+  width: 100%;
+
+  padding: 12px 16px;
+
+  font-size: 1rem;
+  font-family: inherit;
+
+  color: var(--color-text);
+  background: var(--color-bg);
+
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.st-form-control:focus {
+  outline: none;
+
+  border-color: var(--color-secondary);
+
+  box-shadow:
+    0 0 0 3px rgba(168, 191, 163, 0.15);
+}
+
+.st-form-control::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+textarea.st-form-control {
+  min-height: 130px;
+  resize: vertical;
+}
+
+select.st-form-control {
+  cursor: pointer;
+
+  appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%236b7d8d' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+
+  background-position:
+    right 16px center;
+
+  padding-right: 40px;
+}
+
+
+/* ==========================================================================
+   LIST STYLES
+   ========================================================================== */
+
+.st-list-check {
+  list-style: none;
+  padding: 0;
+}
+
+.st-list-check li {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  padding: 10px 0;
+
+  color: var(--color-text-body);
+}
+
+.st-list-check li svg {
+  flex-shrink: 0;
+
+  margin-top: 3px;
+
+  color: var(--color-secondary);
+}
+
+.st-list-bullet {
+  list-style: none;
+  padding: 0;
+}
+
+.st-list-bullet li {
+  position: relative;
+
+  padding-left: 24px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  color: var(--color-text-body);
+}
+
+.st-list-bullet li::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 16px;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: var(--color-secondary);
+}
+
+
+/* ==========================================================================
+   STAT / COUNTER
+   ========================================================================== */
+
+.st-stat-number {
+  font-family: 'DM Serif Display', serif;
+
+  font-size: 2.75rem;
+
+  color: var(--color-primary);
+
+  line-height: 1;
+
+  margin: 0;
+}
+
+[data-theme="dark"] .st-stat-number {
+  color: var(--color-secondary);
+}
+
+.st-stat-label {
+  font-size: 0.875rem;
+
+  color: var(--color-text-muted);
+
+  margin-top: 8px;
+}
+
+
+/* ==========================================================================
+   NEWSLETTER
+   ========================================================================== */
+
+.st-newsletter {
+  background: var(--color-primary-light);
+
+  border-radius: var(--radius-xl);
+
+  padding: 56px 48px;
+
+  text-align: center;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+[data-theme="dark"] .st-newsletter {
+  background: var(--color-card-alt);
+}
+
+.st-newsletter-form {
+  display: flex;
+
+  gap: 12px;
+
+  max-width: 520px;
+
+  margin: 24px auto 0;
+}
+
+.st-newsletter-form .st-form-control {
+  flex: 1;
+}
+
+.st-newsletter-icon {
+  width: 64px;
+  height: 64px;
+
+  border-radius: 50%;
+
+  background: var(--color-secondary);
+
+  color: var(--color-text-on-secondary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 20px;
+}
+
+
+/* ==========================================================================
+   ICON CONTAINERS
+   ========================================================================== */
+
+.st-icon-lg {
+  width: 72px;
+  height: 72px;
+
+  border-radius: var(--radius-lg);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--color-secondary-light);
+
+  color: var(--color-primary);
+
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .st-icon-lg {
+  color: var(--color-secondary);
+}
+
+.st-icon-md {
+  width: 48px;
+  height: 48px;
+
+  border-radius: var(--radius-md);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--color-secondary-light);
+
+  color: var(--color-primary);
+
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .st-icon-md {
+  color: var(--color-secondary);
+}
+
+
+/* ==========================================================================
+   HOVER UNDERLINE
+   ========================================================================== */
+
+.st-underline-hover {
+  position: relative;
+}
+
+.st-underline-hover::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -2px;
+
+  width: 0;
+  height: 2px;
+
+  border-radius: 2px;
+
+  background: currentColor;
+
+  transition: width var(--transition-base);
+}
+
+.st-underline-hover:hover::after,
+.st-underline-hover:focus-visible::after {
+  width: 100%;
+}
+
+
+/* ==========================================================================
+   RTL BASE STYLES
+   ========================================================================== */
+
+[dir="rtl"] body {
+  text-align: right;
+}
+
+/*
+ * The page can be RTL while the brand remains LTR.
+ */
+[dir="rtl"] .st-brand,
+[dir="rtl"] .st-brand-title {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/*
+ * Newsletter.
+ */
+[dir="rtl"] .st-newsletter-form {
+  flex-direction: row-reverse;
+}
+
+/*
+ * Check lists.
+ */
+[dir="rtl"] .st-list-check li {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .st-list-check li svg {
+  margin-top: 3px;
+}
+
+/*
+ * Bullet lists.
+ */
+[dir="rtl"] .st-list-bullet li {
+  padding-left: 0;
+  padding-right: 24px;
+}
+
+[dir="rtl"] .st-list-bullet li::before {
+  left: auto;
+  right: 0;
+}
+
+/*
+ * Dividers.
+ */
+[dir="rtl"] .st-divider {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+[dir="rtl"] .st-divider-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+ * Reveal animations.
+ */
+[dir="rtl"] .reveal-left {
+  transform: translateX(50px);
+}
+
+[dir="rtl"] .reveal-right {
+  transform: translateX(-50px);
+}
+
+[dir="rtl"] .reveal-left.is-visible,
+[dir="rtl"] .reveal-right.is-visible {
+  transform: none !important;
+}
+
+/*
+ * Select fields.
+ */
+[dir="rtl"] select.st-form-control {
+  background-position: left 16px center;
+
+  padding-right: 16px;
+  padding-left: 40px;
+}
+
+
+/* ==========================================================================
+   ACCESSIBILITY
+   ========================================================================== */
+
+:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 3px;
+
+  border-radius: 4px;
+}
+
+.sr-only {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+
+  top: -40px;
+  left: 0;
+
+  background: var(--color-primary);
+  color: #ffffff;
+
+  padding: 8px 16px;
+
+  z-index: 9999;
+
+  border-radius: 0 0 8px 0;
+
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 0;
+  color: #ffffff;
+}
+
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .reveal-fade {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .anim-float,
+  .anim-float-slow,
+  .anim-float-reverse,
+  .anim-twinkle,
+  .anim-pulse-soft,
+  .anim-bob,
+  .anim-rotate-slow,
+  .anim-moon-glow,
+  .anim-bounce-soft {
+    animation: none !important;
+  }
+}
+
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT
+   --------------------------------------------------------------------------
+   Responsive rules only. Existing colors, typography, components,
+   animations, RTL behavior, and desktop styling are preserved.
+   ========================================================================== */
+
+/*
+ * Large desktop / wide screens
+ *
+ * The original 1200px container made the page look too narrow at 1920px.
+ * A 1440px maximum gives the navbar and page content more usable width
+ * while still keeping a controlled reading/layout width.
+ */
+@media (min-width: 1441px) {
+
+  :root {
+    --container-max: 1440px;
+  }
+
+  .st-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .st-container-narrow {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+
+/* ==========================================================================
+   LARGE DESKTOP
+   1200px — 1440px
+   ========================================================================== */
+
+@media (min-width: 1200px) and (max-width: 1440px) {
+
+  :root {
+    --container-max: 1320px;
+  }
+
+  .st-container,
+  .st-container-narrow {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+
+/* ==========================================================================
+   DESKTOP / SMALL LAPTOP
+   992px — 1199px
+   ========================================================================== */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+  :root {
+    --container-max: 100%;
+  }
+
+  .st-container,
+  .st-container-narrow {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+
+/* ==========================================================================
+   TABLET / NEST HUB / IPAD MINI LANDSCAPE
+   769px — 991px
+   ========================================================================== */
+
+@media (min-width: 769px) and (max-width: 991px) {
+
+  :root {
+    --space-section: 56px;
+    --container-max: 100%;
+  }
+
+  .st-container,
+  .st-container-narrow {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .st-section-sm {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+
+  .st-newsletter {
+    width: 100%;
+    max-width: 100%;
+    padding: 40px 28px;
+  }
+
+  /*
+   * Flex/grid children are allowed to shrink instead of creating
+   * an invisible overflow area on tablet widths.
+   */
+  .st-container > *,
+  .st-container-narrow > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .st-card,
+  .st-newsletter,
+  img,
+  svg {
+    max-width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   TABLET / IPAD MINI PORTRAIT
+   576px — 768px
+   ========================================================================== */
+
+@media (min-width: 576px) and (max-width: 768px) {
+
+  :root {
+    --space-section: 52px;
+    --container-max: 100%;
+  }
+
+  .st-container,
+  .st-container-narrow {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .st-section {
+    padding-top: var(--space-section);
+    padding-bottom: var(--space-section);
+  }
+
+  .st-section-sm {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+
+  .st-newsletter {
+    width: 100%;
+    max-width: 100%;
+    padding: 40px 28px;
+  }
+
+  .st-container > *,
+  .st-container-narrow > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .st-card,
+  .st-newsletter,
+  img,
+  svg {
+    max-width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   MOBILE
+   371px — 575px
+   ========================================================================== */
+
+@media (min-width: 371px) and (max-width: 575px) {
+
+  :root {
+    --space-section: 44px;
+    --container-max: 100%;
+  }
+
+  .st-container,
+  .st-container-narrow {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .st-section {
+    padding-top: var(--space-section);
+    padding-bottom: var(--space-section);
+  }
+
+  .st-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px;
+  }
+
+  .st-newsletter {
+    width: 100%;
+    max-width: 100%;
+    padding: 32px 20px;
+    border-radius: var(--radius-lg);
+  }
+
+  .st-newsletter-form {
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .st-stat-number {
+    font-size: 2.25rem;
+  }
+
+  .st-container > *,
+  .st-container-narrow > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   VERY SMALL DEVICES
+   Samsung Galaxy S8+ / 360px and below
+   ========================================================================== */
+
+@media (max-width: 370px) {
+
+  :root {
+    --space-section: 44px;
+    --container-max: 100%;
+  }
+
+  /*
+   * Keep the complete layout inside the actual viewport.
+   * This specifically prevents the right-side empty/gap effect seen
+   * on 360px Samsung S8+ widths.
+   */
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  .st-container,
+  .st-container-narrow {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .st-section,
+  .st-section-sm {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .st-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 20px;
+  }
+
+  .st-newsletter {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .st-newsletter-form {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    flex-direction: column;
+  }
+
+  /*
+   * Prevent long labels, URLs and unbreakable text from forcing
+   * a child wider than the 360px viewport.
+   */
+  .st-container *,
+  .st-container-narrow * {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  img,
+  svg,
+  video,
+  canvas,
+  iframe {
+    max-width: 100%;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    max-width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   EXTRA SMALL DEVICES
+   320px and below
+   ========================================================================== */
+
+@media (max-width: 320px) {
+
+  :root {
+    --space-section: 40px;
+  }
+
+  .st-container,
+  .st-container-narrow {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .st-card {
+    padding: 18px;
+    border-radius: var(--radius-md);
+  }
+
+  .st-newsletter {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+
+/* ==========================================================================
+   LANDSCAPE MOBILE
+   Samsung S8+ landscape: 740px × 360px
+   Also covers other short mobile landscape screens.
+   ========================================================================== */
+
+@media (max-width: 991px) and (orientation: landscape) {
+
+  .st-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .st-section-sm {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .st-container,
+  .st-container-narrow {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .st-container > *,
+  .st-container-narrow > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   SHORT LANDSCAPE SCREENS
+   Prevent excessive vertical spacing on very short displays.
+   ========================================================================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+  .st-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .st-section-sm {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+
+/* ==========================================================================
+   RTL RESPONSIVE SAFETY
+   ========================================================================== */
+
+@media (max-width: 991px) {
+
+  [dir="rtl"] .st-container,
+  [dir="rtl"] .st-container-narrow {
+    width: 100%;
+    max-width: 100%;
+    text-align: right;
+  }
+
+  /*
+   * Brand remains visually LTR.
+   */
+  [dir="rtl"] .st-brand {
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+
+  /*
+   * Keep RTL content inside the viewport.
+   */
+  [dir="rtl"] body,
+  [dir="rtl"] main,
+  [dir="rtl"] section,
+  [dir="rtl"] .st-container,
+  [dir="rtl"] .st-container-narrow {
+    max-width: 100%;
+  }
+
+  [dir="rtl"] .st-container > *,
+  [dir="rtl"] .st-container-narrow > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   GLOBAL RESPONSIVE OVERFLOW SAFETY
+   --------------------------------------------------------------------------
+   These rules only prevent child elements from extending the viewport.
+   They do not alter the existing visual design.
+   ========================================================================== */
+
+@media (max-width: 1440px) {
+
+  .st-container,
+  .st-container-narrow {
+    box-sizing: border-box;
+  }
+
+  .st-card,
+  .st-card-flat,
+  .st-newsletter {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  img,
+  video,
+  canvas,
+  iframe {
+    max-width: 100%;
+  }
+
+  .st-form-control {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   1920px+ CONTENT SCALE
+   --------------------------------------------------------------------------
+   Gives wide desktop screens a wider content area without allowing the
+   content to become excessively stretched.
+   ========================================================================== */
+
+@media (min-width: 1600px) {
+
+  .st-container {
+    max-width: 1440px;
+  }
+
+  .st-container-narrow {
+    max-width: 1000px;
+  }
+}
+
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .reveal-fade {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .anim-float,
+  .anim-float-slow,
+  .anim-float-reverse,
+  .anim-twinkle,
+  .anim-pulse-soft,
+  .anim-bob,
+  .anim-rotate-slow,
+  .anim-moon-glow,
+  .anim-bounce-soft {
+    animation: none !important;
+  }
+}
+
+
+/* Samsung S8+ Landscape — remove right-side gap */
+@media (max-width: 991px) and (orientation: landscape) {
+
+  html,
+  body {
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  #main {
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100vw;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  #main > section {
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+
+  .home2-hero,
+  .home2-intro,
+  .home2-cta {
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+
+  .hero2-bg,
+  .hero2-bg-overlay,
+  .hero2-gradient-anim {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    right: 0;
+  }
+
+  .hero2-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .intro2-grid,
+  .journey-wrap,
+  .philosophy2-wrap,
+  .included-grid,
+  .expert-grid {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  /* RTL */
+  [dir="rtl"] #main,
+  [dir="rtl"] #main > section,
+  [dir="rtl"] .home2-hero,
+  [dir="rtl"] .home2-intro,
+  [dir="rtl"] .home2-cta {
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* iPad Mini Portrait — remove small right-side gap */
+@media (min-width: 700px) and (max-width: 900px) and (orientation: portrait) {
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  #main {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  #main > section {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+
+  .home2-hero,
+  .home2-intro,
+  .home2-cta {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+
+  .hero2-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .intro2-grid,
+  .journey-wrap,
+  .philosophy2-wrap,
+  .included-grid,
+  .expert-grid {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .hero2-bg,
+  .hero2-bg-overlay,
+  .hero2-gradient-anim {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    right: 0;
+  }
+
+  /* RTL */
+  [dir="rtl"] #main,
+  [dir="rtl"] #main > section,
+  [dir="rtl"] .home2-hero,
+  [dir="rtl"] .home2-intro,
+  [dir="rtl"] .home2-cta {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* ============================================================
+   TABLET / NEST HUB LANDSCAPE — REMOVE RIGHT-SIDE GAP
+   ============================================================ */
+
+@media (min-width: 768px) and (max-width: 1280px) and (orientation: landscape) {
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  #main {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  #main > section {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+
+  .home2-hero,
+  .home2-intro,
+  .home2-cta {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+
+  .hero2-bg,
+  .hero2-bg-overlay,
+  .hero2-gradient-anim {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    right: 0;
+  }
+
+  .hero2-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .intro2-grid,
+  .journey-wrap,
+  .philosophy2-wrap,
+  .included-grid,
+  .expert-grid {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  /* RTL */
+  [dir="rtl"] #main,
+  [dir="rtl"] #main > section,
+  [dir="rtl"] .home2-hero,
+  [dir="rtl"] .home2-intro,
+  [dir="rtl"] .home2-cta {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
