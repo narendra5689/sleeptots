@@ -4284,3 +4284,48 @@ summary:hover {
 .st-section:has(.st-newsletter) {
     padding-top: 10px !important;
 }
+
+
+/* ==========================================================
+   RTL — WHAT'S INCLUDED NUMBERS
+   ========================================================== */
+
+[dir="rtl"] .services-included-index {
+  right: auto;
+  left: 20px;
+}
+
+ /* ==========================================================
+    FAQ — CENTER ALIGNMENT
+    ========================================================== */
+
+.services-faq-section {
+  text-align: center;
+}
+
+.services-faq-heading {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-faq-list {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-faq-item {
+  text-align: center;
+}
+
+.services-faq-question {
+  justify-content: center;
+  text-align: center;
+}
+
+.services-faq-answer {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}

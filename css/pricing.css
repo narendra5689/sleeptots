@@ -3589,3 +3589,44 @@
     min-height: auto !important;
   }
 }
+
+/* ==========================================================
+   PRICING PLAN BUTTON COLORS
+   Card 1 + Card 3 = Secondary
+   Card 2 = Primary
+   ========================================================== */
+
+/* First and third cards */
+.pricing-plan-card:not(.pricing-plan-card-featured) .pricing-plan-button {
+  background: var(--color-secondary) !important;
+  color: var(--color-primary) !important;
+  border-color: var(--color-secondary) !important;
+}
+
+.pricing-plan-card:not(.pricing-plan-card-featured) .pricing-plan-button:hover {
+  background: var(--color-secondary) !important;
+  color: var(--color-primary) !important;
+  border-color: var(--color-secondary) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 .6rem 1.2rem
+    color-mix(in srgb, var(--color-secondary) 30%, transparent) !important;
+  filter: brightness(1.05) !important;
+}
+
+
+/* Second / Featured card */
+.pricing-plan-card-featured .pricing-plan-button {
+  background: var(--color-primary) !important;
+  color: #fff !important;
+  border-color: var(--color-primary) !important;
+}
+
+.pricing-plan-card-featured .pricing-plan-button:hover {
+  background: var(--color-primary) !important;
+  color: #fff !important;
+  border-color: var(--color-primary) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 .6rem 1.2rem
+    color-mix(in srgb, var(--color-primary) 30%, transparent) !important;
+  filter: brightness(1.06) !important;
+}

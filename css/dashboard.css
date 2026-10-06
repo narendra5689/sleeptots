@@ -3876,3 +3876,395 @@ html[dir="rtl"] .st-dashboard-content {
         transform: translateX(0) !important;
     }
 }
+
+/* ==========================================================
+   SLEEPTOTS DASHBOARD
+   FINAL RTL TOPBAR + TITLE FIX
+   ========================================================== */
+
+/* ----------------------------------------------------------
+   TOPBAR BASE
+   ---------------------------------------------------------- */
+
+.st-dashboard-topbar {
+    position: fixed !important;
+    top: 0 !important;
+
+    height: 64px !important;
+    min-height: 64px !important;
+
+    padding: 8px 28px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    box-sizing: border-box !important;
+
+    overflow: visible !important;
+
+    z-index: 1100 !important;
+}
+
+
+/* ----------------------------------------------------------
+   LTR
+   Sidebar on LEFT
+   ---------------------------------------------------------- */
+
+html[dir="ltr"] .st-dashboard-topbar {
+    left: 270px !important;
+    right: 0 !important;
+    width: auto !important;
+}
+
+
+/* ----------------------------------------------------------
+   RTL
+   Sidebar on RIGHT
+   ---------------------------------------------------------- */
+
+html[dir="rtl"] .st-dashboard-topbar {
+    left: 0 !important;
+    right: 270px !important;
+    width: auto !important;
+
+    direction: rtl !important;
+}
+
+
+/* ----------------------------------------------------------
+   TOPBAR LEFT / TITLE AREA
+   ---------------------------------------------------------- */
+
+.st-dashboard-topbar-left {
+    display: flex !important;
+    align-items: center !important;
+
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+
+    overflow: visible !important;
+}
+
+
+/* Keep the page title visible */
+
+.st-dashboard-page-title {
+    display: flex !important;
+    flex-direction: column !important;
+
+    flex: 0 1 auto !important;
+
+    min-width: 0 !important;
+
+    gap: 1px !important;
+
+    overflow: visible !important;
+}
+
+
+/* SLEEPTOTS */
+
+.st-dashboard-page-title .topbar-eyebrow {
+    display: block !important;
+
+    white-space: nowrap !important;
+
+    overflow: visible !important;
+}
+
+
+/* Parent Overview / current page */
+
+.st-dashboard-page-title strong {
+    display: block !important;
+
+    white-space: nowrap !important;
+
+    overflow: visible !important;
+}
+
+
+/* ----------------------------------------------------------
+   RTL TITLE
+   ---------------------------------------------------------- */
+
+html[dir="rtl"] .st-dashboard-topbar-left {
+    direction: rtl !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    flex: 1 1 auto !important;
+}
+
+
+html[dir="rtl"] .st-dashboard-page-title {
+    direction: rtl !important;
+
+    text-align: right !important;
+
+    align-items: flex-start !important;
+
+    min-width: max-content !important;
+}
+
+
+html[dir="rtl"] .st-dashboard-page-title .topbar-eyebrow,
+html[dir="rtl"] .st-dashboard-page-title strong {
+    direction: rtl !important;
+
+    text-align: right !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* ----------------------------------------------------------
+   TOPBAR ACTIONS
+   ---------------------------------------------------------- */
+
+.st-dashboard-actions {
+    display: flex !important;
+    align-items: center !important;
+
+    flex: 0 0 auto !important;
+
+    gap: 8px !important;
+
+    overflow: visible !important;
+
+    position: relative !important;
+
+    z-index: 1200 !important;
+}
+
+
+html[dir="rtl"] .st-dashboard-actions {
+    direction: rtl !important;
+}
+
+
+/* ----------------------------------------------------------
+   PROFILE
+   ---------------------------------------------------------- */
+
+.st-dashboard-profile {
+    position: relative !important;
+    z-index: 1300 !important;
+}
+
+
+.st-dashboard-profile-trigger {
+    position: relative !important;
+    z-index: 1301 !important;
+}
+
+
+/* ----------------------------------------------------------
+   PROFILE DROPDOWN
+   ---------------------------------------------------------- */
+
+.st-profile-dropdown {
+    z-index: 1500 !important;
+
+    overflow: visible !important;
+}
+
+
+/* RTL dropdown opens toward LEFT */
+
+html[dir="rtl"] .st-profile-dropdown {
+    right: auto !important;
+    left: 0 !important;
+
+    transform-origin: top left !important;
+
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+
+/* ----------------------------------------------------------
+   IMPORTANT:
+   Prevent any parent from clipping the dropdown
+   ---------------------------------------------------------- */
+
+.st-dashboard-topbar,
+.st-dashboard-topbar-left,
+.st-dashboard-actions,
+.st-dashboard-profile {
+    overflow: visible !important;
+}
+
+
+/* ----------------------------------------------------------
+   TABLET
+   ---------------------------------------------------------- */
+
+@media (max-width: 1199px) and (min-width: 992px) {
+
+    html[dir="ltr"] .st-dashboard-topbar {
+        left: 250px !important;
+        right: 0 !important;
+    }
+
+    html[dir="rtl"] .st-dashboard-topbar {
+        left: 0 !important;
+        right: 250px !important;
+    }
+}
+
+
+/* ----------------------------------------------------------
+   MOBILE
+   Sidebar becomes overlay
+   Topbar covers COMPLETE SCREEN
+   ---------------------------------------------------------- */
+
+@media (max-width: 991px) {
+
+    .st-dashboard-topbar {
+        left: 0 !important;
+        right: 0 !important;
+
+        width: 100% !important;
+
+        height: 60px !important;
+        min-height: 60px !important;
+
+        padding: 7px 18px !important;
+
+        overflow: visible !important;
+    }
+
+
+    html[dir="ltr"] .st-dashboard-topbar,
+    html[dir="rtl"] .st-dashboard-topbar {
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+
+    /* Keep title visible */
+
+    .st-dashboard-page-title {
+        display: flex !important;
+
+        min-width: 0 !important;
+    }
+
+
+    .st-dashboard-topbar-left {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+    }
+
+
+    .st-dashboard-page-title .topbar-eyebrow,
+    .st-dashboard-page-title strong {
+        white-space: nowrap !important;
+    }
+}
+
+
+/* ----------------------------------------------------------
+   SMALL MOBILE
+   ---------------------------------------------------------- */
+
+@media (max-width: 767px) {
+
+    .st-dashboard-topbar {
+        padding: 7px 12px !important;
+    }
+
+
+    .st-dashboard-page-title {
+        display: flex !important;
+
+        max-width: 180px !important;
+    }
+
+
+    .st-dashboard-page-title .topbar-eyebrow {
+        font-size: 10px !important;
+    }
+
+
+    .st-dashboard-page-title strong {
+        font-size: 13px !important;
+    }
+}
+
+
+/* ----------------------------------------------------------
+   VERY SMALL SCREENS
+   ---------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+    .st-dashboard-page-title {
+        max-width: 140px !important;
+    }
+
+    .st-dashboard-page-title .topbar-eyebrow {
+        font-size: 9px !important;
+    }
+
+    .st-dashboard-page-title strong {
+        font-size: 12px !important;
+    }
+
+    .st-dashboard-topbar {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}
+/* ==========================================================
+   RESPONSIVE PROFILE AVATAR — REMOVE ROUND BUBBLE WRAPPER
+   ========================================================== */
+
+@media (max-width: 991px) {
+
+    /* Remove the bubble/container around the profile area */
+    .st-dashboard-profile-trigger {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+
+        padding: 0 !important;
+    }
+
+    /* Remove any hover/focus bubble */
+    .st-dashboard-profile-trigger:hover,
+    .st-dashboard-profile-trigger:focus,
+    .st-dashboard-profile-trigger:focus-visible {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+
+    /* Keep the actual NP avatar round */
+    .st-dashboard-avatar {
+        border-radius: 50% !important;
+    }
+}
+
+
+/* Smaller screens */
+@media (max-width: 767px) {
+
+    .st-dashboard-profile-trigger {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+
+    .st-dashboard-avatar {
+        border-radius: 50% !important;
+    }
+}
