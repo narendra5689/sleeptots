@@ -260,6 +260,45 @@
 }
 
 /* ==========================================================================
+   SECTION SPACING
+   (Content sections only — hero left untouched)
+   ========================================================================== */
+
+/* Base spacing for every content section on this page */
+.st-section {
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+
+/* Newsletter keeps its reduced top space */
+.st-section:has(.st-newsletter) {
+  padding-top: 10px !important;
+}
+
+/* Responsive scaling */
+@media (max-width: 991px) {
+  .st-section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .st-section:has(.st-newsletter) {
+    padding-top: 10px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .st-section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .st-section:has(.st-newsletter) {
+    padding-top: 10px !important;
+  }
+}
+
+/* ==========================================================================
    PREMIUM INTRO
    ========================================================================== */
 .home2-intro {
@@ -452,7 +491,6 @@
   transform: translateX(-8px);
 }
 
-
 .pillar-icon {
   width: 52px;
   height: 52px;
@@ -627,56 +665,12 @@
 }
 
 /* ==========================================================================
-   RESPONSIVE
+   YOUR FIRST WEEK — HOME 2
    ========================================================================== */
-@media (max-width: 991px) {
-  .hero2-glass-card.gc3 { display: none; }
-  .hero2-content { padding: 60px 24px; }
-  .intro2-grid,
-  .philosophy2-wrap,
-  .expert-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .journey-wrap,
-  .included-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .home2-cta { padding: 56px 32px; }
+.premium-week-section {
+  position: relative;
+  overflow: hidden;
 }
-
-@media (max-width: 575px) {
-  .hero2-glass-card { padding: 14px 16px; }
-  .hero2-glass-card.gc1 { top: 15%; right: 3%; }
-  .hero2-glass-card.gc2 { bottom: 15%; left: 3%; }
-  .gc-icon { width: 36px; height: 36px; }
-  .gc-icon svg { width: 18px; height: 18px; }
-  .hero2-subtitle { font-size: 1rem; }
-  .hero2-cta-row { flex-direction: column; }
-  .hero2-cta-row .st-btn { width: 100%; }
-  .journey-wrap,
-  .included-grid {
-    grid-template-columns: 1fr;
-  }
-  .intro2-img-stack .img-wide { margin-top: 0; }
-  .home2-cta { padding: 40px 20px; border-radius: var(--radius-lg); }
-  .expert-credentials { grid-template-columns: 1fr; }
-  .philosophy2-overlay { left: 12px; right: 12px; bottom: 12px; padding: 16px; }
-}
-
-@media (max-width: 320px) {
-  .hero2-glass-card .gc-text { display: none; }
-  .hero2-title { font-size: 2rem; }
-  .hero2-scroll { display: none; }
-  .intro2-badge { width: 70px; height: 70px; }
-  .intro2-badge .badge-num { font-size: 1.25rem; }
-}
-
-
-/* ==========================================================================
-   FIRST WEEK SECTION
-   Replacement for the Family Transformations section only.
-   ========================================================================== */
 
 .premium-week-heading {
   max-width: 760px;
@@ -684,7 +678,7 @@
 }
 
 .premium-week-heading h2 span {
-  color: var(--primary-color);
+  color: var(--color-primary);
 }
 
 .premium-week-heading p {
@@ -704,41 +698,127 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 0;
   overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  transition:
+    transform 0.45s cubic-bezier(.22, 1, .36, 1),
+    box-shadow 0.45s ease,
+    border-color 0.35s ease;
+}
+
+.premium-week-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-secondary);
+}
+
+.premium-week-visual {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 18px 0;
+}
+
+.premium-week-image {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 190px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--color-card-alt);
+  opacity: 0;
+  transform: translateY(20px) scale(.97);
+  animation: premiumWeekImageReveal .8s cubic-bezier(.22, 1, .36, 1) .15s forwards;
+}
+
+.premium-week-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .8s cubic-bezier(.22, 1, .36, 1);
+}
+
+.premium-week-card:hover .premium-week-image img {
+  transform: scale(1.06);
 }
 
 .premium-week-number {
-  position: absolute;
-  top: 18px;
-  right: 20px;
-  font-size: 3rem;
-  line-height: 1;
-  font-weight: 700;
-  opacity: .08;
-}
-
-.premium-week-icon {
-  width: 48px;
-  height: 48px;
+  flex: 0 0 54px;
+  width: 54px;
+  height: 54px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(201, 168, 76, .14);
-  color: var(--secondary-color);
-  margin-bottom: 24px;
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+  opacity: 0;
+  transform: scale(.5) rotate(-15deg);
+  animation: premiumWeekNumberReveal .75s cubic-bezier(.22, 1, .36, 1) .35s forwards;
+  transition: transform .4s ease, background-color .35s ease, color .35s ease;
+}
+
+.premium-week-card:nth-child(even) .premium-week-number {
+  background: var(--color-secondary);
+  color: var(--color-text-on-secondary);
+}
+
+.premium-week-number span {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.premium-week-card:hover .premium-week-number {
+  transform: scale(1.08) rotate(0deg);
+}
+
+.premium-week-content {
+  padding: 22px 24px 28px;
+}
+
+.premium-week-meta {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 14px;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: premiumWeekTextReveal .7s ease .5s forwards;
+}
+
+.premium-week-icon {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  transition: transform .4s ease;
 }
 
 .premium-week-icon svg {
-  width: 22px;
-  height: 22px;
+  width: 16px;
+  height: 16px;
+}
+
+.premium-week-card:hover .premium-week-icon {
+  transform: scale(1.1) rotate(-8deg);
 }
 
 .premium-week-label {
   display: block;
-  margin-bottom: 10px;
-  color: var(--secondary-color);
+  margin: 0;
+  color: var(--color-secondary);
   font-size: .75rem;
   font-weight: 700;
   letter-spacing: .12em;
@@ -746,10 +826,22 @@
 
 .premium-week-card h3 {
   margin-bottom: 12px;
+  opacity: 0;
+  transform: translateY(15px);
+  animation: premiumWeekTextReveal .7s cubic-bezier(.22, 1, .36, 1) .65s forwards;
+  transition: transform .35s ease, color .35s ease;
+}
+
+.premium-week-card:hover h3 {
+  transform: translateX(3px);
+  color: var(--color-primary);
 }
 
 .premium-week-card p {
   margin: 0;
+  opacity: 0;
+  transform: translateY(15px);
+  animation: premiumWeekTextReveal .75s cubic-bezier(.22, 1, .36, 1) .8s forwards;
 }
 
 .premium-week-footer {
@@ -760,8 +852,16 @@
   margin: 40px auto 0;
   padding: 24px 28px;
   border-radius: var(--radius-lg);
-  background: rgba(201, 168, 76, .08);
-  border: 1px solid rgba(201, 168, 76, .2);
+  background: var(--color-card-alt);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: transform .4s ease, box-shadow .4s ease, border-color .35s ease;
+}
+
+.premium-week-footer:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-secondary);
 }
 
 .premium-week-footer-icon {
@@ -772,8 +872,13 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: var(--secondary-color);
-  color: var(--primary-color);
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  transition: transform .4s ease;
+}
+
+.premium-week-footer:hover .premium-week-footer-icon {
+  transform: rotate(8deg) scale(1.08);
 }
 
 .premium-week-footer-icon svg {
@@ -799,15 +904,108 @@
   text-align: right;
 }
 
-[dir="rtl"] .premium-week-number {
-  right: auto;
-  left: 20px;
-}
-
 [dir="rtl"] .premium-week-footer {
   text-align: right;
 }
 
+@keyframes premiumWeekImageReveal {
+  from { opacity: 0; transform: translateY(20px) scale(.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes premiumWeekNumberReveal {
+  from { opacity: 0; transform: scale(.5) rotate(-15deg); }
+  70%  { transform: scale(1.08) rotate(4deg); }
+  to   { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+@keyframes premiumWeekTextReveal {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 991px) {
+  .home2-intro,
+  .home2-journey,
+  .home2-philosophy,
+  .home2-included,
+  .home2-expert,
+  .premium-week-section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .home2-cta-wrap {
+    padding-top: 40px;
+    padding-bottom: 72px;
+  }
+
+  .hero2-glass-card.gc3 { display: none; }
+  .hero2-content { padding: 60px 24px; }
+
+  .intro2-grid,
+  .philosophy2-wrap,
+  .expert-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .journey-wrap,
+  .included-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .home2-cta { padding: 56px 32px; }
+}
+
+@media (max-width: 575px) {
+  .home2-intro,
+  .home2-journey,
+  .home2-philosophy,
+  .home2-included,
+  .home2-expert,
+  .premium-week-section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .home2-cta-wrap {
+    padding-top: 32px;
+    padding-bottom: 56px;
+  }
+
+  .hero2-glass-card { padding: 14px 16px; }
+  .hero2-glass-card.gc1 { top: 15%; right: 3%; }
+  .hero2-glass-card.gc2 { bottom: 15%; left: 3%; }
+  .gc-icon { width: 36px; height: 36px; }
+  .gc-icon svg { width: 18px; height: 18px; }
+  .hero2-subtitle { font-size: 1rem; }
+  .hero2-cta-row { flex-direction: column; }
+  .hero2-cta-row .st-btn { width: 100%; }
+
+  .journey-wrap,
+  .included-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro2-img-stack .img-wide { margin-top: 0; }
+  .home2-cta { padding: 40px 20px; border-radius: var(--radius-lg); }
+  .expert-credentials { grid-template-columns: 1fr; }
+  .philosophy2-overlay { left: 12px; right: 12px; bottom: 12px; padding: 16px; }
+}
+
+@media (max-width: 320px) {
+  .hero2-glass-card .gc-text { display: none; }
+  .hero2-title { font-size: 2rem; }
+  .hero2-scroll { display: none; }
+  .intro2-badge { width: 70px; height: 70px; }
+  .intro2-badge .badge-num { font-size: 1.25rem; }
+}
+
+/* Premium week responsive */
 @media (max-width: 1199px) {
   .premium-week-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -825,7 +1023,19 @@
   }
 
   .premium-week-card {
-    padding: 24px;
+    padding: 0;
+  }
+
+  .premium-week-visual {
+    padding: 16px 16px 0;
+  }
+
+  .premium-week-image {
+    height: 210px;
+  }
+
+  .premium-week-content {
+    padding: 22px 24px 26px;
   }
 
   .premium-week-footer {
@@ -842,19 +1052,27 @@
     min-width: 0;
   }
 
-  .premium-week-card {
-    padding: 20px;
+  .premium-week-visual {
+    gap: 10px;
+    padding: 14px 14px 0;
+  }
+
+  .premium-week-image {
+    height: 180px;
   }
 
   .premium-week-number {
-    top: 14px;
-    right: 16px;
-    font-size: 2.5rem;
+    flex-basis: 46px;
+    width: 46px;
+    height: 46px;
   }
 
-  [dir="rtl"] .premium-week-number {
-    right: auto;
-    left: 16px;
+  .premium-week-number span {
+    font-size: 1.15rem;
+  }
+
+  .premium-week-content {
+    padding: 20px;
   }
 
   .premium-week-footer {
@@ -863,19 +1081,28 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .premium-week-card,
+  .premium-week-card *,
+  .premium-week-footer,
+  .premium-week-footer * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .premium-week-image,
+  .premium-week-number,
+  .premium-week-meta,
+  .premium-week-card h3,
+  .premium-week-card p {
+    opacity: 1;
+    transform: none;
+  }
+}
 
 /* ==========================================================================
-   SLEEPTOTS HOME 2 — ANIMATION & VISUAL POLISH
-   --------------------------------------------------------------------------
-   Styling enhancement only.
-   Typography and existing color variables are inherited from the source CSS.
-   Navbar and footer are intentionally untouched.
+   ANIMATION & VISUAL POLISH
    ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   GLOBAL MOTION FOUNDATION
-   -------------------------------------------------------------------------- */
-
 .home2-page,
 .home2-page * {
   -webkit-tap-highlight-color: transparent;
@@ -909,11 +1136,6 @@
     box-shadow 0.35s ease;
 }
 
-
-/* --------------------------------------------------------------------------
-   TEXT REVEAL / FLOATING TEXT
-   -------------------------------------------------------------------------- */
-
 .home2-page h1,
 .home2-page h2 {
   animation: stH2TextRise 0.9s cubic-bezier(.22, 1, .36, 1) both;
@@ -930,31 +1152,14 @@
 }
 
 @keyframes stH2TextRise {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes stH2TextSoft {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-
-
-/* --------------------------------------------------------------------------
-   HERO
-   -------------------------------------------------------------------------- */
 
 .hero-section,
 .premium-hero,
@@ -980,15 +1185,10 @@
 }
 
 @keyframes stH2Stars {
-  from {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-  to {
-    transform: translate3d(2%, -2%, 0) rotate(2deg);
-  }
+  from { transform: translate3d(0, 0, 0) rotate(0deg); }
+  to   { transform: translate3d(2%, -2%, 0) rotate(2deg); }
 }
 
-/* Hero visual elements — target common Home 2 naming patterns */
 .hero-moon,
 .premium-moon,
 .hero-moon-image,
@@ -1002,21 +1202,13 @@
 }
 
 @keyframes stH2MoonFloat {
-  0%, 100% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-  50% {
-    transform: translate3d(0, -12px, 0) rotate(1.5deg);
-  }
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50%      { transform: translate3d(0, -12px, 0) rotate(1.5deg); }
 }
 
 @keyframes stH2MoonGlow {
-  from {
-    filter: drop-shadow(0 0 0 transparent);
-  }
-  to {
-    filter: drop-shadow(0 0 22px rgba(201, 168, 76, 0.28));
-  }
+  from { filter: drop-shadow(0 0 0 transparent); }
+  to   { filter: drop-shadow(0 0 22px rgba(201, 168, 76, 0.28)); }
 }
 
 .hero-star,
@@ -1039,20 +1231,9 @@
 }
 
 @keyframes stH2Twinkle {
-  0%, 100% {
-    opacity: 0.35;
-    transform: scale(0.9);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.12);
-  }
+  0%, 100% { opacity: 0.35; transform: scale(0.9); }
+  50%      { opacity: 1; transform: scale(1.12); }
 }
-
-
-/* --------------------------------------------------------------------------
-   HERO GLASS / FLOATING CARDS
-   -------------------------------------------------------------------------- */
 
 .hero-glass-card,
 .premium-glass-card,
@@ -1080,18 +1261,9 @@
 }
 
 @keyframes stH2CardFloat {
-  0%, 100% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(0, -9px, 0);
-  }
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(0, -9px, 0); }
 }
-
-
-/* --------------------------------------------------------------------------
-   ICONS
-   -------------------------------------------------------------------------- */
 
 .home2-page [data-lucide],
 .home2-page .lucide {
@@ -1113,18 +1285,9 @@
 }
 
 @keyframes stH2IconPulse {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(-4px) scale(1.035);
-  }
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-4px) scale(1.035); }
 }
-
-
-/* --------------------------------------------------------------------------
-   GENERIC PREMIUM CARDS
-   -------------------------------------------------------------------------- */
 
 .premium-card,
 .feature-card,
@@ -1161,12 +1324,7 @@
   width: 75%;
   height: 100%;
   pointer-events: none;
-  background: linear-gradient(
-    105deg,
-    transparent,
-    rgba(255,255,255,0.12),
-    transparent
-  );
+  background: linear-gradient(105deg, transparent, rgba(255,255,255,0.12), transparent);
   transform: skewX(-18deg);
   transition: left 0.8s ease;
 }
@@ -1196,20 +1354,9 @@
 }
 
 @keyframes stH2RevealCard {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-
-
-/* --------------------------------------------------------------------------
-   JOURNEY / NUMBERED STEPS
-   -------------------------------------------------------------------------- */
 
 .journey-number,
 .step-number,
@@ -1230,28 +1377,16 @@
 }
 
 @keyframes stH2NumberFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
 }
-
-
-/* --------------------------------------------------------------------------
-   BADGES / EYEBROWS
-   -------------------------------------------------------------------------- */
 
 .badge,
 .premium-badge,
 .section-eyebrow,
 .section-label,
 .premium-week-label {
-  transition:
-    transform 0.3s ease,
-    letter-spacing 0.3s ease,
-    opacity 0.3s ease;
+  transition: transform 0.3s ease, letter-spacing 0.3s ease, opacity 0.3s ease;
 }
 
 .badge:hover,
@@ -1262,11 +1397,6 @@
   transform: translateY(-2px);
   letter-spacing: 0.08em;
 }
-
-
-/* --------------------------------------------------------------------------
-   BUTTONS / CTA
-   -------------------------------------------------------------------------- */
 
 .home2-page .btn,
 .home2-page button,
@@ -1289,12 +1419,7 @@
   left: -120%;
   width: 80%;
   height: 100%;
-  background: linear-gradient(
-    100deg,
-    transparent,
-    rgba(255,255,255,0.18),
-    transparent
-  );
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.18), transparent);
   transform: skewX(-18deg);
   transition: left 0.7s ease;
   pointer-events: none;
@@ -1316,15 +1441,8 @@
   transform: translateY(-3px);
 }
 
-
-/* --------------------------------------------------------------------------
-   IMAGE ANIMATION
-   -------------------------------------------------------------------------- */
-
 .home2-page img {
-  transition:
-    transform 0.8s cubic-bezier(.22, 1, .36, 1),
-    filter 0.5s ease;
+  transition: transform 0.8s cubic-bezier(.22, 1, .36, 1), filter 0.5s ease;
 }
 
 .home2-page .card:hover img,
@@ -1335,11 +1453,7 @@
   transform: scale(1.045);
 }
 
-
-/* --------------------------------------------------------------------------
-   RTL
-   -------------------------------------------------------------------------- */
-
+/* RTL */
 [dir="rtl"] .home2-page {
   direction: rtl;
 }
@@ -1379,11 +1493,7 @@
   transform: scaleX(-1) translateY(-2px);
 }
 
-
-/* --------------------------------------------------------------------------
-   DARK MODE
-   -------------------------------------------------------------------------- */
-
+/* Dark mode */
 .dark-mode .home2-page,
 [data-theme="dark"] .home2-page,
 body.dark .home2-page {
@@ -1423,13 +1533,7 @@ body.dark .home2-page [data-lucide] {
   opacity: 0.96;
 }
 
-
-/* --------------------------------------------------------------------------
-   RESPONSIVE ANIMATION TUNING
-   -------------------------------------------------------------------------- */
-
 @media (max-width: 991px) {
-
   .home2-page h1,
   .home2-page h2 {
     animation-duration: 0.75s;
@@ -1449,7 +1553,6 @@ body.dark .home2-page [data-lucide] {
 }
 
 @media (max-width: 575px) {
-
   .home2-page h1,
   .home2-page h2,
   .home2-page h3,
@@ -1478,13 +1581,7 @@ body.dark .home2-page [data-lucide] {
   }
 }
 
-
-/* --------------------------------------------------------------------------
-   REDUCED MOTION ACCESSIBILITY
-   -------------------------------------------------------------------------- */
-
 @media (prefers-reduced-motion: reduce) {
-
   .home2-page *,
   .home2-page *::before,
   .home2-page *::after {
@@ -1495,37 +1592,27 @@ body.dark .home2-page [data-lucide] {
   }
 }
 
-
-/* Stats: keep value and text on one row */
+/* Stats */
 .stats-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    flex-wrap: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: nowrap;
 }
 
-
-@media (max-width:371px) {
-
+@media (max-width: 371px) {
   .stats-row {
-    display:flex;
+    display: flex;
     flex-direction: column;
     gap: 20px;
     justify-content: space-between;
+  }
 }
-
-}
-
 
 /* ==========================================================================
    RESPONSIVE REPAIR — LAYOUT, OVERLAP & ICON MOTION
-   --------------------------------------------------------------------------
-   Added at the end so existing desktop styling remains unchanged.
-   Typography, navbar and footer are not modified.
    ========================================================================== */
-
-/* Prevent width/height calculations from creating horizontal overflow */
 .home2-page,
 .home2-page *,
 .home2-page *::before,
@@ -1558,7 +1645,6 @@ body.dark .home2-page [data-lucide] {
   word-wrap: break-word;
 }
 
-/* Keep animated cards from forcing a larger layout box */
 .home2-page .premium-card,
 .home2-page .feature-card,
 .home2-page .pillar-card,
@@ -1572,12 +1658,7 @@ body.dark .home2-page [data-lucide] {
   min-height: 0;
 }
 
-/* --------------------------------------------------------------------------
-   TABLET / SMALL LAPTOP
-   -------------------------------------------------------------------------- */
-
 @media (max-width: 991px) {
-
   .home2-hero {
     min-height: 90svh;
   }
@@ -1663,12 +1744,7 @@ body.dark .home2-page [data-lucide] {
   }
 }
 
-/* --------------------------------------------------------------------------
-   IPAD / TABLET PORTRAIT
-   -------------------------------------------------------------------------- */
-
 @media (max-width: 820px) {
-
   .hero2-content {
     padding-inline: 22px;
   }
@@ -1734,12 +1810,7 @@ body.dark .home2-page [data-lucide] {
   }
 }
 
-/* --------------------------------------------------------------------------
-   MOBILE
-   -------------------------------------------------------------------------- */
-
 @media (max-width: 600px) {
-
   .home2-page {
     overflow-x: clip;
   }
@@ -1752,11 +1823,6 @@ body.dark .home2-page [data-lucide] {
     padding: 84px 18px 88px;
   }
 
-  /*
-     Decorative glass cards are removed on narrow screens because their
-     absolute positioning competes with the hero text and causes overlap.
-     The main hero animation remains active.
-  */
   .hero2-glass-card {
     display: none;
   }
@@ -1884,12 +1950,7 @@ body.dark .home2-page [data-lucide] {
   }
 }
 
-/* --------------------------------------------------------------------------
-   VERY SMALL PHONES
-   -------------------------------------------------------------------------- */
-
 @media (max-width: 370px) {
-
   .hero2-content {
     padding-inline: 14px;
   }
@@ -1912,11 +1973,7 @@ body.dark .home2-page [data-lucide] {
   }
 }
 
-/* --------------------------------------------------------------------------
-   ICON ANIMATION REPAIR
-   -------------------------------------------------------------------------- */
-
-/* Animate the actual icon containers used by Home 2 */
+/* Icon animation */
 .home2-page .gc-icon,
 .home2-page .pillar-icon,
 .home2-page .st-card-icon,
@@ -1931,7 +1988,6 @@ body.dark .home2-page [data-lucide] {
   will-change: transform;
 }
 
-/* Stagger the motion so all icons do not move together */
 .home2-page .journey-card:nth-child(2) .st-card-icon,
 .home2-page .included-card:nth-child(2) .st-card-icon,
 .home2-page .premium-week-card:nth-child(2) .premium-week-icon,
@@ -1954,24 +2010,16 @@ body.dark .home2-page [data-lucide] {
 }
 
 @keyframes stH2IconFloat {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-  }
-
-  50% {
-    transform: translateY(-5px) scale(1.05);
-  }
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-5px) scale(1.05); }
 }
 
-/* Give Lucide icons a visible motion on interaction */
 .home2-page .gc-icon svg,
 .home2-page .pillar-icon svg,
 .home2-page .premium-week-icon svg,
 .home2-page .premium-week-footer-icon svg,
 .home2-page .st-card-icon svg {
-  transition:
-    transform 0.4s cubic-bezier(.22, 1, .36, 1),
-    opacity 0.3s ease;
+  transition: transform 0.4s cubic-bezier(.22, 1, .36, 1), opacity 0.3s ease;
 }
 
 .home2-page .gc-icon:hover svg,
@@ -1990,9 +2038,7 @@ body.dark .home2-page [data-lucide] {
   transform: rotate(8deg) scale(1.12);
 }
 
-/* Small touch screens still get subtle icon motion without hover */
 @media (hover: none) and (pointer: coarse) {
-
   .home2-page .gc-icon,
   .home2-page .pillar-icon,
   .home2-page .st-card-icon,
@@ -2010,9 +2056,7 @@ body.dark .home2-page [data-lucide] {
   }
 }
 
-/* Never allow accessibility settings to re-enable motion */
 @media (prefers-reduced-motion: reduce) {
-
   .home2-page .gc-icon,
   .home2-page .pillar-icon,
   .home2-page .st-card-icon,
@@ -2031,706 +2075,245 @@ body.dark .home2-page [data-lucide] {
   }
 }
 
-/* ==========================================================
-   HOME2 HERO GLASS CARDS — RTL
-   ========================================================== */
-
+/* Hero glass cards — RTL */
 [dir="rtl"] .home2-hero .hero2-glass-card {
-    direction: rtl;
-    flex-direction: row-reverse;
-    text-align: right;
+  direction: rtl;
+  flex-direction: row-reverse;
+  text-align: right;
 }
 
-/* Personalized Plan */
 [dir="rtl"] .home2-hero .hero2-glass-card.gc1 {
-    left: auto;
-    right: 0;
+  right: auto;
+  left: 5%;
 }
 
-/* Track Progress */
 [dir="rtl"] .home2-hero .hero2-glass-card.gc3 {
-    right: auto;
-    left: 0;
+  right: auto;
+  left: 8%;
 }
 
-
-/* ==========================================================
-   HOME2 HERO GLASS CARDS — RTL OVERRIDE
-   ========================================================== */
-
-[dir="rtl"] .home2-hero .hero2-glass-card {
-    direction: rtl;
-    flex-direction: row-reverse;
-    text-align: right;
-}
-
-/* Personalized Plan */
-[dir="rtl"] .home2-hero .hero2-glass-card.gc1 {
-    right: auto;
-    left: 5%;
-}
-
-/* Track Progress */
-[dir="rtl"] .home2-hero .hero2-glass-card.gc3 {
-    right: auto;
-    left: 8%;
-}
-
-/* Mobile */
 @media (max-width: 575px) {
-    [dir="rtl"] .home2-hero .hero2-glass-card.gc1 {
-        right: auto;
-        left: 3%;
-    }
+  [dir="rtl"] .home2-hero .hero2-glass-card.gc1 {
+    right: auto;
+    left: 3%;
+  }
 }
-/* ==========================================================
-   NEWSLETTER — REDUCE SPACE ABOVE
-   ========================================================== */
 
+/* Newsletter — reduce space above */
 .st-section:has(.st-newsletter) {
-    padding-top: 10px !important;
+  padding-top: 10px !important;
 }
 
-/* =========================================================
-   YOUR FIRST WEEK — HOME 2
-   Uses ONLY existing project theme colors
-   ========================================================= */
+/* ==========================================================================
+   CONTACT PAGE — NEWSLETTER
+   ========================================================================== */
+.st-contact-page .st-section:has(.st-newsletter) {
+  padding-top: 40px !important;
+  padding-bottom: 100px;
+  background: #f4f6f9;
+}
 
-.premium-week-section {
+.st-contact-page .st-newsletter {
   position: relative;
-  overflow: hidden;
-}
-
-
-/* =========================================================
-   HEADING
-   ========================================================= */
-
-.premium-week-heading {
-  max-width: 760px;
-  margin: 0 auto 48px;
-}
-
-.premium-week-heading h2 span {
-  color: var(--color-primary);
-}
-
-.premium-week-heading p {
-  max-width: 680px;
-  margin: 18px auto 0;
-}
-
-
-/* =========================================================
-   CARD GRID
-   ========================================================= */
-
-.premium-week-grid {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 52px 60px;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px;
-  align-items: stretch;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: center;
+  border-radius: var(--radius-lg);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 20px 50px rgba(36, 52, 71, 0.08);
+  overflow: hidden;
+  text-align: left;
 }
 
+.st-contact-page .st-newsletter::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  top: -110px;
+  right: -70px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-secondary) 15%, transparent),
+    transparent 70%
+  );
+  pointer-events: none;
+}
 
-/* =========================================================
-   CARD
-   ========================================================= */
-
-.premium-week-card {
+.st-contact-page .st-newsletter-icon,
+.st-contact-page .st-newsletter h2,
+.st-contact-page .st-newsletter .st-supporting {
+  grid-column: 1;
   position: relative;
-  min-width: 0;
+  z-index: 2;
+}
 
+.st-contact-page .st-newsletter-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+  box-shadow: 0 10px 24px rgba(36, 52, 71, 0.14);
+}
+
+.st-contact-page .st-newsletter-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.st-contact-page .st-newsletter h2 {
+  max-width: 480px;
+  margin: 0 0 12px;
+  color: #1e293b;
+  font-size: clamp(1.6rem, 2.6vw, 2.05rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.st-contact-page .st-newsletter .st-supporting {
+  max-width: 460px !important;
+  margin: 0;
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.st-contact-page .st-newsletter-form {
+  grid-column: 2;
+  grid-row: 1 / span 4;
+  align-self: center;
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-
-  padding: 0;
-
-  overflow: hidden;
-
-  border-radius: var(--radius-lg);
-
-  background: var(--color-card);
-
-  border: 1px solid var(--color-border);
-
-  box-shadow: var(--shadow-md);
-
-  transition:
-    transform 0.45s cubic-bezier(.22, 1, .36, 1),
-    box-shadow 0.45s ease,
-    border-color 0.35s ease;
+  gap: 12px;
+  margin: 0;
 }
 
-
-/* =========================================================
-   CARD HOVER
-   ========================================================= */
-
-.premium-week-card:hover {
-  transform: translateY(-10px);
-
-  box-shadow: var(--shadow-lg);
-
-  border-color: var(--color-secondary);
-}
-
-
-/* =========================================================
-   IMAGE + NUMBER ROW
-   ========================================================= */
-
-.premium-week-visual {
-  display: flex;
-  align-items: center;
-
-  gap: 14px;
-
-  padding: 18px 18px 0;
-}
-
-
-/* =========================================================
-   IMAGE
-   ========================================================= */
-
-.premium-week-image {
-  position: relative;
-
-  flex: 1;
-  min-width: 0;
-
-  height: 190px;
-
-  overflow: hidden;
-
-  border-radius: var(--radius-lg);
-
-  background: var(--color-card-alt);
-
-  opacity: 0;
-
-  transform: translateY(20px) scale(.97);
-
-  animation:
-    premiumWeekImageReveal
-    .8s
-    cubic-bezier(.22, 1, .36, 1)
-    .15s
-    forwards;
-}
-
-
-.premium-week-image img {
-  display: block;
-
+.st-contact-page .st-newsletter-form .st-form-control {
   width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  transition:
-    transform .8s cubic-bezier(.22, 1, .36, 1);
+  min-height: 54px;
+  padding: 14px 18px;
+  border: 1px solid #d1d9e6;
+  border-radius: var(--radius-md);
+  background: #f8fafc;
+  color: #1e293b;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
 }
 
-
-.premium-week-card:hover .premium-week-image img {
-  transform: scale(1.06);
+.st-contact-page .st-newsletter-form .st-form-control::placeholder {
+  color: #94a3b8;
 }
 
-
-/* =========================================================
-   NUMBER
-   ========================================================= */
-
-.premium-week-number {
-  flex: 0 0 54px;
-
-  width: 54px;
-  height: 54px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background: var(--color-primary);
-
-  color: var(--color-text-on-primary);
-
-  opacity: 0;
-
-  transform: scale(.5) rotate(-15deg);
-
-  animation:
-    premiumWeekNumberReveal
-    .75s
-    cubic-bezier(.22, 1, .36, 1)
-    .35s
-    forwards;
-
-  transition:
-    transform .4s ease,
-    background-color .35s ease,
-    color .35s ease;
-}
-
-
-/* Alternate secondary number */
-
-.premium-week-card:nth-child(even) .premium-week-number {
-  background: var(--color-secondary);
-
-  color: var(--color-text-on-secondary);
-}
-
-
-.premium-week-number span {
-  font-size: 1.35rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-
-/* Number hover */
-
-.premium-week-card:hover .premium-week-number {
-  transform: scale(1.08) rotate(0deg);
-}
-
-
-/* =========================================================
-   CARD CONTENT
-   ========================================================= */
-
-.premium-week-content {
-  padding: 22px 24px 28px;
-}
-
-
-/* =========================================================
-   META
-   ========================================================= */
-
-.premium-week-meta {
-  display: flex;
-  align-items: center;
-
-  gap: 9px;
-
-  margin-bottom: 14px;
-
-  opacity: 0;
-
-  transform: translateY(12px);
-
-  animation:
-    premiumWeekTextReveal
-    .7s
-    ease
-    .5s
-    forwards;
-}
-
-
-/* =========================================================
-   ICON
-   ========================================================= */
-
-.premium-week-icon {
-  width: 32px;
-  height: 32px;
-
-  flex: 0 0 32px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background: var(--color-secondary);
-
-  color: var(--color-primary);
-
-  transition:
-    transform .4s ease;
-}
-
-
-.premium-week-icon svg {
-  width: 16px;
-  height: 16px;
-}
-
-
-.premium-week-card:hover .premium-week-icon {
-  transform: scale(1.1) rotate(-8deg);
-}
-
-
-/* =========================================================
-   DAY LABEL
-   ========================================================= */
-
-.premium-week-label {
-  display: block;
-
-  margin: 0;
-
-  color: var(--color-secondary);
-
-  font-size: .75rem;
-
-  font-weight: 700;
-
-  letter-spacing: .12em;
-}
-
-
-/* =========================================================
-   TITLE
-   ========================================================= */
-
-.premium-week-card h3 {
-  margin-bottom: 12px;
-
-  opacity: 0;
-
-  transform: translateY(15px);
-
-  animation:
-    premiumWeekTextReveal
-    .7s
-    cubic-bezier(.22, 1, .36, 1)
-    .65s
-    forwards;
-
-  transition:
-    transform .35s ease,
-    color .35s ease;
-}
-
-
-.premium-week-card:hover h3 {
-  transform: translateX(3px);
-
-  color: var(--color-primary);
-}
-
-
-/* =========================================================
-   DESCRIPTION
-   ========================================================= */
-
-.premium-week-card p {
-  margin: 0;
-
-  opacity: 0;
-
-  transform: translateY(15px);
-
-  animation:
-    premiumWeekTextReveal
-    .75s
-    cubic-bezier(.22, 1, .36, 1)
-    .8s
-    forwards;
-}
-
-
-/* =========================================================
-   FOOTER CALLOUT
-   ========================================================= */
-
-.premium-week-footer {
-  display: flex;
-  align-items: center;
-
-  gap: 18px;
-
-  max-width: 900px;
-
-  margin: 40px auto 0;
-
-  padding: 24px 28px;
-
-  border-radius: var(--radius-lg);
-
-  background: var(--color-card-alt);
-
-  border: 1px solid var(--color-border);
-
-  box-shadow: var(--shadow-sm);
-
-  transition:
-    transform .4s ease,
-    box-shadow .4s ease,
-    border-color .35s ease;
-}
-
-
-.premium-week-footer:hover {
-  transform: translateY(-5px);
-
-  box-shadow: var(--shadow-md);
-
+.st-contact-page .st-newsletter-form .st-form-control:focus {
   border-color: var(--color-secondary);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-secondary) 14%, transparent);
 }
 
-
-/* =========================================================
-   FOOTER ICON
-   ========================================================= */
-
-.premium-week-footer-icon {
-  flex: 0 0 44px;
-
-  width: 44px;
-  height: 44px;
-
-  display: flex;
-  align-items: center;
+.st-contact-page .st-newsletter-form .st-btn {
+  width: 100%;
+  min-height: 54px;
   justify-content: center;
-
-  border-radius: 50%;
-
-  background: var(--color-secondary);
-
-  color: var(--color-primary);
-
-  transition:
-    transform .4s ease;
 }
 
-
-.premium-week-footer:hover .premium-week-footer-icon {
-  transform: rotate(8deg) scale(1.08);
+.st-contact-page .st-newsletter-form .st-btn svg {
+  transition: transform var(--transition-base);
 }
 
-
-.premium-week-footer-icon svg {
-  width: 20px;
-  height: 20px;
+.st-contact-page .st-newsletter-form .st-btn:hover svg {
+  transform: translateX(3px);
 }
 
-
-.premium-week-footer h3 {
-  margin: 0 0 6px;
+[data-theme="dark"] .st-contact-page .st-section:has(.st-newsletter) {
+  background: var(--color-background);
 }
 
-
-.premium-week-footer p {
-  margin: 0;
+[data-theme="dark"] .st-contact-page .st-newsletter {
+  background: var(--color-background-secondary);
+  border-color: color-mix(in srgb, var(--color-secondary) 18%, transparent);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
 }
 
-
-/* =========================================================
-   RTL
-   ========================================================= */
-
-[dir="rtl"] .premium-week-heading,
-[dir="rtl"] .premium-week-card,
-[dir="rtl"] .premium-week-footer {
-  direction: rtl;
+[data-theme="dark"] .st-contact-page .st-newsletter h2 {
+  color: var(--color-text);
 }
 
-
-[dir="rtl"] .premium-week-heading {
-  text-align: right;
+[data-theme="dark"] .st-contact-page .st-newsletter .st-supporting {
+  color: var(--color-text-muted);
 }
 
-
-[dir="rtl"] .premium-week-footer {
-  text-align: right;
+[data-theme="dark"] .st-contact-page .st-newsletter-form .st-form-control {
+  background: color-mix(in srgb, var(--color-background) 80%, #000);
+  border-color: color-mix(in srgb, var(--color-primary) 25%, transparent);
+  color: var(--color-text-body);
 }
 
+[data-theme="dark"] .st-contact-page .st-newsletter-form .st-form-control:focus {
+  background: var(--color-background);
+}
 
-/* =========================================================
-   ANIMATIONS
-   ========================================================= */
-
-@keyframes premiumWeekImageReveal {
-
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(.97);
+@media (max-width: 991px) {
+  .st-contact-page .st-newsletter {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 44px 36px;
+    text-align: center;
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+  .st-contact-page .st-newsletter-icon {
+    margin-left: auto;
+    margin-right: auto;
   }
 
+  .st-contact-page .st-newsletter h2,
+  .st-contact-page .st-newsletter .st-supporting {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .st-contact-page .st-newsletter-form {
+    grid-column: 1;
+    grid-row: auto;
+    max-width: 400px;
+    margin: 0 auto;
+  }
 }
-
-
-@keyframes premiumWeekNumberReveal {
-
-  from {
-    opacity: 0;
-    transform: scale(.5) rotate(-15deg);
-  }
-
-  70% {
-    transform: scale(1.08) rotate(4deg);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1) rotate(0);
-  }
-
-}
-
-
-@keyframes premiumWeekTextReveal {
-
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-}
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
-@media (max-width: 1199px) {
-
-  .premium-week-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
 
 @media (max-width: 767px) {
-
-  .premium-week-heading {
-    margin-bottom: 32px;
+  .st-contact-page .st-newsletter {
+    padding: 36px 24px;
   }
-
-
-  .premium-week-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-
-  .premium-week-card {
-    padding: 0;
-  }
-
-
-  .premium-week-visual {
-    padding: 16px 16px 0;
-  }
-
-
-  .premium-week-image {
-    height: 210px;
-  }
-
-
-  .premium-week-content {
-    padding: 22px 24px 26px;
-  }
-
-
-  .premium-week-footer {
-    align-items: flex-start;
-
-    padding: 20px;
-  }
-
 }
 
-
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 370px) {
-
-  .premium-week-heading,
-  .premium-week-grid,
-  .premium-week-footer {
-    max-width: 100%;
-    min-width: 0;
+@media (max-width: 480px) {
+  .st-contact-page .st-newsletter {
+    padding: 32px 18px;
   }
 
-
-  .premium-week-visual {
-    gap: 10px;
-    padding: 14px 14px 0;
+  .st-contact-page .st-newsletter-icon {
+    width: 50px;
+    height: 50px;
   }
 
-
-  .premium-week-image {
-    height: 180px;
+  .st-contact-page .st-newsletter-icon svg {
+    width: 22px;
+    height: 22px;
   }
-
-
-  .premium-week-number {
-    flex-basis: 46px;
-
-    width: 46px;
-    height: 46px;
-  }
-
-
-  .premium-week-number span {
-    font-size: 1.15rem;
-  }
-
-
-  .premium-week-content {
-    padding: 20px;
-  }
-
-
-  .premium-week-footer {
-    gap: 12px;
-    padding: 18px;
-  }
-
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .premium-week-card,
-  .premium-week-card *,
-  .premium-week-footer,
-  .premium-week-footer * {
-    animation: none !important;
-    transition: none !important;
-  }
-
-  .premium-week-image,
-  .premium-week-number,
-  .premium-week-meta,
-  .premium-week-card h3,
-  .premium-week-card p {
-    opacity: 1;
-    transform: none;
-  }
-
 }

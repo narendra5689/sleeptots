@@ -4276,7 +4276,48 @@ summary:hover {
       none !important;
   }
 }
+/* ==========================================================================
+   SECTION SPACING
+   (Content sections only — hero left untouched)
+   ========================================================================== */
 
+.services-page .st-section {
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+
+/* Personalized section already has its own padding — keep it balanced */
+.services-page .services-personalized-section {
+  padding-top: clamp(72px, 8vw, 112px);
+  padding-bottom: clamp(72px, 8vw, 112px);
+}
+
+/* Newsletter keeps reduced top space */
+.services-page .st-section:has(.st-newsletter) {
+  padding-top: 10px !important;
+}
+
+@media (max-width: 991px) {
+  .services-page .st-section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .services-page .st-section:has(.st-newsletter) {
+    padding-top: 10px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .services-page .st-section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .services-page .st-section:has(.st-newsletter) {
+    padding-top: 10px !important;
+  }
+}
 /* ==========================================================
    NEWSLETTER — REDUCE SPACE ABOVE
    ========================================================== */

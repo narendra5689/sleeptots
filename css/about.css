@@ -1,0 +1,3097 @@
+/* ==========================================================================
+   SleepTots — About Page
+   Page-specific CSS ONLY
+
+   Typography:
+   Inherited from typography.css
+
+   Navbar:
+   Not included
+
+   Footer:
+   Not included
+
+   Responsive:
+   360px / 720px / 768px / 1024px / 1920px
+   Portrait + Landscape
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01. ABOUT PAGE BASE
+   ========================================================================== */
+
+.about-page {
+    --about-primary:
+        var(--color-primary,
+        var(--primary-color, #243447));
+
+    --about-secondary:
+        var(--color-secondary,
+        var(--secondary-color, #a8bfa3));
+
+    --about-background:
+        var(--color-background,
+        var(--bg-color, #f7f8f5));
+
+    --about-surface:
+        var(--color-card,
+        var(--bg-alt, #ffffff));
+
+    --about-text:
+        var(--color-text,
+        var(--text-color, #243447));
+
+    --about-body:
+        var(--color-text-body,
+        var(--text-body, #46515d));
+
+    --about-muted:
+        var(--color-text-muted,
+        var(--text-muted, #68727d));
+
+    --about-border:
+        var(--color-border,
+        var(--border-color, #dce2df));
+
+    --about-on-primary:
+        var(--color-text-on-primary, #ffffff);
+
+    --about-on-secondary:
+        var(--color-text-on-secondary, #243447);
+
+    --about-radius-lg:
+        var(--radius-lg, 1.5rem);
+
+    --about-radius-md:
+        var(--radius-md, 1rem);
+
+    --about-shadow:
+        var(
+            --shadow-md,
+            0 18px 45px rgba(0, 0, 0, 0.10)
+        );
+
+    width: 100%;
+    max-width: 100%;
+
+    overflow-x: hidden;
+
+    background:
+        var(--about-background);
+
+    color:
+        var(--about-text);
+}
+
+
+/* ==========================================================================
+   02. GLOBAL ABOUT ELEMENT RESET
+   ========================================================================== */
+
+.about-page *,
+.about-page *::before,
+.about-page *::after {
+    box-sizing: border-box;
+}
+
+
+.about-page img {
+    display: block;
+    max-width: 100%;
+}
+
+
+.about-page a {
+    text-decoration: none;
+}
+
+
+.about-page p {
+    overflow-wrap: break-word;
+}
+
+
+.about-page .container {
+    width: 100%;
+}
+
+
+/* ==========================================================================
+   03. HERO
+   ========================================================================== */
+
+.about-hero {
+    position: relative;
+
+    width: 100%;
+
+    height: 90vh;
+    min-height: 600px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background-image:
+        url("../images/about-hero.png");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+
+/* --------------------------------------------------------------------------
+   HERO OVERLAY
+   -------------------------------------------------------------------------- */
+
+.about-hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(10, 15, 18, 0.88) 0%,
+            rgba(10, 15, 18, 0.72) 35%,
+            rgba(10, 15, 18, 0.38) 68%,
+            rgba(10, 15, 18, 0.12) 100%
+        );
+}
+
+
+/* --------------------------------------------------------------------------
+   HERO CONTENT
+   -------------------------------------------------------------------------- */
+
+.about-hero .container {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.about-hero-content {
+    width: min(700px, 72%);
+
+    padding-block: 2rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   HERO EYEBROW
+   -------------------------------------------------------------------------- */
+
+.about-hero .about-eyebrow {
+    display: inline-flex;
+
+    align-items: center;
+
+    margin-bottom: 1.25rem;
+
+    color:
+        var(--about-secondary);
+
+    font-size: 0.75rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.16em;
+
+    line-height: 1.4;
+
+    text-transform: uppercase;
+}
+
+
+.about-hero .about-eyebrow::before {
+    content: "";
+
+    width: 34px;
+    height: 1px;
+
+    margin-inline-end: 12px;
+
+    background:
+        var(--about-secondary);
+}
+
+
+/* --------------------------------------------------------------------------
+   HERO TITLE
+   -------------------------------------------------------------------------- */
+
+.about-hero-title {
+    max-width: 760px;
+
+    margin:
+        0 0 1.5rem;
+
+    color: #ffffff;
+
+    text-wrap: balance;
+
+    animation:
+        aboutHeroTitle
+        0.9s
+        cubic-bezier(0.22, 0.61, 0.36, 1)
+        both;
+}
+
+
+.about-hero-title span {
+    display: block;
+
+    color:
+        var(--about-secondary);
+}
+
+
+/* --------------------------------------------------------------------------
+   HERO DESCRIPTION
+   -------------------------------------------------------------------------- */
+
+.about-hero-description {
+    max-width: 620px;
+
+    margin:
+        0 0 2rem;
+
+    color:
+        rgba(255, 255, 255, 0.88);
+
+    line-height: 1.8;
+
+    animation:
+        aboutHeroText
+        0.8s
+        ease-out
+        0.22s
+        both;
+}
+
+
+/* --------------------------------------------------------------------------
+   HERO ACTION
+   -------------------------------------------------------------------------- */
+
+.about-hero-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    flex-wrap: wrap;
+
+    animation:
+        aboutHeroText
+        0.8s
+        ease-out
+        0.4s
+        both;
+}
+
+
+.about-primary-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.6rem;
+
+    min-height: 50px;
+
+    padding:
+        0.8rem
+        1.4rem;
+
+    color:
+        var(--about-on-secondary);
+
+    background:
+        var(--about-secondary);
+
+    border:
+        1px solid
+        var(--about-secondary);
+
+    border-radius: 999px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.about-primary-button svg {
+    width: 17px;
+    height: 17px;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.about-primary-button:hover {
+    color:
+        var(--about-on-secondary);
+
+    background:
+        var(--about-secondary);
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 28px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+.about-primary-button:hover svg {
+    transform:
+        translate(3px, -3px);
+}
+
+
+/* ==========================================================================
+   04. HERO ANIMATIONS
+   ========================================================================== */
+
+@keyframes aboutHeroTitle {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes aboutHeroText {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* ==========================================================================
+   05. SHARED ABOUT SECTION
+   ========================================================================== */
+
+.about-section {
+    width: 100%;
+
+    padding:
+        clamp(90px, 9vw, 130px)
+        0;
+
+    overflow: hidden;
+
+    background:
+        var(--about-background);
+}
+
+
+/* ==========================================================================
+   06. WHY / DIFFERENT SPLIT LAYOUT
+   ========================================================================== */
+
+.about-split {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    align-items: center;
+
+    gap:
+        clamp(50px, 7vw, 105px);
+}
+
+
+/* --------------------------------------------------------------------------
+   REVERSE SPLIT
+   -------------------------------------------------------------------------- */
+
+.about-split-reverse {
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+}
+
+
+.about-split-reverse .about-content {
+    order: 1;
+}
+
+
+.about-split-reverse .about-image-wrapper {
+    order: 2;
+}
+
+
+/* ==========================================================================
+   07. IMAGE WRAPPER
+   ========================================================================== */
+
+.about-image-wrapper {
+    position: relative;
+
+    width: 100%;
+
+    min-width: 0;
+
+    animation:
+        aboutImageReveal
+        0.9s
+        cubic-bezier(0.22, 0.61, 0.36, 1)
+        both;
+}
+
+
+.about-image-placeholder {
+    position: relative;
+
+    width: 100%;
+
+    height:
+        clamp(390px, 42vw, 560px);
+
+    overflow: hidden;
+
+    border-radius:
+        var(--about-radius-lg);
+
+    background:
+        var(--about-surface);
+
+    box-shadow:
+        var(--about-shadow);
+}
+
+
+.about-image-placeholder::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    border:
+        1px solid
+        rgba(168, 191, 163, 0.35);
+
+    border-radius:
+        inherit;
+}
+
+
+.about-image-placeholder img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.9s
+        cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+
+.about-image-placeholder:hover img {
+    transform:
+        scale(1.045);
+}
+
+
+/* ==========================================================================
+   08. ABOUT CONTENT
+   ========================================================================== */
+
+.about-content {
+    min-width: 0;
+
+    max-width: 590px;
+
+    animation:
+        aboutContentReveal
+        0.85s
+        ease-out
+        0.12s
+        both;
+}
+
+
+/* ==========================================================================
+   09. SECTION EYEBROW
+   ========================================================================== */
+
+.about-section-eyebrow {
+    display: inline-flex;
+
+    align-items: center;
+
+    margin-bottom: 0.9rem;
+
+    color:
+        var(--about-secondary);
+
+    font-size: 0.75rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.15em;
+
+    line-height: 1.4;
+
+    text-transform: uppercase;
+}
+
+
+.about-section-eyebrow::before {
+    content: "";
+
+    width: 30px;
+    height: 1px;
+
+    margin-inline-end: 10px;
+
+    background:
+        var(--about-secondary);
+}
+
+
+/* ==========================================================================
+   10. SECTION TITLE
+   ========================================================================== */
+
+.about-section-title {
+    max-width: 700px;
+
+    margin:
+        0 0 1.25rem;
+
+    color:
+        var(--about-text);
+
+    text-wrap: balance;
+}
+
+
+/* ==========================================================================
+   11. SECTION TEXT
+   ========================================================================== */
+
+.about-section-text {
+    max-width: 600px;
+
+    margin:
+        0 0 2.2rem;
+
+    color:
+        var(--about-body);
+
+    line-height: 1.85;
+}
+
+
+/* ==========================================================================
+   12. WHY POINTS
+   ========================================================================== */
+
+.about-points {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0;
+}
+
+
+.about-point {
+    display: grid;
+
+    grid-template-columns:
+        48px
+        minmax(0, 1fr);
+
+    align-items: start;
+
+    gap: 15px;
+
+    padding:
+        18px 0;
+
+    border-bottom:
+        1px solid
+        var(--about-border);
+
+    animation:
+        aboutItemReveal
+        0.7s
+        ease-out
+        both;
+}
+
+
+.about-point:first-child {
+    border-top:
+        1px solid
+        var(--about-border);
+}
+
+
+.about-point:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+
+.about-point:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+
+.about-point:nth-child(3) {
+    animation-delay: 0.25s;
+}
+
+
+/* --------------------------------------------------------------------------
+   POINT ICON
+   -------------------------------------------------------------------------- */
+
+.about-point-icon {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color:
+        var(--about-secondary);
+
+    background:
+        var(--about-surface);
+
+    border:
+        1px solid
+        var(--about-border);
+
+    border-radius: 50%;
+
+    transition:
+        transform 0.4s ease,
+        background 0.3s ease;
+}
+
+
+.about-point-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+.about-point:hover .about-point-icon {
+    transform:
+        translateY(-3px)
+        rotate(8deg);
+
+    background:
+        var(--about-secondary);
+
+    color:
+        var(--about-on-secondary);
+
+}
+
+
+/* --------------------------------------------------------------------------
+   POINT TEXT
+   -------------------------------------------------------------------------- */
+
+.about-point h3 {
+    margin:
+        0 0 0.35rem;
+
+    color:
+        var(--about-text);
+}
+
+
+.about-point p {
+    margin: 0;
+
+    color:
+        var(--about-muted);
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================================================
+   13. APPROACH SECTION
+   ========================================================================== */
+
+.about-approach {
+    background:
+        var(--about-surface);
+
+    border-top:
+        1px solid
+        var(--about-border);
+
+    border-bottom:
+        1px solid
+        var(--about-border);
+}
+
+
+.about-section-heading {
+    max-width: 760px;
+
+    margin:
+        0 auto
+        clamp(3rem, 5vw, 4.5rem);
+
+    text-align: center;
+
+    animation:
+        aboutContentReveal
+        0.8s
+        ease-out
+        both;
+}
+
+
+.about-section-heading .about-section-eyebrow {
+    justify-content: center;
+}
+
+
+.about-section-heading .about-section-title {
+    margin-bottom: 1rem;
+}
+
+
+.about-section-intro {
+    max-width: 650px;
+
+    margin:
+        0 auto;
+
+    color:
+        var(--about-body);
+
+    line-height: 1.8;
+}
+
+
+/* ==========================================================================
+   14. APPROACH GRID
+   ========================================================================== */
+
+.about-approach-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap:
+        clamp(1.25rem, 2.5vw, 2rem);
+
+    max-width:
+        1120px;
+
+    margin:
+        0 auto;
+}
+
+
+/* ==========================================================================
+   15. APPROACH CARD
+   ========================================================================== */
+
+.about-approach-card {
+    position: relative;
+
+    min-width: 0;
+
+    padding:
+        clamp(2rem, 3vw, 3rem);
+
+    background:
+        var(--about-background);
+
+    border:
+        1px solid
+        var(--about-border);
+
+    border-radius:
+        var(--about-radius-lg);
+
+    overflow: hidden;
+
+    animation:
+        aboutCardReveal
+        0.8s
+        ease-out
+        both;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+.about-approach-card:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+
+.about-approach-card:nth-child(2) {
+    animation-delay: 0.17s;
+}
+
+
+.about-approach-card:nth-child(3) {
+    animation-delay: 0.29s;
+}
+
+
+.about-approach-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        var(--about-secondary);
+
+    transform:
+        scaleX(0);
+
+    transform-origin: left;
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+.about-approach-card:hover {
+    transform:
+        translateY(-8px);
+
+    border-color:
+        var(--about-secondary);
+
+    box-shadow:
+        0 20px 45px
+        rgba(0, 0, 0, 0.08);
+}
+
+
+.about-approach-card:hover::before {
+    transform:
+        scaleX(1);
+}
+
+
+/* ==========================================================================
+   16. APPROACH NUMBER
+   ========================================================================== */
+
+.about-card-number {
+    margin-bottom: 1.5rem;
+
+    color:
+        var(--about-secondary);
+
+    font-size: 0.72rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.15em;
+}
+
+
+/* ==========================================================================
+   17. APPROACH ICON
+   ========================================================================== */
+
+.about-card-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 1.5rem;
+
+    color:
+        var(--about-secondary);
+
+    background:
+        var(--about-surface);
+
+    border:
+        1px solid
+        var(--about-border);
+
+    border-radius: 50%;
+
+    transition:
+        transform 0.45s ease,
+        background 0.3s ease;
+}
+
+
+.about-card-icon svg {
+    width: 21px;
+    height: 21px;
+}
+
+
+.about-approach-card:hover .about-card-icon {
+    transform:
+        rotate(8deg)
+        scale(1.06);
+
+    background:
+        var(--about-secondary);
+
+    color:
+        var(--about-on-secondary);
+}
+
+
+/* ==========================================================================
+   18. APPROACH CARD TEXT
+   ========================================================================== */
+
+.about-approach-card h3 {
+    margin:
+        0 0 0.75rem;
+
+    color:
+        var(--about-text);
+}
+
+
+.about-approach-card p {
+    margin: 0;
+
+    color:
+        var(--about-muted);
+
+    line-height: 1.75;
+}
+
+
+/* ==========================================================================
+   19. DIFFERENT SECTION
+   ========================================================================== */
+
+.about-different {
+    background:
+        var(--about-background);
+}
+
+
+.about-different .about-content {
+    max-width: 590px;
+}
+
+
+/* ==========================================================================
+   20. FEATURE LIST
+   ========================================================================== */
+
+.about-feature-list {
+    display: flex;
+
+    flex-direction: column;
+
+    margin-top: 2rem;
+}
+
+
+.about-feature-item {
+    display: grid;
+
+    grid-template-columns:
+        45px
+        minmax(0, 1fr);
+
+    gap: 15px;
+
+    align-items: start;
+
+    padding:
+        17px 0;
+
+    border-bottom:
+        1px solid
+        var(--about-border);
+
+    animation:
+        aboutItemReveal
+        0.7s
+        ease-out
+        both;
+}
+
+
+.about-feature-item:first-child {
+    border-top:
+        1px solid
+        var(--about-border);
+}
+
+
+.about-feature-item:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+
+.about-feature-item:nth-child(2) {
+    animation-delay: 0.14s;
+}
+
+
+.about-feature-item:nth-child(3) {
+    animation-delay: 0.23s;
+}
+
+
+.about-feature-item:nth-child(4) {
+    animation-delay: 0.32s;
+}
+
+
+.about-feature-item > svg {
+    width: 20px;
+    height: 20px;
+
+    margin-top: 4px;
+
+    color:
+        var(--about-secondary);
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+.about-feature-item:hover > svg {
+    transform:
+        scale(1.15)
+        rotate(-8deg);
+}
+
+
+.about-feature-item h3 {
+    margin:
+        0 0 0.25rem;
+
+    color:
+        var(--about-text);
+}
+
+
+.about-feature-item p {
+    margin: 0;
+
+    color:
+        var(--about-muted);
+
+    line-height: 1.65;
+}
+
+
+/* ==========================================================================
+   21. CTA SECTION
+   ========================================================================== */
+
+.about-cta {
+    width: 100%;
+
+    padding:
+        clamp(80px, 9vw, 120px)
+        0;
+
+    background:
+        var(--about-surface);
+}
+
+
+/* ==========================================================================
+   22. CTA INNER
+   ========================================================================== */
+
+.about-cta-inner {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        auto;
+
+    align-items: center;
+
+    gap:
+        clamp(2.5rem, 6vw, 6rem);
+
+    padding:
+        clamp(3rem, 5vw, 5rem);
+
+    background:
+        var(--about-primary);
+
+    border-radius:
+        var(--about-radius-lg);
+
+    overflow: hidden;
+
+    box-shadow:
+        0 24px 60px
+        rgba(0, 0, 0, 0.14);
+
+    animation:
+        aboutCtaReveal
+        0.9s
+        ease-out
+        both;
+}
+
+
+.about-cta-inner::before {
+    content: "";
+
+    position: absolute;
+
+    width: 340px;
+    height: 340px;
+
+    right: -150px;
+    top: -190px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+.about-cta-inner::after {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    left: -130px;
+    bottom: -170px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================================================
+   23. CTA CONTENT
+   ========================================================================== */
+
+.about-cta-content {
+    position: relative;
+
+    z-index: 2;
+
+    min-width: 0;
+
+    animation:
+        aboutContentReveal
+        0.8s
+        ease-out
+        0.15s
+        both;
+}
+
+
+.about-cta-content .about-eyebrow {
+    display: inline-flex;
+
+    color:
+        var(--about-secondary);
+
+    font-size: 0.75rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.15em;
+
+    text-transform: uppercase;
+}
+
+
+.about-cta-content h2 {
+    margin:
+        0.8rem 0 1rem;
+
+    color:
+        #ffffff;
+
+    text-wrap: balance;
+}
+
+
+.about-cta-content p {
+    max-width: 650px;
+
+    margin: 0;
+
+    color:
+        rgba(255, 255, 255, 0.78);
+
+    line-height: 1.8;
+}
+
+
+/* ==========================================================================
+   24. CTA ACTIONS
+   ========================================================================== */
+
+.about-cta-actions {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0.85rem;
+
+    flex-wrap: wrap;
+
+    animation:
+        aboutContentReveal
+        0.8s
+        ease-out
+        0.3s
+        both;
+}
+
+
+.about-cta-primary,
+.about-cta-secondary {
+    min-height: 50px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        0.8rem
+        1.35rem;
+
+    border-radius: 999px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* --------------------------------------------------------------------------
+   PRIMARY CTA
+   -------------------------------------------------------------------------- */
+
+.about-cta-primary {
+    gap: 0.6rem;
+
+    color:
+        var(--about-on-secondary);
+
+    background:
+        var(--about-secondary);
+
+    border:
+        1px solid
+        var(--about-secondary);
+}
+
+
+.about-cta-primary svg {
+    width: 17px;
+    height: 17px;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.about-cta-primary:hover {
+    color:
+        var(--about-on-secondary);
+
+    background:
+        var(--about-secondary);
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+.about-cta-primary:hover svg {
+    transform:
+        translateX(4px);
+}
+
+
+/* --------------------------------------------------------------------------
+   SECONDARY CTA
+   -------------------------------------------------------------------------- */
+
+.about-cta-secondary {
+    color:
+        #ffffff;
+
+    background:
+        transparent;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.45);
+}
+
+
+.about-cta-secondary:hover {
+    color:
+        var(--about-primary);
+
+    background:
+        #ffffff;
+
+    border-color:
+        #ffffff;
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* ==========================================================================
+   25. TEXT ANIMATION SYSTEM
+   ========================================================================== */
+
+.about-section-heading,
+.about-content,
+.about-image-wrapper,
+.about-approach-card,
+.about-feature-item,
+.about-point,
+.about-cta-inner {
+
+    will-change:
+        transform,
+        opacity;
+}
+
+
+@keyframes aboutContentReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes aboutImageReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.985);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes aboutItemReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes aboutCardReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes aboutCtaReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.99);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* ==========================================================================
+   26. RTL
+   ========================================================================== */
+
+html[dir="rtl"] .about-page {
+    direction: rtl;
+}
+
+
+html[dir="rtl"] .about-hero-overlay {
+    background:
+        linear-gradient(
+            270deg,
+            rgba(10, 15, 18, 0.88) 0%,
+            rgba(10, 15, 18, 0.72) 35%,
+            rgba(10, 15, 18, 0.38) 68%,
+            rgba(10, 15, 18, 0.12) 100%
+        );
+}
+
+
+html[dir="rtl"] .about-hero .about-eyebrow::before,
+html[dir="rtl"] .about-section-eyebrow::before {
+    margin-inline-end: 0;
+    margin-inline-start: 10px;
+}
+
+
+html[dir="rtl"] .about-split-reverse .about-content {
+    order: 2;
+}
+
+
+html[dir="rtl"] .about-split-reverse .about-image-wrapper {
+    order: 1;
+}
+
+
+html[dir="rtl"] .about-primary-button svg {
+    transform:
+        scaleX(-1);
+}
+
+
+html[dir="rtl"] .about-primary-button:hover svg {
+    transform:
+        scaleX(-1)
+        translate(3px, -3px);
+}
+
+
+html[dir="rtl"] .about-cta-primary svg {
+    transform:
+        scaleX(-1);
+}
+
+
+html[dir="rtl"] .about-cta-primary:hover svg {
+    transform:
+        scaleX(-1)
+        translateX(4px);
+}
+
+
+/* ==========================================================================
+   27. DARK MODE
+   ========================================================================== */
+
+[data-theme="dark"] .about-page {
+
+    background:
+        var(
+            --color-background,
+            var(--about-background)
+        );
+
+    color:
+        var(
+            --color-text,
+            var(--about-text)
+        );
+}
+
+
+[data-theme="dark"] .about-section {
+    background:
+        var(
+            --color-background,
+            var(--about-background)
+        );
+}
+
+
+[data-theme="dark"] .about-approach {
+    background:
+        var(
+            --color-card,
+            var(--about-surface)
+        );
+}
+
+
+[data-theme="dark"] .about-different {
+    background:
+        var(
+            --color-background,
+            var(--about-background)
+        );
+}
+
+
+[data-theme="dark"] .about-cta {
+    background:
+        var(
+            --color-card,
+            var(--about-surface)
+        );
+}
+
+
+[data-theme="dark"] .about-point-icon,
+[data-theme="dark"] .about-card-icon {
+    background:
+        var(
+            --color-background,
+            var(--about-background)
+        );
+}
+
+
+[data-theme="dark"] .about-approach-card {
+    background:
+        var(
+            --color-background,
+            var(--about-background)
+        );
+
+    border-color:
+        var(
+            --color-border,
+            var(--about-border)
+        );
+}
+
+
+[data-theme="dark"] .about-approach-card:hover {
+    border-color:
+        var(--about-secondary);
+}
+
+
+[data-theme="dark"] .about-image-placeholder {
+    background:
+        var(
+            --color-card,
+            var(--about-surface)
+        );
+}
+
+
+[data-theme="dark"] .about-hero-overlay {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(2, 5, 7, 0.94) 0%,
+            rgba(2, 5, 7, 0.78) 35%,
+            rgba(2, 5, 7, 0.45) 70%,
+            rgba(2, 5, 7, 0.18) 100%
+        );
+}
+
+
+[data-theme="dark"] .about-page .about-section-title,
+[data-theme="dark"] .about-page .about-point h3,
+[data-theme="dark"] .about-page .about-approach-card h3,
+[data-theme="dark"] .about-page .about-feature-item h3 {
+    color:
+        var(
+            --color-text,
+            var(--about-text)
+        );
+}
+
+
+[data-theme="dark"] .about-page .about-section-text,
+[data-theme="dark"] .about-page .about-section-intro,
+[data-theme="dark"] .about-page .about-point p,
+[data-theme="dark"] .about-page .about-approach-card p,
+[data-theme="dark"] .about-page .about-feature-item p {
+    color:
+        var(
+            --color-text-body,
+            var(--about-body)
+        );
+}
+
+
+/* ==========================================================================
+   28. LARGE DESKTOP — 1600PX+
+   ========================================================================== */
+
+@media (min-width: 1600px) {
+
+    .about-hero-content {
+        width:
+            min(760px, 68%);
+    }
+
+
+    .about-section {
+        padding:
+            135px 0;
+    }
+
+
+    .about-split {
+        gap:
+            120px;
+    }
+
+
+    .about-image-placeholder {
+        height: 590px;
+    }
+
+
+    .about-approach-grid {
+        max-width:
+            1220px;
+    }
+
+
+    .about-cta-inner {
+        padding:
+            75px 70px;
+    }
+
+}
+
+
+/* ==========================================================================
+   29. NEST HUB / 1024PX
+   ========================================================================== */
+
+@media (max-width: 1199.98px) {
+
+    .about-hero-content {
+        width:
+            min(700px, 78%);
+    }
+
+
+    .about-section {
+        padding:
+            95px 0;
+    }
+
+
+    .about-split {
+        gap:
+            55px;
+    }
+
+
+    .about-image-placeholder {
+        height:
+            470px;
+    }
+
+
+    .about-approach-card {
+        padding:
+            2rem;
+    }
+
+
+    .about-cta-inner {
+        gap:
+            3rem;
+
+        padding:
+            3.5rem;
+    }
+
+}
+
+
+/* ==========================================================================
+   30. IPAD MINI PORTRAIT / TABLET
+   ========================================================================== */
+
+@media (max-width: 991.98px) {
+
+    .about-hero {
+        min-height:
+            650px;
+    }
+
+
+    .about-hero-content {
+        width:
+            78%;
+    }
+
+
+    .about-split {
+        grid-template-columns:
+            1fr;
+
+        gap:
+            45px;
+    }
+
+
+    .about-split-reverse .about-content,
+    .about-split-reverse .about-image-wrapper {
+        order: initial;
+    }
+
+
+    .about-content {
+        max-width:
+            760px;
+    }
+
+
+    .about-image-placeholder {
+        height:
+            460px;
+    }
+
+
+    .about-approach-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .about-approach-card:last-child {
+        grid-column:
+            1 / -1;
+
+        max-width:
+            calc(50% - 0.75rem);
+
+        width: 100%;
+
+        margin-inline:
+            auto;
+    }
+
+
+    .about-cta-inner {
+        grid-template-columns:
+            1fr;
+
+        text-align:
+            center;
+
+        gap:
+            2rem;
+    }
+
+
+    .about-cta-content p {
+        margin-inline:
+            auto;
+    }
+
+
+    .about-cta-actions {
+        justify-content:
+            center;
+    }
+
+}
+
+
+/* ==========================================================================
+   31. 768PX / IPAD MINI PORTRAIT
+   ========================================================================== */
+
+@media (max-width: 767.98px) {
+
+    .about-hero {
+
+        height:
+            90vh;
+
+        min-height:
+            560px;
+
+        background-position:
+            64% center;
+    }
+
+
+    .about-hero-overlay {
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(10, 15, 18, .93),
+                rgba(10, 15, 18, .63)
+            );
+    }
+
+
+    .about-hero-content {
+
+        width:
+            100%;
+    }
+
+
+    .about-section {
+
+        padding:
+            75px 0;
+    }
+
+
+    .about-split {
+
+        gap:
+            38px;
+    }
+
+
+    .about-image-placeholder {
+
+        height:
+            400px;
+    }
+
+
+    .about-approach-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .about-approach-card:last-child {
+
+        grid-column:
+            auto;
+
+        max-width:
+            none;
+    }
+
+
+    .about-cta-inner {
+
+        padding:
+            3rem 2rem;
+    }
+
+}
+
+
+/* ==========================================================================
+   32. 720PX
+   ========================================================================== */
+
+@media (max-width: 720px) {
+
+    .about-page .container {
+
+        width:
+            calc(100% - 2.5rem);
+
+        max-width:
+            none;
+    }
+
+
+    .about-hero {
+
+        height:
+            90vh;
+
+        min-height:
+            90vh;
+    }
+
+
+    .about-hero-content {
+
+        width:
+            100%;
+    }
+
+
+    .about-section {
+
+        padding:
+            70px 0;
+    }
+
+
+    .about-section-heading {
+
+        margin-bottom:
+            3rem;
+    }
+
+
+    .about-image-placeholder {
+
+        height:
+            360px;
+    }
+
+
+    .about-cta {
+
+        padding:
+            70px 0;
+    }
+
+
+    .about-cta-inner {
+
+        padding:
+            3rem 1.5rem;
+    }
+
+}
+
+
+/* ==========================================================================
+   33. SMALL MOBILE — 480PX
+   ========================================================================== */
+
+@media (max-width: 480px) {
+
+    .about-page .container {
+
+        width:
+            calc(100% - 2rem);
+    }
+
+
+    .about-hero {
+
+        min-height:
+            90vh;
+
+        background-position:
+            66% center;
+    }
+
+
+    .about-section {
+
+        padding:
+            62px 0;
+    }
+
+
+    .about-hero .about-eyebrow {
+
+        margin-bottom:
+            1rem;
+    }
+
+
+    .about-hero-description {
+
+        line-height:
+            1.7;
+
+        margin-bottom:
+            1.6rem;
+    }
+
+
+    .about-primary-button {
+
+        width:
+            auto;
+
+        min-height:
+            48px;
+    }
+
+
+    .about-image-placeholder {
+
+        height:
+            310px;
+
+        border-radius:
+            var(--about-radius-md);
+    }
+
+
+    .about-point {
+
+        grid-template-columns:
+            42px
+            minmax(0, 1fr);
+
+        gap:
+            12px;
+
+        padding:
+            16px 0;
+    }
+
+
+    .about-point-icon {
+
+        width:
+            40px;
+
+        height:
+            40px;
+    }
+
+
+    .about-approach-card {
+
+        padding:
+            1.7rem;
+
+        border-radius:
+            var(--about-radius-md);
+    }
+
+
+    .about-card-icon {
+
+        width:
+            48px;
+
+        height:
+            48px;
+    }
+
+
+    .about-feature-item {
+
+        grid-template-columns:
+            40px
+            minmax(0, 1fr);
+
+        gap:
+            12px;
+    }
+
+
+    .about-cta {
+
+        padding:
+            60px 0;
+    }
+
+
+    .about-cta-inner {
+
+        padding:
+            2.75rem 1.25rem;
+
+        border-radius:
+            var(--about-radius-md);
+    }
+
+
+    .about-cta-actions {
+
+        width:
+            100%;
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+    }
+
+
+    .about-cta-primary,
+    .about-cta-secondary {
+
+        width:
+            100%;
+    }
+
+}
+
+
+/* ==========================================================================
+   34. SAMSUNG S8+ — 360PX
+   ========================================================================== */
+
+@media (max-width: 380px) {
+
+    .about-page .container {
+
+        width:
+            calc(100% - 1.5rem);
+    }
+
+
+    .about-hero {
+
+        height:
+            90vh;
+
+        min-height:
+            90vh;
+
+        background-position:
+            68% center;
+    }
+
+
+    .about-hero-overlay {
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(10, 15, 18, .95),
+                rgba(10, 15, 18, .68)
+            );
+    }
+
+
+    .about-section {
+
+        padding:
+            55px 0;
+    }
+
+
+    .about-image-placeholder {
+
+        height:
+            270px;
+    }
+
+
+    .about-point {
+
+        grid-template-columns:
+            38px
+            minmax(0, 1fr);
+
+        gap:
+            10px;
+    }
+
+
+    .about-point-icon {
+
+        width:
+            37px;
+
+        height:
+            37px;
+    }
+
+
+    .about-card-icon {
+
+        width:
+            45px;
+
+        height:
+            45px;
+    }
+
+
+    .about-approach-card {
+
+        padding:
+            1.4rem;
+    }
+
+
+    .about-feature-item {
+
+        grid-template-columns:
+            35px
+            minmax(0, 1fr);
+
+        gap:
+            10px;
+    }
+
+
+    .about-cta-inner {
+
+        padding:
+            2.5rem 1rem;
+    }
+
+}
+
+
+/* ==========================================================================
+   35. SAMSUNG S8+ LANDSCAPE
+   ========================================================================== */
+
+@media (max-width: 767.98px)
+and (orientation: landscape) {
+
+    .about-hero {
+
+        height:
+            90vh;
+
+        min-height:
+            330px;
+
+        background-position:
+            center center;
+    }
+
+
+    .about-hero-content {
+
+        width:
+            70%;
+
+        padding-block:
+            1.25rem;
+    }
+
+
+    .about-section {
+
+        padding:
+            55px 0;
+    }
+
+
+    .about-split {
+
+        gap:
+            30px;
+    }
+
+
+    .about-image-placeholder {
+
+        height:
+            300px;
+    }
+
+
+    .about-approach-grid {
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+
+    .about-approach-card:last-child {
+
+        grid-column:
+            auto;
+
+        max-width:
+            none;
+    }
+
+
+    .about-approach-card {
+
+        padding:
+            1.35rem;
+    }
+
+
+    .about-cta-inner {
+
+        padding:
+            2.5rem;
+    }
+
+}
+
+
+/* ==========================================================================
+   36. IPAD MINI / NEST HUB LANDSCAPE
+   ========================================================================== */
+
+@media (min-width: 700px)
+and (max-width: 1200px)
+and (orientation: landscape) {
+
+    .about-hero {
+
+        height:
+            90vh;
+
+        min-height:
+            500px;
+    }
+
+
+    .about-section {
+
+        padding:
+            75px 0;
+    }
+
+
+    .about-split {
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+
+        gap:
+            45px;
+    }
+
+
+    .about-split-reverse .about-content {
+        order:
+            1;
+    }
+
+
+    .about-split-reverse .about-image-wrapper {
+        order:
+            2;
+    }
+
+
+    .about-image-placeholder {
+
+        height:
+            370px;
+    }
+
+
+    .about-approach-grid {
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+
+    .about-approach-card:last-child {
+
+        grid-column:
+            auto;
+
+        max-width:
+            none;
+    }
+
+
+    .about-approach-card {
+
+        padding:
+            1.5rem;
+    }
+
+
+    .about-cta-inner {
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            auto;
+
+        text-align:
+            start;
+
+        padding:
+            3rem;
+    }
+
+
+    .about-cta-content p {
+
+        margin-inline:
+            0;
+    }
+
+
+    .about-cta-actions {
+
+        justify-content:
+            flex-end;
+    }
+
+}
+
+
+/* ==========================================================================
+   37. NEST HUB 1024 LANDSCAPE
+   ========================================================================== */
+
+@media (min-width: 1000px)
+and (max-width: 1200px)
+and (orientation: landscape) {
+
+    .about-hero {
+
+        min-height:
+            90vh;
+    }
+
+
+    .about-hero-content {
+
+        width:
+            70%;
+    }
+
+
+    .about-section {
+
+        padding:
+            85px 0;
+    }
+
+
+    .about-image-placeholder {
+
+        height:
+            410px;
+    }
+
+
+    .about-approach-card {
+
+        padding:
+            1.8rem;
+    }
+
+}
+
+
+/* ==========================================================================
+   38. 1920PX DESKTOP
+   ========================================================================== */
+
+@media (min-width: 1600px) {
+
+    .about-hero-content {
+
+        width:
+            min(760px, 65%);
+    }
+
+
+    .about-section {
+
+        padding:
+            135px 0;
+    }
+
+
+    .about-split {
+
+        gap:
+            120px;
+    }
+
+
+    .about-image-placeholder {
+
+        height:
+            610px;
+    }
+
+
+    .about-approach-grid {
+
+        max-width:
+            1220px;
+    }
+
+
+    .about-cta {
+
+        padding:
+            130px 0;
+    }
+
+
+    .about-cta-inner {
+
+        padding:
+            80px 70px;
+    }
+
+}
+
+
+/* ==========================================================================
+   39. SHORT VIEWPORT — NEST HUB / SMALL LAPTOP
+   ========================================================================== */
+
+@media (min-width: 992px)
+and (max-height: 720px) {
+
+    .about-hero {
+
+        min-height:
+            520px;
+    }
+
+
+    .about-section {
+
+        padding:
+            75px 0;
+    }
+
+
+    .about-image-placeholder {
+
+        height:
+            430px;
+    }
+
+
+    .about-cta {
+
+        padding:
+            75px 0;
+    }
+
+}
+
+
+/* ==========================================================================
+   40. TOUCH DEVICES
+   ========================================================================== */
+
+@media (hover: none)
+and (pointer: coarse) {
+
+    .about-primary-button:hover,
+    .about-cta-primary:hover,
+    .about-cta-secondary:hover {
+
+        transform:
+            none;
+
+        box-shadow:
+            none;
+    }
+
+
+    .about-image-placeholder:hover img {
+
+        transform:
+            none;
+    }
+
+
+    .about-approach-card:hover {
+
+        transform:
+            none;
+
+        box-shadow:
+            none;
+    }
+
+
+    .about-approach-card:hover::before {
+
+        transform:
+            scaleX(0);
+    }
+
+}
+
+
+/* ==========================================================================
+   41. REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .about-page *,
+    .about-page *::before,
+    .about-page *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+    }
+
+
+    .about-hero-title,
+    .about-hero-description,
+    .about-hero-actions,
+    .about-section-heading,
+    .about-content,
+    .about-image-wrapper,
+    .about-point,
+    .about-approach-card,
+    .about-feature-item,
+    .about-cta-inner {
+
+        opacity:
+            1 !important;
+
+        transform:
+            none !important;
+    }
+
+}
+
+
+/* ==========================================================================
+   42. FINAL OVERFLOW PROTECTION
+   ========================================================================== */
+
+.about-page,
+.about-page .about-hero,
+.about-page .about-section,
+.about-page .about-cta {
+
+    max-width:
+        100%;
+
+    overflow-x:
+        hidden;
+}
+
+
+.about-page .about-split,
+.about-page .about-approach-grid,
+.about-page .about-cta-inner {
+
+    min-width:
+        0;
+}
+
+
+.about-page .about-content,
+.about-page .about-approach-card,
+.about-page .about-feature-item,
+.about-page .about-cta-content {
+
+    min-width:
+        0;
+}
+
+/* ==========================================================================
+   FINAL DARK MODE OVERRIDE
+   Add this block at the VERY END of about.css
+   ========================================================================== */
+
+html[data-theme="dark"] .about-page {
+
+  --about-background: #10161d;
+  --about-surface: #171f28;
+
+  --about-text: #f4f6f8;
+  --about-body: #c5cdd5;
+  --about-muted: #9fa9b3;
+
+  --about-border: #2b3540;
+
+  --about-on-primary: #ffffff;
+  --about-on-secondary: #182019;
+
+  background: #10161d;
+  color: #f4f6f8;
+}
+
+
+/* --------------------------------------------------------------------------
+   MAIN SECTIONS
+   -------------------------------------------------------------------------- */
+
+html[data-theme="dark"] .about-page .about-section {
+  background: #10161d;
+  color: #f4f6f8;
+}
+
+html[data-theme="dark"] .about-page .about-why {
+  background: #10161d;
+}
+
+html[data-theme="dark"] .about-page .about-different {
+  background: #10161d;
+}
+
+
+/* --------------------------------------------------------------------------
+   APPROACH SECTION
+   -------------------------------------------------------------------------- */
+
+html[data-theme="dark"] .about-page .about-approach {
+  background: #171f28;
+  border-top-color: #2b3540;
+  border-bottom-color: #2b3540;
+}
+
+
+/* --------------------------------------------------------------------------
+   APPROACH CARDS
+   -------------------------------------------------------------------------- */
+
+html[data-theme="dark"] .about-page .about-approach-card {
+  background: #10161d;
+  border-color: #2b3540;
+  color: #f4f6f8;
+}
+
+html[data-theme="dark"] .about-page .about-approach-card:hover {
+  border-color: var(--about-secondary);
+}
+
+
+/* --------------------------------------------------------------------------
+   IMAGE BOXES
+   -------------------------------------------------------------------------- */
+
+html[data-theme="dark"] .about-page .about-image-placeholder {
+  background: #171f28;
+  border-color: #2b3540;
+}
+
+html[data-theme="dark"] .about-page .about-image-placeholder::after {
+  border-color: rgba(168, 191, 163, 0.28);
+}
+
+
+/* --------------------------------------------------------------------------
+   ICON BOXES
+   -------------------------------------------------------------------------- */
+
+html[data-theme="dark"] .about-page .about-point-icon,
+html[data-theme="dark"] .about-page .about-card-icon {
+  background: #171f28;
+  border-color: #2b3540;
+  color: var(--about-secondary);
+}
+
+html[data-theme="dark"] .about-page .about-point:hover .about-point-icon,
+html[data-theme="dark"] .about-page .about-approach-card:hover .about-card-icon {
+  background: var(--about-secondary);
+  color: #182019;
+  border-color: var(--about-secondary);
+}
+
+
+/* --------------------------------------------------------------------------
+   HEADINGS
+   -------------------------------------------------------------------------- */
+
+html[data-theme="dark"] .about-page .about-section-title,
+html[data-theme="dark"] .about-page .about-point h3,
+html[data-theme="dark"] .about-page .about-approach-card h3,
+html[data-theme="dark"] .about-page .about-feature-item h3 {
+  color: #f4f6f8;
+}
+
+
+/* --------------------------------------------------------------------------
+   BODY TEXT
+   -------------------------------------------------------------------------- */
+
+html[data-theme="dark"] .about-page .about-section-text,
+html[data-theme="dark"] .about-page .about-section-intro,
+html[data-theme="dark"] .about-page .about-point p,
+html[data-theme="dark"] .about-page .about-approach-card p,
+html[data-theme="dark"] .about-page .about-feature-item p {
+  color: #c5cdd5;
+}
+
+
+/* --------------------------------------------------------------------------
+   GENERAL HEADINGS + PARAGRAPHS
+   -------------------------------------------------------------------------- */
+
+html[data-theme="dark"] .about-page h1,
+html[data-theme="dark"] .about-page h2,
+html[data-theme="dark"] .about-page h3,
+html[data-theme="dark"] .about-page h4,
+html[data-theme="dark"] .about-page h5,
+html[data-theme="dark"] .about-page h6 {
+  color: #f4f6f8;
+}
+
+html[data-theme="dark"] .about-page p {
+  color: #c5cdd5;
+}
+
+
+/* --------------------------------------------------------------------------
+   DIVIDERS
+   -------------------------------------------------------------------------- */
+
+html[data-theme="dark"] .about-page .about-point,
+html[data-theme="dark"] .about-page .about-feature-item {
+  border-color: #2b3540;
+}
+
+
+/* --------------------------------------------------------------------------
+   EYEBROWS + ACCENTS
+   -------------------------------------------------------------------------- */
+
+html[data-theme="dark"] .about-page .about-section-eyebrow,
+html[data-theme="dark"] .about-page .about-hero .about-eyebrow,
+html[data-theme="dark"] .about-page .about-cta-content .about-eyebrow,
+html[data-theme="dark"] .about-page .about-card-number {
+  color: var(--about-secondary);
+}
+
+html[data-theme="dark"] .about-page .about-section-eyebrow::before,
+html[data-theme="dark"] .about-page .about-hero .about-eyebrow::before {
+  background: var(--about-secondary);
+}
+
+html[data-theme="dark"] .about-page .about-feature-item > svg {
+  color: var(--about-secondary);
+}
+
+
+/* --------------------------------------------------------------------------
+   HERO
+   -------------------------------------------------------------------------- */
+
+html[data-theme="dark"] .about-page .about-hero {
+  background-color: #0b1015;
+}
+
+html[data-theme="dark"] .about-page .about-hero-overlay {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 8, 12, 0.96) 0%,
+      rgba(4, 8, 12, 0.84) 36%,
+      rgba(4, 8, 12, 0.54) 70%,
+      rgba(4, 8, 12, 0.22) 100%
+    );
+}
+
+html[data-theme="dark"] .about-page .about-hero-title {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .about-page .about-hero-title span {
+  color: var(--about-secondary);
+}
+
+html[data-theme="dark"] .about-page .about-hero-description {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+
+/* --------------------------------------------------------------------------
+   CTA OUTER SECTION
+   -------------------------------------------------------------------------- */
+
+html[data-theme="dark"] .about-page .about-cta {
+  background: #171f28;
+}
+
+
+/* --------------------------------------------------------------------------
+   CTA CARD
+   -------------------------------------------------------------------------- */
+
+html[data-theme="dark"] .about-page .about-cta-inner {
+  background: var(--about-primary);
+}
+
+
+/* --------------------------------------------------------------------------
+   CTA TEXT
+   -------------------------------------------------------------------------- */
+
+html[data-theme="dark"] .about-page .about-cta-content h2 {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .about-page .about-cta-content p {
+  color: rgba(255, 255, 255, 0.80);
+}
+
+
+/* --------------------------------------------------------------------------
+   BUTTONS
+   -------------------------------------------------------------------------- */
+
+html[data-theme="dark"] .about-page .about-primary-button,
+html[data-theme="dark"] .about-page .about-cta-primary {
+  color: var(--about-on-secondary);
+  background: var(--about-secondary);
+  border-color: var(--about-secondary);
+}
+
+html[data-theme="dark"] .about-page .about-cta-secondary {
+  color: #ffffff;
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+html[data-theme="dark"] .about-page .about-cta-secondary:hover {
+  color: var(--about-primary);
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+
+/* --------------------------------------------------------------------------
+   DARK MODE SHADOWS
+   -------------------------------------------------------------------------- */
+
+html[data-theme="dark"] .about-page .about-image-placeholder,
+html[data-theme="dark"] .about-page .about-approach-card {
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+/* CTA INNER CARD — DARK MODE */
+
+html[data-theme="dark"] .about-page .about-cta-inner {
+  background: var(--about-primary);
+}

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Learn more about SleepTots and our approach to helping families create calmer, healthier sleep routines."
+    >
+
+    <link rel="icon" type="image/png" href="./images/logo.png">
+    <link rel="shortcut icon" href="./images/logo.png">
+    <link rel="apple-touch-icon" href="./images/logo.png">
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Existing Global Styles -->
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/typography.css">
+
+    <!-- About Page -->
+    <link rel="stylesheet" href="./css/about.css">
+<link rel="stylesheet" href="./css/navbar-footer.css">
+    <title>About Us — SleepTots</title>
+</head>
+
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="st-navbar" aria-label="Main navigation">
+    <div class="st-navbar-inner">
+      <a href="./1index.html" class="brand-link" aria-label="SleepTots home">
+        <img src="./images/logo.png" alt="" height="50px" width="50px">
+        <span class="brand-title"><span class="brand-sleep">Sleep</span><span class="brand-tots">Tots</span></span>
+      </a>
+
+      <ul class="st-nav-center">
+        <li>
+          <button class="st-nav-link" type="button" aria-haspopup="true" aria-expanded="false">
+            Home <i data-lucide="chevron-down"></i>
+          </button>
+          <ul class="st-home-dropdown">
+            <li>
+              <a href="./1index.html">
+                <span class="dropdown-icon"><i data-lucide="house"></i></span>
+                <span class="dropdown-text"><span class="dropdown-title">Home 1</span>
+              </a>
+            </li>
+            <li>
+              <a href="./home2.html">
+                <span class="dropdown-icon"><i data-lucide="sparkles"></i></span>
+                <span class="dropdown-text"><span class="dropdown-title">Home 2</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="./about.html" class="st-nav-link st-underline-hover" data-current="false">About</a></li>
+        <li><a href="./services.html" class="st-nav-link st-underline-hover" data-current="false">Services</a></li>
+        <li><a href="./testimonials.html" class="st-nav-link st-underline-hover" data-current="false">Testimonials</a></li>
+        <li><a href="./pricing.html" class="st-nav-link st-underline-hover" data-current="false">Pricing</a></li>
+        <li><a href="./contact.html" class="st-nav-link st-underline-hover" data-current="false">Contact</a></li>
+        <li><a href="./dashboard.html" class="st-nav-link st-underline-hover" data-current="false">Dashboard</a></li>
+      </ul>
+
+      <div class="st-nav-right">
+        <button class="st-icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+          <i data-lucide="moon"></i><i data-lucide="sun" style="display:none"></i>
+        </button>
+        <button class="st-icon-btn" data-rtl-toggle aria-label="Toggle RTL">
+          <span class="rtl-label">RTL</span>
+        </button>
+        <a href="./login.html" class="st-btn st-btn-outline st-btn-sm">Login</a>
+        <button class="st-hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ MOBILE MENU ============ -->
+  <div class="st-mobile-overlay"></div>
+  <aside class="st-mobile-menu" aria-label="Mobile navigation">
+    <ul class="st-mobile-menu-nav">
+      <li>
+        <button class="st-mobile-nav-link" data-home-toggle aria-expanded="false">
+          Home <i data-lucide="chevron-down"></i>
+        </button>
+        <ul class="st-mobile-submenu">
+          <li><a href="./1index.html">Home 1 — Classic</a></li>
+          <li><a href="./home2.html">Home 2 — Premium</a></li>
+        </ul>
+      </li>
+      <li><a href="./About.html">About</a></li>
+      <li><a href="./services.html">Services</a></li>
+      <li><a href="./testimonials.html">Testimonials</a></li>
+      <li><a href="./pricing.html">Pricing</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="./dashboard.html">Dashboard</a></li>
+    </ul>
+    <div class="st-mobile-menu-footer">
+      <a href="./login.html" class="st-btn st-btn-primary st-btn-block">Login</a>
+    </div>
+  </aside>
+
+
+    <main class="about-page">
+
+        <!-- =========================================================
+             SECTION 1 — HERO
+             ========================================================= -->
+
+        <section class="about-hero">
+
+            <div class="about-hero-overlay"></div>
+
+            <div class="container">
+                <div class="about-hero-content">
+
+                    <span class="about-eyebrow">
+                        ABOUT SLEEPTOTS
+                    </span>
+
+                    <h1 class="about-hero-title">
+                        Better Nights Begin
+                        <span>With Understanding.</span>
+                    </h1>
+
+                    <p class="about-hero-description">
+                        SleepTots helps families build calmer,
+                        healthier and more consistent sleep routines
+                        through personalized guidance and practical support.
+                    </p>
+
+                    <div class="about-hero-actions">
+
+                        <a
+                            href="./services.html"
+                            class="about-primary-button"
+                        >
+                            Explore Services
+                            <i data-lucide="arrow-up-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             SECTION 2 — WHY SLEEPTOTS
+             ========================================================= -->
+
+        <section class="about-section about-why">
+
+            <div class="container">
+
+                <div class="about-split">
+
+                    <!-- IMAGE -->
+
+                    <div class="about-image-wrapper">
+
+                        <div class="about-image-placeholder">
+
+                            <img
+                                src="./images/about-parent.png"
+                                alt="Parent and child enjoying a peaceful moment"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONTENT -->
+
+                    <div class="about-content">
+
+                        <span class="about-section-eyebrow">
+                            WHY SLEEPTOTS
+                        </span>
+
+                        <h2 class="about-section-title">
+                            Better Sleep Starts
+                            With Understanding.
+                        </h2>
+
+                        <p class="about-section-text">
+                            Every family has a different routine,
+                            different challenges and different needs.
+                            SleepTots focuses on understanding those
+                            differences before creating practical guidance.
+                        </p>
+
+                        <div class="about-points">
+
+                            <div class="about-point">
+
+                                <div class="about-point-icon">
+                                    <i data-lucide="sparkles"></i>
+                                </div>
+
+                                <div>
+                                    <h3>Personalized Guidance</h3>
+
+                                    <p>
+                                        Support designed around your
+                                        family's individual needs.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="about-point">
+
+                                <div class="about-point-icon">
+                                    <i data-lucide="heart-handshake"></i>
+                                </div>
+
+                                <div>
+                                    <h3>Gentle Routines</h3>
+
+                                    <p>
+                                        Practical approaches that make
+                                        bedtime feel calmer and easier.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="about-point">
+
+                                <div class="about-point-icon">
+                                    <i data-lucide="users-round"></i>
+                                </div>
+
+                                <div>
+                                    <h3>Family-Focused Support</h3>
+
+                                    <p>
+                                        Guidance that considers both
+                                        children and parents.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             SECTION 3 — OUR APPROACH
+             ========================================================= -->
+
+        <section class="about-section about-approach">
+
+            <div class="container">
+
+                <div class="about-section-heading">
+
+                    <span class="about-section-eyebrow">
+                        OUR APPROACH
+                    </span>
+
+                    <h2 class="about-section-title">
+                        Simple Steps Toward Better Sleep
+                    </h2>
+
+                    <p class="about-section-intro">
+                        We keep the process simple, practical and
+                        centered around what works for your family.
+                    </p>
+
+                </div>
+
+
+                <div class="about-approach-grid">
+
+                    <!-- CARD 1 -->
+
+                    <article class="about-approach-card">
+
+                        <div class="about-card-number">
+                            01
+                        </div>
+
+                        <div class="about-card-icon">
+                            <i data-lucide="search"></i>
+                        </div>
+
+                        <h3>
+                            Understand
+                        </h3>
+
+                        <p>
+                            Learn what may be affecting your child's
+                            sleep and understand the patterns behind it.
+                        </p>
+
+                    </article>
+
+
+                    <!-- CARD 2 -->
+
+                    <article class="about-approach-card">
+
+                        <div class="about-card-number">
+                            02
+                        </div>
+
+                        <div class="about-card-icon">
+                            <i data-lucide="sliders-horizontal"></i>
+                        </div>
+
+                        <h3>
+                            Personalize
+                        </h3>
+
+                        <p>
+                            Create a sleep approach that fits your
+                            child's needs and your family's lifestyle.
+                        </p>
+
+                    </article>
+
+
+                    <!-- CARD 3 -->
+
+                    <article class="about-approach-card">
+
+                        <div class="about-card-number">
+                            03
+                        </div>
+
+                        <div class="about-card-icon">
+                            <i data-lucide="heart-handshake"></i>
+                        </div>
+
+                        <h3>
+                            Support
+                        </h3>
+
+                        <p>
+                            Continue building better routines with
+                            practical guidance and ongoing support.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             SECTION 4 — WHAT MAKES US DIFFERENT
+             ========================================================= -->
+
+        <section class="about-section about-different">
+
+            <div class="container">
+
+                <div class="about-split about-split-reverse">
+
+                    <!-- CONTENT -->
+
+                    <div class="about-content">
+
+                        <span class="about-section-eyebrow">
+                            WHAT MAKES US DIFFERENT
+                        </span>
+
+                        <h2 class="about-section-title">
+                            Support Built Around
+                            Real Family Life.
+                        </h2>
+
+                        <p class="about-section-text">
+                            Sleep support should feel useful, realistic
+                            and easy to apply. SleepTots brings together
+                            thoughtful guidance and practical tools to
+                            help families make meaningful progress.
+                        </p>
+
+
+                        <div class="about-feature-list">
+
+                            <div class="about-feature-item">
+
+                                <i data-lucide="users-round"></i>
+
+                                <div>
+                                    <h3>Family-Focused</h3>
+
+                                    <p>
+                                        Designed around the needs of
+                                        real families.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="about-feature-item">
+
+                                <i data-lucide="clipboard-check"></i>
+
+                                <div>
+                                    <h3>Personalized Plans</h3>
+
+                                    <p>
+                                        Guidance adapted to your
+                                        child's sleep journey.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="about-feature-item">
+
+                                <i data-lucide="lightbulb"></i>
+
+                                <div>
+                                    <h3>Practical Guidance</h3>
+
+                                    <p>
+                                        Simple ideas you can actually
+                                        use at home.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="about-feature-item">
+
+                                <i data-lucide="chart-no-axes-combined"></i>
+
+                                <div>
+                                    <h3>Track Progress</h3>
+
+                                    <p>
+                                        Understand patterns and follow
+                                        your family's progress.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- IMAGE -->
+
+                    <div class="about-image-wrapper">
+
+                        <div class="about-image-placeholder">
+
+                            <img
+                                src="./images/about-child.png"
+                                alt="Peaceful child sleeping"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             SECTION 5 — CTA
+             ========================================================= -->
+
+        <section class="about-cta">
+
+            <div class="container">
+
+                <div class="about-cta-inner">
+
+                    <div class="about-cta-content">
+
+                        <span class="about-eyebrow">
+                            START YOUR JOURNEY
+                        </span>
+
+                        <h2>
+                            Ready for Better Nights?
+                        </h2>
+
+                        <p>
+                            Take the first step toward a calmer,
+                            more consistent sleep routine for your family.
+                        </p>
+
+                    </div>
+
+
+                    <div class="about-cta-actions">
+
+                        <a
+                            href="signup.html"
+                            class="about-cta-primary"
+                        >
+                            Get Started
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+
+                        <a
+                            href="services.html"
+                            class="about-cta-secondary"
+                        >
+                            Explore Services
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="st-footer">
+    <div class="st-footer-inner">
+      <div class="st-footer-grid">
+        <div class="st-footer-brand">
+          <a href="./1index.html" target="_self">
+          <div class="st-footer-brand-row">
+          <img src="./images/logo.png" alt="" height="50px" width="50px">
+            <span class="brand-title"><span class="brand-sleep">Sleep</span><span class="brand-tots">Tots</span></span>
+          </div>
+          </a>
+          <p>Gentle, personalized sleep support for babies and toddlers. Helping families achieve better, restful nights with expert guidance and compassionate care.</p>
+          <ul class="st-footer-social">
+            <li><a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a></li>
+            <li><a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a></li>
+            <li><a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a></li>
+            <li><a href="#" aria-label="YouTube"><i data-lucide="youtube"></i></a></li>
+          </ul>
+        </div>
+        
+        <div class="st-footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="./1index.html">Home</a></li>
+            <li><a href="./1index.html">About</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./Testimonials.html">Testimonials</a></li>
+            <li><a href="./pricing.html">Pricing</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="st-footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="./services.html">Newborn Sleep Support</a></li>
+            <li><a href="./services.html">Toddler Sleep Support</a></li>
+            <li><a href="./services.html">Regression Support</a></li>
+            <li><a href="./services.html">Sleep Plans</a></li>
+          </ul>
+        </div>
+        <div class="st-footer-col">
+          <h4>Additional Pages</h4>
+          <ul>
+            <li><a href="./404.html">404 Page</a></li>
+            <li><a href="./maintainance.html">Maintainance Page</a></li>
+          </ul>
+        </div>
+        <div class="st-footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="./contact.html">Book a Consultation</a></li>
+            <li><a href="mailto:hello@sleeptots.com">hello@sleeptots.com</a></li>
+            <li><a href="tel:+18005550100">+91 9848333111</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="st-footer-bottom">
+  <p>&copy; 2026 SleepTots. All rights reserved.</p>
+
+  <div class="st-footer-legal">
+    <a href="./privacy-policy.html">Privacy Policy</a>
+    <span>|</span>
+    <a href="./terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+</div>
+    </div>
+  </footer>
+
+
+  <script src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      lucide.createIcons();
+    });
+  </script>
+  <script src="js/global.js"></script>
+
+</body>
+
+</html>

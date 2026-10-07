@@ -2559,3 +2559,773 @@ body {
   }
 
 }
+
+/* ==========================================================
+   SLEEPTOTS — RTL / DARK MODE / LOGIN COLOR PATCH
+   ========================================================== */
+
+/* ----------------------------------------------------------
+   RTL + DARK MODE
+   Secondary color borders
+   ---------------------------------------------------------- */
+
+[data-theme="dark"][dir="rtl"] .st-icon-btn,
+[data-theme="dark"][dir="rtl"] .st-hamburger {
+  border-color: var(--color-secondary);
+}
+
+[data-theme="dark"][dir="rtl"] .st-icon-btn:hover,
+[data-theme="dark"][dir="rtl"] .st-hamburger:hover {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+
+/* ----------------------------------------------------------
+   LOGIN BUTTON
+   Primary background
+   ---------------------------------------------------------- */
+
+.st-nav-right .st-btn,
+.st-mobile-menu-footer .st-btn {
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+  border: 1.5px solid var(--color-primary);
+}
+
+
+/* ----------------------------------------------------------
+   LOGIN BUTTON HOVER
+   Secondary background
+   ---------------------------------------------------------- */
+
+.st-nav-right .st-btn:hover,
+.st-mobile-menu-footer .st-btn:hover {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+
+/* ----------------------------------------------------------
+   LOGIN BUTTON — DARK MODE
+   ---------------------------------------------------------- */
+
+[data-theme="dark"] .st-nav-right .st-btn,
+[data-theme="dark"] .st-mobile-menu-footer .st-btn {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+}
+
+[data-theme="dark"] .st-nav-right .st-btn:hover,
+[data-theme="dark"] .st-mobile-menu-footer .st-btn:hover {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+
+/* ----------------------------------------------------------
+   RTL + DARK MODE — MOBILE MENU BORDERS
+   ---------------------------------------------------------- */
+
+[data-theme="dark"][dir="rtl"] .st-mobile-menu,
+[data-theme="dark"][dir="rtl"] .st-mobile-menu-header,
+[data-theme="dark"][dir="rtl"] .st-mobile-menu-footer {
+  border-color: var(--color-secondary);
+}
+
+
+/* ----------------------------------------------------------
+   RTL + DARK MODE — NAVBAR BORDER
+   ---------------------------------------------------------- */
+
+[data-theme="dark"][dir="rtl"] .st-navbar {
+  border-bottom-color: var(--color-secondary);
+}
+
+
+/* ============================================================
+   SLEEPTOTS — FINAL DARK + RTL HOVER BORDER FIX
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   DARK MODE + RTL — THEME / RTL BUTTON
+   ------------------------------------------------------------ */
+
+[data-theme="dark"] [dir="rtl"] .st-icon-btn,
+[data-theme="dark"] [dir="rtl"] .st-hamburger,
+[dir="rtl"][data-theme="dark"] .st-icon-btn,
+[dir="rtl"][data-theme="dark"] .st-hamburger {
+    border: 1.5px solid var(--color-secondary) !important;
+}
+
+/* Hover */
+[data-theme="dark"] [dir="rtl"] .st-icon-btn:hover,
+[data-theme="dark"] [dir="rtl"] .st-hamburger:hover,
+[dir="rtl"][data-theme="dark"] .st-icon-btn:hover,
+[dir="rtl"][data-theme="dark"] .st-hamburger:hover {
+    background: var(--color-secondary) !important;
+    border-color: var(--color-secondary) !important;
+    color: var(--color-primary) !important;
+}
+
+
+/* ------------------------------------------------------------
+   DARK MODE + RTL — HAMBURGER LINES
+   ------------------------------------------------------------ */
+
+[data-theme="dark"] [dir="rtl"] .st-hamburger:hover span,
+[dir="rtl"][data-theme="dark"] .st-hamburger:hover span {
+    background: var(--color-primary) !important;
+}
+
+
+/* ------------------------------------------------------------
+   LOGIN BUTTON
+   ------------------------------------------------------------ */
+
+[data-theme="dark"] [dir="rtl"] .st-nav-right .st-btn,
+[data-theme="dark"] [dir="rtl"] .st-mobile-menu-footer .st-btn,
+[dir="rtl"][data-theme="dark"] .st-nav-right .st-btn,
+[dir="rtl"][data-theme="dark"] .st-mobile-menu-footer .st-btn {
+    background: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: var(--color-text-on-primary) !important;
+}
+
+
+/* ------------------------------------------------------------
+   LOGIN HOVER
+   ------------------------------------------------------------ */
+
+[data-theme="dark"] [dir="rtl"] .st-nav-right .st-btn:hover,
+[data-theme="dark"] [dir="rtl"] .st-mobile-menu-footer .st-btn:hover,
+[dir="rtl"][data-theme="dark"] .st-nav-right .st-btn:hover,
+[dir="rtl"][data-theme="dark"] .st-mobile-menu-footer .st-btn:hover {
+    background: var(--color-secondary) !important;
+    border-color: var(--color-secondary) !important;
+    color: var(--color-primary) !important;
+}
+
+/* ============================================================
+   DARK MODE + RTL — FORCE VISIBLE BORDER
+   ============================================================ */
+
+/* Normal state */
+[data-theme="dark"] .st-icon-btn,
+[data-theme="dark"] .st-hamburger {
+    border: 1.5px solid var(--color-secondary) !important;
+}
+
+/* Hover state */
+[data-theme="dark"] .st-icon-btn:hover,
+[data-theme="dark"] .st-hamburger:hover {
+    border: 1.5px solid var(--color-secondary) !important;
+    background: var(--color-secondary) !important;
+    color: var(--color-primary) !important;
+}
+
+/* Hamburger lines on hover */
+[data-theme="dark"] .st-hamburger:hover span {
+    background: var(--color-primary) !important;
+}
+
+/* ============================================================
+   SLEEPTOTS — ROUND ICON BUTTONS
+   Secondary border in both Light & Dark mode
+   ============================================================ */
+
+.st-icon-btn,
+.st-hamburger {
+    width: 40px;
+    height: 40px;
+    border-radius: 50% !important;
+
+    background: transparent !important;
+    border: 1.5px solid var(--color-secondary) !important;
+    color: var(--color-text-body) !important;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* DARK MODE — keep same secondary border */
+[data-theme="dark"] .st-icon-btn,
+[data-theme="dark"] .st-hamburger {
+    background: transparent !important;
+    border: 1.5px solid var(--color-secondary) !important;
+    color: var(--color-text-body) !important;
+}
+
+/* HOVER — secondary background */
+.st-icon-btn:hover,
+.st-hamburger:hover {
+    background: var(--color-secondary) !important;
+    border-color: var(--color-secondary) !important;
+    color: var(--color-primary) !important;
+}
+
+/* DARK MODE HOVER */
+[data-theme="dark"] .st-icon-btn:hover,
+[data-theme="dark"] .st-hamburger:hover {
+    background: var(--color-secondary) !important;
+    border-color: var(--color-secondary) !important;
+    color: var(--color-primary) !important;
+}
+
+/* Hamburger lines */
+.st-hamburger span {
+    background: currentColor !important;
+}
+
+.st-hamburger:hover span {
+    background: var(--color-primary) !important;
+}
+
+/* Keep them perfectly circular on smaller screens */
+@media (max-width: 768px) {
+    .st-icon-btn,
+    .st-hamburger {
+        width: 38px;
+        height: 38px;
+        border-radius: 50% !important;
+    }
+}
+/* ============================================================
+   HAMBURGER — DESKTOP HIDDEN
+   ============================================================ */
+
+@media (min-width: 769px) {
+    .st-hamburger {
+        display: none !important;
+    }
+}
+
+/* ============================================================
+   LOGIN + DARK MODE + RTL — EXACT SAME HEIGHT
+   ============================================================ */
+
+.st-nav-right .st-btn,
+.st-nav-right .st-icon-btn {
+    height: 40px !important;
+    min-height: 40px !important;
+    max-height: 40px !important;
+    box-sizing: border-box !important;
+}
+
+/* Login button */
+.st-nav-right .st-btn {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Dark mode + RTL */
+.st-nav-right .st-icon-btn {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+}
+
+
+/* ============================================================
+   SLEEPTOTS — WHITE FOOTER
+   Primary + Secondary Text Colors
+   ============================================================ */
+
+/* Footer background */
+.st-footer {
+    background: #ffffff !important;
+    color: var(--color-primary) !important;
+}
+
+/* Footer brand */
+.st-footer-brand .brand-sleep {
+    color: var(--color-primary) !important;
+}
+
+.st-footer-brand .brand-tots {
+    color: var(--color-secondary) !important;
+}
+
+/* Footer description */
+.st-footer-brand p {
+    color: var(--color-primary) !important;
+}
+
+/* Footer headings */
+.st-footer-col h4 {
+    color: var(--color-secondary) !important;
+}
+
+/* Footer links */
+.st-footer-col a {
+    color: var(--color-primary) !important;
+}
+
+/* Footer links hover */
+.st-footer-col a:hover {
+    color: var(--color-secondary) !important;
+}
+
+/* Footer social icons */
+.st-footer-social a {
+    background: var(--color-primary) !important;
+    color: #ffffff !important;
+}
+
+/* Social icons */
+.st-footer-social a svg {
+    color: #ffffff !important;
+    stroke: currentColor;
+}
+
+/* Social hover */
+.st-footer-social a:hover {
+    background: var(--color-secondary) !important;
+    color: var(--color-primary) !important;
+}
+
+.st-footer-social a:hover svg {
+    color: var(--color-primary) !important;
+}
+
+/* Footer bottom */
+.st-footer-bottom p {
+    color: var(--color-primary) !important;
+}
+
+/* Footer divider */
+.st-footer-grid {
+    border-bottom-color: var(--color-secondary) !important;
+}
+/* =========================================================
+   SLEEPTOTS — FOOTER LIGHT + DARK MODE
+   ========================================================= */
+
+/* =========================
+   LIGHT MODE
+   ========================= */
+
+.st-footer {
+    background: #ffffff !important;
+    color: var(--color-primary) !important;
+}
+
+.st-footer-brand .brand-sleep {
+    color: var(--color-primary) !important;
+}
+
+.st-footer-brand .brand-tots {
+    color: var(--color-secondary) !important;
+}
+
+.st-footer-brand p {
+    color: var(--color-primary) !important;
+}
+
+.st-footer-col h4 {
+    color: var(--color-secondary) !important;
+}
+
+.st-footer-col a {
+    color: var(--color-primary) !important;
+}
+
+.st-footer-col a:hover {
+    color: var(--color-secondary) !important;
+}
+
+.st-footer-social a {
+    background: var(--color-primary) !important;
+    color: #ffffff !important;
+}
+
+.st-footer-social a svg {
+    color: #ffffff !important;
+    stroke: currentColor;
+}
+
+.st-footer-social a:hover {
+    background: var(--color-secondary) !important;
+    color: var(--color-primary) !important;
+}
+
+.st-footer-social a:hover svg {
+    color: var(--color-primary) !important;
+}
+
+.st-footer-bottom p {
+    color: var(--color-primary) !important;
+}
+
+.st-footer-grid {
+    border-bottom-color: var(--color-secondary) !important;
+}
+
+
+/* =========================
+   DARK MODE
+   ========================= */
+
+[data-theme="dark"] .st-footer {
+    background: var(--color-primary) !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .st-footer-brand .brand-sleep {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .st-footer-brand .brand-tots {
+    color: var(--color-secondary) !important;
+}
+
+[data-theme="dark"] .st-footer-brand p {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .st-footer-col h4 {
+    color: var(--color-secondary) !important;
+}
+
+[data-theme="dark"] .st-footer-col a {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .st-footer-col a:hover {
+    color: var(--color-secondary) !important;
+}
+
+[data-theme="dark"] .st-footer-social a {
+    background: transparent !important;
+    color: var(--color-secondary) !important;
+    border: 1.5px solid var(--color-secondary) !important;
+}
+
+[data-theme="dark"] .st-footer-social a svg {
+    color: var(--color-secondary) !important;
+    stroke: currentColor;
+}
+
+[data-theme="dark"] .st-footer-social a:hover {
+    background: var(--color-secondary) !important;
+    color: var(--color-primary) !important;
+    border-color: var(--color-secondary) !important;
+}
+
+[data-theme="dark"] .st-footer-social a:hover svg {
+    color: var(--color-primary) !important;
+}
+
+[data-theme="dark"] .st-footer-bottom p {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .st-footer-grid {
+    border-bottom-color: var(--color-secondary) !important;
+}
+/* =========================================================
+   SLEEPTOTS — DARK MODE BLACK FOOTER + LOGIN BUTTON
+   ========================================================= */
+
+/* =========================
+   DARK MODE FOOTER
+   ========================= */
+
+[data-theme="dark"] .st-footer {
+    background: #000000 !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .st-footer-brand .brand-sleep {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .st-footer-brand .brand-tots {
+    color: var(--color-secondary) !important;
+}
+
+[data-theme="dark"] .st-footer-brand p {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .st-footer-col h4 {
+    color: var(--color-secondary) !important;
+}
+
+[data-theme="dark"] .st-footer-col a {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .st-footer-col a:hover {
+    color: var(--color-secondary) !important;
+}
+
+[data-theme="dark"] .st-footer-bottom p {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .st-footer-grid {
+    border-bottom-color: var(--color-secondary) !important;
+}
+
+
+/* =========================
+   DARK MODE SOCIAL BUTTONS
+   ========================= */
+
+[data-theme="dark"] .st-footer-social a {
+    background: #000000 !important;
+    color: var(--color-secondary) !important;
+    border: 1.5px solid var(--color-secondary) !important;
+}
+
+[data-theme="dark"] .st-footer-social a svg {
+    color: var(--color-secondary) !important;
+    stroke: currentColor;
+}
+
+[data-theme="dark"] .st-footer-social a:hover {
+    background: var(--color-secondary) !important;
+    color: #000000 !important;
+}
+
+[data-theme="dark"] .st-footer-social a:hover svg {
+    color: #000000 !important;
+}
+
+/* =========================
+   DARK MODE LOGIN BUTTON
+   ========================= */
+
+[data-theme="dark"] .st-nav-right .st-btn {
+    background: transparent !important;
+    color: var(--color-secondary) !important;
+    border: 1.5px solid var(--color-secondary) !important;
+}
+
+[data-theme="dark"] .st-nav-right .st-btn:hover {
+    background: var(--color-secondary) !important;
+    color: var(--color-primary) !important;
+    border-color: var(--color-secondary) !important;
+}
+
+[data-theme="dark"] .st-nav-right .st-btn:hover {
+    background: var(--color-secondary) !important;
+    color: #000000 !important;
+    border-color: var(--color-secondary) !important;
+}
+/* =========================================================
+   DARK MODE — TRANSPARENT FOOTER
+   ========================================================= */
+
+[data-theme="dark"] .st-footer {
+    background: transparent !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+}
+
+/* Footer brand */
+[data-theme="dark"] .st-footer-brand .brand-sleep {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .st-footer-brand .brand-tots {
+    color: var(--color-secondary) !important;
+}
+
+/* Footer description */
+[data-theme="dark"] .st-footer-brand p {
+    color: #ffffff !important;
+}
+
+/* Footer headings */
+[data-theme="dark"] .st-footer-col h4 {
+    color: var(--color-secondary) !important;
+}
+
+/* Footer links */
+[data-theme="dark"] .st-footer-col a {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .st-footer-col a:hover {
+    color: var(--color-secondary) !important;
+}
+
+/* Footer divider */
+[data-theme="dark"] .st-footer-grid {
+    border-bottom-color: var(--color-secondary) !important;
+}
+
+/* Footer bottom text */
+[data-theme="dark"] .st-footer-bottom p {
+    color: #ffffff !important;
+}
+
+/* Social buttons */
+[data-theme="dark"] .st-footer-social a {
+    background: transparent !important;
+    color: var(--color-secondary) !important;
+    border: 1.5px solid var(--color-secondary) !important;
+}
+
+[data-theme="dark"] .st-footer-social a:hover {
+    background: var(--color-secondary) !important;
+    color: var(--color-primary) !important;
+}
+
+[data-theme="dark"] .st-footer-social a svg {
+    color: currentColor !important;
+}
+
+/* =========================================================
+   LINE BETWEEN CONTENT AND FOOTER
+   ========================================================= */
+
+.st-footer {
+    border-top: 1.5px solid var(--color-secondary) !important;
+}
+
+/* =========================================================
+   RTL + DARK MODE — LOGIN BUTTON TRANSPARENT
+   ========================================================= */
+
+[data-theme="dark"][dir="rtl"] .st-nav-right .st-btn {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: var(--color-secondary) !important;
+    border: 1.5px solid var(--color-secondary) !important;
+    box-shadow: none !important;
+}
+
+[data-theme="dark"][dir="rtl"] .st-nav-right .st-btn:hover {
+    background: var(--color-secondary) !important;
+    background-color: var(--color-secondary) !important;
+    color: var(--color-primary) !important;
+    border-color: var(--color-secondary) !important;
+}
+
+/* ============================================================
+   SLEEPTOTS — RESPONSIVE LOGIN BUTTON FIX
+   Login is hidden outside hamburger on tablet/mobile
+   ============================================================ */
+
+/* Desktop: Login button remains visible */
+@media (min-width: 992px) {
+    .st-nav-right .st-btn {
+        display: inline-flex !important;
+    }
+}
+
+/* Tablet + Mobile: Login button must NOT appear outside hamburger */
+@media (max-width: 991px) {
+    .st-nav-right .st-btn {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    /* Login button inside the hamburger menu */
+    .st-mobile-menu-footer .st-btn {
+        display: inline-flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        width: 100%;
+    }
+}
+
+
+
+/* ==========================================================================
+   SLEEPTOTS — FOOTER LEGAL LINKS
+   ========================================================================== */
+
+.st-footer-legal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.st-footer-legal a {
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.st-footer-legal a:hover {
+  color: var(--color-secondary);
+}
+
+.st-footer-legal span {
+  color: var(--color-secondary);
+  font-size: 0.875rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   DARK MODE
+   -------------------------------------------------------------------------- */
+
+[data-theme="dark"] .st-footer-legal a {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .st-footer-legal a:hover {
+  color: var(--color-secondary);
+}
+
+[data-theme="dark"] .st-footer-legal span {
+  color: var(--color-secondary);
+}
+
+
+/* --------------------------------------------------------------------------
+   RTL
+   -------------------------------------------------------------------------- */
+
+[dir="rtl"] .st-footer-legal {
+  justify-content: flex-start;
+}
+
+
+/* --------------------------------------------------------------------------
+   MOBILE
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 575px) {
+
+  .st-footer-legal {
+    justify-content: center;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .st-footer-legal a,
+  .st-footer-legal span {
+    font-size: 0.8125rem;
+  }
+}

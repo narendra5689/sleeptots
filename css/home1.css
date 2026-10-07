@@ -349,6 +349,27 @@
 }
 
 /* ==========================================================================
+   SECTION SPACING
+   (Applied only to content sections — hero left untouched)
+   ========================================================================== */
+.home1-intro,
+.home1-challenges,
+.home1-philosophy,
+.home1-services,
+.home1-how,
+.home1-stats,
+.home1-stories,
+.home1-education {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.home1-cta-wrap {
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+/* ==========================================================================
    INTRO SECTION
    ========================================================================== */
 .home1-intro {
@@ -806,100 +827,134 @@
    RESPONSIVE
    ========================================================================== */
 @media (max-width: 991px) {
+  .home1-intro,
+  .home1-challenges,
+  .home1-philosophy,
+  .home1-services,
+  .home1-how,
+  .home1-stats,
+  .home1-stories,
+  .home1-education {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .home1-cta-wrap {
+    padding-top: 32px;
+    padding-bottom: 64px;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
   .hero-visual {
     height: 380px;
     max-width: 480px;
     margin: 0 auto;
   }
+
   .hero-moon { width: 70px; height: 70px; }
+
   .intro-grid,
   .philosophy-wrap,
   .education-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
   .challenges-grid,
   .services-preview-grid,
   .stories-grid {
     grid-template-columns: 1fr 1fr;
   }
+
   .how-steps {
     grid-template-columns: 1fr 1fr;
   }
+
   .how-step-connector { display: none; }
+
   .stats-row {
     grid-template-columns: 1fr 1fr;
   }
+
   .home1-cta {
     padding: 48px 32px;
   }
-}
 
-@media (max-width: 575px) {
+  /* Hero visibility + overflow safety */
+  .hero-content-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  .hero-grid {
+    width: 100%;
+    max-width: var(--container-max);
+    box-sizing: border-box;
+  }
+
+  .hero-text,
   .hero-visual {
-    height: 300px;
+    min-width: 0;
   }
-  .hero-float-card {
-    padding: 12px 14px;
+
+  .hero-visual {
+    display: block;
+    visibility: visible;
+    width: 100%;
+    max-width: 480px;
+    min-height: 300px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
   }
-  .hero-float-card.fc1 { left: 0; }
-  .hero-float-card.fc2 { right: 0; }
-  .hero-float-card .fc-icon { width: 36px; height: 36px; }
-  .hero-float-card .fc-icon svg { width: 18px; height: 18px; }
-  .hero-trust {
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
+
+  .hero-visual-img {
+    display: block;
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
   }
-  .challenges-grid,
-  .services-preview-grid,
-  .stories-grid,
-  .how-steps {
-    grid-template-columns: 1fr;
+
+  .hero-visual-img img {
+    display: block;
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    object-fit: cover;
   }
-  .stats-row {
-    grid-template-columns: 1fr 1fr;
+
+  /* Prevent horizontal overflow on cards */
+  .challenge-card,
+  .service-preview-card,
+  .story-card,
+  .education-item,
+  .stat-item {
+    overflow-wrap: anywhere;
   }
-  .intro-features {
-    grid-template-columns: 1fr;
+
+  .challenge-card *,
+  .service-preview-card *,
+  .story-card *,
+  .education-item *,
+  .stat-item * {
+    min-width: 0;
+    max-width: 100%;
   }
-  .home1-cta {
-    padding: 36px 20px;
-    border-radius: var(--radius-lg);
+
+  .service-preview-img,
+  .story-avatar img {
+    max-width: 100%;
   }
-  .intro-img-badge {
-    right: 0;
-    bottom: -10px;
-    padding: 14px 20px;
-  }
-  .intro-img-badge .badge-number { font-size: 1.5rem; }
-  .hero-cta-row { flex-direction: column; }
-  .hero-cta-row .st-btn { width: 100%; }
 }
 
-@media (max-width: 320px) {
-  .hero-moon { width: 50px; height: 50px; top: 8%; }
-  .hero-visual { height: 240px; }
-  .stats-row {
-    grid-template-columns: 1fr;
-  }
-  .hero-float-card .fc-text { display: none; }
-}
-
-
-/* ==========================================================================
-   RESPONSIVE CARD SIZE FIX
-   --------------------------------------------------------------------------
-   Responsive-only card sizing. The existing card design is preserved.
-   ========================================================================== */
-
-/* Tablet / Nest Hub / iPad Mini landscape */
 @media (min-width: 768px) and (max-width: 991px) {
-
   .challenges-grid,
   .services-preview-grid,
   .stories-grid {
@@ -936,12 +991,24 @@
     max-width: 220px;
     box-sizing: border-box;
   }
+
+  .hero-grid {
+    gap: 36px;
+  }
+
+  .hero-visual {
+    height: 380px;
+    min-height: 380px;
+    max-width: 560px;
+  }
+
+  .hero-visual-img,
+  .hero-visual-img img {
+    min-height: 380px;
+  }
 }
 
-
-/* Small tablet / iPad Mini portrait */
 @media (min-width: 576px) and (max-width: 767px) {
-
   .challenges-grid,
   .services-preview-grid,
   .stories-grid {
@@ -977,12 +1044,132 @@
     min-width: 0;
     box-sizing: border-box;
   }
+
+  .hero-grid {
+    gap: 36px;
+  }
+
+  .hero-visual {
+    height: 380px;
+    min-height: 380px;
+    max-width: 560px;
+  }
+
+  .hero-visual-img,
+  .hero-visual-img img {
+    min-height: 380px;
+  }
 }
 
+@media (max-width: 575px) {
+  .home1-intro,
+  .home1-challenges,
+  .home1-philosophy,
+  .home1-services,
+  .home1-how,
+  .home1-stats,
+  .home1-stories,
+  .home1-education {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
 
-/* Mobile */
+  .home1-cta-wrap {
+    padding-top: 24px;
+    padding-bottom: 48px;
+  }
+
+  .hero-visual {
+    height: 300px;
+  }
+
+  .hero-float-card {
+    padding: 12px 14px;
+  }
+
+  .hero-float-card.fc1 { left: 0; }
+  .hero-float-card.fc2 { right: 0; }
+  .hero-float-card .fc-icon { width: 36px; height: 36px; }
+  .hero-float-card .fc-icon svg { width: 18px; height: 18px; }
+
+  .hero-trust {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .challenges-grid,
+  .services-preview-grid,
+  .stories-grid,
+  .how-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .intro-features {
+    grid-template-columns: 1fr;
+  }
+
+  .home1-cta {
+    padding: 36px 20px;
+    border-radius: var(--radius-lg);
+  }
+
+  .intro-img-badge {
+    right: 0;
+    bottom: -10px;
+    padding: 14px 20px;
+  }
+
+  .intro-img-badge .badge-number { font-size: 1.5rem; }
+
+  .hero-cta-row { flex-direction: column; }
+  .hero-cta-row .st-btn { width: 100%; }
+
+  .hero-grid {
+    gap: 32px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero-visual {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    min-height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-visual-img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    min-height: 300px;
+  }
+
+  .hero-visual-img img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    min-height: 300px;
+    object-fit: cover;
+  }
+
+  .hero-moon {
+    z-index: 2;
+  }
+
+  .hero-float-card {
+    z-index: 4;
+  }
+}
+
 @media (min-width: 371px) and (max-width: 575px) {
-
   .challenges-grid,
   .services-preview-grid,
   .stories-grid,
@@ -1033,10 +1220,7 @@
   }
 }
 
-
-/* Samsung S8+ / 360px */
 @media (max-width: 370px) {
-
   .challenges-grid,
   .services-preview-grid,
   .stories-grid,
@@ -1108,11 +1292,49 @@
     padding-right: 18px;
     box-sizing: border-box;
   }
+
+  .hero-grid {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
+  }
+
+  .hero-visual {
+    width: 100%;
+    max-width: 100%;
+    height: 260px;
+    min-height: 260px;
+  }
+
+  .hero-visual-img {
+    width: 100%;
+    height: 260px;
+    min-height: 260px;
+  }
+
+  .hero-visual-img img {
+    width: 100%;
+    height: 260px;
+    min-height: 260px;
+  }
+
+  [dir="rtl"] .hero-float-card.fc1 { right: 0; }
+  [dir="rtl"] .hero-float-card.fc2 { left: 0; }
+  [dir="ltr"] .hero-float-card.fc1 { left: 0; }
+  [dir="ltr"] .hero-float-card.fc2 { right: 0; }
 }
 
-
-/* 270px / extra-small screens */
 @media (max-width: 320px) {
+  .hero-moon { width: 50px; height: 50px; top: 8%; }
+  .hero-visual { height: 240px; }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-float-card .fc-text { display: none; }
 
   .challenges-grid,
   .services-preview-grid,
@@ -1145,12 +1367,30 @@
   .stat-item {
     padding: 18px 12px;
   }
+
+  .hero-grid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .hero-visual {
+    height: 230px;
+    min-height: 230px;
+  }
+
+  .hero-visual-img,
+  .hero-visual-img img {
+    height: 230px;
+    min-height: 230px;
+  }
+
+  .hero-float-card {
+    padding: 10px;
+  }
 }
 
-
-/* Short landscape mobile — keep cards compact enough for 360px height */
+/* Short landscape mobile */
 @media (max-width: 991px) and (orientation: landscape) and (max-height: 500px) {
-
   .challenges-grid,
   .services-preview-grid,
   .stories-grid {
@@ -1171,42 +1411,31 @@
   }
 }
 
-
-/* Prevent any responsive card from creating horizontal overflow */
-@media (max-width: 991px) {
-
-  .challenge-card,
-  .service-preview-card,
-  .story-card,
-  .education-item,
-  .stat-item {
-    overflow-wrap: anywhere;
+@media (max-width: 991px) and (orientation: landscape) {
+  .hero-content-wrap {
+    padding-top: 28px;
+    padding-bottom: 28px;
   }
 
-  .challenge-card *,
-  .service-preview-card *,
-  .story-card *,
-  .education-item *,
-  .stat-item * {
-    min-width: 0;
-    max-width: 100%;
+  .hero-grid {
+    gap: 28px;
   }
 
-  .service-preview-img,
-  .story-avatar img {
-    max-width: 100%;
+  .hero-visual {
+    height: 280px;
+    min-height: 280px;
+  }
+
+  .hero-visual-img,
+  .hero-visual-img img {
+    height: 280px;
+    min-height: 280px;
   }
 }
 
-
 /* ==========================================================================
-   RTL + RESPONSIVE HERO FIX
-   --------------------------------------------------------------------------
-   Fixes directional positioning and keeps the hero visual visible on
-   responsive layouts. Existing visual styling is preserved.
+   RTL
    ========================================================================== */
-
-/* RTL hero layout */
 [dir="rtl"] .hero-grid {
   direction: rtl;
 }
@@ -1216,7 +1445,6 @@
   text-align: right;
 }
 
-/* Move decorative moon/cloud/visual positioning with RTL */
 [dir="rtl"] .hero-moon {
   right: auto;
   left: 8%;
@@ -1252,8 +1480,6 @@
   left: -20px;
 }
 
-
-/* RTL hero background/star positions */
 [dir="rtl"] .hero-star.s1 { left: auto; right: 15%; }
 [dir="rtl"] .hero-star.s2 { left: auto; right: 35%; }
 [dir="rtl"] .hero-star.s3 { left: auto; right: 55%; }
@@ -1265,225 +1491,7 @@
 [dir="rtl"] .hero-star.s9 { left: auto; right: 22%; }
 [dir="rtl"] .hero-star.s10 { left: auto; right: 65%; }
 
-
-/* ==========================================================================
-   RESPONSIVE HERO VISIBILITY
-   ========================================================================== */
-
 @media (max-width: 991px) {
-
-  .hero-content-wrap {
-    width: 100%;
-    max-width: 100%;
-    overflow: visible;
-  }
-
-  .hero-grid {
-    width: 100%;
-    max-width: var(--container-max);
-    box-sizing: border-box;
-  }
-
-  .hero-text,
-  .hero-visual {
-    min-width: 0;
-  }
-
-  .hero-visual {
-    display: block;
-    visibility: visible;
-    width: 100%;
-    max-width: 480px;
-    min-height: 300px;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-visual-img {
-    display: block;
-    visibility: visible;
-    width: 100%;
-    height: 100%;
-    min-height: 300px;
-  }
-
-  .hero-visual-img img {
-    display: block;
-    visibility: visible;
-    width: 100%;
-    height: 100%;
-    min-height: 300px;
-    object-fit: cover;
-  }
-}
-
-
-/* Tablet */
-@media (min-width: 576px) and (max-width: 991px) {
-
-  .hero-grid {
-    gap: 36px;
-  }
-
-  .hero-visual {
-    height: 380px;
-    min-height: 380px;
-    max-width: 560px;
-  }
-
-  .hero-visual-img,
-  .hero-visual-img img {
-    min-height: 380px;
-  }
-}
-
-
-/* Mobile */
-@media (max-width: 575px) {
-
-  .hero-grid {
-    gap: 32px;
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .hero-visual {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: 300px;
-    min-height: 300px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-visual-img {
-    display: block;
-    width: 100%;
-    height: 300px;
-    min-height: 300px;
-  }
-
-  .hero-visual-img img {
-    display: block;
-    width: 100%;
-    height: 300px;
-    min-height: 300px;
-    object-fit: cover;
-  }
-
-  .hero-moon {
-    z-index: 2;
-  }
-
-  .hero-float-card {
-    z-index: 4;
-  }
-}
-
-
-/* Samsung S8+ / 360px */
-@media (max-width: 370px) {
-
-  .hero-grid {
-    width: 100%;
-    max-width: 100%;
-    padding-left: 12px;
-    padding-right: 12px;
-    box-sizing: border-box;
-  }
-
-  .hero-visual {
-    width: 100%;
-    max-width: 100%;
-    height: 260px;
-    min-height: 260px;
-  }
-
-  .hero-visual-img {
-    width: 100%;
-    height: 260px;
-    min-height: 260px;
-  }
-
-  .hero-visual-img img {
-    width: 100%;
-    height: 260px;
-    min-height: 260px;
-  }
-
-  [dir="rtl"] .hero-float-card.fc1 {
-    right: 0;
-  }
-
-  [dir="rtl"] .hero-float-card.fc2 {
-    left: 0;
-  }
-
-  [dir="ltr"] .hero-float-card.fc1 {
-    left: 0;
-  }
-
-  [dir="ltr"] .hero-float-card.fc2 {
-    right: 0;
-  }
-}
-
-
-/* 270px */
-@media (max-width: 320px) {
-
-  .hero-grid {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .hero-visual {
-    height: 230px;
-    min-height: 230px;
-  }
-
-  .hero-visual-img,
-  .hero-visual-img img {
-    height: 230px;
-    min-height: 230px;
-  }
-
-  .hero-float-card {
-    padding: 10px;
-  }
-}
-
-
-/* Landscape mobile */
-@media (max-width: 991px) and (orientation: landscape) {
-
-  .hero-content-wrap {
-    padding-top: 28px;
-    padding-bottom: 28px;
-  }
-
-  .hero-grid {
-    gap: 28px;
-  }
-
-  .hero-visual {
-    height: 280px;
-    min-height: 280px;
-  }
-
-  .hero-visual-img,
-  .hero-visual-img img {
-    height: 280px;
-    min-height: 280px;
-  }
-}
-
-
-/* RTL mobile visual direction */
-@media (max-width: 991px) {
-
   [dir="rtl"] .hero-grid {
     direction: rtl;
   }
