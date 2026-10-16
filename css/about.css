@@ -3095,3 +3095,175 @@ html[data-theme="dark"] .about-page .about-approach-card {
 html[data-theme="dark"] .about-page .about-cta-inner {
   background: var(--about-primary);
 }
+
+/* =========================================================
+   ABOUT PAGE — MATCH HOME 1 SPACING
+   ========================================================= */
+
+/* Left and right alignment */
+.about-page .container {
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+/* Space between sections */
+.about-page .about-section,
+.about-page .about-cta {
+    padding-top: var(--space-section);
+    padding-bottom: var(--space-section);
+}
+
+/* Large desktops */
+@media (min-width: 1441px) {
+    .about-page .container {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+/* Desktops and laptops */
+@media (min-width: 1200px) and (max-width: 1440px) {
+    .about-page .container {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+}
+
+/* Tablets and smaller laptops */
+@media (min-width: 769px) and (max-width: 1199px) {
+    .about-page .container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+/* Small tablets */
+@media (min-width: 576px) and (max-width: 768px) {
+    .about-page .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/* Mobile */
+@media (min-width: 371px) and (max-width: 575px) {
+    .about-page .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 370px) {
+    .about-page .container {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+}
+
+@media (max-width: 320px) {
+    .about-page .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+/* Section spacing on tablets */
+@media (min-width: 576px) and (max-width: 991px) {
+    .about-page .about-section,
+    .about-page .about-cta {
+        padding-top: 68px;
+        padding-bottom: 68px;
+    }
+}
+
+/* Section spacing on mobile */
+@media (max-width: 575px) {
+    .about-page .about-section,
+    .about-page .about-cta {
+        padding-top: 58px;
+        padding-bottom: 58px;
+    }
+}
+
+/* ==========================================================================
+   ABOUT PAGE — CONSISTENT BUTTON SIZING
+   Matches Home 1 and Home 2
+   ========================================================================== */
+
+.about-page .about-primary-button,
+.about-page .about-cta-primary,
+.about-page .about-cta-secondary {
+    box-sizing: border-box;
+    height: 48px;
+    min-height: 48px;
+    padding: 0 24px;
+    border-radius: var(--radius-md, 1rem);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* Keep CTA spacing consistent */
+.about-page .about-hero-actions,
+.about-page .about-cta-actions {
+    gap: 12px;
+}
+
+/* Mobile button sizing */
+@media (max-width: 575px) {
+    .about-page .about-primary-button,
+    .about-page .about-cta-primary,
+    .about-page .about-cta-secondary {
+        height: 48px;
+        min-height: 48px;
+        padding: 0 20px;
+        border-radius: var(--radius-md, 1rem);
+    }
+
+    .about-page .about-cta-actions {
+        gap: 12px;
+    }
+
+    .about-page .about-cta-primary,
+    .about-page .about-cta-secondary {
+        width: 100%;
+    }
+}
+.about-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.about-hero .container {
+    width: 100%;
+}
+
+.about-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-inline: auto;
+}
+
+.about-hero-description {
+    margin-inline: auto;
+}
+
+.about-hero-actions {
+    display: flex;
+    justify-content: center;
+}

@@ -869,49 +869,111 @@
 
 /* ==========================================================================
    SECTION SPACING
-   (Content sections only — hero left untouched)
+   Content sections only — hero padding remains unchanged.
+   Use the same responsive gutters and section rhythm throughout this page.
    ========================================================================== */
 
-.testimonials-page .st-section {
-  padding-top: 88px;
-  padding-bottom: 88px;
+/* Horizontal page gutters */
+.testimonials-page .st-container {
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
 }
 
-/* Newsletter — keep reduced/special spacing */
-.testimonials-page .st-section:has(.st-newsletter) {
-  padding-top: 48px !important;
-  padding-bottom: 88px;
+/* Consistent vertical spacing for all content sections */
+.testimonials-page section.st-section {
+    padding-top: 78px !important;
+    padding-bottom: 78px !important;
+}
+
+/* Large desktops */
+@media (min-width: 1441px) {
+    .testimonials-page .st-container {
+        padding-left: 32px !important;
+        padding-right: 32px !important;
+    }
+}
+
+/* Standard desktops */
+@media (min-width: 1200px) and (max-width: 1440px) {
+    .testimonials-page .st-container {
+        padding-left: 28px !important;
+        padding-right: 28px !important;
+    }
+}
+
+/* Tablet and smaller desktop */
+@media (max-width: 991px) {
+    .testimonials-page section.st-section {
+        padding-top: 68px !important;
+        padding-bottom: 68px !important;
+    }
+}
+
+/* Tablet gutters */
+@media (min-width: 576px) and (max-width: 768px) {
+    .testimonials-page .st-container {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+}
+
+/* Mobile section spacing */
+@media (max-width: 767px) {
+    .testimonials-page section.st-section {
+        padding-top: 58px !important;
+        padding-bottom: 58px !important;
+    }
+}
+
+/* Standard mobile gutters */
+@media (min-width: 371px) and (max-width: 575px) {
+    .testimonials-page .st-container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+}
+
+/* Small mobile section spacing */
+@media (max-width: 480px) {
+    .testimonials-page section.st-section {
+        padding-top: 50px !important;
+        padding-bottom: 50px !important;
+    }
+}
+
+/* Narrow phones */
+@media (max-width: 370px) {
+    .testimonials-page .st-container {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .testimonials-page .st-container {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+}
+
+/* Newsletter section: override the old global padding rule.
+   Horizontal spacing comes from its inner .st-container. */
+.testimonials-page section.st-section:has(.st-newsletter) {
+    padding: 48px 0 88px !important;
 }
 
 @media (max-width: 991px) {
-  .testimonials-page .st-section {
-    padding-top: 72px;
-    padding-bottom: 72px;
-  }
-
-  .testimonials-page .st-section:has(.st-newsletter) {
-    padding-top: 40px !important;
-    padding-bottom: 72px;
-  }
+    .testimonials-page section.st-section:has(.st-newsletter) {
+        padding: 40px 0 72px !important;
+    }
 }
 
 @media (max-width: 575px) {
-  .testimonials-page .st-section {
-    padding-top: 56px;
-    padding-bottom: 56px;
-  }
-
-  .testimonials-page .st-section:has(.st-newsletter) {
-    padding-top: 32px !important;
-    padding-bottom: 56px;
-  }
-}
-
-/* Newsletter section spacing */
-.st-section:has(.st-newsletter) {
-    padding-top: 100px !important;
-    padding-left: 60px !important;
-    padding-right: 60px !important;
+    .testimonials-page section.st-section:has(.st-newsletter) {
+        padding: 32px 0 56px !important;
+    }
 }
 
 /* ==========================================================================
@@ -1233,4 +1295,134 @@
     width: 22px !important;
     height: 22px !important;
   }
+}
+/* TESTIMONIALS — CONSISTENT LEFT/RIGHT PADDING */
+
+.testimonials-page .st-container,
+.testimonials-page .st-container-narrow {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 767px) {
+    .testimonials-page .st-container,
+    .testimonials-page .st-container-narrow {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    .testimonials-page .st-container,
+    .testimonials-page .st-container-narrow {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+@media (max-width: 370px) {
+    .testimonials-page .st-container,
+    .testimonials-page .st-container-narrow {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+}
+
+@media (max-width: 320px) {
+    .testimonials-page .st-container,
+    .testimonials-page .st-container-narrow {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+/* TESTIMONIALS — LEFT/RIGHT PADDING */
+
+.testimonials-page .st-container,
+.testimonials-page .st-container-narrow {
+    padding-left: 34px;
+    padding-right: 34px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 767px) {
+    .testimonials-page .st-container,
+    .testimonials-page .st-container-narrow {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+@media (max-width: 575px) {
+    .testimonials-page .st-container,
+    .testimonials-page .st-container-narrow {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 370px) {
+    .testimonials-page .st-container,
+    .testimonials-page .st-container-narrow {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+@media (max-width: 320px) {
+    .testimonials-page .st-container,
+    .testimonials-page .st-container-narrow {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+}
+
+/* ==========================================================
+   TESTIMONIALS — CONSISTENT BUTTON SIZING
+   ========================================================== */
+
+.testimonials-page .st-btn {
+    box-sizing: border-box;
+    height: 48px;
+    min-height: 48px;
+    padding: 0 24px;
+    border-radius: var(--radius-md);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+/* Hero buttons */
+.testimonials-page .test-hero-actions .st-btn {
+    min-height: 48px;
+}
+
+/* Final CTA buttons */
+.testimonials-page .test-final-actions .st-btn {
+    min-height: 48px;
+}
+
+/* Mobile */
+@media (max-width: 575px) {
+    .testimonials-page .st-btn {
+        height: 48px;
+        min-height: 48px;
+        padding: 0 20px;
+    }
+
+    .testimonials-page .test-hero-actions .st-btn,
+    .testimonials-page .test-final-actions .st-btn {
+        width: 100%;
+    }
 }

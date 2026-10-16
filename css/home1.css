@@ -1504,3 +1504,283 @@
     direction: rtl;
   }
 }
+
+/* =========================================================
+   GLOBAL DESIGN CONSISTENCY — HOME 1
+   ========================================================= */
+
+/* Keep hero content aligned with the global containers */
+.hero-grid {
+    width: 100%;
+    max-width: var(--container-max);
+    box-sizing: border-box;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+/* Use the existing brand palette for the night-sky effect */
+.hero-sky-gradient {
+    background:
+        radial-gradient(
+            ellipse at 70% 20%,
+            color-mix(in srgb, var(--color-secondary) 15%, transparent) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse at 20% 80%,
+            color-mix(in srgb, var(--color-primary) 8%, transparent) 0%,
+            transparent 50%
+        );
+}
+
+[data-theme="dark"] .hero-sky-gradient {
+    background:
+        radial-gradient(
+            ellipse at 70% 20%,
+            color-mix(in srgb, var(--color-secondary) 8%, transparent) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse at 20% 80%,
+            color-mix(in srgb, var(--color-primary) 12%, transparent) 0%,
+            transparent 50%
+        );
+}
+
+/* Keep the moon within the existing theme palette */
+.hero-moon,
+[data-theme="dark"] .hero-moon {
+    background: radial-gradient(
+        circle at 35% 35%,
+        var(--color-secondary-light),
+        var(--color-primary-light)
+    );
+}
+
+/* Follow the shared section spacing system */
+.home1-intro {
+    padding-top: var(--space-section);
+    padding-bottom: var(--space-section);
+}
+
+/* Match the global container padding at each breakpoint */
+@media (min-width: 1441px) {
+    .hero-grid {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1440px) {
+    .hero-grid {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+    .hero-grid {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .hero-grid {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (min-width: 371px) and (max-width: 575px) {
+    .hero-grid {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+@media (max-width: 370px) {
+    .hero-grid {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+}
+
+@media (max-width: 320px) {
+    .hero-grid {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+/* ==========================================================================
+   BUTTON CONSISTENCY — HOME 1
+   ========================================================================== */
+
+.home1-hero .st-btn,
+.home1-cta .st-btn {
+    height: 48px;
+    min-height: 48px;
+    padding: 0 24px;
+    border-radius: var(--radius-md);
+    box-sizing: border-box;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    flex-shrink: 0;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Preserve consistent button dimensions on mobile */
+@media (max-width: 575px) {
+    .home1-hero .st-btn,
+    .home1-cta .st-btn {
+        height: 48px;
+        min-height: 48px;
+        padding: 0 20px;
+        border-radius: var(--radius-md);
+    }
+}
+
+/* Full-width hero buttons on mobile */
+@media (max-width: 575px) {
+    .hero-cta-row .st-btn {
+        width: 100%;
+    }
+}
+/* Fix only the newsletter Subscribe button */
+.st-newsletter .st-newsletter-form button.st-btn.st-btn-primary {
+    position: relative;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 0 24px !important;
+    line-height: 1 !important;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transform: none;
+}
+
+.st-newsletter .st-newsletter-form button.st-btn.st-btn-primary::before {
+    content: none !important;
+}
+
+.st-newsletter .st-newsletter-form button.st-btn.st-btn-primary svg {
+    display: block;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.st-newsletter .st-newsletter-form input.st-form-control {
+    box-sizing: border-box;
+    height: 48px;
+    min-width: 0;
+}
+
+.st-newsletter .st-newsletter-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+@media (max-width: 575px) {
+    .st-newsletter .st-newsletter-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .st-newsletter .st-newsletter-form button.st-btn.st-btn-primary {
+        width: 100%;
+    }
+}
+.st-newsletter .st-newsletter-form button.st-btn.st-btn-primary {
+    border-radius: var(--radius-md) !important;
+    overflow: hidden;
+}
+/* Home 1 Hero Background */
+.home1-hero {
+    position: relative;
+    min-height: 90vh;
+    overflow: hidden;
+    isolation: isolate;
+
+    background:
+        url("../images/home1-hero-bg.png")
+        center / cover no-repeat;
+}
+
+/* Remove the old sky gradient overlay */
+.home1-hero .hero-sky-gradient {
+    background: transparent !important;
+}
+
+/* Keep decorative stars and moon subtle */
+.home1-hero .hero-sky {
+    background: transparent;
+}
+
+/* Ensure hero content stays above the background */
+.home1-hero .hero-content-wrap {
+    position: relative;
+    z-index: 2;
+}
+
+/* Light Mode — White Fade on Left */
+.home1-hero {
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.96) 0%,
+            rgba(255, 255, 255, 0.88) 25%,
+            rgba(255, 255, 255, 0.55) 45%,
+            rgba(255, 255, 255, 0.08) 70%,
+            rgba(255, 255, 255, 0) 100%
+        ),
+        url("../images/home1-hero-bg.png");
+}
+
+/* Dark Mode — Retain the White Fade for Readable Dark Text */
+[data-theme="dark"] .home1-hero {
+    background-image:
+     linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.92) 0%,
+            rgba(35, 35, 35, 0.82) 30%,
+            rgba(75, 75, 75, 0.55) 55%,
+            rgba(25, 25, 25, 0.20) 100%
+        ),
+        url("../images/home1-hero-bg.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .home1-hero,
+    [data-theme="dark"] .home1-hero {
+        background-image:
+            linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.94) 0%,
+                rgba(255, 255, 255, 0.82) 45%,
+                rgba(255, 255, 255, 0.30) 75%,
+                rgba(255, 255, 255, 0.05) 100%
+            ),
+            url("../images/home1-hero-bg.png");
+
+        background-position: 65% center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}

@@ -4370,3 +4370,152 @@ summary:hover {
   margin-left: auto;
   margin-right: auto;
 }
+/* =========================================
+   SERVICES PAGE — GLOBAL SPACING CONSISTENCY
+   ========================================= */
+
+/* Horizontal gutters */
+.services-page .st-container,
+.services-page .st-container-narrow {
+    box-sizing: border-box;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+/* Consistent section spacing */
+.services-page .st-section,
+.services-page .services-personalized-section {
+    padding-top: 78px;
+    padding-bottom: 78px;
+}
+
+/* Large desktops */
+@media (min-width: 1441px) {
+    .services-page .st-container,
+    .services-page .st-container-narrow {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+/* Standard desktops */
+@media (min-width: 1200px) and (max-width: 1440px) {
+    .services-page .st-container,
+    .services-page .st-container-narrow {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+}
+
+/* Tablets and smaller desktops */
+@media (max-width: 991px) {
+    .services-page .st-section,
+    .services-page .services-personalized-section {
+        padding-top: 68px;
+        padding-bottom: 68px;
+    }
+}
+
+/* Tablets */
+@media (min-width: 576px) and (max-width: 768px) {
+    .services-page .st-container,
+    .services-page .st-container-narrow {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .services-page .st-section,
+    .services-page .services-personalized-section {
+        padding-top: 58px;
+        padding-bottom: 58px;
+    }
+}
+
+/* Mobile */
+@media (min-width: 371px) and (max-width: 575px) {
+    .services-page .st-container,
+    .services-page .st-container-narrow {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-page .st-section,
+    .services-page .services-personalized-section {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 370px) {
+    .services-page .st-container,
+    .services-page .st-container-narrow {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 320px) {
+    .services-page .st-container,
+    .services-page .st-container-narrow {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+/* Preserve the reduced spacing above the newsletter */
+.services-page .st-section:has(.st-newsletter) {
+    padding-top: 10px !important;
+}
+
+/* ==========================================================
+   SERVICES PAGE — CONSISTENT BUTTON SIZING
+   ========================================================== */
+
+.services-page .st-btn {
+    box-sizing: border-box;
+    height: 48px;
+    min-height: 48px;
+    padding: 0 24px;
+    border-radius: var(--radius-md);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+/* Hero buttons */
+.services-page .services-hero-actions .st-btn {
+    min-height: 48px;
+}
+
+/* Final CTA buttons */
+.services-page .services-final-actions .st-btn {
+    min-height: 48px;
+}
+
+/* Mobile */
+@media (max-width: 575px) {
+    .services-page .st-btn {
+        height: 48px;
+        min-height: 48px;
+        padding: 0 20px;
+        border-radius: var(--radius-md);
+    }
+
+    .services-page .services-hero-actions .st-btn,
+    .services-page .services-final-actions .st-btn {
+        width: 100%;
+    }
+}

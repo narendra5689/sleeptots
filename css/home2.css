@@ -2317,3 +2317,318 @@ body.dark .home2-page [data-lucide] {
     height: 22px;
   }
 }
+
+/* =========================================================
+   HOME 2 — GLOBAL DESIGN CONSISTENCY
+   Append at the end of home2.css
+   ========================================================= */
+
+/* 1. Use the shared section spacing */
+.st-section {
+    padding-block: var(--space-section);
+}
+
+@media (max-width: 991px) {
+    .st-section {
+        padding-block: var(--space-section);
+    }
+}
+
+@media (max-width: 575px) {
+    .st-section {
+        padding-block: var(--space-section-mobile);
+    }
+}
+
+/* Preserve the reduced space above the newsletter */
+.st-section:has(.st-newsletter) {
+    padding-top: 10px !important;
+}
+
+/* 2. Align hero content with global container padding */
+.hero2-content {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: var(--container-max);
+    padding-inline: 24px;
+}
+
+@media (min-width: 1441px) {
+    .hero2-content {
+        padding-inline: 32px;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1440px) {
+    .hero2-content {
+        padding-inline: 28px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .hero2-content {
+        padding-inline: 20px;
+    }
+}
+
+@media (min-width: 371px) and (max-width: 575px) {
+    .hero2-content {
+        padding-inline: 16px;
+    }
+}
+
+@media (max-width: 370px) {
+    .hero2-content {
+        padding-inline: 14px;
+    }
+}
+
+@media (max-width: 320px) {
+    .hero2-content {
+        padding-inline: 12px;
+    }
+}
+
+/* 3. Replace outdated sage tones with the current brand palette */
+.hero2-bg-overlay {
+    background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--color-primary) 90%, transparent) 0%,
+        color-mix(in srgb, var(--color-primary) 65%, transparent) 55%,
+        color-mix(in srgb, var(--color-secondary) 25%, transparent) 100%
+    );
+}
+
+[data-theme="dark"] .hero2-bg-overlay {
+    background: linear-gradient(
+        135deg,
+        rgba(10, 16, 24, 0.94) 0%,
+        rgba(10, 16, 24, 0.72) 55%,
+        color-mix(in srgb, var(--color-secondary) 15%, transparent) 100%
+    );
+}
+
+.hero2-gradient-anim {
+    background: linear-gradient(
+        120deg,
+        transparent 30%,
+        color-mix(in srgb, var(--color-secondary) 10%, transparent) 50%,
+        transparent 70%
+    );
+    background-size: 200% 100%;
+}
+
+.gc-icon {
+    background: color-mix(in srgb, var(--color-secondary) 28%, transparent);
+}
+
+/* 4. Keep primary CTAs consistent with the global primary button */
+.hero2-cta-row .st-btn-primary,
+.home2-cta .st-btn-primary {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-text-on-primary);
+}
+
+.hero2-cta-row .st-btn-primary:hover,
+.home2-cta .st-btn-primary:hover {
+    background: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    color: var(--color-text-on-primary);
+}
+
+/* Secondary CTAs remain outlined against dark hero backgrounds */
+.hero2-cta-row .st-btn-outline,
+.home2-cta .st-btn-outline {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
+.hero2-cta-row .st-btn-outline:hover,
+.home2-cta .st-btn-outline:hover {
+    background: #fff;
+    color: var(--color-primary);
+    border-color: #fff;
+}
+
+/* 5. Use theme colors for highlighted text */
+.premium-week-heading h2 span {
+    color: var(--color-secondary);
+}
+
+/* 6. Keep the shared newsletter section background theme-aware */
+.st-section:has(.st-newsletter) {
+    background: var(--color-bg);
+}
+
+[data-theme="dark"] .st-section:has(.st-newsletter) {
+    background: var(--color-bg);
+}
+
+/* 7. Keep responsive CTA spacing consistent */
+@media (max-width: 575px) {
+    .hero2-cta-row {
+        gap: 12px;
+    }
+
+    .hero2-cta-row .st-btn {
+        width: 100%;
+        min-height: 48px;
+        justify-content: center;
+    }
+}
+
+/* Match Home 1 horizontal padding across Home 2 */
+.home2-page .hero2-content,
+.home2-page .st-section > .st-container,
+.home2-page .st-section > .st-container-narrow {
+    box-sizing: border-box;
+}
+
+/* Large desktops */
+@media (min-width: 1441px) {
+    .home2-page .hero2-content {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .home2-page .st-section > .st-container,
+    .home2-page .st-section > .st-container-narrow {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1200px) and (max-width: 1440px) {
+    .home2-page .hero2-content,
+    .home2-page .st-section > .st-container,
+    .home2-page .st-section > .st-container-narrow {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+}
+
+/* Tablets and small desktops */
+@media (min-width: 769px) and (max-width: 1199px) {
+    .home2-page .hero2-content,
+    .home2-page .st-section > .st-container,
+    .home2-page .st-section > .st-container-narrow {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+/* Tablets */
+@media (min-width: 576px) and (max-width: 768px) {
+    .home2-page .hero2-content,
+    .home2-page .st-section > .st-container,
+    .home2-page .st-section > .st-container-narrow {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/* Mobile */
+@media (min-width: 371px) and (max-width: 575px) {
+    .home2-page .hero2-content,
+    .home2-page .st-section > .st-container,
+    .home2-page .st-section > .st-container-narrow {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+@media (max-width: 370px) {
+    .home2-page .hero2-content,
+    .home2-page .st-section > .st-container,
+    .home2-page .st-section > .st-container-narrow {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+}
+
+@media (max-width: 320px) {
+    .home2-page .hero2-content,
+    .home2-page .st-section > .st-container,
+    .home2-page .st-section > .st-container-narrow {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+/* =========================================
+   HOME 2 — BUTTON SIZE FIX
+   ========================================= */
+
+.home2-page .st-btn {
+  box-sizing: border-box;
+  min-height: 48px;
+  height: 48px;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--radius-md);
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+  flex-shrink: 0;
+}
+
+.home2-page .st-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Hero buttons */
+.home2-page .hero2-cta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.home2-page .hero2-cta-row .st-btn {
+  min-height: 48px;
+  height: 48px;
+}
+
+/* Premium CTA buttons */
+.home2-page .home2-cta .st-btn {
+  min-height: 48px;
+  height: 48px;
+}
+
+/* Newsletter button */
+.home2-page .st-newsletter-form .st-btn {
+  min-height: 48px;
+  height: 48px;
+  justify-content: center;
+}
+
+/* Mobile */
+@media (max-width: 575px) {
+  .home2-page .st-btn {
+    width: 100%;
+    min-height: 48px;
+    height: 48px;
+    padding: 0 20px;
+  }
+
+  .home2-page .hero2-cta-row {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .home2-page .hero2-cta-row .st-btn {
+    width: 100%;
+    max-width: 100%;
+  }
+}
