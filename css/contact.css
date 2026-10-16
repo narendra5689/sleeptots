@@ -2583,3 +2583,15 @@
         padding: 0 12px !important;
     }
 }
+/* Center Contact Section Heading */
+.contact-section-heading {
+    text-align: center;
+    margin-inline: auto;
+}
+
+.contact-section-heading .st-label,
+.contact-section-heading h2,
+.contact-section-heading .st-lead {
+    text-align: center;
+    margin-inline: auto;
+}
